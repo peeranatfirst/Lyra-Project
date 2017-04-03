@@ -2,51 +2,41 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 </head>
 
 <body ng-app="MyApp">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
-    <script>
-        angular.module('MyApp', ['ngMaterial'])
-            .run(function () {
-                console.log('MyApp is ready!!!')
-            });
-    </script>
-    
-    <div>
-  <md-toolbar color="primary">
-    <span><md-icon>mood</md-icon></span>
+  <script>
+    angular.module('MyApp', ['ngMaterial'])
+      .run(function () {
+        console.log('MyApp is ready!!!')
+      });
+  </script>
 
-    <span>Lyra Testing feeds</span>
+  <div>
+    <md-toolbar class="primary">
+      <span><md-icon>mood</md-icon></span>
 
-    <button md-icon-button [md-menu-trigger-for]="menu">
-      <md-icon>more_vert</md-icon>
-    </button>
-  </md-toolbar>
-  <md-menu x-position="before" #menu="mdMenu">
-    <button md-menu-item>Option 1</button>
-    <button md-menu-item>Option 2</button>
-  </md-menu>
+      <span>Categories</span>
 
-  <md-card>
-    <button md-button>All</button>
-    <button md-raised-button>Of</button>
-    <button md-raised-button color="primary">The</button>
-    <button md-raised-button color="accent">Buttons</button>
-  </md-card>
+   
 
-  <span class="done">
+    </md-toolbar>
+
+    <app-categories></app-categories>
+
+    <span class="done">
     <button md-fab>
       <md-icon>check circle</md-icon>
     </button>
   </span>
-</div>
+  </div>
 
 
 </body>
