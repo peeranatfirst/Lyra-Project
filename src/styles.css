@@ -18,3 +18,17 @@ md-toolbar-row {
   justify-content: space-between;
 }
 
+<<<<<<< HEAD
+=======
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
+.spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+>>>>>>> c9c47d7be1454e09e72eadb0340558750a2faa08
