@@ -5,28 +5,27 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from '@angular/material';
-<<<<<<< HEAD
 import { CategoriesComponent } from './pages/categories/categories.component';
-=======
+
 import { HeaderComponent } from './shared/header/header.component';
 import { MenubarComponent } from './shared/menubar/menubar.component';
->>>>>>> c9c47d7be1454e09e72eadb0340558750a2faa08
+import {  } from '';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-    CategoriesComponent
-=======
+    CategoriesComponent,
     HeaderComponent,
     MenubarComponent
->>>>>>> c9c47d7be1454e09e72eadb0340558750a2faa08
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    BrowserModule
    
   ],
   providers: [],
