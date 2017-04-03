@@ -23,3 +23,8 @@ md-toolbar-row {
   right: 20px;
   color: white;
 }
+.spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}

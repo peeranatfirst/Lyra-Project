@@ -5,10 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from '@angular/material';
+import { HeaderComponent } from './shared/header/header.component';
+import { MenubarComponent } from './shared/menubar/menubar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    MenubarComponent
   ],
   imports: [
     BrowserModule,
