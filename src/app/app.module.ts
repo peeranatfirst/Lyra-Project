@@ -10,6 +10,8 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MenubarComponent } from './shared/menubar/menubar.component';
 import {  } from '';
+import { SavingMoneyComponent } from './pages/categories/saving-money/saving-money.component';
+
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import {  } from '';
     AppComponent,
     CategoriesComponent,
     HeaderComponent,
-    MenubarComponent
+    MenubarComponent,
+    SavingMoneyComponent,
+
 
   ],
   imports: [
