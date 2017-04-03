@@ -8,10 +8,9 @@ import { MaterialModule } from '@angular/material';
 import { CategoriesComponent } from './pages/categories/categories.component';
 
 import { HeaderComponent } from './shared/header/header.component';
-import { MenubarComponent } from './shared/menubar/menubar.component';
-import {  } from '';
+import { MenubarComponent } from './pages/categories/shared/menubar.component';
+import { routing } from './app.routing';
 import { SavingMoneyComponent } from './pages/categories/saving-money/saving-money.component';
-
 
 
 @NgModule({
@@ -21,7 +20,7 @@ import { SavingMoneyComponent } from './pages/categories/saving-money/saving-mon
     HeaderComponent,
     MenubarComponent,
     SavingMoneyComponent,
-
+    
 
   ],
   imports: [
@@ -29,8 +28,8 @@ import { SavingMoneyComponent } from './pages/categories/saving-money/saving-mon
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    BrowserModule
-   
+    BrowserModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
