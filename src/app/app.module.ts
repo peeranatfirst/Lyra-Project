@@ -13,12 +13,6 @@ import { routing } from './app.routing';
 import { SavingMoneyComponent } from './pages/categories/saving-money/saving-money.component';
 
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 669ae336b101249b57d0ec1193365bbe4c2aef46
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,11 +20,6 @@ import { SavingMoneyComponent } from './pages/categories/saving-money/saving-mon
     HeaderComponent,
     MenubarComponent,
     SavingMoneyComponent,
-    
-<<<<<<< HEAD
-
-=======
->>>>>>> 669ae336b101249b57d0ec1193365bbe4c2aef46
 
   ],
   imports: [
@@ -39,12 +28,8 @@ import { SavingMoneyComponent } from './pages/categories/saving-money/saving-mon
     HttpModule,
     MaterialModule.forRoot(),
     BrowserModule,
-<<<<<<< HEAD
-
-   
-=======
     routing
->>>>>>> 669ae336b101249b57d0ec1193365bbe4c2aef46
+
   ],
   providers: [],
   bootstrap: [AppComponent]
