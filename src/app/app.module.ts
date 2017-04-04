@@ -14,6 +14,8 @@ import { SavingMoneyComponent } from './pages/categories/saving-money/saving-mon
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,7 @@ import { SavingMoneyComponent } from './pages/categories/saving-money/saving-mon
     HeaderComponent,
     MenubarComponent,
     SavingMoneyComponent,
+    
 
 
   ],
@@ -29,7 +32,8 @@ import { SavingMoneyComponent } from './pages/categories/saving-money/saving-mon
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    BrowserModule
+    BrowserModule,
+
    
   ],
   providers: [],
