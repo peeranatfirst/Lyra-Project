@@ -12,14 +12,12 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { SavingMoneyComponent } from './pages/categories/saving-money/saving-money.component';
 import { RouterModule, Routes} from '@angular/router';
 import { NavbarComponent } from './share/navbar/navbar.component';
+import { DetailSavingMoneyComponent } from './pages/categories/saving-money/detail-saving-money/detail-saving-money.component';
 
 const appRoutes: Routes = [
     {path:'', component:CategoriesComponent},
     {path:'savingmoney', component:SavingMoneyComponent},
-]
-
-import { DetailSavingMoneyComponent } from './pages/categories/saving-money/detail-saving-money/detail-saving-money.component';
-
+    {path:'detailsavingmoney', component:DetailSavingMoneyComponent}
 
 
 @NgModule({
