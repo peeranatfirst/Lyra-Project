@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { SavingMoneyComponent } from './pages/categories/saving-money/saving-money.component';
+import { DetailSavingMoneyComponent } from './pages/categories/saving-money/detail-saving-money/detail-saving-money.component';
 
 const appRoutes: Routes = [
 
   { path: '', component: CategoriesComponent },
-  { path: 'savingmoney', component: SavingMoneyComponent }
+  { path: 'savingmoney', component: SavingMoneyComponent },
+  { path: 'savingmoney/detailsavingmoney', component: DetailSavingMoneyComponent }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

@@ -11,6 +11,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { MenubarComponent } from './pages/categories/shared/menubar.component';
 import { routing } from './app.routing';
 import { SavingMoneyComponent } from './pages/categories/saving-money/saving-money.component';
+import { DetailSavingMoneyComponent } from './pages/categories/saving-money/detail-saving-money/detail-saving-money.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SavingMoneyComponent } from './pages/categories/saving-money/saving-mon
     HeaderComponent,
     MenubarComponent,
     SavingMoneyComponent,
+    DetailSavingMoneyComponent,
 
   ],
   imports: [
