@@ -18,6 +18,9 @@ const appRoutes: Routes = [
     {path:'savingmoney', component:SavingMoneyComponent}
 ]
 
+import { DetailSavingMoneyComponent } from './pages/categories/saving-money/detail-saving-money/detail-saving-money.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ const appRoutes: Routes = [
     CategoriesComponent,
     SavingMoneyComponent,
     NavbarComponent,
+    DetailSavingMoneyComponent
 
   ],
   imports: [
