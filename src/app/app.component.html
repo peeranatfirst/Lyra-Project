@@ -9,18 +9,8 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-  <script>
-    angular.module('MyApp', ['ngMaterial'])
-      .run(function () {
-        console.log('MyApp is ready!!!')
-      });
-  </script>
+
   <div>
-    <div>
-      <app-header></app-header>
-    </div>
     <router-outlet></router-outlet>
     <span class="done">
           <button md-fab>
