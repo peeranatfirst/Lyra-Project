@@ -21,8 +21,7 @@ import { DetailSavingMoneyComponent } from './pages/categories/saving-money/deta
     CategoriesComponent,
     HeaderComponent,
     MenubarComponent,
-    SavingMoneyComponent,
-    DetailSavingMoneyComponent,
+    SavingMoneyComponent
 
   ],
   imports: [

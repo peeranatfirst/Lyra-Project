@@ -8,8 +8,7 @@ import { DetailSavingMoneyComponent } from './pages/categories/saving-money/deta
 const appRoutes: Routes = [
 
   { path: '', component: CategoriesComponent },
-  { path: 'savingmoney', component: SavingMoneyComponent },
-  { path: 'savingmoney/detailsavingmoney', component: DetailSavingMoneyComponent }
+  { path: 'savingmoney', component: SavingMoneyComponent }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
