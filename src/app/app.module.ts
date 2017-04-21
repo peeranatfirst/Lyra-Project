@@ -8,19 +8,23 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from '@angular/material';
 import { CategoriesComponent } from './pages/categories/categories.component';
 
-import { HeaderComponent } from './shared/header/header.component';
-import { MenubarComponent } from './pages/categories/shared/menubar.component';
-import { routing } from './app.routing';
+
 import { SavingMoneyComponent } from './pages/categories/saving-money/saving-money.component';
+import { RouterModule, Routes} from '@angular/router';
+import { NavbarComponent } from './share/navbar/navbar.component';
+
+const appRoutes: Routes = [
+    {path:'', component:CategoriesComponent},
+    {path:'savingmoney', component:SavingMoneyComponent}
+]
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
-    HeaderComponent,
-    MenubarComponent,
     SavingMoneyComponent,
+    NavbarComponent,
 
   ],
   imports: [
@@ -29,7 +33,7 @@ import { SavingMoneyComponent } from './pages/categories/saving-money/saving-mon
     HttpModule,
     MaterialModule.forRoot(),
     BrowserModule,
-    routing
+    RouterModule.forRoot(appRoutes)
 
   ],
   providers: [],
