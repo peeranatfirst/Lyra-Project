@@ -2,20 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {RouterModule, Routes} from '@angular/router';
-
+import { RouterModule, Routes } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import { FirebaseService } from './services/firebase.service';
 
 import { AppComponent } from './app.component';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
 import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.component';
 import { NavbarComponent } from './share/navbar/navbar.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
+  authDomain: "lyra-24b71.firebaseapp.com",
+  databaseURL: "https://lyra-24b71.firebaseio.com",
+  storageBucket: "lyra-24b71.appspot.com",
+  messagingSenderId: "943399750478"
+
+}
+
 const appRoutes: Routes = [
-  {path:'', component: CategoriesfeedComponent},
-  {path:'savingmoney', component: SavingmoneyComponent}
+  { path: '', component: CategoriesfeedComponent },
+  { path: 'savingmoney', component: SavingmoneyComponent },
+  { path: 'detailsavingmoney', component: DetailSavingMoneyComponent }
 ]
 
 @NgModule({
@@ -32,11 +43,12 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     BrowserModule,
-    RouterModule.forRoot(appRoutes) ,
-    NgbModule.forRoot()
-  
+    RouterModule.forRoot(appRoutes),
+    NgbModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig)
+
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
