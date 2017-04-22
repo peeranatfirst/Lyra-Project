@@ -11,6 +11,7 @@ import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.c
 import { NavbarComponent } from './share/navbar/navbar.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';
 
 const appRoutes: Routes = [
   {path:'', component: CategoriesfeedComponent},
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     AppComponent,
     CategoriesfeedComponent,
     SavingmoneyComponent,
-    NavbarComponent
+    NavbarComponent,
+    DetailSavingMoneyComponent
 
   ],
   imports: [
