@@ -14,6 +14,7 @@ import { NavbarComponent } from './share/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';
 
+ 
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
   authDomain: "lyra-24b71.firebaseapp.com",
@@ -50,5 +51,6 @@ const appRoutes: Routes = [
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

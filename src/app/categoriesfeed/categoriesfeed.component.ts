@@ -7,15 +7,11 @@ import { FirebaseService } from  '../services/firebase.service';
   styleUrls: ['./categoriesfeed.component.css']
 })
 export class CategoriesfeedComponent implements OnInit {
-  categories:any;
 
-  constructor(private FirebaseService:FirebaseService) { }
+
+  constructor() { }
 
   ngOnInit() {
-    this.FirebaseService.getCategories().subscribe(categories => {
-      console.log(categories);
-      this.categories = categories;
-    })
   }
 
 }
