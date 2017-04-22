@@ -11,7 +11,7 @@ export class CategoriesfeedComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-   
   }
+  
 
 }
