@@ -14,8 +14,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';
 
 const appRoutes: Routes = [
-  {path:'', component: CategoriesfeedComponent},
-  {path:'savingmoney', component: SavingmoneyComponent}
+  { path:'', component: CategoriesfeedComponent },
+  { path:'savingmoney', component: SavingmoneyComponent },
+  { path:'detailsavingmoney', component: DetailSavingMoneyComponent }
 ]
 
 @NgModule({
