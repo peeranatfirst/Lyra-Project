@@ -3,18 +3,10 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Injectable()
 export class FirebaseService {
-  categories: FirebaseListObservable<any[]>;
 
-  constructor(private af: AngularFire) { }
+  constructor() { 
 
-  getCategories() {
-    this.categories = this.af.database.list('/categories') as FirebaseListObservable<Categories[]>
-    return this.categories;
   }
 
 }
 
-interface Categories {
-  $key?: string;
-  categories;
-}
