@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { FirebaseService } from './services/firebase.service';
+import { routing } from './app.routing';
+
 
 import { AppComponent } from './app.component';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
@@ -24,11 +26,6 @@ export const firebaseConfig = {
 
 }
 
-const appRoutes: Routes = [
-  { path: '', component: CategoriesfeedComponent },
-  { path: 'savingmoney', component: SavingmoneyComponent },
-  { path: 'detailsavingmoney', component: DetailSavingMoneyComponent }
-]
 
 @NgModule({
   declarations: [
@@ -44,9 +41,9 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
     NgbModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    routing
 
   ],
   providers: [FirebaseService],
