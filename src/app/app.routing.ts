@@ -7,8 +7,8 @@ import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-
 const appRoutes: Routes = [
   { path: '', component: CategoriesfeedComponent },
   { path: 'savingmoney', component: SavingmoneyComponent },
-  { path: 'savingmoney/:id', component: SavingmoneyComponent},
-  { path: 'detailsavingmoney', component: DetailSavingMoneyComponent }
+  { path: 'detailsavingmoney', component: DetailSavingMoneyComponent },
+  { path: 'detailsavingmoney/:id', component: DetailSavingMoneyComponent }
 ]
 
 
