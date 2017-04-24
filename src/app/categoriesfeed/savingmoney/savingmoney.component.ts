@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from "app/services/firebase.service";
+import { routing } from '../../app.routing';
+import {Router,  ActivatedRoute, Params} from '@angular/router';
 
 
 
@@ -9,15 +11,23 @@ import { FirebaseService } from "app/services/firebase.service";
   styleUrls: ['./savingmoney.component.css']
 })
 export class SavingmoneyComponent implements OnInit {
-  challengeList:any;
+  challengeList: any;
 
-  constructor(private firebaseService: FirebaseService){}
+
+
+  constructor(
+    private firebaseService: FirebaseService,
+
+
+
+  ) { }
 
 
   ngOnInit() {
-    this.firebaseService.getChallengeList().subscribe(challengeList =>{
+    this.firebaseService.getChallengeList().subscribe(challengeList => {
       console.log(challengeList);
       this.challengeList = challengeList;
+
     })
   }
 

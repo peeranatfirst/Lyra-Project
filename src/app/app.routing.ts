@@ -1,5 +1,5 @@
 import { ModuleWithProviders }  from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule , Router, ActivatedRoute, Params} from '@angular/router';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
 import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.component';
 import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';

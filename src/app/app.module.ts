@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
 import { FirebaseService } from './services/firebase.service';
 import { routing } from './app.routing';
-
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
@@ -48,7 +48,8 @@ const firebaseAuthConfig = {
     BrowserModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
-    routing
+    routing,
+    FlashMessagesModule
 
   ],
   providers: [

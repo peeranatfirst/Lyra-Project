@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from  '../services/firebase.service';
+import { routing } from '../app.routing';
 
 @Component({
   selector: 'app-categoriesfeed',
