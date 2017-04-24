@@ -4,7 +4,7 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 @Injectable()
 export class FirebaseService {
   challengeList: FirebaseListObservable<any[]>;
-  challengeDetail: FirebaseObjectObservable<any[]>;
+  challengeDetail: FirebaseObjectObservable<any>;
 
   constructor(private af: AngularFire) {
 
@@ -14,16 +14,18 @@ export class FirebaseService {
     this.challengeList = this.af.database.list('/Categories /SavingMoney') as FirebaseListObservable<challengeList[]>
     return this.challengeList;
   }
- getChallengeDetail() {
-    this.challengeList = this.af.database.list('/Categories /SavingMoney') as FirebaseListObservable<challengeList[]>
+ getChallengeDetail(id) {
+    this.challengeDetail = this.af.database.object('/Categories /SavingMoney/'+id) as FirebaseObjectObservable<challengeList>
     return this.challengeDetail;
   }
 
 }
 
 interface challengeList {
-  $key: string;
+  $key?: string;
   challengeName?: string;
   challengeDescription?: string;
+  duration?:string;
+  totalAmount?:string;
 }
 

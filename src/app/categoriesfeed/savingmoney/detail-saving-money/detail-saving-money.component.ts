@@ -22,7 +22,7 @@ export class DetailSavingMoneyComponent implements OnInit {
     //Get id
     this.id = this.route.snapshot.params['id'];
 
-    this.firebaseService.getChallengeDetail().subscribe(challengeDetail => {
+    this.firebaseService.getChallengeDetail(this.id).subscribe(challengeDetail => {
       console.log(challengeDetail)
       this.challengeDetail = challengeDetail;
    
