@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="card-group" *ngFor="let cha of challengeList">
+    <div class="card" >
+      <div class="card-block">
+        <h4 class="card-title">{{cha.challengeName}}</h4>
+        <p class="card-text">{{cha.challengeDescription}}</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+      <div class="card-block">
+        <a [routerLink]="['/detailsavingmoney/'+cha.$key]" class="btn btn-success">More Detail</a>
+      </div>
+    </div>
+    <br>
+  </div>
+

@@ -14,12 +14,8 @@ export class SavingmoneyComponent implements OnInit {
   challengeList: any;
 
 
-
   constructor(
     private firebaseService: FirebaseService,
-
-
-
   ) { }
 
 

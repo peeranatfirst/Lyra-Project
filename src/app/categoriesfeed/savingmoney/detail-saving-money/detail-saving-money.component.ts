@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class DetailSavingMoneyComponent implements OnInit {
   id: any;
-  listing: any;
+  challengeDetail: any;
   imageUrl: any;
 
   constructor(
@@ -20,11 +20,13 @@ export class DetailSavingMoneyComponent implements OnInit {
 
   ngOnInit() {
     //Get id
-    this.id = this.route.snapshot.params['id']
-    this.firebaseService.getChallengeDetail(this.id).subscribe(listing => {
-      this.listing = listing;
-      console.log(listing);
+    this.id = this.route.snapshot.params['id'];
+
+    this.firebaseService.getChallengeDetail(this.id).subscribe(challengeDetail => {
+      console.log(challengeDetail)
+      this.challengeDetail = challengeDetail;
+
     })
-    
+
   }
 }
