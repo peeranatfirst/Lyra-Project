@@ -3,13 +3,10 @@
     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">LYRA</a>
+  <a class="navbar-brand" routerLink="/">LYRA</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/']"><span class="nav-font-color">Home</span> <span class="sr-only">(current)</span></a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/']"><span class="nav-font-color">Categories</span></a>
       </li>
@@ -18,11 +15,12 @@
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
     </form>
     <ul class="navbar-nav my-2 my-lg-0">
+      <li *ngIf="!(af.auth | async)" class="nav-item active">
+        <a class="nav-link" (click)="login()"><span class="nav-font-color">Login</span></a>
+      </li>
       <li class="nav-item active">
-        <a class="nav-link" href=""><span class="nav-font-color">Login</span> <span class="sr-only"></span></a>
+        <a *ngIf="(af.auth | async)" class="nav-link" (click)="logout()"><span class="nav-font-color">Logout</span></a>
       </li>
     </ul>
-
-
   </div>
 </nav>
