@@ -15,6 +15,11 @@
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
     </form>
     <ul class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/mychallenge']"><span class="nav-font-color">My Challenge</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav my-2 my-lg-0">
       <li *ngIf="!(af.auth | async)" class="nav-item active">
         <a class="nav-link" (click)="login()"><span class="nav-font-color">Login</span></a>
       </li>
