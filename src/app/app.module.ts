@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
 import { FirebaseService } from './services/firebase.service';
 import { routing } from './app.routing';
 
@@ -26,6 +26,11 @@ export const firebaseConfig = {
 
 }
 
+const firebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Popup
+};
+
 
 @NgModule({
   declarations: [
@@ -42,11 +47,13 @@ export const firebaseConfig = {
     HttpModule,
     BrowserModule,
     NgbModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     routing
 
   ],
-  providers: [FirebaseService],
+  providers: [
+    FirebaseService,
+    ],
   bootstrap: [AppComponent]
   
 })
