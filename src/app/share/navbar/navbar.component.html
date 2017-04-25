@@ -16,7 +16,7 @@
     </form>
     <ul class="navbar-nav my-2 my-lg-0">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/mychallenge']"><span class="nav-font-color">My Challenge</span></a>
+        <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/mychallenge']"><span class="nav-font-color">My Challenge</span></a>
       </li>
     </ul>
     <ul class="navbar-nav my-2 my-lg-0">

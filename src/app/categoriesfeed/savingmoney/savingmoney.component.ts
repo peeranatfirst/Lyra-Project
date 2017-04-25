@@ -15,7 +15,7 @@ export class SavingmoneyComponent implements OnInit {
 
 
   constructor(
-    private firebaseService: FirebaseService,
+    private firebaseService: FirebaseService
   ) { }
 
 
