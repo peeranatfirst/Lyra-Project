@@ -1,11 +1,11 @@
 <div class="container">
   <div class="card-deck">
-    <div class="card">
+    <div class="card" *ngFor="let cha of myChallenges">
       <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
         alt="Card image cap" width="100%">
       <div class="card-block">
-        <h4 class="card-title">{{challengeDetail.challengeName}}</h4>
-        <p class="card-text">{{challengeDetail.challengeDescription}}</p>
+        <h4 class="card-title">{{cha.challengeName}}</h4>
+        <p class="card-text">{{cha.challengeDescription}}</p>
         <a href="#" class="btn btn-success">More Detail</a>
       </div>
       <div class="card-footer">
@@ -13,74 +13,4 @@
       </div>
     </div>
     <br>
-    <div class="card">
-      <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
-        alt="Card image cap" width="100%">
-      <div class="card-block">
-        <h4 class="card-title">{{challengeDetail.challengeName}}</h4>
-        <p class="card-text">{{challengeDetail.challengeDescription}}</p>
-        <a href="#" class="btn btn-success">More Detail</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <br>
-    <div class="card">
-      <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
-        alt="Card image cap" width="100%">
-      <div class="card-block">
-        <h4 class="card-title">{{challengeDetail.challengeName}}</h4>
-        <p class="card-text">{{challengeDetail.challengeDescription}}</p>
-        <a href="#" class="btn btn-success">More Detail</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-
-<br>
-
-  <div class="card-deck">
-    <div class="card">
-      <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
-        alt="Card image cap" width="100%">
-      <div class="card-block">
-        <h4 class="card-title">{{challengeDetail.challengeName}}</h4>
-        <p class="card-text">{{challengeDetail.challengeDescription}}</p>
-        <a href="#" class="btn btn-success">More Detail</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <br>
-    <div class="card">
-      <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
-        alt="Card image cap" width="100%">
-      <div class="card-block">
-        <h4 class="card-title">{{challengeDetail.challengeName}}</h4>
-        <p class="card-text">{{challengeDetail.challengeDescription}}</p>
-        <a href="#" class="btn btn-success">More Detail</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <br>
-    <div class="card">
-      <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
-        alt="Card image cap" width="100%">
-      <div class="card-block">
-        <h4 class="card-title">{{challengeDetail.challengeName}}</h4>
-        <p class="card-text">{{challengeDetail.challengeDescription}}</p>
-        <a href="#" class="btn btn-success">More Detail</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <br>
 </div>

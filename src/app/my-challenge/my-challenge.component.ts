@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from "app/services/firebase.service";
+import { routing } from '../app.routing';
+import {Router,  ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-my-challenge',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyChallengeComponent implements OnInit {
 
-  constructor() { }
+  myChallenges:any;
+
+  constructor(
+    private firebaseService: FirebaseService) { }
 
   ngOnInit() {
-  }
+    this.firebaseService.getMyChallenges().subscribe(myChallenges => {
+      console.log(myChallenges);
+      this.myChallenges = myChallenges;
+  })
 
+  }
 }
