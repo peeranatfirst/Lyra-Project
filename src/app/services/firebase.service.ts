@@ -20,6 +20,7 @@ export class FirebaseService {
 
   }
 
+
 }
 
 interface challengeList {
