@@ -16,6 +16,7 @@ import { NavbarComponent } from './share/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';
 import { MyChallengeComponent } from './my-challenge/my-challenge.component';
+import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
 
  
 export const firebaseConfig = {
@@ -40,7 +41,8 @@ const firebaseAuthConfig = {
     SavingmoneyComponent,
     NavbarComponent,
     DetailSavingMoneyComponent,
-    MyChallengeComponent
+    MyChallengeComponent,
+    AddMoneyComponent
 
   ],
   imports: [
