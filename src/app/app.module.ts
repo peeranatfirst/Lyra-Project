@@ -40,7 +40,8 @@ const firebaseAuthConfig = {
     SavingmoneyComponent,
     NavbarComponent,
     DetailSavingMoneyComponent,
-    MyChallengeComponent
+    MyChallengeComponent,
+
 
   ],
   imports: [
@@ -56,6 +57,7 @@ const firebaseAuthConfig = {
   ],
   providers: [
     FirebaseService,
+
     ],
   bootstrap: [AppComponent]
   
