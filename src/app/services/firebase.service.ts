@@ -5,6 +5,7 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 export class FirebaseService {
   challengeList: FirebaseListObservable<any[]>;
   challengeDetail: FirebaseObjectObservable<any>;
+  checkdata: FirebaseObjectObservable<any>;
   myChallenges: FirebaseListObservable<any[]>;
   detailMyChallenge: FirebaseObjectObservable<any>;
 
@@ -19,6 +20,10 @@ export class FirebaseService {
   getChallengeDetail(id) {
     this.challengeDetail = this.af.database.object('/Categories /SavingMoney/' + id) as FirebaseObjectObservable<challengeList>
     return this.challengeDetail;
+  }
+  getChallengeMoneyData(id){
+    this.checkdata = this.af.database.object('/Categories /SavingMoney/'+id) as FirebaseObjectObservable<challengeList>
+    return this.checkdata;
   }
 
   getMyChallenges() {
