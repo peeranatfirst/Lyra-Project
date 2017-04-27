@@ -31,13 +31,13 @@ export class MyChallengeComponent implements OnInit {
       this.DetailOfChallenges = new Array();
 
       for (let obj of myChallenges) {
-        let pullKey, pullName, pullDes, pullTotal, calBalance, progress;
+        let pullKey, pullName, pullDes, pullTotal, calBalance, progress,pullStatus;
 
         pullKey = this.firebaseService.getKeyOfChallenge(obj);
         pullName = this.firebaseService.getNameOfChallenge(obj);
         pullDes = this.firebaseService.getDesOfChallenge(obj);
         pullTotal = this.firebaseService.getTotalOfChallenge(obj);
-
+        pullStatus = this.firebaseService.getStatusOfChallenge(obj);
         this.firebaseService.getTransaction(pullKey).subscribe(toCal => {
           var sum = 0;
           for (let calB of toCal) {
@@ -46,11 +46,11 @@ export class MyChallengeComponent implements OnInit {
 
           }
           progress = this.firebaseService.calculateProgressPercent(sum, pullTotal);
-          this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey });
+          this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });
           
           
         })
-
+        
       }
       console.log(this.DetailOfChallenges);
     })
