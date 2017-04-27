@@ -1,4 +1,8 @@
 <div class="container">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active">My Challenge</li>
+  </ol>
+
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#All" role="tab">All</a>
@@ -17,7 +21,7 @@
       <br>
       <div class="row">
         <div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of myChallenges">
-          <a routerLink='/savingmoney' routerLinkActive='active' class="card-link">
+          <a routerLink='/detailmychallenge' routerLinkActive='active' class="card-link">
             <div class="card">
               <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
                 alt="Card image cap" width="100%">
