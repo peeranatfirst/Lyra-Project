@@ -5,6 +5,7 @@ import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.c
 import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';
 import { MyChallengeComponent } from './my-challenge/my-challenge.component';
 import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
+import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
 
 const appRoutes: Routes = [
   { path: '', component: CategoriesfeedComponent },
@@ -13,7 +14,9 @@ const appRoutes: Routes = [
   { path: 'detailsavingmoney/:id', component: DetailSavingMoneyComponent },
   { path: 'mychallenge', component: MyChallengeComponent },
   { path: 'detailmychallenge', component: DetailMyChallengeComponent},
-  { path: 'detailmychallenge/:id', component: DetailMyChallengeComponent}
+  { path: 'detailmychallenge/:id', component: DetailMyChallengeComponent},
+  { path: 'addmoney', component: AddMoneyComponent },
+  { path: 'addmoney/:id', component: AddMoneyComponent }
 ]
 
 
