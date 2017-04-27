@@ -8,6 +8,7 @@ export class FirebaseService {
   checkdata: FirebaseObjectObservable<any>;
   myChallenges: FirebaseListObservable<any[]>;
   detailMyChallenge: FirebaseObjectObservable<any>;
+  balance: FirebaseListObservable<any[]>;
 
   constructor(private af: AngularFire) {
 
@@ -36,6 +37,39 @@ export class FirebaseService {
     return this.detailMyChallenge;
   }
 
+  getTransaction(key){
+    this.balance = this.af.database.list('/users/userid1/Challenges/'+key+'/savingTransaction') as FirebaseListObservable<myBalance[]>
+    return this.balance;
+  }
+
+  getKeyOfChallenge(challengeslist: myChallengesList){
+    return challengeslist.$key;
+  }
+
+  getNameOfChallenge(challengeslist: myChallengesList){
+    return challengeslist.challengeName;
+  }
+
+  getDesOfChallenge(challengeslist: myChallengesList){
+    return challengeslist.challengeDescription;
+  }
+
+  getTotalOfChallenge(challengeslist: myChallengesList){
+    return challengeslist.totalAmount;
+  }
+  getStatusOfChallenge(challengeslist: myChallengesList){
+    return challengeslist.challengeStatus;
+  }
+
+  getTransactionBalance(transactionBalance : myBalance){
+    return transactionBalance.balance;
+  }
+
+    calculateProgressPercent(sum,total){
+    let percent;
+    percent = (100*sum)/total;
+    return percent;
+  }
 }
 
 interface challengeList {
@@ -45,12 +79,20 @@ interface challengeList {
   duration?: string;
   totalAmount?: string;
 }
+
 interface myChallengesList {
   $key?: string;
   challengeName?: string;
   challengeDescription?: string;
   challengeStatus?: string;
   duration?: string;
-  totalAmount?: string;
+  totalAmount?: number;
 }
+
+interface myBalance {
+  $key?: string;
+  datetimestamp?: string;
+  balance?: number;
+}
+
 
