@@ -1,14 +1,12 @@
-<div *ngIf="challengeDetail">
-  <div class="card-block">
-    <a [routerLink]="['/savingmoney']" class="btn btn-success">Go Back</a>
-  </div>
-  <div class="container" align="center">
-    <div class="card text-center" style="width: 30rem;">
-      <div class="card-header">
-        Saving Money Challenge
-      </div>
+<div class="card-block">
+  <a [routerLink]="['/savingmoney']" class="btn btn-success">Go Back</a>
+</div>
+<div class="container detail">
+  <div class="row">
+    <div class="card" style="width: 30rem;">
       <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
         alt="Card image cap" width="100%">
+
       <div class="card-block">
         <h4 class="card-title">{{challengeDetail.challengeName}}</h4>
         <p class="card-text">{{challengeDetail.challengeDescription}}</p>
@@ -19,6 +17,7 @@
       <div class="card-footer text-muted">
         <small class="card-block">Pim Patcha</small>
       </div>
+
     </div>
     <br>
   </div>

@@ -6,6 +6,7 @@ export class FirebaseService {
   challengeList: FirebaseListObservable<any[]>;
   challengeDetail: FirebaseObjectObservable<any>;
   checkdata: FirebaseObjectObservable<any>;
+  myChallenges: FirebaseListObservable<any[]>;
 
   constructor(private af: AngularFire) {
 
@@ -24,6 +25,11 @@ export class FirebaseService {
     return this.checkdata;
   }
 
+  getMyChallenges(){
+    this.myChallenges = this.af.database.list('/users/userid1/Challenges') as FirebaseListObservable<myChallengesList[]>
+    return this.myChallenges;
+  }
+
 }
 
 interface challengeList {
@@ -32,5 +38,13 @@ interface challengeList {
   challengeDescription?: string;
   duration?:string;
   totalAmount?:string;
+}
+interface myChallengesList {
+  $key?: string;
+  challengeName?: string;
+  challengeDescription?: string;
+  challengeStatus?: string;
+  duration?: string;
+  totalAmount?: string;
 }
 
