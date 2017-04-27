@@ -18,6 +18,7 @@ import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-
 import { MyChallengeComponent } from './my-challenge/my-challenge.component';
 import { CheckdataSavingmoneyComponent } from './categoriesfeed/savingmoney/checkdata-savingmoney/checkdata-savingmoney.component';
 import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
+import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
 
  
 export const firebaseConfig = {
@@ -44,7 +45,9 @@ const firebaseAuthConfig = {
     DetailSavingMoneyComponent,
     MyChallengeComponent,
     CheckdataSavingmoneyComponent,
-    AddMoneyComponent
+    AddMoneyComponent,
+    AddMoneyComponent,
+    DetailMyChallengeComponent
 
   ],
   imports: [
