@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class FirebaseService {
@@ -7,9 +8,10 @@ export class FirebaseService {
   challengeDetail: FirebaseObjectObservable<any>;
   checkdata: FirebaseObjectObservable<any>;
   myChallenges: FirebaseListObservable<any[]>;
+  folder:any;
 
   constructor(private af: AngularFire) {
-
+      this.folder = 'listingimages';
   }
 
   getChallengeList() {
@@ -30,7 +32,13 @@ export class FirebaseService {
     return this.myChallenges;
   }
 
-}
+  addSavingmoneydetailChallenges(savingmoneydetail){
+    return this.myChallenges.push(savingmoneydetail);
+    }
+
+  }
+
+
 
 interface challengeList {
   $key?: string;
