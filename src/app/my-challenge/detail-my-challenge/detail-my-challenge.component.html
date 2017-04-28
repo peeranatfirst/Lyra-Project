@@ -15,18 +15,15 @@
           <p class="card-text">Time : {{detailMyChallenge.Duration}} Days</p>
           <p class="card-text">Total : {{detailMyChallenge.totalAmount}} Baht</p>
           <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+          </div>
+          <br>
           <a routerLink='/addmoney' class="btn btn-primary">Add Money</a>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <br>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-      </div>
-    </div>
-  </div>
+
 
 </div>
