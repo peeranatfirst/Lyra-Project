@@ -15,14 +15,91 @@
     </li>
   </ul>
 
-  <!-- Tab panes -->
+
+  <!-- Tab panes-->
   <div class="tab-content">
     <div class="tab-pane active" id="All" role="tabpanel">
       <br>
       <div class="row">
+        <<<<<<< HEAD <div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of myChallenges">
+          =======
+          <div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of DetailOfChallenges">
+            >>>>>>> bc984e44535e83327b6ab86ec46bd17d1ba28646
+            <a [routerLink]="['/detailmychallenge/'+cha.$key]" routerLinkActive='active' class="card-link">
+              <div class="card">
+                <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
+                  alt="Card image cap" width="100%">
+                <div class="card-block">
+                  <h4 class="card-title">{{cha.name}}</h4>
+                  <p class="card-text">{{cha.des}}</p>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{cha.percent}}%</div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </a>
+            <br>
+          </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="InProgress" role="tabpanel">
+      <br>
+      <div class="row">
+        <div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of DetailOfChallenges">
+          <a [routerLink]="['/detailmychallenge/'+cha.$key]" routerLinkActive='active' class="card-link">
+            <div class="card" *ngIf="cha.status == 'processing'">
+              <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
+                alt="Card image cap" width="100%">
+              <div class="card-block">
+                <h4 class="card-title">{{cha.name}}</h4>
+                <p class="card-text">{{cha.des}}</p>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{cha.percent}}%</div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </a>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="Acheive" role="tabpanel">
+      <br>
+      <div class="row">
+        <div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of DetailOfChallenges">
+          <a [routerLink]="['/detailmychallenge/'+cha.$key]" routerLinkActive='active' class="card-link">
+            <div class="card" *ngIf="cha.status == 'Achieved'">
+              <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
+                alt="Card image cap" width="100%">
+              <div class="card-block">
+                <h4 class="card-title">{{cha.name}}</h4>
+                <p class="card-text">{{cha.des}}</p>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{cha.percent}}%</div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </a>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="InProgress" role="tabpanel">
+      <br>
+      <div class="row">
         <div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of myChallenges">
-          <a routerLink='/detailmychallenge' routerLinkActive='active' class="card-link">
-            <div class="card">
+          <a [routerLink]="['/detailmychallenge/'+cha.$key]" routerLinkActive='active' class="card-link">
+            <div class="card" *ngIf="cha.challengeStatus == 'processing'">
               <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
                 alt="Card image cap" width="100%">
               <div class="card-block">
@@ -41,8 +118,30 @@
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="InProgress" role="tabpanel">In Progress Coming Soon !!</div>
-    <div class="tab-pane" id="Acheive" role="tabpanel">Acheive Coming Soon !!</div>
+    <div class="tab-pane" id="Acheive" role="tabpanel">
+      <br>
+      <div class="row">
+        <div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of myChallenges">
+          <a [routerLink]="['/detailmychallenge/'+cha.$key]" routerLinkActive='active' class="card-link">
+            <div class="card" *ngIf="cha.challengeStatus == 'Achieved'">
+              <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
+                alt="Card image cap" width="100%">
+              <div class="card-block">
+                <h4 class="card-title">{{cha.challengeName}}</h4>
+                <p class="card-text">{{cha.challengeDescription}}</p>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </a>
+          <br>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>

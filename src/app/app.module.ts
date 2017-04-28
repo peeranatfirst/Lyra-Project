@@ -49,6 +49,7 @@ const firebaseAuthConfig = {
     AddMoneyComponent,
     DetailMyChallengeComponent
 
+
   ],
   imports: [
     BrowserModule,
@@ -63,6 +64,7 @@ const firebaseAuthConfig = {
   ],
   providers: [
     FirebaseService,
+
     ],
   bootstrap: [AppComponent]
   

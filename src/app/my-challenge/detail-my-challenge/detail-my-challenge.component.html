@@ -10,9 +10,12 @@
           Featured
         </div>
         <div class="card-block">
-          <h4 class="card-title">Special title treatment</h4>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
+          <p class="card-text">{{detailMyChallenge.challengeDescription}}</p>
+          <p class="card-text">Time : {{detailMyChallenge.Duration}} Days</p>
+          <p class="card-text">Total : {{detailMyChallenge.totalAmount}} Baht</p>
+          <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}</p>
+          <a routerLink='/addmoney' class="btn btn-primary">Add Money</a>
         </div>
       </div>
     </div>
