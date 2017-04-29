@@ -13,8 +13,8 @@ export class AddMoneyComponent implements OnInit {
   addmoney: any;
 
   id: any;
-  detailMyChallenge:any;
-  balance:any;
+  detailMyChallenge: any;
+  balance: any;
   constructor(
     private firebaseService: FirebaseService,
     private router: Router,
@@ -39,8 +39,9 @@ export class AddMoneyComponent implements OnInit {
     console.log(this.money)
 
     this.firebaseService.addMoney(addmoney);
-    this.router.navigate(['/detailmychallenge/:id'])
+    this.router.navigate(['/mychallenge'])
   }
+
 
 
 }
