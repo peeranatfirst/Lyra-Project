@@ -35,4 +35,7 @@ export class AppComponent {
   logout() {
     this.af.auth.logout();
   }
+
+   color: string;
 }
+
