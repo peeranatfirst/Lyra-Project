@@ -8,6 +8,7 @@ import { FirebaseService } from './services/firebase.service';
 import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
+
 import { AppComponent } from './app.component';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
 import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.component';
@@ -59,7 +60,7 @@ const firebaseAuthConfig = {
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     routing,
-    FlashMessagesModule
+    FlashMessagesModule,
 
   ],
   providers: [

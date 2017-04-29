@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from "app/services/firebase.service";
 import { routing } from '../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import {ProgressBarModule} from "ng2-progress-bar";
 
 
 @Component({
@@ -43,7 +44,6 @@ export class MyChallengeComponent implements OnInit {
           for (let calB of toCal) {
             let balance = this.firebaseService.getTransactionBalance(calB);
             sum = sum + balance;
-
           }
           progress = this.firebaseService.calculateProgressPercent(sum, pullTotal);
           this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });
