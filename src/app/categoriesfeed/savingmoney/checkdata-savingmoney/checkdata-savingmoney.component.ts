@@ -29,7 +29,6 @@ export class CheckdataSavingmoneyComponent implements OnInit {
     this.firebaseService.getChallengeMoneyData(this.id).subscribe(checkdata => {
       console.log(checkdata)
       this.checkdata = checkdata;
-
     })
 
   }

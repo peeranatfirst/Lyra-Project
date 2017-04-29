@@ -24,8 +24,8 @@ export class FirebaseService {
     this.challengeDetail = this.af.database.object('/Categories /SavingMoney/' + id) as FirebaseObjectObservable<challengeList>
     return this.challengeDetail;
   }
-  getChallengeMoneyData(id){
-    this.checkdata = this.af.database.object('/Categories /SavingMoney/'+id) as FirebaseObjectObservable<challengeList>
+  getChallengeMoneyData(id) {
+    this.checkdata = this.af.database.object('/Categories /SavingMoney/' + id) as FirebaseObjectObservable<challengeList>
     return this.checkdata;
   }
 
@@ -33,45 +33,45 @@ export class FirebaseService {
     this.myChallenges = this.af.database.list('/users/userid1/Challenges') as FirebaseListObservable<myChallengesList[]>
     return this.myChallenges;
   }
-  addSavingmoneydetailChallenges(savingmoneydetail){
+  addSavingmoneydetailChallenges(savingmoneydetail) {
     return this.myChallenges.push(savingmoneydetail);
-    }
+  }
   getDetailMyChallenge(id) {
     this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/' + id) as FirebaseObjectObservable<myChallengesList>
     return this.detailMyChallenge;
   }
 
-  getTransaction(key){
-    this.balance = this.af.database.list('/users/userid1/Challenges/'+key+'/savingTransaction') as FirebaseListObservable<myBalance[]>
+  getTransaction(key) {
+    this.balance = this.af.database.list('/users/userid1/Challenges/' + key + '/savingTransaction') as FirebaseListObservable<myBalance[]>
     return this.balance;
   }
 
-  getKeyOfChallenge(challengeslist: myChallengesList){
+  getKeyOfChallenge(challengeslist: myChallengesList) {
     return challengeslist.$key;
   }
 
-  getNameOfChallenge(challengeslist: myChallengesList){
+  getNameOfChallenge(challengeslist: myChallengesList) {
     return challengeslist.challengeName;
   }
 
-  getDesOfChallenge(challengeslist: myChallengesList){
+  getDesOfChallenge(challengeslist: myChallengesList) {
     return challengeslist.challengeDescription;
   }
 
-  getTotalOfChallenge(challengeslist: myChallengesList){
+  getTotalOfChallenge(challengeslist: myChallengesList) {
     return challengeslist.totalAmount;
   }
-  getStatusOfChallenge(challengeslist: myChallengesList){
+  getStatusOfChallenge(challengeslist: myChallengesList) {
     return challengeslist.challengeStatus;
   }
 
-  getTransactionBalance(transactionBalance : myBalance){
+  getTransactionBalance(transactionBalance: myBalance) {
     return transactionBalance.balance;
   }
 
-    calculateProgressPercent(sum,total){
+  calculateProgressPercent(sum, total) {
     let percent;
-    percent = (100*sum)/total;
+    percent = (100 * sum) / total;
     return percent;
   }
 }
