@@ -59,7 +59,8 @@ const firebaseAuthConfig = {
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     routing,
-    FlashMessagesModule
+    FlashMessagesModule,
+    
 
   ],
   providers: [
