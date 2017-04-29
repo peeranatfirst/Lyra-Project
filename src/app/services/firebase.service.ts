@@ -33,7 +33,7 @@ export class FirebaseService {
   }
 
   getDetailMyChallenge(id) {
-    this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/' + id) as FirebaseObjectObservable<myChallengesList>
+    this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/'+id) as FirebaseObjectObservable<myChallengesList>
     return this.detailMyChallenge;
   }
 
