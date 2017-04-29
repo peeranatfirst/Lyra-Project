@@ -34,8 +34,14 @@
           <tr>
             <th>No.</th>
             <th>Date</th>
-            <th>Amount</th>
             <th>Balance</th>
+            <th>Total</th>
+          </tr>
+          <tr *ngFor="let cha of detailTransaction">
+            <th></th>
+            <th>{{cha.datetimestamp}}</th>
+            <th>{{cha.balance}}</th>
+            <th></th>
           </tr>
         </thead>
       </table>

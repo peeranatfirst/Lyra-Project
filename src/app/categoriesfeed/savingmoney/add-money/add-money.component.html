@@ -19,7 +19,7 @@
             <br>
         </div>
         <script type="text/typescript">
-           
+
         </script>
         <div class="col-md-7">
             <div class="card">
@@ -27,14 +27,13 @@
                     เพิ่มจำนวนเงินที่คุณต้องการจะเก็บ
                 </div>
                 <div class="card-block">
-                    <form>
-                        <div class="form-group">
+                    <form (submit)="onAddSubmit()">
+                        <div class="form-group" (submit)="onAddSubmit()">
                             <label for="Money">Money</label>
-                            <input type="number" class="form-control" id="Money" placeholder="Your Money" min="0" max="999999999999">
+                            <input type="number" class="form-control" [(ngModel)]="balance" name="balance" placeholder="Your Money" min="0" max="999999999999">
                         </div>
+                        <button type="submit" class="btn btn-primary">Add Money</button>
                     </form>
-                    <a href="" class="btn btn-success" onmousemove="popUp()">Add Money</a>
-                    <a routerLink="/detailmychallenge" class="btn btn-danger">Go Back</a>
                 </div>
             </div>
             <br>

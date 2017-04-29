@@ -13,6 +13,7 @@ export class DetailMyChallengeComponent implements OnInit {
   detailMyChallenge: any;
   imageUrl: any;
   percent:any;
+  detailTransaction:any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -35,6 +36,12 @@ export class DetailMyChallengeComponent implements OnInit {
           }
           this.percent = this.firebaseService.calculateProgressPercent(sum, detailMyChallenge.totalAmount);
       })
+    })
+
+    this.firebaseService.getTransaction(this.id).subscribe(detailTransaction => {
+      console.log(detailTransaction)
+      this.detailTransaction = detailTransaction;
+
     })
   }
 

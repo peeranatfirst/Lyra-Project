@@ -36,6 +36,9 @@ export class FirebaseService {
   addSavingmoneydetailChallenges(savingmoneydetail) {
     return this.myChallenges.push(savingmoneydetail);
   }
+  
+
+
   getDetailMyChallenge(id) {
     this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/'+id) as FirebaseObjectObservable<myChallengesList>
     return this.detailMyChallenge;
@@ -44,6 +47,10 @@ export class FirebaseService {
   getTransaction(key) {
     this.balance = this.af.database.list('/users/userid1/Challenges/' + key + '/savingTransaction') as FirebaseListObservable<myBalance[]>
     return this.balance;
+  }
+
+  addMoney(addmoney) {
+    return this.balance.push(addmoney);
   }
 
   getKeyOfChallenge(challengeslist: myChallengesList) {
