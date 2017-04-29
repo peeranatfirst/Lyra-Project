@@ -1,3 +1,41 @@
-<form>
+<div class="container">
 
-</form>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">My Challenge</li>
+    </ol>
+
+    <div class="row">
+
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    ชื่อแชลเลนจ์
+                </div>
+                <div class="card-block">
+                    <h4 class="card-title">จำนวนเงินที่ต้องจะเก็บให้ครบ</h4>
+                    <p>300 บาทจ้า</p>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header">
+                    เพิ่มจำนวนเงินที่คุณต้องการจะเก็บ
+                </div>
+                <div class="card-block">
+                    <form>
+                        <div class="form-group">
+                            <label for="Money">Money</label>
+                            <input type="number" class="form-control" id="Money" placeholder="Example input">
+                        </div>
+                    </form>
+                    <a href="#" class="btn btn-success">Add Money</a>
+                    <a routerLink="/detailmychallenge" class="btn btn-danger">Go Back</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
