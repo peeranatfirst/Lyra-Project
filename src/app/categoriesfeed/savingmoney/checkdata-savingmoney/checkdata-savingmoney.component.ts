@@ -41,7 +41,7 @@ export class CheckdataSavingmoneyComponent implements OnInit {
       totalAmount: this.checkdata.totalAmount
     }
 
-    this.firebaseService.addSavingmoneydetailChallenges(savingmoneydetail);
+    //this.firebaseService.addSavingmoneydetailChallenges(savingmoneydetail);
     this.router.navigate(['/mychallenge'])
   }
 }

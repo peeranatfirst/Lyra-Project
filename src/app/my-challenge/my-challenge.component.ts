@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from "app/services/firebase.service";
 import { routing } from '../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import {ProgressBarModule} from "ng2-progress-bar";
+
+import { ProgressBarDirective } from "./progress-bar.directive";
+
+
 
 
 @Component({

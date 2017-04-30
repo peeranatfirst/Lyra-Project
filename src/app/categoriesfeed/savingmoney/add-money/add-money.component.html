@@ -9,11 +9,11 @@
         <div class="col-md-5">
             <div class="card">
                 <div class="card-header">
-                    ชื่อแชลเลนจ์
+                    Challenge Name
                 </div>
                 <div class="card-block">
-                    <h4 class="card-title">จำนวนเงินที่ต้องจะเก็บให้ครบ</h4>
-                    <p>300 บาทจ้า</p>
+                    <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
+                    <p>Total Amount : {{detailMyChallenge.totalAmount}}</p>
                 </div>
             </div>
             <br>
@@ -24,12 +24,12 @@
         <div class="col-md-7">
             <div class="card">
                 <div class="card-header">
-                    เพิ่มจำนวนเงินที่คุณต้องการจะเก็บ
+                    Saving Today!
                 </div>
                 <div class="card-block">
                     <form (submit)="onAddSubmit()">
                         <div class="form-group" (submit)="onAddSubmit()">
-                            <label for="Money">Money</label>
+                            <label>fill your saving amount</label>
                             <input type="number" class="form-control" [(ngModel)]="balance" name="balance" placeholder="Your Money" min="0" max="999999999999">
                         </div>
                         <button type="submit" class="btn btn-primary">Add Money</button>
