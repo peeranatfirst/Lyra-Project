@@ -7,6 +7,7 @@ import { MyChallengeComponent } from './my-challenge/my-challenge.component';
 import { CheckdataSavingmoneyComponent } from './categoriesfeed/savingmoney/checkdata-savingmoney/checkdata-savingmoney.component'
 import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
 import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
+import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
 
 
 const appRoutes: Routes = [
@@ -20,7 +21,9 @@ const appRoutes: Routes = [
   { path: 'detailmychallenge', component: DetailMyChallengeComponent},
   { path: 'detailmychallenge/:id', component: DetailMyChallengeComponent},
   { path: 'addmoney', component: AddMoneyComponent },
-  { path: 'addmoney/:id', component: AddMoneyComponent }
+  { path: 'addmoney/:id', component: AddMoneyComponent },
+  { path: 'createSavingmoneyChallenge', component: CreateSavingmoneyChallengeComponent}
+
 ]
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
