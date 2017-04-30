@@ -14,7 +14,7 @@ export class DetailMyChallengeComponent implements OnInit {
   imageUrl: any;
   percent: any;
   detailTransaction: any;
-  countNumber: any[];
+  countNumber: number;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -44,9 +44,7 @@ export class DetailMyChallengeComponent implements OnInit {
       this.detailTransaction = detailTransaction;
 
     })
+
   }
-
-
-
 
 }
