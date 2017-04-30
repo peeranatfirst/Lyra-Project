@@ -1,26 +1,31 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-5">
-      <img src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg" class="img-fluid rounded float-right"
-        alt="Responsive image">
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="http://placehold.it/300x200/000000/&text=Header" alt="" />
+        <div class="avatar" align="center">
+          <img src="http://placehold.it/80X80/333333/&text=Head" alt="" class="rounded-circle" id="profile">
+          <h3>Pim Patcha</h3>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-8">
       <div class="card">
         <div class="card-header">
-          <img src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
-            class="rounded-circle" width="50px" height="50px">
-            Pim Patcha Last updated 3 mins ago
-            
+          <h3>{{challengeDetail.challengeName}}</h3>
         </div>
         <div class="card-block">
-          <h4 class="card-title">{{challengeDetail.challengeName}}</h4>
           <p class="card-text">{{challengeDetail.challengeDescription}}</p>
           <p class="card-text">Time : {{challengeDetail.duration}} Days</p>
           <p class="card-text">Total Amount : {{challengeDetail.totalAmount}} Baht</p>
-          <a href="#" class="btn btn-primary">Like</a>
-          <a href="#" class="btn btn-primary">Comment</a>
-          <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="btn btn-primary">Add to My Challenge</a>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="#" class="card-link"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Like</a>
+            <a href="#" class="card-link"><i class="fa fa-comments-o" aria-hidden="true"></i>Comment</a>
+            <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="card-link"><span class="fa fa-plus-square-o" aria-hidden="true"></span>Add to My Challenge</a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
