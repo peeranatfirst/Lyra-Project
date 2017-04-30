@@ -23,5 +23,4 @@ const appRoutes: Routes = [
   { path: 'addmoney/:id', component: AddMoneyComponent }
 ]
 
-
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

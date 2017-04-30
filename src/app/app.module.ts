@@ -8,6 +8,7 @@ import { FirebaseService } from './services/firebase.service';
 import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
+
 import { AppComponent } from './app.component';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
 import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.component';
@@ -21,7 +22,7 @@ import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-mo
 import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
 import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
 
- 
+import { AddMoneyService } from "app/services/add-money.service";
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
   authDomain: "lyra-24b71.firebaseapp.com",
@@ -66,7 +67,7 @@ const firebaseAuthConfig = {
   ],
   providers: [
     FirebaseService,
-
+    AddMoneyService
     ],
   bootstrap: [AppComponent]
   

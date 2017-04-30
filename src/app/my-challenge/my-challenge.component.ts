@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from "app/services/firebase.service";
 import { routing } from '../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+
 import { ProgressBarDirective } from "./progress-bar.directive";
+
 
 
 
@@ -33,7 +35,7 @@ export class MyChallengeComponent implements OnInit {
       this.DetailOfChallenges = new Array();
 
       for (let obj of myChallenges) {
-        let pullKey, pullName, pullDes, pullTotal, calBalance, progress,pullStatus;
+        let pullKey, pullName, pullDes, pullTotal, calBalance, progress, pullStatus;
 
         pullKey = this.firebaseService.getKeyOfChallenge(obj);
         pullName = this.firebaseService.getNameOfChallenge(obj);
@@ -45,14 +47,13 @@ export class MyChallengeComponent implements OnInit {
           for (let calB of toCal) {
             let balance = this.firebaseService.getTransactionBalance(calB);
             sum = sum + balance;
-
           }
           progress = this.firebaseService.calculateProgressPercent(sum, pullTotal);
           this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });
-          
-          
+
+
         })
-        
+
       }
       console.log(this.DetailOfChallenges);
     })

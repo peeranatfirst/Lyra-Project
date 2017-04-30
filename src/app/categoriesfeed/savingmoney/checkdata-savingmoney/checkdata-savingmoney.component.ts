@@ -17,10 +17,10 @@ export class CheckdataSavingmoneyComponent implements OnInit {
   challengeDescription: any;
   duration: any;
   totalAmount;
-  
+
   constructor(
     private firebaseService: FirebaseService,
-    private routing: Router,
+    private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -29,9 +29,19 @@ export class CheckdataSavingmoneyComponent implements OnInit {
     this.firebaseService.getChallengeMoneyData(this.id).subscribe(checkdata => {
       console.log(checkdata)
       this.checkdata = checkdata;
-
     })
 
   }
 
+  onAddSubmit() {
+    let savingmoneydetail = {
+      challengeName: this.checkdata.challengeName,
+      challengeDescription: this.checkdata.challengeDescription,
+      duration: this.checkdata.duration,
+      totalAmount: this.checkdata.totalAmount
+    }
+
+    //this.firebaseService.addSavingmoneydetailChallenges(savingmoneydetail);
+    this.router.navigate(['/mychallenge'])
+  }
 }

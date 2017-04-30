@@ -5,20 +5,21 @@
   <form (submit)="onAddSubmit()">
     <div class="form-group no-border">
       <label>Challenge Name</label>
-      <input type="text" class="form-control" value="{{checkdata.challengeName}}" name="challengename" >
+      <input type="text" class="form-control" ngModel="{{checkdata.challengeName}}" name="challengename" required >
     </div>
     <div class="form-group no-border">
       <label>Challenge Description</label>
-      <input type="text" class="form-control"value="{{checkdata.challengeDescription}}" name="challengeDescription" >
+      <input type="text" class="form-control" ngModel="{{checkdata.challengeDescription}}" name="challengeDescription" required >
     </div>
     <div class="form-group no-border">
       <label>Duration</label>
-      <input type="number" class="form-control" value="{{checkdata.duration}}" name="duration">
+      <input type="number" class="form-control" ngModel="{{checkdata.duration}}" name="duration" required>
     </div>
     <div class="form-group no-border">
       <label>Total Amount</label>
-      <input type="number" class="form-control" value="{{checkdata.totalAmount}}" name="totalAmount" >
+      <input type="number" class="form-control" ngModel="{{checkdata.totalAmount}}" name="totalAmount" required>
     </div>
+    
     <button type="submit" class="btn btn-primary">Submit</button>
     
   </form>
