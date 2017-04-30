@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from "app/services/firebase.service";
+import { AddMoneyService } from "app/services/add-money.service";
 import { routing } from '../../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { FirebaseService } from "app/services/firebase.service";
 
 @Component({
   selector: 'app-add-money',
@@ -15,10 +16,12 @@ export class AddMoneyComponent implements OnInit {
   id: any;
   detailMyChallenge: any;
   balance: any;
+
   constructor(
-    private firebaseService: FirebaseService,
+    private firebaseService: FirebaseService ,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private AddMoneyService: AddMoneyService
   )
   { }
 
@@ -26,20 +29,18 @@ export class AddMoneyComponent implements OnInit {
     //Get id
     this.id = this.route.snapshot.params['id'];
     this.firebaseService.getDetailMyChallenge(this.id).subscribe(detailMyChallenge => {
-      console.log(detailMyChallenge)
+      //console.log(detailMyChallenge)
       this.detailMyChallenge = detailMyChallenge;
     })
+
+
 
   }
 
   onAddSubmit() {
-    let addmoney = {
-      balance: this.balance
-    }
-    console.log(this.money)
-
-    this.firebaseService.addMoney(addmoney);
-    this.router.navigate(['/mychallenge'])
+    let addmoney = this.balance ;
+    this.AddMoneyService.addMoney(addmoney,this.id);
+    this.router.navigate(['/detailmychallenge/'+this.id])
   }
 
 

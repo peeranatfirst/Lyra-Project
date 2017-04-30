@@ -23,6 +23,7 @@
       <div class="row">
           <div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of DetailOfChallenges">
             <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
+            <div id="sentPercent" style="display: none;">{{cha.percent}}</div>
               <div class="card">
                 <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
                   alt="Card image cap" width="100%">
@@ -30,7 +31,7 @@
                   <h4 class="card-title">{{cha.name}}</h4>
                   <p class="card-text">{{cha.des}}</p>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{cha.percent}}%</div>
+                    <div class="progress-bar" appProgressBar role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{cha.percent}}%</div>
                   </div>
                 </div>
                 <div class="card-footer">
