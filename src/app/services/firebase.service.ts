@@ -81,6 +81,11 @@ export class FirebaseService {
     percent = (100 * sum) / total;
     return percent;
   }
+
+  addCreateSavingmoneyChallenge(createSavingmoneyChallenge) {
+    return this.challengeList.push(createSavingmoneyChallenge);
+  }
+
 }
 
 interface challengeList {

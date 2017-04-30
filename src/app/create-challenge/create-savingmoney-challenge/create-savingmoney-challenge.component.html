@@ -1,26 +1,26 @@
 <div class="container" align="center">
-  <h2 class="page-header">Checking your data</h2>
+  <h2 class="page-header">Creating Saving Money Challenge</h2>
 </div>
 <div class="container">
   <form (submit)="onAddSubmit()">
     <div class="form-group no-border">
       <label>Challenge Name</label>
-      <input type="text" class="form-control" ngModel="{{checkdata.challengeName}}" name="challengename" required >
+      <input type="text" class="form-control" [(ngModel)]="challengeName" name="challengeName" required >
     </div>
     <div class="form-group no-border">
       <label>Challenge Description</label>
-      <input type="text" class="form-control" ngModel="{{checkdata.challengeDescription}}" name="challengeDescription" required >
+      <input type="text" class="form-control" [(ngModel)]="challengeDescription" name="challengeDescription" required >
     </div>
     <div class="form-group no-border">
       <label>Duration</label>
-      <input type="number" class="form-control" ngModel="{{checkdata.duration}}" name="duration" required>
+      <input type="number" class="form-control" [(ngModel)]="duration" name="duration" required>
     </div>
     <div class="form-group no-border">
       <label>Total Amount</label>
-      <input type="number" class="form-control" ngModel="{{checkdata.totalAmount}}" name="totalAmount" required>
+      <input type="number" class="form-control" [(ngModel)]="totalAmount" name="totalAmount" required>
     </div>
     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Save</button>
     
   </form>
    
