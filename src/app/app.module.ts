@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
-import { FirebaseService } from './services/firebase.service';
 import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
-
+//Components
 import { AppComponent } from './app.component';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
 import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.component';
@@ -21,9 +20,15 @@ import { CheckdataSavingmoneyComponent } from './categoriesfeed/savingmoney/chec
 import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
 import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
 import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
+
+//Directives
 import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
 
+//Services
 import { AddMoneyService } from "app/services/add-money.service";
+import { FirebaseService } from './services/firebase.service';
+
+
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
   authDomain: "lyra-24b71.firebaseapp.com",

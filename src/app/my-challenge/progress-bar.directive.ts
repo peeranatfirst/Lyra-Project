@@ -6,14 +6,11 @@ import { FirebaseService } from "app/services/firebase.service";
 })
 export class ProgressBarDirective {
   @Input('myPercent') percentNum: string;
-
+  percent: any;
   constructor(private el: ElementRef) {
-    this.percentShow(this.percentNum);
-  }
-  private percentShow(num: string){
-    let x = num+"%";
-    this.el.nativeElement.style.width = x;
-  }
 
+    this.percent = [<HTMLDivElement>document.getElementById('sentPercent')];
+    this.el.nativeElement.style.width = '60%';
+  }
 
 }

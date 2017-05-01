@@ -17,3 +17,9 @@ ul.dropdown-menu {
   line-height: 1.33;
   border-radius: 35px;
 }
+
+.card-img-top{
+  display: block;
+  width: 100%;
+  height: auto;
+}

@@ -3,18 +3,17 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 import * as firebase from 'firebase';
 import { FirebaseService } from "app/services/firebase.service";
 
+
 @Injectable()
+
 export class AddMoneyService {
+
 
   myChallenges: FirebaseListObservable<any[]>;
   balance: FirebaseListObservable<any[]>;
 
-  constructor(private af: AngularFire) { }
-
-   addSavingmoneydetailChallenges(savingmoneydetail) {
-    return this.myChallenges.push(savingmoneydetail);
-  }
-   addMoney(addmoney,id) {
+  constructor(private fs: FirebaseService) { }
+  getTodayDate(){
     let datetime = new Date();
     let monthNames = [
       "JAN","FAB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"
@@ -24,11 +23,34 @@ export class AddMoneyService {
     let year = datetime.getFullYear();
     let today = monthNames[monthIndex]+" "+date+" "+year;
 
+    return today;
+  }
+
+  getCurrentTime(){
+    let datetime = new Date();
+
+    let hours = datetime.getHours();
+    let mins = datetime.getMinutes();
+    if(mins<10){
+      "0"+mins;
+    }
+    let time = hours+" : "+mins;
+    return time;
+  }
+
+   addSavingmoneydetailChallenges(savingmoneydetail) {
+      firebase.database().ref('/users/userid1/Challenges').push(savingmoneydetail);
+   }
+   addMoney(addmoney,id) {
+    let today = this.getTodayDate() ;
+
      firebase.database().ref('/users/userid1/Challenges/'+id+'/savingTransaction').push({
        balance:addmoney,
        datetimestamp:today
-     })
+     });
+
   }
+
 
 
 }

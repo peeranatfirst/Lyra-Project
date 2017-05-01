@@ -20,7 +20,7 @@
             <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{percent}}%</div>
           </div>
           <br>
-          <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-primary">Add Money</a>
+          <a routerLink='/addmoney' class="btn btn-primary">Add Money</a>
         </div>
       </div>
     </div>
@@ -36,14 +36,17 @@
             <th>No.</th>
             <th>Date</th>
             <th>Balance</th>
-            <th>Total</th>
+         
           </tr>
-          <tr *ngFor="let cha of detailTransaction">
+<<<<<<< HEAD
+          <tr>
             <th></th>
+=======
+          <tr *ngFor="let cha of detailTransaction; let i=index;">
+            <th>{{i+1}}</th>
+>>>>>>> 9a143033d03635888f046be1c72aea9c64302936
             <th>{{cha.datetimestamp}}</th>
             <th>{{cha.balance}}</th>
-            
-            <th></th>
           </tr>
         </thead>
       </table>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from "app/services/firebase.service";
 import { routing } from '../../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AddMoneyService } from "app/services/add-money.service";
 
 @Component({
   selector: 'app-checkdata-savingmoney',
@@ -21,7 +22,8 @@ export class CheckdataSavingmoneyComponent implements OnInit {
   constructor(
     private firebaseService: FirebaseService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private addmoney: AddMoneyService) { }
 
   ngOnInit() {
     //Get id
@@ -41,7 +43,7 @@ export class CheckdataSavingmoneyComponent implements OnInit {
       totalAmount: this.checkdata.totalAmount
     }
 
-    //this.firebaseService.addSavingmoneydetailChallenges(savingmoneydetail);
+    this.addmoney.addSavingmoneydetailChallenges(savingmoneydetail);
     this.router.navigate(['/mychallenge'])
   }
 }

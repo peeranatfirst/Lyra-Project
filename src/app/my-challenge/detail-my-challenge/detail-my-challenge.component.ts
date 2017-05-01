@@ -25,7 +25,7 @@ export class DetailMyChallengeComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
 
     this.firebaseService.getDetailMyChallenge(this.id).subscribe(detailMyChallenge => {
-      console.log(detailMyChallenge)
+      //console.log(detailMyChallenge)
       this.detailMyChallenge = detailMyChallenge;
 
       this.firebaseService.getTransaction(detailMyChallenge.$key).subscribe(toCal => {
