@@ -15,6 +15,8 @@ export class AddMoneyService {
     return this.myChallenges.push(savingmoneydetail);
   }
    addMoney(addmoney,id) {
+  
+    
     let datetime = new Date();
     let monthNames = [
       "JAN","FAB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"
@@ -29,6 +31,7 @@ export class AddMoneyService {
        datetimestamp:today
      })
   }
+
 
 
 }
