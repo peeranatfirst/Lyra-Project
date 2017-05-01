@@ -12,7 +12,9 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
   challengeName: any;
   challengeDescription: any;
   duration: any;
-  totalAmount;
+  totalAmount:any;
+  image:any;
+  
 
   constructor(
     private firebaseService: FirebaseService,
