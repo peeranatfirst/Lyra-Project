@@ -20,6 +20,7 @@ import { MyChallengeComponent } from './my-challenge/my-challenge.component';
 import { CheckdataSavingmoneyComponent } from './categoriesfeed/savingmoney/checkdata-savingmoney/checkdata-savingmoney.component';
 import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
 import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
+import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
 import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
 
 import { AddMoneyService } from "app/services/add-money.service";
@@ -50,6 +51,7 @@ const firebaseAuthConfig = {
     AddMoneyComponent,
     AddMoneyComponent,
     DetailMyChallengeComponent,
+    CreateSavingmoneyChallengeComponent,
     ProgressBarDirective
 
 
