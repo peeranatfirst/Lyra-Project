@@ -17,7 +17,8 @@ export class MyChallengeComponent implements OnInit {
 
   myChallenges: any;
   DetailOfChallenges: any[];
-
+  inProgressChallenges : any[];
+  achievedChallenges :any[];
   /*chaName:any;
   chaDescription:any;
   balance: any;
@@ -33,6 +34,8 @@ export class MyChallengeComponent implements OnInit {
       this.myChallenges = myChallenges;
       //ดึง key ของแต่ละอันออกมา
       this.DetailOfChallenges = new Array();
+      this.inProgressChallenges = new Array();
+      this.achievedChallenges = new Array();
 
       for (let obj of myChallenges) {
         let pullKey, pullName, pullDes, pullTotal, calBalance, progress, pullStatus;
@@ -50,12 +53,16 @@ export class MyChallengeComponent implements OnInit {
           }
           progress = this.firebaseService.calculateProgressPercent(sum, pullTotal);
           this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });
-
+          if(pullStatus==='processing'){
+            this.inProgressChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });
+          }else{
+            this.achievedChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });
+          }
 
         })
 
       }
-      console.log(this.DetailOfChallenges);
+      console.log(this.achievedChallenges);
     })
   }
 }

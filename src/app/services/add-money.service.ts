@@ -31,7 +31,9 @@ export class AddMoneyService {
 
     let hours = datetime.getHours();
     let mins = datetime.getMinutes();
-
+    if(mins<10){
+      "0"+mins;
+    }
     let time = hours+" : "+mins;
     return time;
   }
