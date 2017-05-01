@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from "app/services/firebase.service";
 import { routing } from '../../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AddMoneyService } from "app/services/add-money.service";
 
 @Component({
   selector: 'app-checkdata-savingmoney',
