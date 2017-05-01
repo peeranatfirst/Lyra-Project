@@ -22,7 +22,8 @@ export class CheckdataSavingmoneyComponent implements OnInit {
   constructor(
     private firebaseService: FirebaseService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private addmoney: AddMoneyService) { }
 
   ngOnInit() {
     //Get id
@@ -42,7 +43,7 @@ export class CheckdataSavingmoneyComponent implements OnInit {
       totalAmount: this.checkdata.totalAmount
     }
 
-    //this.firebaseService.addSavingmoneydetailChallenges(savingmoneydetail);
+    this.addmoney.addSavingmoneydetailChallenges(savingmoneydetail);
     this.router.navigate(['/mychallenge'])
   }
 }
