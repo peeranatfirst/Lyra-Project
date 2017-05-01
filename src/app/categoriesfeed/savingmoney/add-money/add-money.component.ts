@@ -39,6 +39,28 @@ export class AddMoneyComponent implements OnInit {
 
   onAddSubmit() {
     let addmoney = this.balance ;
+    let totalAmount = this.detailMyChallenge.totalAmount ;
+    let currentMoney ;
+    this.firebaseService.getTransaction(this.id).subscribe(toCal => {
+          var sum = 0;
+          for (let calB of toCal) {
+            let balance = this.firebaseService.getTransactionBalance(calB);
+            sum = sum + balance;
+          }
+         currentMoney = sum ;
+
+    })
+
+    let toAchieved = totalAmount-currentMoney;
+
+    if(addmoney<=toAchieved){
+      this.AddMoneyService.addMoney(addmoney,this.id);
+    }else{
+      this.AddMoneyService.addMoney(addmoney,this.id);
+      this.AddMoneyService.achievedStatus(this.id);
+    }
+
+
     this.AddMoneyService.addMoney(addmoney,this.id);
     this.router.navigate(['/detailmychallenge/'+this.id])
   }

@@ -50,6 +50,12 @@ export class AddMoneyService {
      });
 
   }
+   achievedStatus(id){
+     let change = "Achieved";
+    firebase.database().ref('/users/userid1/Challenges/'+id).update({
+      challengeStatus : change
+    })
+   }
 
 
 
