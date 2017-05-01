@@ -33,9 +33,9 @@ export class MyChallengeComponent implements OnInit {
       //console.log(myChallenges);
       this.myChallenges = myChallenges;
       //ดึง key ของแต่ละอันออกมา
-      this.DetailOfChallenges = new Array();
-      this.inProgressChallenges = new Array();
-      this.achievedChallenges = new Array();
+      this.DetailOfChallenges = new Array(); //all challenge
+      this.inProgressChallenges = new Array(); // processing
+      this.achievedChallenges = new Array(); // achieved
 
       for (let obj of myChallenges) {
         let pullKey, pullName, pullDes, pullTotal, calBalance, progress, pullStatus;
