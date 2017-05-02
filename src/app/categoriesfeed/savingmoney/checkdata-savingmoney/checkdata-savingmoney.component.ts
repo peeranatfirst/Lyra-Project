@@ -18,6 +18,7 @@ export class CheckdataSavingmoneyComponent implements OnInit {
   challengeDescription: any;
   duration: any;
   totalAmount;
+  
 
   constructor(
     private firebaseService: FirebaseService,
@@ -36,9 +37,11 @@ export class CheckdataSavingmoneyComponent implements OnInit {
   }
 
   onAddSubmit() {
+    let status = "processing";
     let savingmoneydetail = {
       challengeName: this.checkdata.challengeName,
       challengeDescription: this.checkdata.challengeDescription,
+      challengeStatus: status,
       duration: this.checkdata.duration,
       totalAmount: this.checkdata.totalAmount
     }

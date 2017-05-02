@@ -4,7 +4,7 @@
     <div class="col-lg-2"></div>
     <div class="col-lg-4">
       <a [routerLink]="['/savingmoney']" routerLinkActive="active" class="card-link">
-        <div class="card text-center">
+        <div class="card text-center animated zoomIn">
           <img class="card-img" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/SavingMoneyCategory.png?alt=media&token=08110d5b-2825-4337-ba31-396fe59c8611"
             alt="Card image">
           <div class="card-img-overlay">
@@ -16,7 +16,7 @@
     </div>
     <div class="col-lg-4">
       <div class="card text-center">
-        <img class="card-img commingsoon" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/CookingCategory.png?alt=media&token=ddd02f0b-9eb2-4006-b85c-e148dc8752f2"
+        <img class="card-img commingsoon animated zoomIn" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/CookingCategory.png?alt=media&token=ddd02f0b-9eb2-4006-b85c-e148dc8752f2"
           alt="Card image">
         <div class="card-img-overlay">
           <h4 class="card-title">Cooking Skills</h4>
@@ -30,7 +30,7 @@
     <div class="col-lg-2"></div>
     <div class="col-lg-4">
       <div class="card text-center">
-        <img class="card-img commingsoon" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/ExerciseCategory.png?alt=media&token=f79f0158-8666-4997-b775-a5a08ec8c8d1"
+        <img class="card-img commingsoon animated zoomIn" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/ExerciseCategory.png?alt=media&token=0dac939e-11be-475d-897c-cc75f2bd62b8"
           alt="Card image">
         <div class="card-img-overlay">
           <h4 class="card-title">Exercising</h4>
@@ -40,7 +40,7 @@
     </div>
     <div class="col-lg-4">
       <div class="card text-center">
-        <img class="card-img commingsoon" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/ReadingCategory.png?alt=media&token=16b5ccf2-165b-46b5-93a4-d8fc343c4ee7"
+        <img class="card-img commingsoon animated zoomIn" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/ReadingCategory.png?alt=media&token=16b5ccf2-165b-46b5-93a4-d8fc343c4ee7"
           alt="Card image">
         <div class="card-img-overlay">
           <h4 class="card-title">Reading</h4>
@@ -49,4 +49,27 @@
     </div>
     <div class="col-lg-2"></div>
   </div>
+
+  <!-- floating action button-->
+  <a [routerLink]="['createSavingmoneyChallenge']">
+    <button type="button" class="btn btn-success btn-circle fixedbutton">
+    <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+  </button>
+  </a>
+
+
+
+  <!--Example single danger button
+  <div class="btn-group dropup" style="float:right;">
+    <button type="button" class="btn btn-danger btn-circle dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+  </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item floating-action-button" href="#">Saving Money</a>
+      <a class="dropdown-item" href="#">Cooking Skills</a>
+      <a class="dropdown-item" href="#">Exercising</a>
+      <a class="dropdown-item" href="#">Reading</a>
+    </div>
+  </div>-->
+
 </div>
