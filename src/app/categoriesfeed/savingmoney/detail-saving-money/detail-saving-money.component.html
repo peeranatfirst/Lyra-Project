@@ -2,17 +2,22 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <img src="http://placehold.it/300x200/000000/&text=Header" alt="" />
+        <img class="cover" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Cover.jpg?alt=media&token=40a4c457-1574-4ecd-8158-5bfebcae69ad"
+          alt="">
         <div class="avatar" align="center">
-          <img src="http://placehold.it/80X80/333333/&text=Head" alt="" class="rounded-circle" id="profile">
+          <figure class="profile profile-inline">
+            <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=da2b0bd2-354b-47f6-8510-b01fb5398810"
+              alt="Profile image" class="rounded-circle profile-avatar">
+          </figure>
           <h3>Pim Patcha</h3>
+          <p>69 Followers | 69K Following</p>
         </div>
       </div>
     </div>
     <div class="col-sm-8">
       <div class="card">
         <div class="card-header">
-          <h3>{{challengeDetail.challengeName}}</h3>
+          {{challengeDetail.challengeName}}
         </div>
         <div class="card-block">
           <p class="card-text">{{challengeDetail.challengeDescription}}</p>
@@ -27,14 +32,16 @@
           </li>
         </ul>
       </div>
+      <br>
+      <a [routerLink]="['/savingmoney']" class="btn btn-danger">Go Back</a>
     </div>
   </div>
-  <div clsas="row">
+  <!--<div clsas="row">
     <div class="col-lg-12" align="center">
       <div class="card-block">
         <a [routerLink]="['/savingmoney']" class="btn btn-danger">Go Back</a>
       </div>
     </div>
     <br>
-  </div>
+  </div>-->
 </div>

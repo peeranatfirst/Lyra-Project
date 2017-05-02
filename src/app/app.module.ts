@@ -27,6 +27,7 @@ import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
 //Services
 import { AddMoneyService } from "app/services/add-money.service";
 import { FirebaseService } from './services/firebase.service';
+import { SelectCategoryComponent } from './create-challenge/select-category/select-category.component';
 
 
 export const firebaseConfig = {
@@ -57,7 +58,8 @@ const firebaseAuthConfig = {
     AddMoneyComponent,
     DetailMyChallengeComponent,
     CreateSavingmoneyChallengeComponent,
-    ProgressBarDirective
+    ProgressBarDirective,
+    SelectCategoryComponent
 
 
   ],

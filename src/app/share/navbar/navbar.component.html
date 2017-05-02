@@ -1,7 +1,62 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
 </head>
-<nav class="navbar navbar-inverse bg-inverse sticky-top navbar-toggleable-md navbar-light bg-faded" style="font-family:'Kanit', sans-serif">
+
+<nav class="navbar navbar-inverse navbar-toggleable-md navbar-light bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">LYRA</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" [routerLink]="['/savingmoney']"><span  data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">Saving Money</span></a>
+          <a class="dropdown-item" href="#">Cooking Skills</a>
+          <a class="dropdown-item" href="#">Exercising</a>
+          <a class="dropdown-item" href="#">Reading</a>
+        </div>
+      </li>
+      <li>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item">
+        <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/mychallenge']">
+          <img class="profileBar rounded-circle" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=86de7d6f-2705-45ef-9fa1-8590aa76c3fe">
+          <span class="nav-font-color" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="true" aria-label="Toggle navigation">My Challenge
+          </span>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav my-2 my-lg-0">
+      <li *ngIf="!(af.auth | async)" class="nav-item active">
+        <a class="nav-link" (click)="login()"><span class="nav-font-color">Login</span></a>
+      </li>
+      <li class="nav-item active">
+        <a *ngIf="(af.auth | async)" class="nav-link" (click)="logout()"><span class="nav-font-color">Logout</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+<!--<nav class="navbar navbar-inverse bg-inverse sticky-top navbar-toggleable-md navbar-light bg-faded" style="font-family:'Kanit', sans-serif">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,7 +74,11 @@
     </form>
     <ul class="navbar-nav my-2 my-lg-0">
       <li class="nav-item">
-        <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/mychallenge']"><span class="nav-font-color">My Challenge</span></a>
+        <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/mychallenge']">
+        <img class="profileBar rounded-circle" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=86de7d6f-2705-45ef-9fa1-8590aa76c3fe">
+          <span class="nav-font-color">My Challenge
+          </span>
+        </a>
       </li>
     </ul>
     <ul class="navbar-nav my-2 my-lg-0">

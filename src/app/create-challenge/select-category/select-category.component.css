@@ -1,0 +1,50 @@
+.floating-action-button {
+  position: relative;
+  top: 100px;
+  margin-left: 50px;
+}
+.dropdown-menu {
+  box-shadow: none;
+  border: 0;
+  min-width:0;
+  background-color: transparent;
+}
+
+.card{
+  display: block;
+  width: 100%;
+  height: auto;
+  color: white;
+}
+.card-img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a{
+  color: white;
+}
+
+a:hover > .card{
+  border: dashed 5px;
+  border-color: #4bae4f;
+}
+
+.commingsoon{
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.fixedbutton {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}
+.btn-circle{
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  padding: 14px 4px;
+  border-radius: 50%;
+}

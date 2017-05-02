@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-8" align="center">
-      <h3>Select Category that You Interested.</h3>
+      <h3>Select Category to Create Your Challenge.</h3>
     </div>
     <div class="col-lg-2"></div>
   </div>
   <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-4">
-      <a [routerLink]="['/savingmoney']" routerLinkActive="active" class="card-link">
+      <a [routerLink]="['/createSavingmoneyChallenge']" routerLinkActive="active" class="card-link">
         <div class="card text-center animated zoomIn">
           <img class="card-img" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/SavingMoneyCategory.png?alt=media&token=08110d5b-2825-4337-ba31-396fe59c8611"
             alt="Card image">
@@ -59,7 +59,7 @@
 
 
   <!-- floating action button-->
-  <a [routerLink]="['/selectCategory']">
+  <a [routerLink]="['createSavingmoneyChallenge']">
     <button type="button" class="btn btn-success btn-circle fixedbutton">
     <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
   </button>
