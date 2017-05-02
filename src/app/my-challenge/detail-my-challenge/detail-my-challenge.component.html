@@ -10,37 +10,25 @@
           {{detailMyChallenge.challengeName}}
         </div>
         <div class="card-block">
-<<<<<<< HEAD
-          <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
           <p class="card-text">{{detailMyChallenge.challengeDescription}}</p>
           <p class="card-text">Time : {{detailMyChallenge.duration}} Days</p>
-=======
-          <h4 class="card-title">"{{detailMyChallenge.challengeDescription}}"</h4>
-          <p class="card-text">Time : {{detailMyChallenge.Duration}} Days</p>
->>>>>>> 78a00be51573a064a9151ce762789e8b53212183
           <p class="card-text">Total : {{detailMyChallenge.totalAmount}} Baht</p>
           <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}
             <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
             <span class="badge badge-default">{{percent}}%</span>
             </span>
             <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
-            <span class="badge badge-success">{{percent}}% Success</span>
+            <h3><span class="badge badge-success">{{percent}}% Success</span></h3>
             </span>
           </p>
-          <!--<div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{percent}}%</div>
-<<<<<<< HEAD
-          </div>
-          <br>
-          <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-primary">Add Money</a>
-=======
-          </div>-->
+         
           <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
-          <a routerLink='/addmoney' class="btn btn-primary">Add Money</a>
+          <a [routerLink]="['/addmoney'+detailMyChallenge.$key]" class="btn btn-primary">Add Money</a>
           </span>
->>>>>>> 78a00be51573a064a9151ce762789e8b53212183
         </div>
       </div>
+      <br>
+      <a [routerLink]="['/mychallenge']" class="btn btn-danger">Go Back <i class="fa fa-window-close fa-lg" aria-hidden="true"></i></a>
     </div>
   </div>
 
@@ -55,15 +43,8 @@
             <th>Date</th>
             <th>Balance</th>
           </tr>
-<<<<<<< HEAD
-
           <tr *ngFor="let cha of detailTransaction; let i=index;">
             <th>{{i+1}}</th>
-
-=======
-          <tr *ngFor="let cha of detailTransaction; let i=index;">
-            <th>{{i+1}}</th>
->>>>>>> 78a00be51573a064a9151ce762789e8b53212183
             <th>{{cha.datetimestamp}}</th>
             <th>{{cha.balance}}</th>
           </tr>
