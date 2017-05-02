@@ -55,13 +55,12 @@ export class AddMoneyComponent implements OnInit {
 
     if(addmoney<=toAchieved){
       this.AddMoneyService.addMoney(addmoney,this.id);
+      
     }else{
       this.AddMoneyService.addMoney(addmoney,this.id);
-      this.AddMoneyService.achievedStatus(this.id);
+      this.AddMoneyService.achievedStatusUpdate(this.id);
     }
 
-
-    this.AddMoneyService.addMoney(addmoney,this.id);
     this.router.navigate(['/detailmychallenge/'+this.id])
   }
 
