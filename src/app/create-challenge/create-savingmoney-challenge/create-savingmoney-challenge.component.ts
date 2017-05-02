@@ -30,7 +30,8 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
       challengeName: this.challengeName,
       challengeDescription: this.challengeDescription,
       duration: this.duration,
-      totalAmount: this.totalAmount
+      totalAmount: this.totalAmount,
+
     }
 
     this.firebaseService.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);

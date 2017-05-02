@@ -10,7 +10,7 @@ export class FirebaseService {
   myChallenges: FirebaseListObservable<any[]>;
   detailMyChallenge: FirebaseObjectObservable<any>;
   balance: FirebaseListObservable<any[]>;
-  folder:any;
+  folder: any;
 
 
   constructor(private af: AngularFire) {
@@ -38,7 +38,7 @@ export class FirebaseService {
 
 
   getDetailMyChallenge(id) {
-    this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/'+id) as FirebaseObjectObservable<myChallengesList>
+    this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/' + id) as FirebaseObjectObservable<myChallengesList>
     return this.detailMyChallenge;
   }
 
@@ -80,7 +80,7 @@ export class FirebaseService {
 
   addCreateSavingmoneyChallenge(createSavingmoneyChallenge) {
     let storageRef = firebase.storage().ref();
-    for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
+    for (let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
       let path = `/${this.folder}/${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
@@ -89,6 +89,7 @@ export class FirebaseService {
         return this.challengeList.push(createSavingmoneyChallenge);
       });
     }
+
   }
 
 }
