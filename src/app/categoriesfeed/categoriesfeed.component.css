@@ -17,9 +17,29 @@ ul.dropdown-menu {
   line-height: 1.33;
   border-radius: 35px;
 }
-
-.card-img-top{
+.card{
   display: block;
   width: 100%;
   height: auto;
+  color: white;
+}
+.card-img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a{
+  color: white;
+}
+
+a:hover > .card{
+  color: #4bae4f;
+  border: dashed 5px;
+  border-color: #4bae4f;
+}
+
+.commingsoon{
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
 }

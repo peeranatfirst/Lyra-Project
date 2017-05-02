@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routing } from '../../../app.routing';
 import { FirebaseService } from "app/services/firebase.service";
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-detail-saving-money',
@@ -30,6 +31,12 @@ export class DetailSavingMoneyComponent implements OnInit {
       console.log(challengeDetail)
       this.challengeDetail = challengeDetail;
 
+      let storageRef = firebase.storage().ref();
+      let spaceRef = storageRef.child(challengeDetail.path);
+      storageRef.child(challengeDetail.path).getDownloadURL().then((url) => {
+        //Set image url
+        this.imageUrl = url;
+      })
     })
 
   }
