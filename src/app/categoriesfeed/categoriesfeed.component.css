@@ -3,20 +3,13 @@
   top: 100px;
   margin-left: 50px;
 }
-ul.dropdown-menu {
+.dropdown-menu {
   box-shadow: none;
   border: 0;
   min-width:0;
-  background:transparent
+  background-color: transparent;
 }
-.btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 35px;
-}
+
 .card{
   display: block;
   width: 100%;
@@ -34,7 +27,6 @@ a{
 }
 
 a:hover > .card{
-  color: #4bae4f;
   border: dashed 5px;
   border-color: #4bae4f;
 }
@@ -42,4 +34,17 @@ a:hover > .card{
 .commingsoon{
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
+}
+
+.fixedbutton {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}
+.btn-circle{
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  padding: 14px 4px;
+  border-radius: 50%;
 }
