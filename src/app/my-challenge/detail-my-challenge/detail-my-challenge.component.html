@@ -10,6 +10,7 @@
           {{detailMyChallenge.challengeName}}
         </div>
         <div class="card-block">
+          <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
           <p class="card-text">{{detailMyChallenge.challengeDescription}}</p>
           <p class="card-text">Time : {{detailMyChallenge.duration}} Days</p>
           <p class="card-text">Total : {{detailMyChallenge.totalAmount}} Baht</p>
@@ -18,10 +19,9 @@
             <span class="badge badge-default">{{percent}}%</span>
             </span>
             <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
-            <h3><span class="badge badge-success">{{percent}}% Success</span></h3>
+            <h4><span class="badge badge-success">{{percent}}% Success</span></h4>
             </span>
           </p>
-         
           <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
           <a [routerLink]="['/addmoney'+detailMyChallenge.$key]" class="btn btn-primary">Add Money</a>
           </span>

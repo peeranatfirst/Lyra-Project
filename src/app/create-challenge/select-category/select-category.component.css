@@ -26,11 +26,6 @@ a{
   color: white;
 }
 
-a:hover > .card{
-  border: dashed 5px;
-  border-color: #4bae4f;
-}
-
 .commingsoon{
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
@@ -47,4 +42,13 @@ a:hover > .card{
   height: 60px;
   padding: 14px 4px;
   border-radius: 50%;
+}
+.red{
+    color:red;
+}
+.form-area{
+    background-color: #FAFAFA;
+    padding: 10px 40px;
+  	margin: 10px 0px;
+  	border: 1px solid GREY;
 }
