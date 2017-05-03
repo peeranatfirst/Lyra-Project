@@ -33,6 +33,7 @@
                 <h6 class="card-title">Pim Patcha</h6>
                 <div class="card-text">
                   {{cha.name}}
+                  <br>
                   <span *ngIf="cha.status != 'Achieved'">
             <span class="badge badge-default">{{cha.percent}}%</span>
                   </span>
@@ -117,6 +118,11 @@
   </div>
 </div>
 
+<a [routerLink]="['/selectCategory']">
+    <button type="button" class="btn btn-circle fixedbutton">
+    <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+  </button>
+  </a>
 
 <!--<div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of inProgressChallenges">
           <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">

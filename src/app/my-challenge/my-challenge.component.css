@@ -116,9 +116,19 @@ h5 {
   height: 60px;
   padding: 14px 4px;
   border-radius: 50%;
+  background-color: #e81d62;
+}
+.fa-pencil{
+  color: white;
 }
 
 .badge{
     background-color: white;
     color: #4bae4f;
+}
+
+a:hover > .card{
+    -webkit-box-shadow: 0 0 10px 3px #378d3b;
+    box-shadow: 0 0 10px 3px #378d3b;
+    color: white;
 }
