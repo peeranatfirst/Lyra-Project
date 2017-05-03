@@ -1,0 +1,11 @@
+.card{
+    border: solid 1px;
+    border-color: #378d3b; 
+}
+.card-header{
+    background-color: #378d3b;
+    color: white;
+}
+thead{
+    background-color: #378d3b;
+}
