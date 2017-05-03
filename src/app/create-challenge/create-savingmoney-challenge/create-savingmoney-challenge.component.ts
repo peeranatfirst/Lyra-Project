@@ -12,7 +12,9 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
   challengeName: any;
   challengeDescription: any;
   duration: any;
-  totalAmount;
+  totalAmount:any;
+  image:any;
+  
 
   constructor(
     private firebaseService: FirebaseService,
@@ -28,7 +30,8 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
       challengeName: this.challengeName,
       challengeDescription: this.challengeDescription,
       duration: this.duration,
-      totalAmount: this.totalAmount
+      totalAmount: this.totalAmount,
+
     }
 
     this.firebaseService.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);

@@ -61,6 +61,7 @@ export class AddMoneyComponent implements OnInit {
         this.AddMoneyService.achievedStatusUpdate(this.id);
       }
     }else{
+      let msg = "";
       return 
     }
 

@@ -52,6 +52,9 @@ export class MyChallengeComponent implements OnInit {
             sum = sum + balance;
           }
           progress = this.firebaseService.calculateProgressPercent(sum, pullTotal);
+          if(progress>100){
+            progress = 100;
+          }
           this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });
           if(pullStatus==='processing'){
             this.inProgressChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });

@@ -1,3 +1,9 @@
-#profile{
-    margin-top: -45px; 
+.profile-avatar{
+    margin-top: -50px;
+    width: 100px;
+    height: 100px;
+}
+.cover{
+    width: 100%;
+    height: auto;
 }

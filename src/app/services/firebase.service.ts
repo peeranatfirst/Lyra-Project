@@ -74,6 +74,7 @@ export class FirebaseService {
   calculateProgressPercent(sum, total) {
     let percent;
     percent = (100 * sum) / total;
+    
     return percent;
   }
 

@@ -8,7 +8,7 @@ import { CheckdataSavingmoneyComponent } from './categoriesfeed/savingmoney/chec
 import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
 import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
 import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
-
+import { SelectCategoryComponent } from './create-challenge/select-category/select-category.component';
 
 const appRoutes: Routes = [
   { path: '', component: CategoriesfeedComponent },
@@ -22,7 +22,8 @@ const appRoutes: Routes = [
   { path: 'detailmychallenge/:id', component: DetailMyChallengeComponent},
   { path: 'addmoney', component: AddMoneyComponent },
   { path: 'addmoney/:id', component: AddMoneyComponent },
-  { path: 'createSavingmoneyChallenge', component: CreateSavingmoneyChallengeComponent}
+  { path: 'createSavingmoneyChallenge', component: CreateSavingmoneyChallengeComponent},
+  { path: 'selectCategory', component: SelectCategoryComponent }
 
 ]
 

@@ -36,6 +36,9 @@ export class DetailMyChallengeComponent implements OnInit {
 
         }
         this.percent = this.firebaseService.calculateProgressPercent(sum, detailMyChallenge.totalAmount);
+        if(this.percent>100){
+          this.percent = 100;
+        }
       })
     })
 

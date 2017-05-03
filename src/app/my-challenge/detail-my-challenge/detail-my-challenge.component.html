@@ -17,19 +17,20 @@
           <p class="card-text">Total : {{detailMyChallenge.totalAmount}} Baht</p>
           <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}
             <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
-            <span class="badge badge-default">{{percent}}%</span>
+            <span class="badge badge-default">{{percent | number:'1.0-0'}}%</span>
             </span>
             <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
-            <span class="badge badge-success">{{percent}}% Success</span>
+            <h4><span class="badge badge-success">{{percent | number:'1.0-0'}}% Success</span></h4>
             </span>
           </p>
-
 
           <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
           <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-primary">Add Money</a>
           </span>
         </div>
       </div>
+      <br>
+      <a [routerLink]="['/mychallenge']" class="btn btn-danger">Go Back <i class="fa fa-window-close fa-lg" aria-hidden="true"></i></a>
     </div>
   </div>
 
@@ -45,11 +46,10 @@
             <th>Balance</th>
           </tr>
 
-
           <tr *ngFor="let cha of detailTransaction; let i=index;">
             <th>{{i+1}}</th>
             <th>{{cha.datetimestamp}}</th>
-            <th>{{cha.balance}}</th>
+            <th>{{cha.balance | currency:'THB':true:'1.2-2'}}</th>
           </tr>
         </thead>
       </table>
