@@ -35,10 +35,10 @@
                   {{cha.name}}
                   <br>
                   <span *ngIf="cha.status != 'Achieved'">
-            <span class="badge badge-default">{{cha.percent}}%</span>
-                  </span>
+                      <span class="badge badge-default">{{cha.percent | number:'1.0-0'}}%</span>
+                  </span>          
                   <span *ngIf="cha.status == 'Achieved'">
-            <h4><span class="badge badge-success">{{cha.percent}}% Success</span></h4>
+                      <h4><span class="badge badge-success">{{cha.percent | number:'1.0-0'}}% Success</span></h4>
                   </span>
                 </div>
               </div>
@@ -66,12 +66,10 @@
                 <h6 class="card-title">Pim Patcha</h6>
                 <div class="card-text">
                   {{cha.name}}
-                  <span *ngIf="cha.status != 'Achieved'">
-            <span class="badge badge-default">{{cha.percent}}%</span>
+                  <span>
+                      <span class="badge badge-default">{{cha.percent | number:'1.0-0'}}%</span>
                   </span>
-                  <span *ngIf="cha.status == 'Achieved'">
-            <h4><span class="badge badge-success">{{cha.percent}}% Success</span></h4>
-                  </span>
+
                 </div>
               </div>
               <div class="card-footer">
@@ -97,11 +95,9 @@
                 <h6 class="card-title">Pim Patcha</h6>
                 <div class="card-text">
                   {{cha.name}}
-                  <span *ngIf="cha.status != 'Achieved'">
-            <span class="badge badge-default">{{cha.percent}}%</span>
-                  </span>
-                  <span *ngIf="cha.status == 'Achieved'">
-            <h4><span class="badge badge-success">{{cha.percent}}% Success</span></h4>
+
+                  <span >
+            <h4><span class="badge badge-success">{{cha.percent | number:'1.0-0'}}% Success</span></h4>
                   </span>
                 </div>
               </div>

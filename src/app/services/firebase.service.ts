@@ -10,11 +10,10 @@ export class FirebaseService {
   myChallenges: FirebaseListObservable<any[]>;
   detailMyChallenge: FirebaseObjectObservable<any>;
   balance: FirebaseListObservable<any[]>;
-  folder: any;
 
 
   constructor(private af: AngularFire) {
-    this.folder = 'savingmoneychallenges';
+
   }
 
   getChallengeList() {
@@ -38,7 +37,7 @@ export class FirebaseService {
 
 
   getDetailMyChallenge(id) {
-    this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/' + id) as FirebaseObjectObservable<myChallengesList>
+    this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/'+id) as FirebaseObjectObservable<myChallengesList>
     return this.detailMyChallenge;
   }
 
@@ -75,21 +74,12 @@ export class FirebaseService {
   calculateProgressPercent(sum, total) {
     let percent;
     percent = (100 * sum) / total;
+    
     return percent;
   }
 
   addCreateSavingmoneyChallenge(createSavingmoneyChallenge) {
-    let storageRef = firebase.storage().ref();
-    for (let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
-      let path = `/${this.folder}/${selectedFile.name}`;
-      let iRef = storageRef.child(path);
-      iRef.put(selectedFile).then((snapshot) => {
-        createSavingmoneyChallenge.image = selectedFile.name;
-        createSavingmoneyChallenge.path = path;
-        return this.challengeList.push(createSavingmoneyChallenge);
-      });
-    }
-
+    return this.challengeList.push(createSavingmoneyChallenge);
   }
 
 }
@@ -100,7 +90,6 @@ interface challengeList {
   challengeDescription?: string;
   duration?: string;
   totalAmount?: string;
-  image?: string;
 }
 
 interface myChallengesList {
