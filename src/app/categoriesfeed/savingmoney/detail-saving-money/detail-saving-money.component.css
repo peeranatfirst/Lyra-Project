@@ -7,3 +7,23 @@
     width: 100%;
     height: auto;
 }
+.card{
+    border: solid 1px;
+    border-color: #378d3b;
+}
+.card-header{
+    color: white;
+    background-color: #378d3b;
+}
+.card-footer{
+    background-color: #378d3b;
+    border-top: solid 1px;
+    border-color: #378d3b;
+    color: white;
+}
+.card-footer > a{
+    color: white;
+}
+.card-footer > a:hover{
+    text-decoration: underline;
+}
