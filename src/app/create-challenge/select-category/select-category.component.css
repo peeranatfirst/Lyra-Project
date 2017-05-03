@@ -47,8 +47,8 @@ a{
     color:red;
 }
 .form-area{
-    background-color: #FAFAFA;
     padding: 10px 40px;
   	margin: 10px 0px;
   	border: 1px solid GREY;
+    border-radius: 5px;
 }

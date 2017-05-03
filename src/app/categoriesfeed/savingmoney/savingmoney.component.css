@@ -121,3 +121,8 @@ h5 {
 .fa-pencil{
   color: white;
 }
+a:hover > .card{
+    -webkit-box-shadow: 0 0 10px 3px #378d3b;
+    box-shadow: 0 0 10px 3px #378d3b;
+    color: white;
+}
