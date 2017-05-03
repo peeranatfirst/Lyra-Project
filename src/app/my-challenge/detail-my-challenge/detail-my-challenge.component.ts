@@ -40,7 +40,7 @@ export class DetailMyChallengeComponent implements OnInit {
     })
 
     this.firebaseService.getTransaction(this.id).subscribe(detailTransaction => {
-      console.log(detailTransaction)
+      //console.log(detailTransaction)
       this.detailTransaction = detailTransaction;
 
     })

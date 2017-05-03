@@ -51,13 +51,7 @@ export class AddMoneyService {
 
   }
    achievedStatusUpdate(id){
-    let change = "Achieved";
-    let myname = "pim";
-    let time = "500";
-    var transaction = {
-      balance : change,
-      date : time
-    }
+    
     var test = {
       challengeStatus: "Achieved"
     };
