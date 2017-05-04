@@ -20,6 +20,9 @@
     border-top: solid 1px;
     border-color: #378d3b;
     color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .card-footer > a{
     color: white;

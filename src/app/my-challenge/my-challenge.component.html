@@ -32,7 +32,8 @@
                 </figure>
                 <h6 class="card-title">Pim Patcha</h6>
                 <div class="card-text">
-                  {{cha.name}}
+                  {{cha.name}}<br>
+                  Target Money : {{cha.total}}
                   <br>
                   <span *ngIf="cha.status != 'Achieved'">
                       <h5><span class="badge badge-default">{{cha.percent | number:'1.0-0'}}%</span></h5>
@@ -64,7 +65,8 @@
                 </figure>
                 <h6 class="card-title">Pim Patcha</h6>
                 <div class="card-text">
-                  {{cha.name}}
+                  {{cha.name}}<br>
+                  Target Money : {{cha.total}}
                   <span>
                       <h5><span class="badge badge-default">{{cha.percent | number:'1.0-0'}}%</span></h5>
                   </span>
@@ -93,7 +95,8 @@
                 </figure>
                 <h6 class="card-title">Pim Patcha</h6>
                 <div class="card-text">
-                  {{cha.name}}
+                  {{cha.name}}<br>
+                  Target Money : {{cha.total}}
                   <span>
                     <h5><span class="badge badge-success">{{cha.percent | number:'1.0-0'}}% Success</span></h5>
                   </span>
@@ -108,6 +111,7 @@
       </div>
     </div>
   </div>
+  <br>
 </div>
 
 <a [routerLink]="['/selectCategory']">
@@ -115,37 +119,3 @@
     <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
   </button>
 </a>
-
-<!--<div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of inProgressChallenges">
-          <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
-            <div class="card">
-              <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
-                alt="Card image cap" width="100%">
-              <div class="card-block">
-                <h4 class="card-title">{{cha.name}}</h4>
-                <p class="card-text">{{cha.des}}</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-          </a>
-          <br>
-        </div>-->
-
-<!--<div class="col-sm-12 col-md-4 com-lg-4 col-xl-4" *ngFor="let cha of achievedChallenges">
-          <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
-            <div class="card">
-              <img class="card-img-top" src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg"
-                alt="Card image cap" width="100%">
-              <div class="card-block">
-                <h4 class="card-title">{{cha.name}}</h4>
-                <p class="card-text">{{cha.des}}</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-          </a>
-          <br>
-        </div>-->
