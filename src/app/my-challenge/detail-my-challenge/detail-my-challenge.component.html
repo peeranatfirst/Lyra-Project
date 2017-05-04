@@ -20,12 +20,14 @@
             <h5><span class="badge badge-success">{{percent | number:'1.0-0'}}% Success</span></h5>
                 </span>
               </p>
-
               <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
                 <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-success btn-add">
-                <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
-              </a>
+                  <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
+                </a>
               </span>
+              <a [routerLink]="" class="btn btn-danger btn-delete">
+                  <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete
+                </a>
               <br><br>
             </div>
             <div class="col-sm-7">
@@ -42,50 +44,40 @@
   <div class="row">
     <div class="col-sm-12" align="center">
       <br>
-      <div class="row">
-        <div class="col-sm-4 flex-first"></div>
-        <div class="col-sm-4 flex-last"></div>
-        <div class="col-sm-2 btn-tran">
-          <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           <i class="fa fa-eye fa-lg" aria-hidden="true"></i> View Transactions
           </a>
-          <br><br>
-        </div>
-        <div class="col-sm-2 btn-back">
-          <a [routerLink]="['/mychallenge']" class="btn btn-danger">
+      <a [routerLink]="['/mychallenge']" class="btn btn-danger">
             <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
           </a>
-          <br>
-        </div>
-      </div>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-block">
-          <h3>Transactions
-            <button type="button" class="close" aria-label="Close" data-toggle="collapse" href="#collapseExample" aria-expanded="false"
-              aria-controls="collapseExample">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          </h3>
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>Date</th>
-                <th>Balance</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let cha of detailTransaction; let i=index;">
-                <th>{{i+1}}</th>
-                <th>{{cha.datetimestamp}}</th>
-                <th>{{cha.balance | currency:'THB':true:'1.2-2'}}</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
       <br>
     </div>
   </div>
-
+  <div class="collapse" id="collapseExample">
+    <div class="card card-block">
+      <h3>Transactions
+        <button type="button" class="close" aria-label="Close" data-toggle="collapse" href="#collapseExample" aria-expanded="false"
+          aria-controls="collapseExample">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </h3>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Date</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cha of detailTransaction; let i=index;">
+            <th>{{i+1}}</th>
+            <th>{{cha.datetimestamp}}</th>
+            <th>{{cha.balance | currency:'THB':true:'1.2-2'}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
 </div>
