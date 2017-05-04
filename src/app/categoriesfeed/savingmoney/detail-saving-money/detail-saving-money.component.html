@@ -1,6 +1,63 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-1 flex-first"></div>
+    <div class="col-sm-1 flex-last"></div>
+    <div class="col-sm-10">
+      <div class="card">
+        <div class="card-header">
+          {{challengeDetail.challengeName}}
+        </div>
+        <div class="card-block">
+          <div class="row">
+            <div class="col-sm-7">
+              <p class="card-text">{{challengeDetail.challengeDescription}}</p>
+              <p class="card-text">Time : {{challengeDetail.duration}} Days</p>
+              <p class="card-text">Total Amount : {{challengeDetail.totalAmount}} Baht</p>
+              <img src="{{imageUrl}}" class="img-fluid">
+              <br>
+            </div>
+            <div class="col-sm-5">
+              <div class="card">
+                <img class="cover" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Cover.jpg?alt=media&token=40a4c457-1574-4ecd-8158-5bfebcae69ad"
+                  alt="Responsive image">
+                <div class="avatar" align="center">
+                  <figure class="profile profile-inline">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=da2b0bd2-354b-47f6-8510-b01fb5398810"
+                      alt="Profile image" class="rounded-circle profile-avatar">
+                  </figure>
+                  <h3>Pim Patcha</h3>
+                  <p>69 Followers | 69K Following</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="card-link"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Like</a>
+          <a href="#" class="card-link"><i class="fa fa-comments-o" aria-hidden="true"></i>Comment</a>
+          <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="card-link"><span class="fa fa-plus-square-o" aria-hidden="true"></span>Add to My Challenge</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-1 flex-first"></div>
+    <div class="col-sm-1 flex-last"></div>
+    <div class="col-sm-10" align="center">
+      <br>
+      <a [routerLink]="['/savingmoney']" class="btn btn-danger"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
+    </div>
+  </div>
+</div>
+<br>
+
+
+<!-- *******อย่าลบ เอาไว้สำรอง*********
+  
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-1 flex-first"></div>
     <div class="col-sm-3">
       <div class="card">
         <img class="cover" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Cover.jpg?alt=media&token=40a4c457-1574-4ecd-8158-5bfebcae69ad"
@@ -40,3 +97,4 @@
   </div>
   <br>
 </div>
+      </div> -->
