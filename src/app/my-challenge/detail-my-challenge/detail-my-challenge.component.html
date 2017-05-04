@@ -10,12 +10,11 @@
           {{detailMyChallenge.challengeName}}
         </div>
         <div class="card-block">
-
           <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
           <p class="card-text">{{detailMyChallenge.challengeDescription}}</p>
           <p class="card-text">Time : {{detailMyChallenge.duration}} Days</p>
           <p class="card-text">Total : {{detailMyChallenge.totalAmount}} Baht</p>
-          <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}
+          <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}<br>
             <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
             <span class="badge badge-default">{{percent | number:'1.0-0'}}%</span>
             </span>
@@ -25,12 +24,15 @@
           </p>
 
           <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
-          <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-primary">Add Money</a>
+          <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-success">
+            <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
+          </a>
           </span>
+          <a [routerLink]="['/mychallenge']" class="btn btn-danger">
+            <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
+          </a>
         </div>
       </div>
-      <br>
-      <a [routerLink]="['/mychallenge']" class="btn btn-danger">Go Back <i class="fa fa-window-close fa-lg" aria-hidden="true"></i></a>
     </div>
   </div>
 
@@ -38,20 +40,21 @@
     <div class="col-sm-12" align="center">
       <br>
       <h3>Transaction</h3>
-      <table class="table table-striped table-bordered">
+      <table class="table table-bordered table-hover">
         <thead>
           <tr>
             <th>No.</th>
             <th>Date</th>
             <th>Balance</th>
           </tr>
-
+        </thead>
+        <tbody>
           <tr *ngFor="let cha of detailTransaction; let i=index;">
             <th>{{i+1}}</th>
             <th>{{cha.datetimestamp}}</th>
             <th>{{cha.balance | currency:'THB':true:'1.2-2'}}</th>
           </tr>
-        </thead>
+        </tbody>
       </table>
     </div>
   </div>
