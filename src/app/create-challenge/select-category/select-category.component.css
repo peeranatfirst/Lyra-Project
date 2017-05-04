@@ -1,54 +1,9 @@
-.floating-action-button {
-  position: relative;
-  top: 100px;
-  margin-left: 50px;
-}
-.dropdown-menu {
-  box-shadow: none;
-  border: 0;
-  min-width:0;
-  background-color: transparent;
-}
-
 .card{
-  display: block;
-  width: 100%;
-  height: auto;
-  color: white;
+    border: solid 1px;
+    border-color: black; 
 }
-.card-img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-a{
-  color: white;
-}
-
-.commingsoon{
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
-}
-
-.fixedbutton {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-}
-.btn-circle{
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  padding: 14px 4px;
-  border-radius: 50%;
-}
-.red{
-    color:red;
-}
-.form-area{
-    padding: 10px 40px;
-  	margin: 10px 0px;
-  	border: 1px solid GREY;
-    border-radius: 5px;
+.card-header{
+    background-color: black;
+    color: white;
+    text-align: center;
 }

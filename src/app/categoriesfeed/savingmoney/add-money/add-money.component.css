@@ -1,0 +1,12 @@
+.card-header{
+    text-align: center;
+    color: white;
+    background-color: #378d3b;
+}
+.card{
+    border: solid 1px;
+    border-color: #378d3b;
+}
+.btn-add{
+    width: 100%;
+}
