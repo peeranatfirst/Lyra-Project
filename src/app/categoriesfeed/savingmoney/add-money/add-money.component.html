@@ -27,8 +27,8 @@
                     Saving Today!
                 </div>
                 <div class="card-block">
-                    <form (submit)="onAddSubmit()">
-                        <div class="form-group" (submit)="onAddSubmit()">
+                    <form (submit)="confirmAlertBox()">
+                        <div class="form-group" (submit)="confirmAlertBox()">
                             <label>fill your saving amount</label>
                             <input type="number" class="form-control" [(ngModel)]="balance" name="balance" placeholder="Your Money" min="0" max="999999999999">
                         </div>
