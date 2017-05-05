@@ -28,6 +28,16 @@ export class DetailMyChallengeComponent implements OnInit {
       //console.log(detailMyChallenge)
       this.detailMyChallenge = detailMyChallenge;
 
+
+      //download image from storage in firebase
+       /*let storageRef = firebase.storage().ref();
+      let spaceRef = storageRef.child(detailMyChallenge.path);
+      storageRef.child(detailMyChallenge.path).getDownloadURL().then((url) => {
+        //Set image url
+        this.imageUrl = url;
+      })*/
+
+
       this.firebaseService.getTransaction(detailMyChallenge.$key).subscribe(toCal => {
         var sum = 0;
         for (let calB of toCal) {

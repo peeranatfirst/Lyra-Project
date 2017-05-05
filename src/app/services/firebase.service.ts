@@ -110,6 +110,7 @@ interface myChallengesList {
   challengeStatus?: string;
   duration?: string;
   totalAmount?: number;
+  image?:string;
 }
 
 interface myBalance {
