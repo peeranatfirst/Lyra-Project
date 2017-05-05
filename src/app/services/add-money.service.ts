@@ -60,9 +60,13 @@ export class AddMoneyService {
 
   }
 
+  deleteTransaction(key,tId){
+    firebase.database().ref('/users/userid1/Challenges/'+key+'/savingTransaction/'+tId).remove();
+  }
 
-
-
+  deleteChallenge(id){
+    firebase.database().ref('/users/userid1/Challenges/'+id).remove();
+  }
 
 }
 
