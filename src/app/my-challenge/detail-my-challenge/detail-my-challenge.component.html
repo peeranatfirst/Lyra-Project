@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-sm-6">
                   <span class="delete">
-                    <a (click)="onDeleteClick()" role="button" class="btn btn-danger btn-delete">
+                    <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger btn-delete">
                       <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete Challenge
                     </a>
                   </span>
@@ -90,6 +90,9 @@
             <th>{{i+1}}</th>
             <th>{{cha.datetimestamp}}</th>
             <th>{{cha.balance | currency:'THB':true:'1.2-2'}}</th>
+            <th><a (click)="onDeleteTransaction(cha.$key)" role="button" class="btn btn-danger btn-delete">
+                      <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                    </a></th>
           </tr>
         </tbody>
       </table>
