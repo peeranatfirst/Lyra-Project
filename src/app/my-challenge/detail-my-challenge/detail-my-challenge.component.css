@@ -13,3 +13,12 @@ thead{
 .close{
     text-align: right;
 }
+.btn-add{
+    width: 100%;
+}
+.delete{
+    color: #FFFFFF;
+}
+.btn-delete{
+    width: 100%;
+}

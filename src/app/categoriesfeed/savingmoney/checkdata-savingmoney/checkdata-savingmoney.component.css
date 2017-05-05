@@ -1,0 +1,18 @@
+.card{
+  border: solid 1px;
+  border-color: #378d3b;
+}
+.card-header{
+  color: white;
+  background-color: #378d3b;
+  text-align: center;
+}
+.card-footer{
+  background-color: #378d3b;
+}
+.btn-submit{
+  text-align: center;
+}
+.add{
+    font-family: 'Kanit', sans-serif;
+}
