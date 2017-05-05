@@ -30,12 +30,12 @@ export class DetailMyChallengeComponent implements OnInit {
 
 
       //download image from storage in firebase
-       /*let storageRef = firebase.storage().ref();
-      let spaceRef = storageRef.child(detailMyChallenge.path);
-      storageRef.child(detailMyChallenge.path).getDownloadURL().then((url) => {
-        //Set image url
-        this.imageUrl = url;
-      })*/
+      /*let storageRef = firebase.storage().ref();
+     let spaceRef = storageRef.child(detailMyChallenge.path);
+     storageRef.child(detailMyChallenge.path).getDownloadURL().then((url) => {
+       //Set image url
+       this.imageUrl = url;
+     })*/
 
 
       this.firebaseService.getTransaction(detailMyChallenge.$key).subscribe(toCal => {
@@ -46,7 +46,7 @@ export class DetailMyChallengeComponent implements OnInit {
 
         }
         this.percent = this.firebaseService.calculateProgressPercent(sum, detailMyChallenge.totalAmount);
-        if(this.percent>100){
+        if (this.percent > 100) {
           this.percent = 100;
         }
       })
@@ -60,10 +60,12 @@ export class DetailMyChallengeComponent implements OnInit {
 
   }
 
-  onDeleteClick(){
-    this.firebaseService.deleteMychallenge(this.id);
+  onDeleteClick() {
+    if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName+" Challenge")) {
+      this.firebaseService.deleteMychallenge(this.id);
+      this.router.navigate(['/mychallenge'])
+    }
 
-    this.router.navigate(['/mychallenge'])
   }
 
 }
