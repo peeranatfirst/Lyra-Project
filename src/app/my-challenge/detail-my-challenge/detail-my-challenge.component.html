@@ -22,6 +22,11 @@
               </p>
               <div class="row">
                 <div class="col-sm-6">
+                  <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
+                    <a class="btn btn-success btn-add disabled" aria-disabled="true">
+                      <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
+                    </a>
+                  </span>
                   <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
                     <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-success btn-add">
                       <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
