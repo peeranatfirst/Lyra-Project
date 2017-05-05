@@ -1,33 +1,52 @@
-<div class="container" align="center">
-  <h2 class="page-header">Creating Saving Money Challenge</h2>
-</div>
 <div class="container">
-  <form (submit)="onAddSubmit()">
-    <div class="form-group no-border">
-      <label>Challenge Name</label>
-      <input type="text" class="form-control" [(ngModel)]="challengeName" name="challengeName" required >
+  <div class="row">
+    <div class="col-sm-2 flex-first"></div>
+    <div class="col-sm-2 flex-last"></div>
+    <div class="col-sm-8">
+      <form (submit)="onAddSubmit()">
+        <div class="card">
+          <div class="card-header">
+            Creating Saving Money Challenge
+          </div>
+          <div class="card-block">
+            <div class="form-group no-border">
+              <label>Challenge Name</label>
+              <input type="text" class="form-control" [(ngModel)]="challengeName" name="challengeName" required>
+            </div>
+            <div class="form-group no-border">
+              <label>Challenge Description</label>
+              <input type="text" class="form-control" [(ngModel)]="challengeDescription" name="challengeDescription" required>
+            </div>
+            <div class="form-group no-border">
+              <label>Duration</label>
+              <input type="number" class="form-control" [(ngModel)]="duration" name="duration" required>
+            </div>
+            <div class="form-group no-border">
+              <label>Total Amount</label>
+              <input type="number" class="form-control" [(ngModel)]="totalAmount" name="totalAmount" required>
+            </div>
+            <div class="form-group no-border">
+              <label>Upload image of Challenge</label>
+              <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image" required>
+            </div>
+            <div class="col-sm-12 btn-submit">
+              <button type="submit" value="Submit" class="btn btn-success">
+                  <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
+                </button>
+            </div>
+            <br>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="form-group no-border">
-      <label>Challenge Description</label>
-      <input type="text" class="form-control" [(ngModel)]="challengeDescription" name="challengeDescription" required >
-    </div>
-    <div class="form-group no-border">
-      <label>Duration</label>
-      <input type="number" class="form-control" [(ngModel)]="duration" name="duration" required>
-    </div>
-    <div class="form-group no-border">
-      <label>Total Amount</label>
-      <input type="number" class="form-control" [(ngModel)]="totalAmount" name="totalAmount" required>
-    </div>
-    <div class="form-group no-border">
-      <label>Upload image of Challenge</label>
-      <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image" required>
-    </div>
-
-    
-    <button type="submit" class="btn btn-primary">Save</button>
-    
-  </form>
-   
-  <br />
+  </div>
 </div>
+<div class="row">
+  <div class="col-sm-12" align="center">
+    <br>
+    <a [routerLink]="['/selectCategory']" class="btn btn-danger">
+        <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
+      </a>
+  </div>
+</div>
+<br>

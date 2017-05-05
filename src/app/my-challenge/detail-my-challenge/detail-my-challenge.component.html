@@ -20,20 +20,29 @@
             <h5><span class="badge badge-success">{{percent | number:'1.0-0'}}% Success</span></h5>
                 </span>
               </p>
-              <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
-                <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-success btn-add">
-                  <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
-                </a>
-              </span>
-              <a (click)="onDeleteClick()" class="btn btn-danger btn-delete">
-                  <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete
-                </a>
-              <br><br>
+              <div class="row">
+                <div class="col-sm-6">
+                  <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
+                    <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-success btn-add">
+                      <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
+                    </a>
+                  </span>
+                  <br><br>
+                </div>
+                <div class="col-sm-6">
+                  <span class="delete">
+                    <a (click)="onDeleteClick()" role="button" class="btn btn-danger btn-delete">
+                      <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete Challenge
+                    </a>
+                  </span>
+                  <br><br>
+                </div>
+              </div>
             </div>
             <div class="col-sm-7">
               <img src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg" class="img-fluid rounded"
                 alt="Responsive image">
-                <img src="{{imageUrl}}" class="img-fluid">
+              <img src="{{imageUrl}}" class="img-fluid">
             </div>
           </div>
 
@@ -48,7 +57,7 @@
       <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           <i class="fa fa-eye fa-lg" aria-hidden="true"></i> View Transactions
           </a>
-        <a [routerLink]="['/mychallenge']" class="btn btn-danger">
+      <a [routerLink]="['/mychallenge']" class="btn btn-danger">
             <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
         </a>
       <br>
