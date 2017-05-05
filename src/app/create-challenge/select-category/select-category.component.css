@@ -1,9 +1,9 @@
-.card{
+.card-all{
     border: solid 1px;
-    border-color: black; 
+    border-color: #e81d62;
 }
 .card-header{
-    background-color: black;
+    background-color: #e81d62;
     color: white;
     text-align: center;
 }
