@@ -1,43 +1,35 @@
 <div class="container">
-
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item active">My Challenge</li>
-    </ol>
-
     <div class="row">
-
-        <div class="col-md-5">
-            <div class="card">
-                <div class="card-header">
-                    Challenge Name
-                </div>
-                <div class="card-block">
-                    <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
-                    <p>Total Amount : {{detailMyChallenge.totalAmount}}</p>
-                </div>
-            </div>
-            <br>
-        </div>
-        <script type="text/typescript">
-
-        </script>
-        <div class="col-md-7">
+        <div class="col-md-3 flex-first"></div>
+        <div class="col-md-3 flex-last"></div>
+        <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
                     Saving Today!
                 </div>
                 <div class="card-block">
+                    <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
+                    <p>Total Amount : {{detailMyChallenge.totalAmount}}</p>
                     <form (submit)="onAddSubmit()">
                         <div class="form-group" (submit)="onAddSubmit()">
                             <label>fill your saving amount</label>
                             <input type="number" class="form-control" [(ngModel)]="balance" name="balance" placeholder="Your Money" min="0" max="999999999999">
                         </div>
-                        <button type="submit" class="btn btn-primary">Add Money</button>
+                        <button type="submit" class="btn btn-success btn-add">
+                            <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
+                        </button>
                     </form>
                 </div>
             </div>
-            <br>
         </div>
-
+    </div>
+    <div class="row">
+        <div class="col-sm-12" align="center">
+            <br>
+            <a [routerLink]="['/detailmychallenge/'+detailMyChallenge.$key]" class="btn btn-danger">
+                <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
+            </a>
+        </div>
     </div>
 </div>
+<br>
