@@ -6,8 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
 import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-import { ModalModule } from "angular2-modal";
-import { BootstrapModalModule } from "angular2-modal/plugins/bootstrap";
 
 //Components
 import { AppComponent } from './app.component';
@@ -73,9 +71,7 @@ const firebaseAuthConfig = {
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     routing,
-    FlashMessagesModule,
-    ModalModule.forRoot(),
-    BootstrapModalModule
+    FlashMessagesModule
 
   ],
   providers: [
