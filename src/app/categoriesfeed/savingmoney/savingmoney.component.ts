@@ -28,6 +28,8 @@ export class SavingmoneyComponent implements OnInit {
     this.firebaseService.getChallengeList().subscribe(challengeList => {
       console.log(challengeList);
       this.challengeList = challengeList;
+
+      
     })
   }
 

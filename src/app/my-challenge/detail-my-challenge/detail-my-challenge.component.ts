@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routing } from '../../app.routing';
 import { FirebaseService } from "app/services/firebase.service";
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { DetailSavingMoneyComponent } from '../../categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component'
 
 @Component({
   selector: 'app-detail-my-challenge',
@@ -15,6 +16,7 @@ export class DetailMyChallengeComponent implements OnInit {
   percent: any;
   detailTransaction: any;
   countNumber: number;
+  challengeDetail;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -28,14 +30,7 @@ export class DetailMyChallengeComponent implements OnInit {
       //console.log(detailMyChallenge)
       this.detailMyChallenge = detailMyChallenge;
 
-
-      //download image from storage in firebase
-      /*let storageRef = firebase.storage().ref();
-     let spaceRef = storageRef.child(detailMyChallenge.path);
-     storageRef.child(detailMyChallenge.path).getDownloadURL().then((url) => {
-       //Set image url
-       this.imageUrl = url;
-     })*/
+      
 
 
       this.firebaseService.getTransaction(detailMyChallenge.$key).subscribe(toCal => {
