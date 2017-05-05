@@ -2,7 +2,7 @@
   <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
 </head>
 
-<nav class="navbar sticky-top navbar-inverse navbar-toggleable-md navbar-light bg-inverse">
+<nav class="navbar sticky-top navbar-inverse navbar-toggleable-md navbar-light bg-inverse" style="font-family: Kanit">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -56,72 +56,3 @@
 
 
 
-<!--<nav class="navbar navbar-inverse bg-inverse sticky-top navbar-toggleable-md navbar-light bg-faded" style="font-family:'Kanit', sans-serif">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" routerLink="/">LYRA</a>
-
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/']"><span class="nav-font-color">Categories</span></a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-    </form>
-    <ul class="navbar-nav my-2 my-lg-0">
-      <li class="nav-item">
-        <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/mychallenge']">
-        <img class="profileBar rounded-circle" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=86de7d6f-2705-45ef-9fa1-8590aa76c3fe">
-          <span class="nav-font-color">My Challenge
-          </span>
-        </a>
-      </li>
-    </ul>
-    <ul class="navbar-nav my-2 my-lg-0">
-      <li *ngIf="!(af.auth | async)" class="nav-item active">
-        <a class="nav-link" (click)="login()"><span class="nav-font-color">Login</span></a>
-      </li>
-      <li class="nav-item active">
-        <a *ngIf="(af.auth | async)" class="nav-link" (click)="logout()"><span class="nav-font-color">Logout</span></a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<!-- <nav>
-  <ul class="nav navbar-nav navbar-right mobile-bar">
-    <li>
-      <a href="#">
-        <span class="menu-icon fa fa-home"></span> Home
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="menu-icon fa fa-info"></span>
-        <span class="hidden-xs">About the Boat</span>
-        <span class="visible-xs">About</span>
-      </a>
-    </li>
-    <li class="hidden-xs">
-      <a href="#">
-        <span class="menu-icon fa fa-picture-o"></span> Photos
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="menu-icon fa fa-phone"></span>
-        <span class="hidden-xs">Contact Us</span>
-        <span class="visible-xs">Contact</span>
-      </a>
-    </li>
-    <li class="visible-xs">
-      <a href="#navbar-more-show">
-        <span class="menu-icon fa fa-bars"></span> More
-      </a>
-    </li>
-  </ul>
-</nav>-->

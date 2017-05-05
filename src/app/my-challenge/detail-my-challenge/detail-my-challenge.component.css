@@ -5,7 +5,11 @@
 .card-header{
     background-color: #378d3b;
     color: white;
+    text-align: center;
 }
 thead{
     background-color: #378d3b;
+}
+.close{
+    text-align: right;
 }

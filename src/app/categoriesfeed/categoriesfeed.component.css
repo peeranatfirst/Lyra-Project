@@ -1,15 +1,3 @@
-.floating-action-button {
-  position: relative;
-  top: 100px;
-  margin-left: 50px;
-}
-.dropdown-menu {
-  box-shadow: none;
-  border: 0;
-  min-width:0;
-  background-color: transparent;
-}
-
 .card{
   display: block;
   width: 100%;
@@ -38,8 +26,8 @@ a:hover > .card{
 
 .fixedbutton {
     position: fixed;
-    bottom: 5%;
-    right: 5%;
+    bottom: 2%;
+    right: 1%;
 }
 .btn-circle{
   display: inline-block;
@@ -51,4 +39,8 @@ a:hover > .card{
 }
 .fa-pencil{
   color: white;
+}
+.btn-circle:hover{
+  -webkit-box-shadow: 0 5px 10px 2px #BDBDBD;
+  box-shadow: 0 5px 10px 2px #BDBDBD;
 }

@@ -75,9 +75,9 @@ export class AddMoneyComponent implements OnInit {
   }
 
   confirmAlertBox(){
-    this.modal.alert().size('sm').title('this is title naja').body(`
+    this.modal.alert().size('lg').title('this is title naja').body(`
             <h4>Alert is a classic (title/body/footer) 1 button modal window that 
-            does not block.</h4>`).open();
+            does not block.</h4>`);
     
   }
 
