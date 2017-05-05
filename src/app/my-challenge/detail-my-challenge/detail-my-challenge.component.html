@@ -1,6 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-5">
+       <!--<img src="{{imageUrl}}" class="img-fluid">-->
+     <img src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg" class="img-fluid rounded float-right"
+        alt="Responsive image">
+    </div>
+    <div class="col-sm-7">
       <div class="card">
         <div class="card-header">
           {{detailMyChallenge.challengeName}}
@@ -25,7 +30,7 @@
                   <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
                 </a>
               </span>
-              <a [routerLink]="" class="btn btn-danger btn-delete">
+              <a (click)="onDeleteClick()" class="btn btn-danger btn-delete">
                   <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete
                 </a>
               <br><br>
@@ -33,6 +38,7 @@
             <div class="col-sm-7">
               <img src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg" class="img-fluid rounded"
                 alt="Responsive image">
+                <img src="{{imageUrl}}" class="img-fluid">
             </div>
           </div>
 
@@ -53,6 +59,7 @@
       <br>
     </div>
   </div>
+  <br />
   <div class="collapse" id="collapseExample">
     <div class="card card-block">
       <h3>Transactions

@@ -92,6 +92,10 @@ export class FirebaseService {
     }
   }
 
+  deleteMychallenge(id){
+    return this.myChallenges.remove(id);
+  }
+
 }
 
 interface challengeList {
@@ -110,6 +114,7 @@ interface myChallengesList {
   challengeStatus?: string;
   duration?: string;
   totalAmount?: number;
+  image?:string;
 }
 
 interface myBalance {
