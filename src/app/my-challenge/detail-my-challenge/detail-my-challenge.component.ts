@@ -18,7 +18,7 @@ export class DetailMyChallengeComponent implements OnInit {
 
   constructor(
     private firebaseService: FirebaseService,
-    private routing: Router,
+    private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -58,6 +58,12 @@ export class DetailMyChallengeComponent implements OnInit {
 
     })
 
+  }
+
+  onDeleteClick(){
+    this.firebaseService.deleteMychallenge(this.id);
+
+    this.router.navigate(['/mychallenge'])
   }
 
 }

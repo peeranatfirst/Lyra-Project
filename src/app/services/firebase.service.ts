@@ -92,6 +92,10 @@ export class FirebaseService {
     }
   }
 
+  deleteMychallenge(id){
+    return this.myChallenges.remove(id);
+  }
+
 }
 
 interface challengeList {
