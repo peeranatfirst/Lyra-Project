@@ -3,6 +3,7 @@
         <div class="col-md-3 flex-first"></div>
         <div class="col-md-3 flex-last"></div>
         <div class="col-sm-6">
+            
             <div class="card">
                 <div class="card-header">
                     Saving Today!
@@ -23,8 +24,8 @@
                     Saving Today!
                 </div>
                 <div class="card-block">
-                    <form (submit)="confirmAlertBox()">
-                        <div class="form-group" (submit)="confirmAlertBox()">
+                    <form (submit)="onAddSubmit()">
+                        <div class="form-group" (submit)="onAddSubmit()">
 
                             <label>fill your saving amount</label>
                             <input type="number" class="form-control" [(ngModel)]="balance" name="balance" placeholder="Your Money" min="0" max="999999999999">
@@ -33,6 +34,7 @@
                             <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
                         </button>
                     </form>
+                    
                 </div>
             </div>
         </div>

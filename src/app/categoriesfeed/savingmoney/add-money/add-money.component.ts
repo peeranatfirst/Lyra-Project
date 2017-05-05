@@ -27,7 +27,7 @@ export class AddMoneyComponent implements OnInit {
     private overlay: Overlay,
     private vcRef: ViewContainerRef,
     private modal: Modal  ){
-      overlay.defaultViewContainer = vcRef;
+       modal.overlay.defaultViewContainer = vcRef;
      }
 
   ngOnInit() {
@@ -57,28 +57,31 @@ export class AddMoneyComponent implements OnInit {
     })
 
     let toAchieved = totalAmount - currentMoney;
-    /*if (toAchieved > 0) {
+    if (toAchieved > 0) {
       if (addmoney <= toAchieved) {
         this.AddMoneyService.addMoney(addmoney, this.id);
+        this.modal.alert()
+          .size('sm')
+          .isBlocking(false)
+          .showClose(false)
+          .keyboard(27)
+          .title('Completed')
+          .body('Keep going!!')
+          .okBtn('Okay')
+          .okBtnClass('btn btn-primary')
+          .open();
 
       } else {
         this.AddMoneyService.addMoney(addmoney, this.id);
         this.AddMoneyService.achievedStatusUpdate(this.id);
+        this.modal.alert().size('lg').title('Achieved').body(`this is body`).open();
       }
     }else{
-      let msg = "";
-      return 
-    }*/
-    this.confirmAlertBox();
+       this.modal.alert().size('lg').title('Cannot Add Money').body(`this is body`).open(); 
+    }
+   
 
     //this.router.navigate(['/detailmychallenge/' + this.id])
-  }
-
-  confirmAlertBox(){
-    this.modal.alert().size('lg').title('this is title naja').body(`
-            <h4>Alert is a classic (title/body/footer) 1 button modal window that 
-            does not block.</h4>`);
-    
   }
 
 
