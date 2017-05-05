@@ -11,6 +11,7 @@ export class FirebaseService {
   detailMyChallenge: FirebaseObjectObservable<any>;
   balance: FirebaseListObservable<any[]>;
   folder: any;
+  detailBalance: FirebaseListObservable<any[]>;
 
 
   constructor(private af: AngularFire) {
@@ -46,8 +47,6 @@ export class FirebaseService {
     this.balance = this.af.database.list('/users/userid1/Challenges/' + key + '/savingTransaction') as FirebaseListObservable<myBalance[]>
     return this.balance;
   }
-
-
 
   getKeyOfChallenge(challengeslist: myChallengesList) {
     return challengeslist.$key;
@@ -92,7 +91,7 @@ export class FirebaseService {
     }
   }
 
-  deleteMychallenge(id){
+  deleteMychallenge(id) {
     return this.myChallenges.remove(id);
   }
 
@@ -104,7 +103,7 @@ interface challengeList {
   challengeDescription?: string;
   duration?: string;
   totalAmount?: string;
-  image?:string;
+  image?: string;
 }
 
 interface myChallengesList {
@@ -114,7 +113,7 @@ interface myChallengesList {
   challengeStatus?: string;
   duration?: string;
   totalAmount?: number;
-  image?:string;
+  image?: string;
 }
 
 interface myBalance {

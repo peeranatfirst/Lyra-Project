@@ -3,6 +3,7 @@ import { routing } from '../../app.routing';
 import { FirebaseService } from "app/services/firebase.service";
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { DetailSavingMoneyComponent } from '../../categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component'
+import { AddMoneyService } from '../../services/add-money.service';
 
 @Component({
   selector: 'app-detail-my-challenge',
@@ -11,15 +12,18 @@ import { DetailSavingMoneyComponent } from '../../categoriesfeed/savingmoney/det
 })
 export class DetailMyChallengeComponent implements OnInit {
   id: any;
+  key: any;
   detailMyChallenge: any;
   imageUrl: any;
   percent: any;
   detailTransaction: any;
   countNumber: number;
   challengeDetail;
+  detailBalance: any;
 
   constructor(
     private firebaseService: FirebaseService,
+    private AddMoneyService: AddMoneyService,
     private router: Router,
     private route: ActivatedRoute) { }
 
@@ -29,8 +33,6 @@ export class DetailMyChallengeComponent implements OnInit {
     this.firebaseService.getDetailMyChallenge(this.id).subscribe(detailMyChallenge => {
       //console.log(detailMyChallenge)
       this.detailMyChallenge = detailMyChallenge;
-
-      
 
 
       this.firebaseService.getTransaction(detailMyChallenge.$key).subscribe(toCal => {
@@ -56,11 +58,12 @@ export class DetailMyChallengeComponent implements OnInit {
   }
 
   onDeleteClick() {
-    if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName+" Challenge")) {
+    if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge")) {
       this.firebaseService.deleteMychallenge(this.id);
       this.router.navigate(['/mychallenge'])
     }
 
   }
+
 
 }
