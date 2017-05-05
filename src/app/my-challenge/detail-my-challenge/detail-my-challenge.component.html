@@ -22,6 +22,11 @@
               </p>
               <div class="row">
                 <div class="col-sm-6">
+                  <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
+                    <a class="btn btn-success btn-add disabled" aria-disabled="true">
+                      <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
+                    </a>
+                  </span>
                   <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
                     <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-success btn-add">
                       <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
@@ -31,7 +36,7 @@
                 </div>
                 <div class="col-sm-6">
                   <span class="delete">
-                    <a (click)="onDeleteClick()" role="button" class="btn btn-danger btn-delete">
+                    <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger btn-delete">
                       <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete Challenge
                     </a>
                   </span>
@@ -85,7 +90,7 @@
             <th>{{i+1}}</th>
             <th>{{cha.datetimestamp}}</th>
             <th>{{cha.balance | currency:'THB':true:'1.2-2'}}</th>
-            <th><a (click)="onDeleteClick()" role="button" class="btn btn-danger btn-delete">
+            <th><a (click)="onDeleteTransaction(cha.$key)" role="button" class="btn btn-danger btn-delete">
                       <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                     </a></th>
           </tr>

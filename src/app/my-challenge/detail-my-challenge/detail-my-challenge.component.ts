@@ -57,13 +57,20 @@ export class DetailMyChallengeComponent implements OnInit {
 
   }
 
-  onDeleteClick() {
+  onDeleteChallenge() {
     if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge")) {
-      this.firebaseService.deleteMychallenge(this.id);
+      this.AddMoneyService.deleteChallenge(this.detailMyChallenge.$key);
       this.router.navigate(['/mychallenge'])
     }
 
   }
 
+  onDeleteTransaction(key) {
+    //console.log(this.detailMyChallenge.$key);
+    //console.log(key);
+    this.AddMoneyService.deleteTransaction(this.detailMyChallenge.$key,key);
+
+    this.router.navigate(['/detailmychallenge/'+this.detailMyChallenge.$key])
+   }
 
 }
