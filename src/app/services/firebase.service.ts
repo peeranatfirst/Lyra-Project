@@ -101,7 +101,7 @@ interface challengeList {
   challengeDescription?: string;
   duration?: string;
   totalAmount?: string;
-  image?: string;
+  path?: string;
 }
 
 interface myChallengesList {
