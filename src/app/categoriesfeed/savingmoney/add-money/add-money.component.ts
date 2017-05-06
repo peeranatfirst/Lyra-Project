@@ -51,19 +51,17 @@ export class AddMoneyComponent implements OnInit {
     })
 
     let toAchieved = totalAmount - currentMoney;
-    if (toAchieved > 0) {
-    //  if (addmoney <= toAchieved) {
+
+     if (addmoney <= toAchieved) {
         this.AddMoneyService.addMoney(addmoney, this.id);
         
 
-    //  } else {
-     //   this.AddMoneyService.addMoney(addmoney, this.id);
-       // this.AddMoneyService.achievedStatusUpdate(this.id);
-      //  this.modal.alert().size('lg').title('Achieved').body(`this is body`).open();
-    //  }
-    }
+      } else {
+        this.AddMoneyService.addMoney(addmoney, this.id);
+        this.AddMoneyService.achievedStatusUpdate(this.id);
+     }
 
-    //this.router.navigate(['/detailmychallenge/' + this.id])
+    this.router.navigate(['/detailmychallenge/' + this.id])
   }
 
 
