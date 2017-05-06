@@ -22,6 +22,8 @@ export class FirebaseService {
     this.challengeList = this.af.database.list('/Categories /SavingMoney') as FirebaseListObservable<challengeList[]>
     return this.challengeList;
   }
+
+
   getChallengeDetail(id) {
     this.challengeDetail = this.af.database.object('/Categories /SavingMoney/' + id) as FirebaseObjectObservable<challengeList>
     return this.challengeDetail;
@@ -90,6 +92,19 @@ export class FirebaseService {
       });
     }
   }
+  
+  addCreateSavingmoneyChallenge2(createSavingmoneyChallengeNoDescrip) {
+    let storageRef = firebase.storage().ref();
+    for (let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
+      let path = `/${this.folder}/${selectedFile.name}`;
+      let iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        createSavingmoneyChallengeNoDescrip.image = selectedFile.name;
+        createSavingmoneyChallengeNoDescrip.path = path;
+        firebase.database().ref('/Categories /SavingMoney').push(createSavingmoneyChallengeNoDescrip);
+      });
+    }
+  }
 
 
 
@@ -103,6 +118,7 @@ interface challengeList {
   totalAmount?: string;
   path?: string;
 }
+
 
 interface myChallengesList {
   $key?: string;

@@ -33,7 +33,7 @@
 
     <ul class="navbar-nav my-2 my-lg-0">
       <li class="nav-item">
-        <a  class="nav-link" [routerLink]="['/mychallenge']">
+        <a *ngIf="(af.auth | async)" class="nav-link" [routerLink]="['/mychallenge']">
           <img class="profileBar rounded-circle" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=86de7d6f-2705-45ef-9fa1-8590aa76c3fe">
           <span class="nav-font-color" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="true" aria-label="Toggle navigation">My Challenge

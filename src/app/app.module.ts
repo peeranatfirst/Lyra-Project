@@ -30,6 +30,7 @@ import { FirebaseService } from './services/firebase.service';
 import { SelectCategoryComponent } from './create-challenge/select-category/select-category.component';
 
 
+
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
   authDomain: "lyra-24b71.firebaseapp.com",
@@ -60,6 +61,7 @@ const firebaseAuthConfig = {
     CreateSavingmoneyChallengeComponent,
     ProgressBarDirective,
     SelectCategoryComponent
+
 
 
   ],
