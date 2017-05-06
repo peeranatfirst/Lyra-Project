@@ -10,12 +10,10 @@ export class FirebaseService {
   myChallenges: FirebaseListObservable<any[]>;
   detailMyChallenge: FirebaseObjectObservable<any>;
   balance: FirebaseListObservable<any[]>;
-  folder: any;
   detailBalance: FirebaseListObservable<any[]>;
 
 
   constructor(private af: AngularFire) {
-    this.folder = 'savingmoneychallenges';
   }
 
   getChallengeList() {
@@ -80,10 +78,29 @@ export class FirebaseService {
     return percent;
   }
 
+  getListOfChallengeId(listOfChallenge : challengeList){
+    return listOfChallenge.$key;
+  }
+   getListOfChallengeName(listOfChallenge : challengeList){
+    return listOfChallenge.challengeName;
+  }
+   getListOfChallengeDes(listOfChallenge : challengeList){
+    return listOfChallenge.challengeDescription;
+  }
+   getListOfChallengeDuration(listOfChallenge : challengeList){
+    return listOfChallenge.duration;
+  }
+  getListOfChallengeGoal(listOfChallenge : challengeList){
+    return listOfChallenge.totalAmount;
+  }
+  getListOfChallengePath(listOfChallenge : challengeList){
+    return listOfChallenge.path;
+  }
+
   addCreateSavingmoneyChallenge(createSavingmoneyChallenge) {
     let storageRef = firebase.storage().ref();
     for (let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
-      let path = `/${this.folder}/${selectedFile.name}`;
+      let path = `/savingmoneychallenges/${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
         createSavingmoneyChallenge.image = selectedFile.name;

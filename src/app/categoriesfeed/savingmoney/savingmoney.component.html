@@ -3,10 +3,10 @@
     <li class="breadcrumb-item active">Saving Money</li>
   </ol>
   <div class="row">
-    <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let cha of challengeList">
-      <a [routerLink]="['/detailsavingmoney/'+cha.$key]" routerLinkActive='active' class="card-link">
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let cha of listOfChallenge">
+      <a [routerLink]="['/detailsavingmoney/'+cha.chaId]" routerLinkActive='active' class="card-link">
         <div class="card card-inverse card-info">
-          <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/12435-NO8HE3-%5BConverted%5D.png?alt=media&token=ac44246a-ed0d-4875-9744-e023e6c2fc58">
+          <img class="card-img-top" src="{{cha.imgSRC}}">
           <div class="card-block">
             <figure class="profile profile-inline">
               <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=da2b0bd2-354b-47f6-8510-b01fb5398810"
@@ -14,8 +14,12 @@
             </figure>
             <h6 class="card-title">Pim Patcha</h6>
             <div class="card-text">
+<<<<<<< HEAD
               <b>{{cha.challengeName}}</b><br>
               Goal : {{cha.totalAmount}}<br>
+=======
+              {{cha.chaName}}
+>>>>>>> 196a41cbc43129a62e4663f85d24203b6c1908e7
             </div>
           </div>
           <div class="card-footer">

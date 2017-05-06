@@ -7,6 +7,12 @@ import { AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
 import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 4afb71f0856adb149a2327cba1256453fc9ae04f
 //Components
 import { AppComponent } from './app.component';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
