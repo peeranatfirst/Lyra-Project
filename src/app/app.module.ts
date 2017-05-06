@@ -8,6 +8,8 @@ import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 
+
+
 //Components
 import { AppComponent } from './app.component';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
