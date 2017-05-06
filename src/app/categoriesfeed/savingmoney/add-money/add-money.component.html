@@ -5,11 +5,16 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    Saving Today!
+                    Saving your money
                 </div>
                 <div class="card-block">
                     <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
+<<<<<<< HEAD
                     <p>Total Amount : {{detailMyChallenge.totalAmount}}</p>
+=======
+                    <p>Goal : {{detailMyChallenge.totalAmount | currency:'THB':true:'1.0-0'}}</p>
+                    <p>Total Amount : {{currentBalance | currency:'THB':true:'1.0-0'}}</p>
+>>>>>>> 4b034d591a847cf7c9531eb4c69ccdce8c4d813e
                     <form (submit)="onAddSubmit()">
                         <div class="form-group" (submit)="onAddSubmit()">
 

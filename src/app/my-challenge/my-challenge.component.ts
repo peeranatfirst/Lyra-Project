@@ -38,7 +38,7 @@ export class MyChallengeComponent implements OnInit {
       this.achievedChallenges = new Array(); // achieved
 
       for (let obj of myChallenges) {
-        let pullKey, pullName, pullDes, pullTotal, calBalance, progress, pullStatus;
+        let pullKey, pullName, pullDes, pullTotal, calBalance, progress, pullStatus , currentMoney;
 
         pullKey = this.firebaseService.getKeyOfChallenge(obj);
         pullName = this.firebaseService.getNameOfChallenge(obj);
@@ -51,15 +51,16 @@ export class MyChallengeComponent implements OnInit {
             let balance = this.firebaseService.getTransactionBalance(calB);
             sum = sum + balance;
           }
+          currentMoney = sum;
           progress = this.firebaseService.calculateProgressPercent(sum, pullTotal);
           if(progress>100){
             progress = 100;
           }
-          this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });
+          this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney });
           if(pullStatus==='processing'){
-            this.inProgressChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });
+            this.inProgressChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney });
           }else{
-            this.achievedChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus });
+            this.achievedChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney });
           }
 
         })
