@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AddMoneyService } from "app/services/add-money.service";
 import { routing } from '../../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -21,12 +21,7 @@ export class AddMoneyComponent implements OnInit {
     private firebaseService: FirebaseService,
     private router: Router,
     private route: ActivatedRoute,
-    private AddMoneyService: AddMoneyService,
-    private overlay: Overlay,
-    private vcRef: ViewContainerRef,
-    private modal: Modal  ){
-       modal.overlay.defaultViewContainer = vcRef;
-     }
+    private AddMoneyService: AddMoneyService  ){}
 
   ngOnInit() {
     //Get id
@@ -56,30 +51,17 @@ export class AddMoneyComponent implements OnInit {
 
     let toAchieved = totalAmount - currentMoney;
     if (toAchieved > 0) {
-      if (addmoney <= toAchieved) {
+    //  if (addmoney <= toAchieved) {
         this.AddMoneyService.addMoney(addmoney, this.id);
-        this.modal.alert()
-          .size('sm')
-          .isBlocking(false)
-          .showClose(false)
-          .keyboard(27)
-          .title('Completed')
-          .body('Keep going!!')
-          .okBtn('Okay')
-          .okBtnClass('btn btn-primary')
-          .open();
+        
 
-      } else {
-        this.AddMoneyService.addMoney(addmoney, this.id);
-        this.AddMoneyService.achievedStatusUpdate(this.id);
-        this.modal.alert().size('lg').title('Achieved').body(`this is body`).open();
-      }
-    }else{
-       this.modal.alert().size('lg').title('Cannot Add Money').body(`this is body`).open(); 
+    //  } else {
+     //   this.AddMoneyService.addMoney(addmoney, this.id);
+       // this.AddMoneyService.achievedStatusUpdate(this.id);
+      //  this.modal.alert().size('lg').title('Achieved').body(`this is body`).open();
+    //  }
     }
-   
-
-    //this.router.navigate(['/detailmychallenge/' + this.id])
+    this.router.navigate(['/detailmychallenge/' + this.id])
   }
 
 
