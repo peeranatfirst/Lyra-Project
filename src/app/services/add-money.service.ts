@@ -45,6 +45,13 @@ export class AddMoneyService {
   addSavingmoneydetailChallenges(savingmoneydetail) {
     firebase.database().ref('/users/userid1/Challenges').push(savingmoneydetail);
   }
+  addSavingmoneydetailChallenges2(savingmoneydetailNoDescrip) {
+    firebase.database().ref('/users/userid1/Challenges').push(savingmoneydetailNoDescrip);
+  }
+
+
+
+
   addMoney(addmoney, id) {
     let today = this.getTodayDate();
 

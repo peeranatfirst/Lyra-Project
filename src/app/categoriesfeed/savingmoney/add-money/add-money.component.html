@@ -12,9 +12,8 @@
                     <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
                     <p>Goal : {{detailMyChallenge.totalAmount | currency:'THB':true:'1.0-0'}}</p>
                     <p>Total Amount : {{currentBalance | currency:'THB':true:'1.0-0'}}</p>
-                    <form (submit)="onAddSubmit()">
+                    <form ngNativeValidate (submit)="onAddSubmit()">
                         <div class="form-group" (submit)="onAddSubmit()">
-
                             <label>fill your saving amount</label>
                             <input type="number" class="form-control" [(ngModel)]="balance" name="balance" placeholder="Your Money" min="0" max="999999999999">
                         </div>
