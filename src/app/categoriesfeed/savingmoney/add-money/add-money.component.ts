@@ -20,8 +20,10 @@ export class AddMoneyComponent implements OnInit {
     private firebaseService: FirebaseService,
     private router: Router,
     private route: ActivatedRoute,
-    private AddMoneyService: AddMoneyService  ){}
-
+    private AddMoneyService: AddMoneyService,){
+       
+     }
+ //private vcRef: ViewContainerRef
   ngOnInit() {
     //Get id
     this.id = this.route.snapshot.params['id'];
@@ -65,8 +67,6 @@ export class AddMoneyComponent implements OnInit {
      }
     this.router.navigate(['/detailmychallenge/' + this.id])
   }
-
-
 
 }
 
