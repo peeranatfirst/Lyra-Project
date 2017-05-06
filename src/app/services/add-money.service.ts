@@ -4,15 +4,19 @@ import * as firebase from 'firebase';
 import { FirebaseService } from "app/services/firebase.service";
 
 
+
+
 @Injectable()
 
 export class AddMoneyService {
-
 
   myChallenges: FirebaseListObservable<any[]>;
   balance: FirebaseListObservable<any[]>;
 
   constructor(private fs: FirebaseService) { }
+
+
+
   getTodayDate() {
     let datetime = new Date();
     let monthNames = [
@@ -41,6 +45,13 @@ export class AddMoneyService {
   addSavingmoneydetailChallenges(savingmoneydetail) {
     firebase.database().ref('/users/userid1/Challenges').push(savingmoneydetail);
   }
+  addSavingmoneydetailChallenges2(savingmoneydetailNoDescrip) {
+    firebase.database().ref('/users/userid1/Challenges').push(savingmoneydetailNoDescrip);
+  }
+
+
+
+
   addMoney(addmoney, id) {
     let today = this.getTodayDate();
 
@@ -52,12 +63,10 @@ export class AddMoneyService {
   }
 
   achievedStatusUpdate(id) {
-
     var test = {
       challengeStatus: "Achieved"
     };
     firebase.database().ref('/users/userid1/Challenges/' + id).update(test);
-
   }
 
   deleteTransaction(key,tId){

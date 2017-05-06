@@ -18,7 +18,7 @@ export class CheckdataSavingmoneyComponent implements OnInit {
   challengeDescription: any;
   duration: any;
   totalAmount;
-  
+
 
   constructor(
     private firebaseService: FirebaseService,
@@ -46,7 +46,21 @@ export class CheckdataSavingmoneyComponent implements OnInit {
       totalAmount: this.checkdata.totalAmount
     }
 
-    this.addmoney.addSavingmoneydetailChallenges(savingmoneydetail);
-    this.router.navigate(['/mychallenge'])
+    let savingmoneydetailNoDescrip = {
+      challengeName: this.checkdata.challengeName,
+      challengeStatus: status,
+      duration: this.checkdata.duration,
+      totalAmount: this.checkdata.totalAmount
+    }
+
+    if (this.challengeDescription == undefined) {
+      this.addmoney.addSavingmoneydetailChallenges2(savingmoneydetailNoDescrip);
+      this.router.navigate(['/mychallenge'])
+    } else {
+      this.addmoney.addSavingmoneydetailChallenges(savingmoneydetail);
+      this.router.navigate(['/mychallenge'])
+    }
+
+
   }
 }

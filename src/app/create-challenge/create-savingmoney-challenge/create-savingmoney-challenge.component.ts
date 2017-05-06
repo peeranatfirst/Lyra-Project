@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from "app/services/firebase.service";
 import { routing } from '../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-savingmoney-challenge',
@@ -12,9 +13,9 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
   challengeName: any;
   challengeDescription: any;
   duration: any;
-  totalAmount:any;
-  image:any;
-  
+  totalAmount: any;
+  image: any;
+
 
   constructor(
     private firebaseService: FirebaseService,
@@ -33,10 +34,25 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
       totalAmount: this.totalAmount,
 
     }
+    let createSavingmoneyChallengeNoDescrip = {
+      challengeName: this.challengeName,
+      duration: this.duration,
+      totalAmount: this.totalAmount,
 
-    this.firebaseService.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);
-    this.router.navigate(['/savingmoney'])
+    }
+
+    if (this.challengeDescription == undefined) {
+      this.firebaseService.addCreateSavingmoneyChallenge2(createSavingmoneyChallengeNoDescrip);
+      this.router.navigate(['/savingmoney'])
+    } else {
+      this.firebaseService.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);
+      this.router.navigate(['/savingmoney'])
+    }
+
+
   }
+
+
 
 
 }

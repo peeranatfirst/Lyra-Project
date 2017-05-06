@@ -3,7 +3,7 @@
     <div class="col-sm-2 flex-first"></div>
     <div class="col-sm-2 flex-last"></div>
     <div class="col-sm-8">
-      <form (submit)="onAddSubmit()">
+      <form ngNativeValidate (submit)="onAddSubmit()">
         <div class="card">
           <div class="card-header">
             Checking your data
@@ -11,19 +11,19 @@
           <div class="card-block">
             <div class="form-group no-border">
               <label>Challenge Name</label>
-              <input type="text" class="form-control" ngModel="{{checkdata.challengeName}}" name="challengename" required>
+              <input type="text" class="form-control" ngModel="{{checkdata.challengeName}}" name="challengename" required disabled="disabled">
             </div>
             <div class="form-group no-border">
               <label>Challenge Description</label>
-              <input type="text" class="form-control" ngModel="{{checkdata.challengeDescription}}" name="challengeDescription" required>
+              <input type="text" class="form-control" ngModel="{{checkdata.challengeDescription}}" name="challengeDescription" required disabled="disabled">
             </div>
             <div class="form-group no-border">
               <label>Duration(days)</label>
-              <input type="number" class="form-control" ngModel="{{checkdata.duration}}" name="duration" required>
+              <input type="number" class="form-control" ngModel="{{checkdata.duration}}" name="duration" required disabled="disabled">
             </div>
             <div class="form-group no-border">
               <label>Total Amount(THB)</label>
-              <input type="number" class="form-control" ngModel="{{checkdata.totalAmount}}" name="totalAmount" required>
+              <input type="number" class="form-control" ngModel="{{checkdata.totalAmount}}" name="totalAmount" required disabled="disabled">
             </div>
             <div class="btn-submit">
               <button type="submit" value="Submit" class="btn btn-success">

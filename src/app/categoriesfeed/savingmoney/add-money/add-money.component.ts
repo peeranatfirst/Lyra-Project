@@ -4,7 +4,6 @@ import { routing } from '../../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FirebaseService } from "app/services/firebase.service";
 
-
 @Component({
   selector: 'app-add-money',
   templateUrl: './add-money.component.html',
@@ -21,8 +20,10 @@ export class AddMoneyComponent implements OnInit {
     private firebaseService: FirebaseService,
     private router: Router,
     private route: ActivatedRoute,
-    private AddMoneyService: AddMoneyService  ){}
-
+    private AddMoneyService: AddMoneyService,){
+       
+     }
+ //private vcRef: ViewContainerRef
   ngOnInit() {
     //Get id
     this.id = this.route.snapshot.params['id'];
@@ -60,17 +61,12 @@ export class AddMoneyComponent implements OnInit {
 
      if (addmoney <= toAchieved) {
         this.AddMoneyService.addMoney(addmoney, this.id);
-        
-
       } else {
         this.AddMoneyService.addMoney(addmoney, this.id);
         this.AddMoneyService.achievedStatusUpdate(this.id);
      }
-
     this.router.navigate(['/detailmychallenge/' + this.id])
   }
-
-
 
 }
 
