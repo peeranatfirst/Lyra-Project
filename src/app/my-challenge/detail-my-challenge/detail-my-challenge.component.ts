@@ -66,10 +66,7 @@ export class DetailMyChallengeComponent implements OnInit {
   }
 
   onDeleteTransaction(key) {
-    //console.log(this.detailMyChallenge.$key);
-    //console.log(key);
     this.AddMoneyService.deleteTransaction(this.detailMyChallenge.$key,key);
-
     this.router.navigate(['/detailmychallenge/'+this.detailMyChallenge.$key])
    }
 
