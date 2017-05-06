@@ -20,6 +20,7 @@ export class DetailMyChallengeComponent implements OnInit {
   countNumber: number;
   challengeDetail;
   detailBalance: any;
+  currentBalance:any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -42,6 +43,7 @@ export class DetailMyChallengeComponent implements OnInit {
           sum = sum + balance;
 
         }
+        this.currentBalance=sum;
         this.percent = this.firebaseService.calculateProgressPercent(sum, detailMyChallenge.totalAmount);
         if (this.percent > 100) {
           this.percent = 100;

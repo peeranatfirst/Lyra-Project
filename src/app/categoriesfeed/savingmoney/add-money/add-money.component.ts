@@ -12,11 +12,10 @@ import { FirebaseService } from "app/services/firebase.service";
 })
 export class AddMoneyComponent implements OnInit {
   money: any;
-  addmoney: any;
-
   id: any;
   detailMyChallenge: any;
   balance: any;
+  currentBalance:any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -31,8 +30,15 @@ export class AddMoneyComponent implements OnInit {
       //console.log(detailMyChallenge)
       this.detailMyChallenge = detailMyChallenge;
     })
+    this.firebaseService.getTransaction(this.id).subscribe(toCal => {
+      let sum = 0;
+      for (let calB of toCal) {
+        let balance = this.firebaseService.getTransactionBalance(calB);
+        sum = sum + balance;
+      }
+      this.currentBalance =sum;
 
-
+    })
 
   }
 
@@ -41,12 +47,12 @@ export class AddMoneyComponent implements OnInit {
     let totalAmount = this.detailMyChallenge.totalAmount;
     let currentMoney;
     this.firebaseService.getTransaction(this.id).subscribe(toCal => {
-      var sum = 0;
+      let sum = 0;
       for (let calB of toCal) {
         let balance = this.firebaseService.getTransactionBalance(calB);
         sum = sum + balance;
       }
-      currentMoney = sum;
+      currentMoney =sum;
 
     })
 

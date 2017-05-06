@@ -11,7 +11,8 @@
               <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
               <p class="card-text">{{detailMyChallenge.challengeDescription}}</p>
               <p class="card-text">Time : {{detailMyChallenge.duration}} Days</p>
-              <p class="card-text">Total : {{detailMyChallenge.totalAmount}} Baht</p>
+              <p class="card-text">Goal : {{detailMyChallenge.totalAmount | currency:'THB':true:'1.0-0'}} Baht</p>
+              <p class="card-text">Total Amount : {{currentBalance | currency:'THB':true:'1.0-0'}} Baht</p>
               <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}<br>
                 <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
             <h5><span class="badge badge-default">{{percent | number:'1.0-0'}}%</span></h5>
@@ -83,6 +84,7 @@
             <th>No.</th>
             <th>Date</th>
             <th>Balance</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
