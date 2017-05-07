@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { DetailSavingMoneyComponent } from '../../categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component'
 import { AddMoneyService } from '../../services/add-money.service';
 import { DatetimestampService } from "app/services/datetimestamp.service";
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-detail-my-challenge',
@@ -15,7 +16,7 @@ export class DetailMyChallengeComponent implements OnInit {
   id: any;
   key: any;
   detailMyChallenge: any;
-  imageUrl: any;
+  imgURL: any;
   percent: any;
   detailTransaction: any;
   countNumber: number;
@@ -34,20 +35,18 @@ export class DetailMyChallengeComponent implements OnInit {
     private dt : DatetimestampService) { }
 
   ngOnInit() {
+    //Get ID
     this.id = this.route.snapshot.params['id'];
 
     this.firebaseService.getDetailMyChallenge(this.id).subscribe(detailMyChallenge => {
-      //console.log(detailMyChallenge)
       this.detailMyChallenge = detailMyChallenge;
-      this.startDate = this.dt.getDatestamp(this.detailMyChallenge.startDate);
-
-
+      this.startDate = this.dt.getDatestamp(this.detailMyChallenge.startDate); //convert timestamp to date
+      this.getImgURL(this.detailMyChallenge.path);
       this.firebaseService.getTransaction(detailMyChallenge.$key).subscribe(toCal => {
         var sum = 0;
         for (let calB of toCal) {
           let balance = this.firebaseService.getTransactionBalance(calB);
           sum = sum + balance;
-
         }
         this.currentBalance=sum;
         this.percent = this.firebaseService.calculateProgressPercent(sum, detailMyChallenge.totalAmount);
@@ -59,7 +58,6 @@ export class DetailMyChallengeComponent implements OnInit {
 
     this.firebaseService.getTransaction(this.id).subscribe(detailTransaction => {
       this.detailTransaction = detailTransaction;
-      //console.log(this.detailTransaction);
       this.detailMyTransaction = new Array();
       this.detailTransaction.forEach(element => {
         let date = this.dt.getDatestamp(element.datetimestamp);
@@ -84,4 +82,11 @@ export class DetailMyChallengeComponent implements OnInit {
     this.router.navigate(['/detailmychallenge/'+this.detailMyChallenge.$key])
    }
 
+   getImgURL(path){
+      let storage = firebase.storage();
+      let pathRef = storage.ref().child(path).getDownloadURL().then((val)=>{
+        // console.log(val);
+        this.imgURL=val;
+      });
+   }
 }

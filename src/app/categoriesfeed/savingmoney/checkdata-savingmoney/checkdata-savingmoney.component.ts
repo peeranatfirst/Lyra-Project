@@ -31,7 +31,7 @@ export class CheckdataSavingmoneyComponent implements OnInit {
     //Get id
     this.id = this.route.snapshot.params['id'];
     this.firebaseService.getChallengeMoneyData(this.id).subscribe(checkdata => {
-      console.log(checkdata)
+      //console.log(checkdata)
       this.checkdata = checkdata;
     })
 
@@ -46,7 +46,8 @@ export class CheckdataSavingmoneyComponent implements OnInit {
       challengeStatus: status,
       duration: this.checkdata.duration,
       totalAmount: this.checkdata.totalAmount,
-      startDate : start
+      startDate : start,
+      path : this.checkdata.path
     }
 
     let savingmoneydetailNoDescrip = {
@@ -54,17 +55,16 @@ export class CheckdataSavingmoneyComponent implements OnInit {
       challengeStatus: status,
       duration: this.checkdata.duration,
       totalAmount: this.checkdata.totalAmount,
-      startDate : start
+      startDate : start,
+      path : this.checkdata.path
     }
 
     if (this.challengeDescription == undefined) {
       this.addmoney.addSavingmoneydetailChallenges2(savingmoneydetailNoDescrip);
-      this.router.navigate(['/mychallenge'])
     } else {
       this.addmoney.addSavingmoneydetailChallenges(savingmoneydetail);
-      this.router.navigate(['/mychallenge'])
     }
-
+    this.router.navigate(['/mychallenge'])
 
   }
 }

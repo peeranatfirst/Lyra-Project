@@ -48,12 +48,12 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
 
     if (this.challengeDescription == undefined) {
       this.firebaseService.addCreateSavingmoneyChallenge2(createSavingmoneyChallengeNoDescrip);
-      this.router.navigate(['/savingmoney'])
+
     } else {
       this.firebaseService.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);
-      this.router.navigate(['/savingmoney'])
-    }
 
+    }
+          this.router.navigate(['savingmoney'])
 
   }
 
