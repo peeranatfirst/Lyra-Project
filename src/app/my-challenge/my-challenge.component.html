@@ -25,11 +25,9 @@
           <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
             <div class="card card-inverse card-info">
               <div class="card-block">
-                  <div class="card-text">
-                  <b>{{cha.name}}</b><br>
-                  Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
-                  <br>
-                  Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}
+                <div class="card-text">
+                  <b>{{cha.name}}</b><br> Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
+                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}
                   <span *ngIf="cha.status != 'Achieved'">
                       <h5><span class="badge badge-default">{{cha.percent | number:'1.0-0'}}%</span></h5>
                   </span>
@@ -53,11 +51,9 @@
           <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
             <div class="card card-inverse card-info">
               <div class="card-block">
-                  <div class="card-text">
-                  <b>{{cha.name}}</b><br>
-                  Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
-                  <br>
-                  Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}
+                <div class="card-text">
+                  <b>{{cha.name}}</b><br> Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
+                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}
                   <span>
                       <h5><span class="badge badge-default">{{cha.percent | number:'1.0-0'}}%</span></h5>
                   </span>
@@ -80,10 +76,8 @@
             <div class="card card-inverse card-info">
               <div class="card-block">
                 <div class="card-text">
-                  <b>{{cha.name}}</b><br>
-                  Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
-                  <br>
-                  Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}
+                  <b>{{cha.name}}</b><br> Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
+                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}
                   <span>
                     <h5><span class="badge badge-success">{{cha.percent | number:'1.0-0'}}% Success</span></h5>
                   </span>
