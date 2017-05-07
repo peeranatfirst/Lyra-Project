@@ -25,3 +25,29 @@ thead{
 .tran{
     text-align: center;
 }
+.No{
+    width: 10%;
+}
+.Date{
+    width: 25%;
+}
+.Time{
+    width: 30%;
+}
+.Balance{
+    width: 35%;
+}
+table{
+    font-size: 10pt;
+}
+.Transaction{
+    width: 100%;
+    text-align: center;
+}
+.Tran{
+    width: 95%;
+}
+.x{
+    width: 5;
+    padding-right: 3px;
+}

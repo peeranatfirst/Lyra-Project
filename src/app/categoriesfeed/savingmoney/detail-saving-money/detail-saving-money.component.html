@@ -1,4 +1,5 @@
-<div class="container">
+<div *ngIf="challengeDetail">
+<div class="container" >
   <div class="row">
     <div class="col-sm-3 flex-first"></div>
     <div class="col-sm-3 flex-last"></div>
@@ -11,11 +12,9 @@
           </figure>
           <div class="card-title">Pim Patcha<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span></div>
           <div class="card-text">
-            <p><b>{{challengeDetail.challengeName}}</b><br>
-            {{challengeDetail.challengeDescription}}<br>
-            Duration : {{challengeDetail.duration}} Days<br>
-            Total Amount : {{challengeDetail.totalAmount}} Baht<br>
-            <img src="{{imageUrl}}" class="img-fluid">
+            <p><b>{{challengeDetail.challengeName}}</b><br> {{challengeDetail.challengeDescription}}
+              <br> Duration : {{challengeDetail.duration}} Days<br> Total Amount : {{challengeDetail.totalAmount}} Baht<br>
+              <br><img src="{{imageUrl}}" class="img-fluid">
           </div>
         </div>
         <div class="card-footer">
@@ -71,6 +70,7 @@
   </div>
 </div>
 <br>
+</div>
 
 <!-- *******อย่าลบ เอาไว้สำรอง*********
   
