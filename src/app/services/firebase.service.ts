@@ -66,6 +66,9 @@ export class FirebaseService {
   getStatusOfChallenge(challengeslist: myChallengesList) {
     return challengeslist.challengeStatus;
   }
+  getStartDateOfChallenge(challengeList: myChallengesList){
+    return challengeList.startDate;
+  }
 
   getTransactionBalance(transactionBalance: myBalance) {
     return transactionBalance.balance;
@@ -148,6 +151,7 @@ interface myChallengesList {
   duration?: string;
   totalAmount?: number;
   image?: string;
+  startDate?: string;
 }
 
 interface myBalance {

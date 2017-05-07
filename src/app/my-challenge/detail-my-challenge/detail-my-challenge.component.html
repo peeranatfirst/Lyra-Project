@@ -14,6 +14,7 @@
               <p class="card-text">Goal Amount : {{detailMyChallenge.totalAmount | currency:'THB':true:'1.0-0'}} Baht</p>
               <p class="card-text">Total Amount : {{currentBalance | currency:'THB':true:'1.0-0'}} Baht</p>
               <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}<br>
+                <p class="card-text">Start Date: {{startDate}}<br>
                 <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
             <h5><span class="badge badge-default">{{percent | number:'1.0-0'}}%</span></h5>
                 </span>
