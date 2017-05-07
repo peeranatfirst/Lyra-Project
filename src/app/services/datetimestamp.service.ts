@@ -15,7 +15,7 @@ export class DatetimestampService {
         let monthNames = [
       "JAN", "FAB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
     ];
-        return day+"/ "+monthNames[month]+" /"+year;
+        return day+" "+monthNames[month]+" "+year;
   }
 
   getTimestamp(value){
@@ -25,7 +25,7 @@ export class DatetimestampService {
     if(mins<10){
      return hour+" : 0"+mins;
     }else{
-      return hour+" : "+mins;
+      return hour+":"+mins;
     }
     
   }

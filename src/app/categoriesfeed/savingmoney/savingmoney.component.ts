@@ -3,7 +3,7 @@ import { FirebaseService } from "app/services/firebase.service";
 import { routing } from '../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import * as firebase from 'firebase';
-
+import { DatetimestampService } from "app/services/datetimestamp.service";
 
 @Component({
   selector: 'app-savingmoney',
@@ -21,7 +21,7 @@ export class SavingmoneyComponent implements OnInit {
     private firebaseService: FirebaseService,
     private routing: Router,
     private route: ActivatedRoute,
-
+    private dt : DatetimestampService
   ) { }
 
 
@@ -31,7 +31,7 @@ export class SavingmoneyComponent implements OnInit {
     let imgPath;
     this.firebaseService.getChallengeList().subscribe(challengeList => {
   
-      let key,name,totalAmount,des,duration,goal ,path,valnaja;
+      let key,name,totalAmount,des,duration,goal ,path,valnaja, datestamp,timestamp;
       for(let addObj of challengeList){
       path = this.firebaseService.getListOfChallengePath(addObj);   
 
@@ -49,7 +49,10 @@ export class SavingmoneyComponent implements OnInit {
             des = this.firebaseService.getListOfChallengeDes(addObj);
             goal = this.firebaseService.getListOfChallengeGoal(addObj);
             duration = this.firebaseService.getListOfChallengeDuration(addObj);
-            this.listOfChallenge.push({chaId: key,chaName: name,chaGoal: goal,description:des,time:duration,imgSRC:imgPath});
+            let datetimestamp = this.firebaseService.getListOfChallengeTimestamp(addObj);
+            datestamp = this.dt.getDatestamp(datetimestamp);
+            timestamp = this.dt.getTimestamp(datetimestamp);
+            this.listOfChallenge.push({chaId: key,chaName: name,chaGoal: goal,description:des,time:duration,imgSRC:imgPath , thisTime: timestamp, thisDay: datestamp });
         });
 
       }
