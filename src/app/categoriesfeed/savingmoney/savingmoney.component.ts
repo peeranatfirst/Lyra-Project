@@ -27,7 +27,6 @@ export class SavingmoneyComponent implements OnInit {
 
   ngOnInit() {
     this.listOfChallenge = new Array();
-   
     let imgPath;
     this.firebaseService.getChallengeList().subscribe(challengeList => {
   

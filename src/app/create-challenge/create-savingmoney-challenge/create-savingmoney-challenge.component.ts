@@ -31,7 +31,7 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
 
   onAddSubmit() {
     let timestamp = firebase.database.ServerValue.TIMESTAMP;
-    
+    let key;
     let createSavingmoneyChallenge = {
       challengeName: this.challengeName,
       challengeDescription: this.challengeDescription,
@@ -47,13 +47,11 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
     }
 
     if (this.challengeDescription == undefined) {
-      this.firebaseService.addCreateSavingmoneyChallenge2(createSavingmoneyChallengeNoDescrip);
-
+        this.firebaseService.addCreateSavingmoneyChallenge(createSavingmoneyChallengeNoDescrip);
     } else {
-      this.firebaseService.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);
-
+        this.firebaseService.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);
     }
-          this.router.navigate(['savingmoney'])
+
 
   }
 

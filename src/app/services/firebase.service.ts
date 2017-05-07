@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import * as firebase from 'firebase';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Injectable()
 export class FirebaseService {
@@ -12,8 +13,9 @@ export class FirebaseService {
   balance: FirebaseListObservable<any[]>;
   detailBalance: FirebaseListObservable<any[]>;
 
-
-  constructor(private af: AngularFire) {
+  constructor(private af: AngularFire, 
+   private router: Router,
+    private route: ActivatedRoute) {
   }
 
   getChallengeList() {
@@ -102,6 +104,7 @@ export class FirebaseService {
   getListOfChallengeTimestamp(listOfChallenge : challengeList){
     return listOfChallenge.datetimestamp;
   }
+
   addCreateSavingmoneyChallenge(createSavingmoneyChallenge) {
     let storageRef = firebase.storage().ref();
     for (let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
@@ -110,26 +113,19 @@ export class FirebaseService {
       iRef.put(selectedFile).then((snapshot) => {
         createSavingmoneyChallenge.image = selectedFile.name;
         createSavingmoneyChallenge.path = path;
-        return this.challengeList.push(createSavingmoneyChallenge);
-      });
-    }
-  }
+        const promise = new Promise((resolve,reject)=>{
+          resolve(firebase.database().ref('/Categories /SavingMoney').push().key);
+        }).then((val) =>{
+          firebase.database().ref('/Categories /SavingMoney/'+val).set(createSavingmoneyChallenge);
+           return val
+      }).then((key)=>{
+        this.router.navigate(['detailsavingmoney/'+key]);
+      })
+    })
+  } 
+   return "should be fix";
+}
   
-  addCreateSavingmoneyChallenge2(createSavingmoneyChallengeNoDescrip) {
-    let storageRef = firebase.storage().ref();
-    for (let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
-      let path = `/savingmoneychallenges/${selectedFile.name}`;
-      let iRef = storageRef.child(path);
-      iRef.put(selectedFile).then((snapshot) => {
-        createSavingmoneyChallengeNoDescrip.image = selectedFile.name;
-        createSavingmoneyChallengeNoDescrip.path = path;
-        firebase.database().ref('/Categories /SavingMoney').push(createSavingmoneyChallengeNoDescrip);
-      });
-    }
-  }
-
-
-
 }
 
 interface challengeList {
