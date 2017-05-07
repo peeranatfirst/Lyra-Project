@@ -21,9 +21,9 @@ export class DetailMyChallengeComponent implements OnInit {
   countNumber: number;
   challengeDetail;
   detailBalance: any;
-  currentBalance:any;
-  detailMyTransaction:any;
-  startDate:any;
+  currentBalance: any;
+  detailMyTransaction: any;
+  startDate: any;
 
 
   constructor(
@@ -31,7 +31,7 @@ export class DetailMyChallengeComponent implements OnInit {
     private AddMoneyService: AddMoneyService,
     private router: Router,
     private route: ActivatedRoute,
-    private dt : DatetimestampService) { }
+    private dt: DatetimestampService) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
@@ -49,7 +49,7 @@ export class DetailMyChallengeComponent implements OnInit {
           sum = sum + balance;
 
         }
-        this.currentBalance=sum;
+        this.currentBalance = sum;
         this.percent = this.firebaseService.calculateProgressPercent(sum, detailMyChallenge.totalAmount);
         if (this.percent > 100) {
           this.percent = 100;
@@ -64,7 +64,7 @@ export class DetailMyChallengeComponent implements OnInit {
       this.detailTransaction.forEach(element => {
         let date = this.dt.getDatestamp(element.datetimestamp);
         let time = this.dt.getTimestamp(element.datetimestamp);
-        this.detailMyTransaction.push({key: element.$key, balance: element.balance, datestamp:date,timestamp:time});
+        this.detailMyTransaction.push({ key: element.$key, balance: element.balance, datestamp: date, timestamp: time });
       });
 
     })
@@ -72,7 +72,7 @@ export class DetailMyChallengeComponent implements OnInit {
   }
 
   onDeleteChallenge() {
-    if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge")) {
+    if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge?")) {
       this.AddMoneyService.deleteChallenge(this.detailMyChallenge.$key);
       this.router.navigate(['/mychallenge'])
     }
@@ -80,8 +80,10 @@ export class DetailMyChallengeComponent implements OnInit {
   }
 
   onDeleteTransaction(key) {
-    this.AddMoneyService.deleteTransaction(this.detailMyChallenge.$key,key);
-    this.router.navigate(['/detailmychallenge/'+this.detailMyChallenge.$key])
-   }
+    if (confirm("Are you sure to delete?")) {
+      this.AddMoneyService.deleteTransaction(this.detailMyChallenge.$key, key);
+      this.router.navigate(['/detailmychallenge/' + this.detailMyChallenge.$key])
+    }
+  }
 
 }
