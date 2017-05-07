@@ -113,7 +113,7 @@ export class FirebaseService {
   addCreateSavingmoneyChallenge2(createSavingmoneyChallengeNoDescrip) {
     let storageRef = firebase.storage().ref();
     for (let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
-      let path = `/${this.folder}/${selectedFile.name}`;
+      let path = `/savingmoneychallenges/${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
         createSavingmoneyChallengeNoDescrip.image = selectedFile.name;
