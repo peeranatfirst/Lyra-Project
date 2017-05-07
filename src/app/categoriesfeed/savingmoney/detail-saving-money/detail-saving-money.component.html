@@ -8,6 +8,7 @@
           {{challengeDetail.challengeName}}
         </div>
         <div class="card-block">
+<<<<<<< HEAD
           <p class="card-text">{{challengeDetail.challengeDescription}}</p>
           <p class="card-text">Duration : {{challengeDetail.duration}} Days</p>
           <p class="card-text">Total Amount : {{challengeDetail.totalAmount}} Baht</p>
@@ -24,6 +25,27 @@
                 <div class="card-block px-3">
                   <h4 class="card-title">Pim Patcha</h4>
                   <p class="card-text">1 Following | 999 Followers</p>
+=======
+          <div class="row">
+            <div class="col-sm-7">
+              <p class="card-text">{{challengeDetail.challengeDescription}}</p>
+              <p class="card-text">Duration : {{challengeDetail.duration}} Days</p>
+              <p class="card-text">Goal Amount : {{challengeDetail.totalAmount | currency:'THB':true:'1.2-2'}}</p>
+              <img src="{{imageUrl}}" class="img-fluid">
+              <br><br>
+            </div>
+            <div class="col-sm-5">
+              <div class="card">
+                <div class="card-header">Owner of Challenge</div>
+                <div class="avatar" align="center">
+                  <figure class="profile profile-inline">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=da2b0bd2-354b-47f6-8510-b01fb5398810"
+                      alt="Profile image" class="rounded-circle profile-avatar">
+                  </figure>
+                  <h3>Pim Patcha</h3>
+                  <p>@pimpatcha
+                  <p>69 Followers | 69K Following</p>
+>>>>>>> d99ea2475d65e7c641456663b57aba06871df162
                 </div>
               </div>
             </div>

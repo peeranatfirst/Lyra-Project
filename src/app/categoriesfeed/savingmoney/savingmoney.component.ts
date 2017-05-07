@@ -53,7 +53,7 @@ export class SavingmoneyComponent implements OnInit {
         });
 
       }
-      console.log(this.listOfChallenge);
+      //console.log(this.listOfChallenge);
       
     })
   }
