@@ -4,6 +4,7 @@ import { FirebaseService } from "app/services/firebase.service";
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { DetailSavingMoneyComponent } from '../../categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component'
 import { AddMoneyService } from '../../services/add-money.service';
+import { DatetimestampService } from "app/services/datetimestamp.service";
 
 @Component({
   selector: 'app-detail-my-challenge',
@@ -21,12 +22,16 @@ export class DetailMyChallengeComponent implements OnInit {
   challengeDetail;
   detailBalance: any;
   currentBalance:any;
+  detailMyTransaction:any;
+  startDate:any;
+
 
   constructor(
     private firebaseService: FirebaseService,
     private AddMoneyService: AddMoneyService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private dt : DatetimestampService) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
@@ -34,6 +39,7 @@ export class DetailMyChallengeComponent implements OnInit {
     this.firebaseService.getDetailMyChallenge(this.id).subscribe(detailMyChallenge => {
       //console.log(detailMyChallenge)
       this.detailMyChallenge = detailMyChallenge;
+      this.startDate = this.dt.getDatestamp(this.detailMyChallenge.startDate);
 
 
       this.firebaseService.getTransaction(detailMyChallenge.$key).subscribe(toCal => {
@@ -52,8 +58,14 @@ export class DetailMyChallengeComponent implements OnInit {
     })
 
     this.firebaseService.getTransaction(this.id).subscribe(detailTransaction => {
-      //console.log(detailTransaction)
       this.detailTransaction = detailTransaction;
+      //console.log(this.detailTransaction);
+      this.detailMyTransaction = new Array();
+      this.detailTransaction.forEach(element => {
+        let date = this.dt.getDatestamp(element.datetimestamp);
+        let time = this.dt.getTimestamp(element.datetimestamp);
+        this.detailMyTransaction.push({key: element.$key, balance: element.balance, datestamp:date,timestamp:time});
+      });
 
     })
 

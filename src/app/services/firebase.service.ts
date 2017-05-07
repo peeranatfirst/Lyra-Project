@@ -66,6 +66,9 @@ export class FirebaseService {
   getStatusOfChallenge(challengeslist: myChallengesList) {
     return challengeslist.challengeStatus;
   }
+  getStartDateOfChallenge(challengeList: myChallengesList){
+    return challengeList.startDate;
+  }
 
   getTransactionBalance(transactionBalance: myBalance) {
     return transactionBalance.balance;
@@ -96,7 +99,9 @@ export class FirebaseService {
   getListOfChallengePath(listOfChallenge : challengeList){
     return listOfChallenge.path;
   }
-
+  getListOfChallengeTimestamp(listOfChallenge : challengeList){
+    return listOfChallenge.datetimestamp;
+  }
   addCreateSavingmoneyChallenge(createSavingmoneyChallenge) {
     let storageRef = firebase.storage().ref();
     for (let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
@@ -134,6 +139,7 @@ interface challengeList {
   duration?: string;
   totalAmount?: string;
   path?: string;
+  datetimestamp? : string;
 }
 
 
@@ -145,6 +151,7 @@ interface myChallengesList {
   duration?: string;
   totalAmount?: number;
   image?: string;
+  startDate?: string;
 }
 
 interface myBalance {

@@ -17,30 +17,30 @@ export class AddMoneyService {
 
 
 
-  getTodayDate() {
-    let datetime = new Date();
-    let monthNames = [
-      "JAN", "FAB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
-    ];
-    let date = datetime.getDate();
-    let monthIndex = datetime.getMonth();
-    let year = datetime.getFullYear();
-    let today = monthNames[monthIndex] + " " + date + " " + year;
+  // getTodayDate() {
+  //   let datetime = new Date();
+  //   let monthNames = [
+  //     "JAN", "FAB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+  //   ];
+  //   let date = datetime.getDate();
+  //   let monthIndex = datetime.getMonth();
+  //   let year = datetime.getFullYear();
+  //   let today = monthNames[monthIndex] + " " + date + " " + year;
 
-    return today;
-  }
+  //   return today;
+  // }
 
-  getCurrentTime() {
-    let datetime = new Date();
+  // getCurrentTime() {
+  //   let datetime = new Date();
 
-    let hours = datetime.getHours();
-    let mins = datetime.getMinutes();
-    if (mins < 10) {
-      "0" + mins;
-    }
-    let time = hours + " : " + mins;
-    return time;
-  }
+  //   let hours = datetime.getHours();
+  //   let mins = datetime.getMinutes();
+  //   if (mins < 10) {
+  //     "0" + mins;
+  //   }
+  //   let time = hours + " : " + mins;
+  //   return time;
+  // }
 
   addSavingmoneydetailChallenges(savingmoneydetail) {
     firebase.database().ref('/users/userid1/Challenges').push(savingmoneydetail);
@@ -53,11 +53,11 @@ export class AddMoneyService {
 
 
   addMoney(addmoney, id) {
-    let today = this.getTodayDate();
+    let timestamp = firebase.database.ServerValue.TIMESTAMP;
 
     firebase.database().ref('/users/userid1/Challenges/' + id + '/savingTransaction').push({
       balance: addmoney,
-      datetimestamp: today
+      datetimestamp: timestamp
     });
 
   }

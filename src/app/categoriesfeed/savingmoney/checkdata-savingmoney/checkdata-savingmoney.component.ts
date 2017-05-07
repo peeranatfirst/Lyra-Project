@@ -3,6 +3,7 @@ import { FirebaseService } from "app/services/firebase.service";
 import { routing } from '../../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AddMoneyService } from "app/services/add-money.service";
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-checkdata-savingmoney',
@@ -38,19 +39,22 @@ export class CheckdataSavingmoneyComponent implements OnInit {
 
   onAddSubmit() {
     let status = "processing";
+    let start = firebase.database.ServerValue.TIMESTAMP;
     let savingmoneydetail = {
       challengeName: this.checkdata.challengeName,
       challengeDescription: this.checkdata.challengeDescription,
       challengeStatus: status,
       duration: this.checkdata.duration,
-      totalAmount: this.checkdata.totalAmount
+      totalAmount: this.checkdata.totalAmount,
+      startDate : start
     }
 
     let savingmoneydetailNoDescrip = {
       challengeName: this.checkdata.challengeName,
       challengeStatus: status,
       duration: this.checkdata.duration,
-      totalAmount: this.checkdata.totalAmount
+      totalAmount: this.checkdata.totalAmount,
+      startDate : start
     }
 
     if (this.challengeDescription == undefined) {
