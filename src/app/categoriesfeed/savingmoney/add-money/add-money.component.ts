@@ -59,7 +59,7 @@ export class AddMoneyComponent implements OnInit {
 
     let toAchieved = totalAmount - currentMoney;
 
-     if (addmoney <= toAchieved) {
+     if (addmoney < toAchieved) {
         this.AddMoneyService.addMoney(addmoney, this.id);
       } else {
         this.AddMoneyService.addMoney(addmoney, this.id);
