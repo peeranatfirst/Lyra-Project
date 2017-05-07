@@ -47,9 +47,9 @@ export class SavingmoneyComponent implements OnInit {
             key = this.firebaseService.getListOfChallengeId(addObj);
             name = this.firebaseService.getListOfChallengeName(addObj);
             des = this.firebaseService.getListOfChallengeDes(addObj);
-            totalAmount = this.firebaseService.getListOfChallengeDuration(addObj);
+            goal = this.firebaseService.getListOfChallengeGoal(addObj);
             duration = this.firebaseService.getListOfChallengeDuration(addObj);
-            this.listOfChallenge.push({chaId: key,chaName: name,Amount: totalAmount,description:des,time:duration,imgSRC:imgPath});
+            this.listOfChallenge.push({chaId: key,chaName: name,chaGoal: goal,description:des,time:duration,imgSRC:imgPath});
         });
 
       }
