@@ -52,7 +52,7 @@ export class SavingmoneyComponent implements OnInit {
         });
 
       }
-      console.log(this.listOfChallenge);
+      giconsole.log(this.listOfChallenge);
       
     })
   }
