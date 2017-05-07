@@ -23,6 +23,7 @@ export class DetailMyChallengeComponent implements OnInit {
   detailBalance: any;
   currentBalance:any;
   detailMyTransaction:any;
+  startDate:any;
 
 
   constructor(
@@ -38,6 +39,7 @@ export class DetailMyChallengeComponent implements OnInit {
     this.firebaseService.getDetailMyChallenge(this.id).subscribe(detailMyChallenge => {
       //console.log(detailMyChallenge)
       this.detailMyChallenge = detailMyChallenge;
+      this.startDate = this.dt.getDatestamp(this.detailMyChallenge.startDate);
 
 
       this.firebaseService.getTransaction(detailMyChallenge.$key).subscribe(toCal => {

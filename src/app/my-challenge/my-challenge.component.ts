@@ -38,13 +38,14 @@ export class MyChallengeComponent implements OnInit {
       this.achievedChallenges = new Array(); // achieved
 
       for (let obj of myChallenges) {
-        let pullKey, pullName, pullDes, pullTotal, calBalance, progress, pullStatus , currentMoney;
+        let pullKey, pullName, pullDes, pullTotal, calBalance, progress, pullStatus , currentMoney ,startDate;
 
         pullKey = this.firebaseService.getKeyOfChallenge(obj);
         pullName = this.firebaseService.getNameOfChallenge(obj);
         pullDes = this.firebaseService.getDesOfChallenge(obj);
         pullTotal = this.firebaseService.getTotalOfChallenge(obj);
         pullStatus = this.firebaseService.getStatusOfChallenge(obj);
+        startDate = this.firebaseService.getStartDateOfChallenge(obj);
         this.firebaseService.getTransaction(pullKey).subscribe(toCal => {
           var sum = 0;
           for (let calB of toCal) {
@@ -56,11 +57,11 @@ export class MyChallengeComponent implements OnInit {
           if(progress>100){
             progress = 100;
           }
-          this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney });
+          this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney, start: startDate });
           if(pullStatus==='processing'){
-            this.inProgressChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney });
+            this.inProgressChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney, start: startDate  });
           }else{
-            this.achievedChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney });
+            this.achievedChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney , start: startDate });
           }
 
         })
