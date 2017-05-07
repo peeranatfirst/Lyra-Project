@@ -31,7 +31,7 @@ export class SavingmoneyComponent implements OnInit {
     let imgPath;
     this.firebaseService.getChallengeList().subscribe(challengeList => {
   
-      let key,name,des,duration,goal ,path,valnaja;
+      let key,name,totalAmount,des,duration,goal ,path,valnaja;
       for(let addObj of challengeList){
       path = this.firebaseService.getListOfChallengePath(addObj);   
 
@@ -47,8 +47,9 @@ export class SavingmoneyComponent implements OnInit {
             key = this.firebaseService.getListOfChallengeId(addObj);
             name = this.firebaseService.getListOfChallengeName(addObj);
             des = this.firebaseService.getListOfChallengeDes(addObj);
+            totalAmount = this.firebaseService.getListOfChallengeDuration(addObj);
             duration = this.firebaseService.getListOfChallengeDuration(addObj);
-            this.listOfChallenge.push({chaId: key,chaName: name,description:des,time:duration,imgSRC:imgPath});
+            this.listOfChallenge.push({chaId: key,chaName: name,Amount: totalAmount,description:des,time:duration,imgSRC:imgPath});
         });
 
       }
