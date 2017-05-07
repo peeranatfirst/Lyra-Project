@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
 @Component({
   selector: 'app-detail-saving-money',
   templateUrl: './detail-saving-money.component.html',
-  styleUrls: ['./detail-saving-money.component.css']
+  styleUrls: ['./detail-saving-money.component.css'],
 })
 export class DetailSavingMoneyComponent implements OnInit {
   id: any;
