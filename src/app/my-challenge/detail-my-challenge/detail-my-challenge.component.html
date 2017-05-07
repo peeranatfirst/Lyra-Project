@@ -46,8 +46,7 @@
               </div>
             </div>
             <div class="col-sm-7">
-              <img src="http://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/8-side.jpg" class="img-fluid rounded"
-                alt="Responsive image">
+              
               <img src="{{imageUrl}}" class="img-fluid">
             </div>
           </div>
@@ -88,18 +87,20 @@
           <tr>
             <th>No.</th>
             <th>Date</th>
+            <th>Time</th>
             <th>Balance</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cha of detailTransaction; let i=index;">
+          <tr *ngFor="let cha of detailMyTransaction; let i=index;">
             <th>{{i+1}}</th>
-            <th>{{cha.datetimestamp}}</th>
+            <th>{{cha.datestamp}}</th>
+            <th>{{cha.timestamp}}</th>
             <th>{{cha.balance | currency:'THB':true:'1.2-2'}}</th>
             <th>
               <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
-                <a (click)="onDeleteTransaction(cha.$key)" role="button" class="btn btn-danger">
+                <a (click)="onDeleteTransaction(cha.key)" role="button" class="btn btn-danger">
                       <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                     </a>
               </span>

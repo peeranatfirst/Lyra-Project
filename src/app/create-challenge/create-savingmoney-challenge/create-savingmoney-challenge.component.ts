@@ -27,6 +27,7 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
   }
 
   onAddSubmit() {
+    
     let createSavingmoneyChallenge = {
       challengeName: this.challengeName,
       challengeDescription: this.challengeDescription,

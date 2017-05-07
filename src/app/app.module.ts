@@ -28,6 +28,7 @@ import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
 import { AddMoneyService } from "app/services/add-money.service";
 import { FirebaseService } from './services/firebase.service';
 import { SelectCategoryComponent } from './create-challenge/select-category/select-category.component';
+import { DatetimestampService } from "app/services/datetimestamp.service";
 
 
 
@@ -78,7 +79,8 @@ const firebaseAuthConfig = {
   ],
   providers: [
     FirebaseService,
-    AddMoneyService
+    AddMoneyService,
+    DatetimestampService
     ],
   bootstrap: [AppComponent]
   
