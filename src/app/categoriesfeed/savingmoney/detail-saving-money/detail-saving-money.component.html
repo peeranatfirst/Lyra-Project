@@ -3,11 +3,33 @@
     <div class="col-sm-3 flex-first"></div>
     <div class="col-sm-3 flex-last"></div>
     <div class="col-sm-6">
-      <div class="card">
-        <div class="card-header">
-          {{challengeDetail.challengeName}}
-        </div>
+      <div class="card card-inverse card-info">
         <div class="card-block">
+          <figure class="profile profile-inline">
+            <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=da2b0bd2-354b-47f6-8510-b01fb5398810"
+              class="profile-avatar" alt="">
+          </figure>
+          <div class="card-title">Pim Patcha<br><span class="time">5h</span></div>
+          <div class="card-text">
+            <p><b>{{challengeDetail.challengeName}}</b><br>
+            {{challengeDetail.challengeDescription}}<br>
+            Duration : {{challengeDetail.duration}} Days<br>
+            Total Amount : {{challengeDetail.totalAmount}} Baht<br>
+            <img src="{{imageUrl}}" class="img-fluid">
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="card-link"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Like</a>
+          <a href="#" class="card-link"><i class="fa fa-comments-o" aria-hidden="true"></i>Comment</a>
+          <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="card-link"><span class="fa fa-plus-square-o" aria-hidden="true"></span>Add to My Challenge</a>
+        </div>
+      </div>
+
+      <!--<div class="card">
+        <img class="profile-avatar" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=86de7d6f-2705-45ef-9fa1-8590aa76c3fe">
+        {{challengeDetail.challengeName}}
+        <div class="card-block">
+          
           <p class="card-text">{{challengeDetail.challengeDescription}}</p>
           <p class="card-text">Duration : {{challengeDetail.duration}} Days</p>
           <p class="card-text">Total Amount : {{challengeDetail.totalAmount}} Baht</p>
@@ -18,7 +40,7 @@
           <div class="card">
             <div class="row ">
               <div class="col-md-4">
-                <img class="w-100 img-fluid" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=86de7d6f-2705-45ef-9fa1-8590aa76c3fe">
+
               </div>
               <div class="col-md-8 px-3">
                 <div class="card-block px-3">
@@ -35,7 +57,7 @@
           <a href="#" class="card-link"><i class="fa fa-comments-o" aria-hidden="true"></i>Comment</a>
           <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="card-link"><span class="fa fa-plus-square-o" aria-hidden="true"></span>Add to My Challenge</a>
         </div>
-      </div>
+      </div>-->
       <div class="row">
         <div class="col-sm-1 flex-first"></div>
         <div class="col-sm-1 flex-last"></div>
@@ -45,9 +67,11 @@
         </div>
       </div>
     </div>
-    <br>
+  </div>
+</div>
+<br>
 
-    <!-- *******อย่าลบ เอาไว้สำรอง*********
+<!-- *******อย่าลบ เอาไว้สำรอง*********
   
   
   <div class="container">
