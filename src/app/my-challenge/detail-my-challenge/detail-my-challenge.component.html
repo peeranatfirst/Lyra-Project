@@ -15,39 +15,39 @@
               <p class="card-text">Total Amount : {{currentBalance | currency:'THB':true:'1.0-0'}} Baht</p>
               <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}<br>
                 <p class="card-text">Start Date: {{startDate}}<br>
-                <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
+                  <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
             <h5><span class="badge badge-default">{{percent | number:'1.0-0'}}%</span></h5>
-                </span>
-                <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
-            <h5><span class="badge badge-success">{{percent | number:'1.0-0'}}% Success</span></h5>
-                </span>
-              </p>
-              <div class="row">
-                <div class="col-sm-6">
+                  </span>
                   <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
+            <h5><span class="badge badge-success">{{percent | number:'1.0-0'}}% Success</span></h5>
+                  </span>
+                </p>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
                     <a class="btn btn-success btn-add disabled" aria-disabled="true">
                       <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
                     </a>
                   </span>
-                  <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
+                    <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
                     <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-success btn-add">
                       <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
                     </a>
                   </span>
-                  <br><br>
-                </div>
-                <div class="col-sm-6">
-                  <span class="delete">
+                    <br><br>
+                  </div>
+                  <div class="col-sm-6">
+                    <span class="delete">
                     <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger btn-delete">
                       <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete Challenge
                     </a>
                   </span>
-                  <br><br>
+                    <br><br>
+                  </div>
                 </div>
-              </div>
             </div>
             <div class="col-sm-7">
-              
+
               <img src="{{imageUrl}}" class="img-fluid">
             </div>
           </div>
@@ -71,41 +71,44 @@
   </div>
   <br />
   <div class="collapse" id="collapseExample">
-    <div class="card card-block">
-      <div class="row">
-        <div class="col-sm-11" align="center">
-          <h3>Transactions</h3>
-        </div>
-        <div class="col-sm-1">
-          <button type="button" class="close" aria-label="Close" data-toggle="collapse" href="#collapseExample" aria-expanded="false"
-            aria-controls="collapseExample">
+    <div class="card">
+      <table class="Transaction">
+        <tr>
+          <td class="Tran">
+            <h3>Transactions</h3>
+          </td>
+          <td class="x">
+            <button type="button" class="close" aria-label="Close" data-toggle="collapse" href="#collapseExample" aria-expanded="false"
+              aria-controls="collapseExample">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
-      </div>
-      <table class="table table-bordered table-hover">
+          </td>
+        </tr>
+      </table>
+
+      <table class="table table-bordered table-hover table-responsive">
         <thead>
           <tr>
-            <th>No.</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Balance</th>
-            <th></th>
+            <th class="No">No.</th>
+            <th class="Date">Date</th>
+            <th class="Time">Time</th>
+            <th class="Balance">Balance</th>
+            <th class="Delete">Delete</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let cha of detailMyTransaction; let i=index;">
             <th>{{i+1}}</th>
-            <th>{{cha.datestamp}}</th>
-            <th>{{cha.timestamp}}</th>
-            <th>{{cha.balance | currency:'THB':true:'1.2-2'}}</th>
-            <th>
+            <td>{{cha.datestamp}}</td>
+            <td>{{cha.timestamp}}</td>
+            <td>{{cha.balance | currency:'THB':true:'1.2-2'}}</td>
+            <td>
               <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
                 <a (click)="onDeleteTransaction(cha.key)" role="button" class="btn btn-danger">
                       <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                     </a>
               </span>
-            </th>
+            </td>
           </tr>
         </tbody>
       </table>
