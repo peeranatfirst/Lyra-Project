@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from "app/services/firebase.service";
 import { routing } from '../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
-import { ProgressBarDirective } from "./progress-bar.directive";
+import { CalculatePercentSuccessService } from "app/services/calculate-percent-success.service";
+// import { ProgressBarDirective } from "./progress-bar.directive";
 
 
 
@@ -19,13 +19,11 @@ export class MyChallengeComponent implements OnInit {
   DetailOfChallenges: any[];
   inProgressChallenges : any[];
   achievedChallenges :any[];
-  /*chaName:any;
-  chaDescription:any;
-  balance: any;
-  totalAmount:any;*/
+
 
   constructor(
-    private firebaseService: FirebaseService) { }
+    private firebaseService: FirebaseService,
+    private calculate : CalculatePercentSuccessService) { }
 
   ngOnInit() {
     //เอา obj ของ challenges มาใส่ไว้ใน myChallenges
@@ -53,7 +51,7 @@ export class MyChallengeComponent implements OnInit {
             sum = sum + balance;
           }
           currentMoney = sum;
-          progress = this.firebaseService.calculateProgressPercent(sum, pullTotal);
+          progress = this.calculate.calculateSMProgressPercent(sum, pullTotal);
           if(progress>100){
             progress = 100;
           }

@@ -30,11 +30,9 @@ export class CheckdataSavingmoneyComponent implements OnInit {
   ngOnInit() {
     //Get id
     this.id = this.route.snapshot.params['id'];
-    this.firebaseService.getChallengeMoneyData(this.id).subscribe(checkdata => {
-      //console.log(checkdata)
+    this.firebaseService.getChallengeDetail(this.id).subscribe(checkdata => {
       this.checkdata = checkdata;
     })
-
   }
 
   onAddSubmit() {
@@ -60,7 +58,7 @@ export class CheckdataSavingmoneyComponent implements OnInit {
     }
 
     if (this.challengeDescription == undefined) {
-      this.addmoney.addSavingmoneydetailChallenges2(savingmoneydetailNoDescrip);
+      this.addmoney.addSavingmoneydetailChallenges(savingmoneydetailNoDescrip);
     } else {
       this.addmoney.addSavingmoneydetailChallenges(savingmoneydetail);
     }

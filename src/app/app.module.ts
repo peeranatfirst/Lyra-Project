@@ -29,7 +29,8 @@ import { AddMoneyService } from "app/services/add-money.service";
 import { FirebaseService } from './services/firebase.service';
 import { SelectCategoryComponent } from './create-challenge/select-category/select-category.component';
 import { DatetimestampService } from "app/services/datetimestamp.service";
-
+import { CreateChallengesService } from "app/services/create-challenges.service";
+import { CalculatePercentSuccessService } from "app/services/calculate-percent-success.service";
 
 
 export const firebaseConfig = {
@@ -80,7 +81,9 @@ const firebaseAuthConfig = {
   providers: [
     FirebaseService,
     AddMoneyService,
-    DatetimestampService
+    DatetimestampService,
+    CreateChallengesService,
+    CalculatePercentSuccessService
     ],
   bootstrap: [AppComponent]
   

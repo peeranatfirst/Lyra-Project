@@ -10,35 +10,32 @@ import { FirebaseService } from "app/services/firebase.service";
   styleUrls: ['./add-money.component.css']
 })
 export class AddMoneyComponent implements OnInit {
-  money: any;
+
   id: any;
   detailMyChallenge: any;
   balance: any;
-  currentBalance:any;
+  currentBalance: any;
 
   constructor(
     private firebaseService: FirebaseService,
     private router: Router,
     private route: ActivatedRoute,
-    private AddMoneyService: AddMoneyService,){
-       
-     }
- //private vcRef: ViewContainerRef
+    private AddMoneyService: AddMoneyService, ) {
+
+  }
+
   ngOnInit() {
     //Get id
     this.id = this.route.snapshot.params['id'];
+    //Get detail of Challenge
     this.firebaseService.getDetailMyChallenge(this.id).subscribe(detailMyChallenge => {
-      //console.log(detailMyChallenge)
       this.detailMyChallenge = detailMyChallenge;
     })
-    this.firebaseService.getTransaction(this.id).subscribe(toCal => {
-      let sum = 0;
-      for (let calB of toCal) {
-        let balance = this.firebaseService.getTransactionBalance(calB);
-        sum = sum + balance;
-      }
-      this.currentBalance =sum;
 
+    //Calculate Current Balance
+    this.firebaseService.getTransaction(this.id).subscribe(toCal => {
+      let sum = this.AddMoneyService.calculateBalance(toCal);
+      this.currentBalance = sum;
     })
 
   }
@@ -48,23 +45,17 @@ export class AddMoneyComponent implements OnInit {
     let totalAmount = this.detailMyChallenge.totalAmount;
     let currentMoney;
     this.firebaseService.getTransaction(this.id).subscribe(toCal => {
-      let sum = 0;
-      for (let calB of toCal) {
-        let balance = this.firebaseService.getTransactionBalance(calB);
-        sum = sum + balance;
-      }
-      currentMoney =sum;
-
+      currentMoney = this.AddMoneyService.calculateBalance(toCal);
     })
 
     let toAchieved = totalAmount - currentMoney;
 
-     if (addmoney < toAchieved) {
-        this.AddMoneyService.addMoney(addmoney, this.id);
-      } else {
-        this.AddMoneyService.addMoney(addmoney, this.id);
-        this.AddMoneyService.achievedStatusUpdate(this.id);
-     }
+    if (addmoney < toAchieved) {
+      this.AddMoneyService.addMoney(addmoney, this.id);
+    } else {
+      this.AddMoneyService.addMoney(addmoney, this.id);
+      this.AddMoneyService.achievedStatusUpdate(this.id);
+    }
     this.router.navigate(['/detailmychallenge/' + this.id])
   }
 

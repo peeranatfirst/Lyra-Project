@@ -6,6 +6,7 @@ import { DetailSavingMoneyComponent } from '../../categoriesfeed/savingmoney/det
 import { AddMoneyService } from '../../services/add-money.service';
 import { DatetimestampService } from "app/services/datetimestamp.service";
 import * as firebase from 'firebase';
+import { CalculatePercentSuccessService } from "app/services/calculate-percent-success.service";
 
 @Component({
   selector: 'app-detail-my-challenge',
@@ -32,7 +33,8 @@ export class DetailMyChallengeComponent implements OnInit {
     private AddMoneyService: AddMoneyService,
     private router: Router,
     private route: ActivatedRoute,
-    private dt: DatetimestampService) { }
+    private dt: DatetimestampService,
+    private calculate :CalculatePercentSuccessService) { }
 
   ngOnInit() {
     //Get ID
@@ -49,7 +51,7 @@ export class DetailMyChallengeComponent implements OnInit {
           sum = sum + balance;
         }
         this.currentBalance = sum;
-        this.percent = this.firebaseService.calculateProgressPercent(sum, detailMyChallenge.totalAmount);
+        this.percent = this.calculate.calculateSMProgressPercent(sum, detailMyChallenge.totalAmount);
         if (this.percent > 100) {
           this.percent = 100;
         }
@@ -87,7 +89,6 @@ export class DetailMyChallengeComponent implements OnInit {
    getImgURL(path){
       let storage = firebase.storage();
       let pathRef = storage.ref().child(path).getDownloadURL().then((val)=>{
-        // console.log(val);
         this.imgURL=val;
       });
    }

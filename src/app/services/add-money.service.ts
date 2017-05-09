@@ -13,43 +13,21 @@ export class AddMoneyService {
   myChallenges: FirebaseListObservable<any[]>;
   balance: FirebaseListObservable<any[]>;
 
-  constructor(private fs: FirebaseService) { }
+  constructor(private firebaseService: FirebaseService) { }
 
-
-
-  // getTodayDate() {
-  //   let datetime = new Date();
-  //   let monthNames = [
-  //     "JAN", "FAB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
-  //   ];
-  //   let date = datetime.getDate();
-  //   let monthIndex = datetime.getMonth();
-  //   let year = datetime.getFullYear();
-  //   let today = monthNames[monthIndex] + " " + date + " " + year;
-
-  //   return today;
-  // }
-
-  // getCurrentTime() {
-  //   let datetime = new Date();
-
-  //   let hours = datetime.getHours();
-  //   let mins = datetime.getMinutes();
-  //   if (mins < 10) {
-  //     "0" + mins;
-  //   }
-  //   let time = hours + " : " + mins;
-  //   return time;
-  // }
 
   addSavingmoneydetailChallenges(savingmoneydetail) {
     firebase.database().ref('/users/userid1/Challenges').push(savingmoneydetail);
   }
-  addSavingmoneydetailChallenges2(savingmoneydetailNoDescrip) {
-    firebase.database().ref('/users/userid1/Challenges').push(savingmoneydetailNoDescrip);
+  
+  calculateBalance(toCal){
+    let sum= 0;
+    for(let calBalance of toCal){
+      let balance = this.firebaseService.getTransactionBalance(calBalance);
+      sum = sum+balance;
+    }
+    return sum;
   }
-
-
 
 
   addMoney(addmoney, id) {

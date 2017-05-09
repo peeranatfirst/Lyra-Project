@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from "app/services/firebase.service";
+import { CreateChallengesService } from "app/services/create-challenges.service";
 import { routing } from '../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -20,36 +21,36 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
 
 
   constructor(
-    private firebaseService: FirebaseService,
+    private createCha: CreateChallengesService,
     private router: Router,
     private route: ActivatedRoute,
-    private dt : DatetimestampService
+    private dt: DatetimestampService
   ) { }
 
   ngOnInit() {
   }
 
+  //Recieve an information from create challenge form when click submit. 
   onAddSubmit() {
     let timestamp = firebase.database.ServerValue.TIMESTAMP;
-    let key;
     let createSavingmoneyChallenge = {
       challengeName: this.challengeName,
       challengeDescription: this.challengeDescription,
       duration: this.duration,
       totalAmount: this.totalAmount,
-      datetimestamp : timestamp
+      datetimestamp: timestamp
     }
     let createSavingmoneyChallengeNoDescrip = {
       challengeName: this.challengeName,
       duration: this.duration,
       totalAmount: this.totalAmount,
-      datetimestamp : timestamp
+      datetimestamp: timestamp
     }
 
     if (this.challengeDescription == undefined) {
-        this.firebaseService.addCreateSavingmoneyChallenge(createSavingmoneyChallengeNoDescrip);
+      this.createCha.addCreateSavingmoneyChallenge(createSavingmoneyChallengeNoDescrip);
     } else {
-        this.firebaseService.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);
+      this.createCha.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);
     }
 
 

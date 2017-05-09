@@ -11,11 +11,8 @@ import { DatetimestampService } from "app/services/datetimestamp.service";
   styleUrls: ['./savingmoney.component.css']
 })
 export class SavingmoneyComponent implements OnInit {
-  listOfChallenge: any[];
-  imageUrl: any;
-  id: any;
 
-
+  listOfChallenge: any[]; //collecting Array of Object to show in feeds page
 
   constructor(
     private firebaseService: FirebaseService,
@@ -26,6 +23,7 @@ export class SavingmoneyComponent implements OnInit {
 
 
   ngOnInit() {
+    //Get list of challenges in Saving money categories and picture description to show
     this.listOfChallenge = new Array();
     let imgPath;
     this.firebaseService.getChallengeList().subscribe(challengeList => {
@@ -55,7 +53,6 @@ export class SavingmoneyComponent implements OnInit {
         });
 
       }
-      //console.log(this.listOfChallenge);
       
     })
   }

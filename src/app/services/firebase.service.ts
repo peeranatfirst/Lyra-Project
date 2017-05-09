@@ -13,42 +13,45 @@ export class FirebaseService {
   balance: FirebaseListObservable<any[]>;
   detailBalance: FirebaseListObservable<any[]>;
 
-  constructor(private af: AngularFire, 
-   private router: Router,
+  constructor(
+    private af: AngularFire,
+    private router: Router,
     private route: ActivatedRoute) {
   }
 
+  //Get challange list on category feeds
   getChallengeList() {
     this.challengeList = this.af.database.list('/Categories /SavingMoney') as FirebaseListObservable<challengeList[]>
     return this.challengeList;
   }
 
-
   getChallengeDetail(id) {
     this.challengeDetail = this.af.database.object('/Categories /SavingMoney/' + id) as FirebaseObjectObservable<challengeList>
     return this.challengeDetail;
   }
-  getChallengeMoneyData(id) {
-    this.checkdata = this.af.database.object('/Categories /SavingMoney/' + id) as FirebaseObjectObservable<challengeList>
-    return this.checkdata;
-  }
 
+  // getChallengeMoneyData(id) {
+  //   this.checkdata = this.af.database.object('/Categories /SavingMoney/' + id) as FirebaseObjectObservable<challengeList>
+  //   return this.checkdata;
+  // }
+
+  //Get my challenge list of User
   getMyChallenges() {
     this.myChallenges = this.af.database.list('/users/userid1/Challenges') as FirebaseListObservable<myChallengesList[]>
     return this.myChallenges;
   }
-
-
 
   getDetailMyChallenge(id) {
     this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/' + id) as FirebaseObjectObservable<myChallengesList>
     return this.detailMyChallenge;
   }
 
+  //Get Saving Money Transaction of challenges
   getTransaction(key) {
     this.balance = this.af.database.list('/users/userid1/Challenges/' + key + '/savingTransaction') as FirebaseListObservable<myBalance[]>
     return this.balance;
   }
+
 
   getKeyOfChallenge(challengeslist: myChallengesList) {
     return challengeslist.$key;
@@ -68,64 +71,37 @@ export class FirebaseService {
   getStatusOfChallenge(challengeslist: myChallengesList) {
     return challengeslist.challengeStatus;
   }
-  getStartDateOfChallenge(challengeList: myChallengesList){
+  getStartDateOfChallenge(challengeList: myChallengesList) {
     return challengeList.startDate;
   }
 
+  //Return balance
   getTransactionBalance(transactionBalance: myBalance) {
     return transactionBalance.balance;
   }
 
-  calculateProgressPercent(sum, total) {
-    let percent;
-    percent = (100 * sum) / total;
-
-    return percent;
-  }
-
-  getListOfChallengeId(listOfChallenge : challengeList){
+  getListOfChallengeId(listOfChallenge: challengeList) {
     return listOfChallenge.$key;
   }
-   getListOfChallengeName(listOfChallenge : challengeList){
+  getListOfChallengeName(listOfChallenge: challengeList) {
     return listOfChallenge.challengeName;
   }
-   getListOfChallengeDes(listOfChallenge : challengeList){
+  getListOfChallengeDes(listOfChallenge: challengeList) {
     return listOfChallenge.challengeDescription;
   }
-   getListOfChallengeDuration(listOfChallenge : challengeList){
+  getListOfChallengeDuration(listOfChallenge: challengeList) {
     return listOfChallenge.duration;
   }
-  getListOfChallengeGoal(listOfChallenge : challengeList){
+  getListOfChallengeGoal(listOfChallenge: challengeList) {
     return listOfChallenge.totalAmount;
   }
-  getListOfChallengePath(listOfChallenge : challengeList){
+  getListOfChallengePath(listOfChallenge: challengeList) {
     return listOfChallenge.path;
   }
-  getListOfChallengeTimestamp(listOfChallenge : challengeList){
+  getListOfChallengeTimestamp(listOfChallenge: challengeList) {
     return listOfChallenge.datetimestamp;
   }
 
-  addCreateSavingmoneyChallenge(createSavingmoneyChallenge) {
-    let storageRef = firebase.storage().ref();
-    for (let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
-      let path = `/savingmoneychallenges/${selectedFile.name}`;
-      let iRef = storageRef.child(path);
-      iRef.put(selectedFile).then((snapshot) => {
-        createSavingmoneyChallenge.image = selectedFile.name;
-        createSavingmoneyChallenge.path = path;
-        const promise = new Promise((resolve,reject)=>{
-          resolve(firebase.database().ref('/Categories /SavingMoney').push().key);
-        }).then((val) =>{
-          firebase.database().ref('/Categories /SavingMoney/'+val).set(createSavingmoneyChallenge);
-           return val
-      }).then((key)=>{
-        this.router.navigate(['detailsavingmoney/'+key]);
-      })
-    })
-  } 
-   return "should be fix";
-}
-  
 }
 
 interface challengeList {
@@ -135,9 +111,8 @@ interface challengeList {
   duration?: string;
   totalAmount?: string;
   path?: string;
-  datetimestamp? : string;
+  datetimestamp?: string;
 }
-
 
 interface myChallengesList {
   $key?: string;
