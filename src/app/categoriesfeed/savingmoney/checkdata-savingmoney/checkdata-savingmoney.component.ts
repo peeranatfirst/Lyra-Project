@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from "app/services/firebase.service";
+import { FirebaseService } from 'app/services/firebase.service';
 import { routing } from '../../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { AddMoneyService } from "app/services/add-money.service";
+import { AddMoneyService } from 'app/services/add-money.service';
 import * as firebase from 'firebase';
 
 @Component({
@@ -28,17 +28,17 @@ export class CheckdataSavingmoneyComponent implements OnInit {
     private addmoney: AddMoneyService) { }
 
   ngOnInit() {
-    //Get id
+    // Get id
     this.id = this.route.snapshot.params['id'];
     this.firebaseService.getChallengeDetail(this.id).subscribe(checkdata => {
       this.checkdata = checkdata;
-    })
+    });
   }
 
   onAddSubmit() {
-    let status = "processing";
-    let start = firebase.database.ServerValue.TIMESTAMP;
-    let savingmoneydetail = {
+    const status = "processing";
+    const start = firebase.database.ServerValue.TIMESTAMP;
+    const savingmoneydetail = {
       challengeName: this.checkdata.challengeName,
       challengeDescription: this.checkdata.challengeDescription,
       challengeStatus: status,
@@ -46,23 +46,23 @@ export class CheckdataSavingmoneyComponent implements OnInit {
       totalAmount: this.checkdata.totalAmount,
       startDate : start,
       path : this.checkdata.path
-    }
+    };
 
-    let savingmoneydetailNoDescrip = {
+    const savingmoneydetailNoDescrip = {
       challengeName: this.checkdata.challengeName,
       challengeStatus: status,
       duration: this.checkdata.duration,
       totalAmount: this.checkdata.totalAmount,
       startDate : start,
       path : this.checkdata.path
-    }
+    };
 
-    if (this.challengeDescription == undefined) {
+    if (this.challengeDescription === undefined) {
       this.addmoney.addSavingmoneydetailChallenges(savingmoneydetailNoDescrip);
     } else {
       this.addmoney.addSavingmoneydetailChallenges(savingmoneydetail);
     }
-    this.router.navigate(['/mychallenge'])
+    this.router.navigate(['/mychallenge']);
 
   }
 }

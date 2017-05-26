@@ -4,7 +4,7 @@ import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.compone
 import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.component';
 import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';
 import { MyChallengeComponent } from './my-challenge/my-challenge.component';
-import { CheckdataSavingmoneyComponent } from './categoriesfeed/savingmoney/checkdata-savingmoney/checkdata-savingmoney.component'
+import { CheckdataSavingmoneyComponent } from './categoriesfeed/savingmoney/checkdata-savingmoney/checkdata-savingmoney.component';
 import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
 import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
 import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
@@ -25,6 +25,6 @@ const appRoutes: Routes = [
   { path: 'createSavingmoneyChallenge', component: CreateSavingmoneyChallengeComponent},
   { path: 'selectCategory', component: SelectCategoryComponent }
 
-]
+];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

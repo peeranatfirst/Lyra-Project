@@ -1,0 +1,5 @@
+projectKey=org.sonarqube:Lyra-ProjectNAJA
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/org.sonarqube:Lyra-ProjectNAJA
+ceTaskId=AVwrkowl-Xm8fuF0HQIk
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVwrkowl-Xm8fuF0HQIk

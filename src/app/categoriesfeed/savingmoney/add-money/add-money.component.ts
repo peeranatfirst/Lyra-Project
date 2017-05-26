@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AddMoneyService } from "app/services/add-money.service";
+import { AddMoneyService } from 'app/services/add-money.service';
 import { routing } from '../../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { FirebaseService } from "app/services/firebase.service";
+import { FirebaseService } from 'app/services/firebase.service';
 
 @Component({
   selector: 'app-add-money',
@@ -25,30 +25,30 @@ export class AddMoneyComponent implements OnInit {
   }
 
   ngOnInit() {
-    //Get id
+    // Get id
     this.id = this.route.snapshot.params['id'];
-    //Get detail of Challenge
+    // Get detail of Challenge
     this.firebaseService.getDetailMyChallenge(this.id).subscribe(detailMyChallenge => {
       this.detailMyChallenge = detailMyChallenge;
-    })
+    });
 
-    //Calculate Current Balance
+    // Calculate Current Balance
     this.firebaseService.getTransaction(this.id).subscribe(toCal => {
-      let sum = this.AddMoneyService.calculateBalance(toCal);
+      const sum = this.AddMoneyService.calculateBalance(toCal);
       this.currentBalance = sum;
-    })
+    });
 
   }
 
   onAddSubmit() {
-    let addmoney = this.balance;
-    let totalAmount = this.detailMyChallenge.totalAmount;
+    const addmoney = this.balance;
+    const totalAmount = this.detailMyChallenge.totalAmount;
     let currentMoney;
     this.firebaseService.getTransaction(this.id).subscribe(toCal => {
       currentMoney = this.AddMoneyService.calculateBalance(toCal);
-    })
+    });
 
-    let toAchieved = totalAmount - currentMoney;
+    const toAchieved = totalAmount - currentMoney;
 
     if (addmoney < toAchieved) {
       this.AddMoneyService.addMoney(addmoney, this.id);
@@ -56,7 +56,7 @@ export class AddMoneyComponent implements OnInit {
       this.AddMoneyService.addMoney(addmoney, this.id);
       this.AddMoneyService.achievedStatusUpdate(this.id);
     }
-    this.router.navigate(['/detailmychallenge/' + this.id])
+    this.router.navigate(['/detailmychallenge/' + this.id]);
   }
 
 }

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from "app/services/firebase.service";
-import { CreateChallengesService } from "app/services/create-challenges.service";
+import { FirebaseService } from 'app/services/firebase.service';
+import { CreateChallengesService } from 'app/services/create-challenges.service';
 import { routing } from '../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { DatetimestampService } from "app/services/datetimestamp.service";
-import * as firebase from "firebase";
+import { DatetimestampService } from 'app/services/datetimestamp.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-create-savingmoney-challenge',
@@ -30,24 +30,24 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
   ngOnInit() {
   }
 
-  //Recieve an information from create challenge form when click submit. 
+  // Recieve an information from create challenge form when click submit. 
   onAddSubmit() {
-    let timestamp = firebase.database.ServerValue.TIMESTAMP;
-    let createSavingmoneyChallenge = {
+    const timestamp = firebase.database.ServerValue.TIMESTAMP;
+    const createSavingmoneyChallenge = {
       challengeName: this.challengeName,
       challengeDescription: this.challengeDescription,
       duration: this.duration,
       totalAmount: this.totalAmount,
       datetimestamp: timestamp
-    }
-    let createSavingmoneyChallengeNoDescrip = {
+    };
+    const createSavingmoneyChallengeNoDescrip = {
       challengeName: this.challengeName,
       duration: this.duration,
       totalAmount: this.totalAmount,
       datetimestamp: timestamp
-    }
+    };
 
-    if (this.challengeDescription == undefined) {
+    if (this.challengeDescription === undefined) {
       this.createCha.addCreateSavingmoneyChallenge(createSavingmoneyChallengeNoDescrip);
     } else {
       this.createCha.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);

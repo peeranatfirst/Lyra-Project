@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import * as firebase from 'firebase';
-import { FirebaseService } from "app/services/firebase.service";
+import { FirebaseService } from 'app/services/firebase.service';
 
 
 
@@ -22,8 +22,8 @@ export class AddMoneyService {
   
   calculateBalance(toCal){
     let sum= 0;
-    for(let calBalance of toCal){
-      let balance = this.firebaseService.getTransactionBalance(calBalance);
+    for(const calBalance of toCal){
+      const balance = this.firebaseService.getTransactionBalance(calBalance);
       sum = sum+balance;
     }
     return sum;
@@ -31,7 +31,7 @@ export class AddMoneyService {
 
 
   addMoney(addmoney, id) {
-    let timestamp = firebase.database.ServerValue.TIMESTAMP;
+    const timestamp = firebase.database.ServerValue.TIMESTAMP;
 
     firebase.database().ref('/users/userid1/Challenges/' + id + '/savingTransaction').push({
       balance: addmoney,
@@ -41,10 +41,17 @@ export class AddMoneyService {
   }
 
   achievedStatusUpdate(id) {
-    var test = {
+    const status = {
       challengeStatus: "Achieved"
     };
-    firebase.database().ref('/users/userid1/Challenges/' + id).update(test);
+    firebase.database().ref('/users/userid1/Challenges/' + id).update(status);
+  }
+
+  cancelChallengeUpdate(id){
+    const status = {
+      challengeStatus: "Cancelled"
+    };
+    firebase.database().ref('/users/userid1/Challenges/'+ id).update(status);
   }
 
   deleteTransaction(key,tId){

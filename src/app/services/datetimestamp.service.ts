@@ -8,20 +8,20 @@ export class DatetimestampService {
   constructor() { }
 
   getDatestamp(value){
-        let date = new Date(value);
-        let day = date.getDate();
-        let month = date.getMonth();
-        let year = date.getFullYear();
-        let monthNames = [
+        const date = new Date(value);
+        const day = date.getDate();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+        const monthNames = [
       "JAN", "FAB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
     ];
         return day+" "+monthNames[month]+" "+year;
   }
 
   getTimestamp(value){
-    let time = new Date(value);
-    let hour = time.getHours();
-    let mins = time.getMinutes();
+    const time = new Date(value);
+    const hour = time.getHours();
+    const mins = time.getMinutes();
     if(mins<10){
      return hour+" : 0"+mins;
     }else{

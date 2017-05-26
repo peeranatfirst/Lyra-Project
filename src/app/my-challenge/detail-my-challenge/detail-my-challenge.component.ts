@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { routing } from '../../app.routing';
 import { FirebaseService } from "app/services/firebase.service";
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { DetailSavingMoneyComponent } from '../../categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component'
+import { DetailSavingMoneyComponent } from '../../categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';
 import { AddMoneyService } from '../../services/add-money.service';
-import { DatetimestampService } from "app/services/datetimestamp.service";
+import { DatetimestampService } from 'app/services/datetimestamp.service';
 import * as firebase from 'firebase';
-import { CalculatePercentSuccessService } from "app/services/calculate-percent-success.service";
+import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
 
 @Component({
   selector: 'app-detail-my-challenge',
@@ -37,17 +37,17 @@ export class DetailMyChallengeComponent implements OnInit {
     private calculate :CalculatePercentSuccessService) { }
 
   ngOnInit() {
-    //Get ID
+    // Get ID
     this.id = this.route.snapshot.params['id'];
 
     this.firebaseService.getDetailMyChallenge(this.id).subscribe(detailMyChallenge => {
       this.detailMyChallenge = detailMyChallenge;
-      this.startDate = this.dt.getDatestamp(this.detailMyChallenge.startDate); //convert timestamp to date
+      this.startDate = this.dt.getDatestamp(this.detailMyChallenge.startDate); // convert timestamp to date
       this.getImgURL(this.detailMyChallenge.path);
       this.firebaseService.getTransaction(detailMyChallenge.$key).subscribe(toCal => {
-        var sum = 0;
-        for (let calB of toCal) {
-          let balance = this.firebaseService.getTransactionBalance(calB);
+        let sum = 0;
+        for (const calB of toCal) {
+          const balance = this.firebaseService.getTransactionBalance(calB);
           sum = sum + balance;
         }
         this.currentBalance = sum;
@@ -55,26 +55,26 @@ export class DetailMyChallengeComponent implements OnInit {
         if (this.percent > 100) {
           this.percent = 100;
         }
-      })
-    })
+      });
+    });
 
     this.firebaseService.getTransaction(this.id).subscribe(detailTransaction => {
       this.detailTransaction = detailTransaction;
       this.detailMyTransaction = new Array();
       this.detailTransaction.forEach(element => {
-        let date = this.dt.getDatestamp(element.datetimestamp);
-        let time = this.dt.getTimestamp(element.datetimestamp);
+        const date = this.dt.getDatestamp(element.datetimestamp);
+        const time = this.dt.getTimestamp(element.datetimestamp);
         this.detailMyTransaction.push({ key: element.$key, balance: element.balance, datestamp: date, timestamp: time });
       });
 
-    })
+    });
 
   }
 
   onDeleteChallenge() {
     if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge?")) {
       this.AddMoneyService.deleteChallenge(this.detailMyChallenge.$key);
-      this.router.navigate(['/mychallenge'])
+      this.router.navigate(['/mychallenge']);
     }
 
   }
@@ -82,13 +82,13 @@ export class DetailMyChallengeComponent implements OnInit {
   onDeleteTransaction(key) {
     if (confirm("Are you sure to delete?")) {
       this.AddMoneyService.deleteTransaction(this.detailMyChallenge.$key, key);
-      this.router.navigate(['/detailmychallenge/' + this.detailMyChallenge.$key])
+      this.router.navigate(['/detailmychallenge/' + this.detailMyChallenge.$key]);
     }
   }
 
    getImgURL(path){
-      let storage = firebase.storage();
-      let pathRef = storage.ref().child(path).getDownloadURL().then((val)=>{
+      const storage = firebase.storage();
+      const pathRef = storage.ref().child(path).getDownloadURL().then((val)=>{
         this.imgURL=val;
       });
    }

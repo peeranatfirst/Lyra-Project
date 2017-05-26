@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from "app/services/firebase.service";
+import { FirebaseService } from 'app/services/firebase.service';
 import { routing } from '../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { CalculatePercentSuccessService } from "app/services/calculate-percent-success.service";
+import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
 // import { ProgressBarDirective } from "./progress-bar.directive";
 
 
@@ -26,17 +26,17 @@ export class MyChallengeComponent implements OnInit {
     private calculate : CalculatePercentSuccessService) { }
 
   ngOnInit() {
-    //เอา obj ของ challenges มาใส่ไว้ใน myChallenges
+    // เอา obj ของ challenges มาใส่ไว้ใน myChallenges
     this.firebaseService.getMyChallenges().subscribe(myChallenges => {
-      //console.log(myChallenges);
+      // console.log(myChallenges);
       this.myChallenges = myChallenges;
-      //ดึง key ของแต่ละอันออกมา
-      this.DetailOfChallenges = new Array(); //all challenge
+      // ดึง key ของแต่ละอันออกมา
+      this.DetailOfChallenges = new Array(); // all challenge
       this.inProgressChallenges = new Array(); // processing
       this.achievedChallenges = new Array(); // achieved
 
-      for (let obj of myChallenges) {
-        let pullKey, pullName, pullDes, pullTotal, calBalance, progress, pullStatus , currentMoney ,startDate;
+      for (const obj of myChallenges) {
+        let pullKey, pullName, pullDes, pullTotal, progress, pullStatus , currentMoney ,startDate;
 
         pullKey = this.firebaseService.getKeyOfChallenge(obj);
         pullName = this.firebaseService.getNameOfChallenge(obj);
@@ -45,9 +45,9 @@ export class MyChallengeComponent implements OnInit {
         pullStatus = this.firebaseService.getStatusOfChallenge(obj);
         startDate = this.firebaseService.getStartDateOfChallenge(obj);
         this.firebaseService.getTransaction(pullKey).subscribe(toCal => {
-          var sum = 0;
-          for (let calB of toCal) {
-            let balance = this.firebaseService.getTransactionBalance(calB);
+          let sum = 0;
+          for (const calB of toCal) {
+            const balance = this.firebaseService.getTransactionBalance(calB);
             sum = sum + balance;
           }
           currentMoney = sum;
@@ -62,10 +62,10 @@ export class MyChallengeComponent implements OnInit {
             this.achievedChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney , start: startDate });
           }
 
-        })
+        });
 
       }
       console.log(this.achievedChallenges);
-    })
+    });
   }
 }

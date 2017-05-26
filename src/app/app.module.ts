@@ -25,12 +25,12 @@ import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-s
 import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
 
 //Services
-import { AddMoneyService } from "app/services/add-money.service";
+import { AddMoneyService } from 'app/services/add-money.service';
 import { FirebaseService } from './services/firebase.service';
 import { SelectCategoryComponent } from './create-challenge/select-category/select-category.component';
-import { DatetimestampService } from "app/services/datetimestamp.service";
-import { CreateChallengesService } from "app/services/create-challenges.service";
-import { CalculatePercentSuccessService } from "app/services/calculate-percent-success.service";
+import { DatetimestampService } from 'app/services/datetimestamp.service';
+import { CreateChallengesService } from 'app/services/create-challenges.service';
+import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
 
 
 export const firebaseConfig = {
@@ -40,7 +40,7 @@ export const firebaseConfig = {
   storageBucket: "lyra-24b71.appspot.com",
   messagingSenderId: "943399750478"
 
-}
+};
 
 const firebaseAuthConfig = {
   provider: AuthProviders.Google,

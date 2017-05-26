@@ -10,12 +10,12 @@ export class CreateChallengesService {
     private route: ActivatedRoute
   ) { }
 
-  //Function for create a saving money challenge with Image upload
+  // Function for create a saving money challenge with Image upload
   addCreateSavingmoneyChallenge(createSavingmoneyChallenge) {
-    let storageRef = firebase.storage().ref();
-    for (let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
-      let path = `/savingmoneychallenges/${selectedFile.name}`;
-      let iRef = storageRef.child(path);
+    const storageRef = firebase.storage().ref();
+    for (const selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
+      const path = `/savingmoneychallenges/${selectedFile.name}`;
+      const iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
         createSavingmoneyChallenge.image = selectedFile.name;
         createSavingmoneyChallenge.path = path;
@@ -23,11 +23,11 @@ export class CreateChallengesService {
           resolve(firebase.database().ref('/Categories /SavingMoney').push().key);
         }).then((val) => {
           firebase.database().ref('/Categories /SavingMoney/' + val).set(createSavingmoneyChallenge);
-          return val
+          return val;
         }).then((key) => {
           this.router.navigate(['detailsavingmoney/' + key]);
-        })
-      })
+        });
+      });
     }
     return "should be fix";
   }
