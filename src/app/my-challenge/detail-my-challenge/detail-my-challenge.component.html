@@ -30,16 +30,33 @@
                       <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
                     </a>
                   </span>
-                    <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
+                  <span *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
+                    <a class="btn btn-success btn-add disabled" aria-disabled="true">
+                      <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
+                    </a>
+                  </span>
+
+                    <span *ngIf="detailMyChallenge.challengeStatus == 'processing' ">
                     <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-success btn-add">
                       <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
                     </a>
                   </span>
+                
                     <br><br>
                   </div>
-                  <div class="col-sm-6">
-                    <span class="delete">
-                    <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger btn-delete">
+                  <div class="col-sm-6"> 
+                    <span class="delete"  *ngIf="detailMyChallenge.challengeStatus == 'processing'">
+                    <a (click)="onCancelChallenge()" role="button" class="btn btn-danger bth-delete">
+                      <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Cancel Challenge
+                    </a>
+                  </span>
+                  <span class="delete"  *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
+                    <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">
+                      <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete Challenge
+                    </a>
+                  </span>
+                  <span class="delete"  *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
+                    <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">
                       <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete Challenge
                     </a>
                   </span>

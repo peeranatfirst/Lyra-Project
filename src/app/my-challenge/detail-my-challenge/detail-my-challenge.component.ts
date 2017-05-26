@@ -71,6 +71,14 @@ export class DetailMyChallengeComponent implements OnInit {
 
   }
 
+  onCancelChallenge() {
+    if (confirm("Are you sure to cancel " + this.detailMyChallenge.challengeName + " Challenge?")) {
+      this.AddMoneyService.cancelChallengeUpdate(this.detailMyChallenge.$key);
+      this.router.navigate(['/mychallenge']);
+    }
+
+  }
+
   onDeleteChallenge() {
     if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge?")) {
       this.AddMoneyService.deleteChallenge(this.detailMyChallenge.$key);

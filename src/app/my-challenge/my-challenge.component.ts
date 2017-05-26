@@ -19,7 +19,7 @@ export class MyChallengeComponent implements OnInit {
   DetailOfChallenges: any[];
   inProgressChallenges : any[];
   achievedChallenges :any[];
-
+  cancelledChallenges : any[];
 
   constructor(
     private firebaseService: FirebaseService,
@@ -31,9 +31,10 @@ export class MyChallengeComponent implements OnInit {
       // console.log(myChallenges);
       this.myChallenges = myChallenges;
       // ดึง key ของแต่ละอันออกมา
-      this.DetailOfChallenges = new Array(); // all challenge
+      this.DetailOfChallenges = new Array(); // all challenges
       this.inProgressChallenges = new Array(); // processing
       this.achievedChallenges = new Array(); // achieved
+      this.cancelledChallenges = new Array(); // cancelled
 
       for (const obj of myChallenges) {
         let pullKey, pullName, pullDes, pullTotal, progress, pullStatus , currentMoney ,startDate;
@@ -58,8 +59,10 @@ export class MyChallengeComponent implements OnInit {
           this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney, start: startDate });
           if(pullStatus==='processing'){
             this.inProgressChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney, start: startDate  });
-          }else{
+          }else if(pullStatus==='Achieved'){
             this.achievedChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney , start: startDate });
+          }else{
+            this.cancelledChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney , start: startDate });
           }
 
         });
