@@ -19,6 +19,11 @@ a:hover > .card{
   border-color: #4bae4f;
 }
 
+a:hover > .card-cooking{
+  border: dashed 5px;
+  border-color: #fea000;
+}
+
 .commingsoon{
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
