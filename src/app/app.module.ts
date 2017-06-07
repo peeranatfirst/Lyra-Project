@@ -31,6 +31,7 @@ import { SelectCategoryComponent } from './create-challenge/select-category/sele
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { CreateChallengesService } from 'app/services/create-challenges.service';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
+import { CookingskillsComponent } from './categoriesfeed/cookingskills/cookingskills.component';
 
 
 export const firebaseConfig = {
@@ -62,7 +63,8 @@ const firebaseAuthConfig = {
     DetailMyChallengeComponent,
     CreateSavingmoneyChallengeComponent,
     ProgressBarDirective,
-    SelectCategoryComponent
+    SelectCategoryComponent,
+    CookingskillsComponent
 
 
 
