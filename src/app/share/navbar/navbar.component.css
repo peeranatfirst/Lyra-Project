@@ -1,4 +1,241 @@
 .profileBar{
-    width: 25px;
-    height: 25px;
+    width: 100px;
+    height: 100px;
+}
+.profile{
+	margin-left: 20px;
+	margin-bottom: 40px;
+	width: 50px;
+    height: 50px;
+}
+.nav-menu{
+	margin-top: 5px;
+}
+.menu{
+	width: 0px;
+	transition:all 0.3s;
+	height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: #292b2c;
+    padding-top: 30px;
+    color:white;
+}
+.menu i{
+	margin:5px 0px;
+	top: 0px;
+	right: 10px;
+	position: absolute;
+	font-size: 30px;
+}
+.fa.fa-bars{
+	margin:5px 0px;
+	right: 10px;
+	font-size: 22px;
+	color:black;	
+    z-index: 1;
+}
+.menu li{
+    list-style: none;
+	font-size: 20px;
+	padding: 5px 0px;
+	font-weight: 600;
+}
+.menu li:hover{
+	background-color: #bcbdbd;
+	font-size: 25px;
+}
+.menu ul{
+	padding-top: 20px;
+	padding-left: 0px;
+	text-align: center;
+}
+.menuOpen{
+	width: 100%;
+    background-color: #292b2c;
+	transition:all 0.3s;
+}
+.menuClose{
+	background-color:  #bcbdbd;
+	transition:all 0.3s;
+	padding-left: 0px!important;
+	transition:all 0.3s;
+}
+.mainOpen{
+    display: hidden;
+}
+.mainClose{
+	transition:all 0.3s;
+    margin-left: 5px;
+	transition:all 0.3s;
+}
+.navbar{
+    height: 65px;
+}
+.navbar-brand{
+	font-size: 21px;
+	font-weight: bold;
+	margin-left: 10px;
+}
+a{
+	color:white;
+}
+a:hover{
+	text-decoration: none;
+}
+.fa-search{
+	font-size: 22px;
+	position: absolute;
+    right: 50px;
+    padding: 10px;
+}
+.fa-bell-o{
+	font-size: 22px;
+	position: absolute;
+    right: 10px;
+    padding: 10px;
+}
+.fa-bell{
+	font-size: 22px;
+	position: absolute;
+    right: 10px;
+    padding: 10px;
+}
+.search{
+	width: 0px;
+	transition:all 0.3s;
+	height: 68px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 14px;
+    color:white;
+}
+.searchClose{
+	background-color:  #bcbdbd;
+	transition:all 0.3s;
+	padding-left: 0px!important;
+	transition:all 0.3s;
+}
+.searchOpen{
+	width: 100%;
+    background-color: #292b2c;
+	transition:all 0.3s;
+}
+.fa-chevron-left{
+	margin-top: 8px;
+	font-size: 22px;
+	position: absolute;
+	left: 25px;
+	z-index: 1;
+	color:white;
+}
+.form-control{
+	width: 100%;
+	margin-left: 50px;
+}
+.form-group{
+	width: 100%;
+}
+.notification{
+	width: 0px;
+	height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 100px;
+    color:white;
+}
+.notiClose{
+	background-color:  #bcbdbd;
+	padding-left: 0px!important;
+}
+.notiOpen{
+	width: 100%;
+    background-color: #292b2c;
+}
+.triangle{
+	right: 21px;
+	top: 52px;
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 15px solid #292b2c;
+	transition:all 0.3s;
+}
+.notiHeader{
+	margin-left: 20px;
+}
+.notiHr{
+	background-color: white;
+	width: 90%;
+}
+@media screen and (min-width: 480px) {
+	.notification{
+		width: 0px;
+		height: 100%;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		overflow-x: hidden;
+		padding-top: 100px;
+		color:white;
+	}
+    .notiOpen{
+		right: 0;
+		margin-left: auto;
+		width: 400px;
+		height: auto;
+    	background-color: #292b2c;
+		transition:all 0.3s;
+	}
+	.notiClose{
+		background-color:  #bcbdbd;
+		padding-right: 0px!important;
+	}
+	.menu{
+		width: 0px;
+		transition:all 0.3s;
+		height: 100%;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		overflow-x: hidden;
+		transition: 0.5s;
+		background-color: #292b2c;
+		padding-top: 30px;
+		color:white;
+	}
+	.menuOpen{
+		width: 25%;
+		background-color: #292b2c;
+		transition:all 0.3s;
+	}
+	.menuClose{
+		background-color:  #bcbdbd;
+		transition:all 0.3s;
+		padding-left: 0px!important;
+		transition:all 0.3s;
+	}
+	.mainOpen{
+		display: hidden;
+	}
+	.mainClose{
+		transition:all 0.3s;
+		margin-left: 5px;
+		transition:all 0.3s;
+	}
 }
