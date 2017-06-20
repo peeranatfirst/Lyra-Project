@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
 import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Components
 import { AppComponent } from './app.component';
@@ -21,6 +22,12 @@ import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-mo
 import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
 import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
 
+import { LoginComponent } from './authentication/login/login.component';
+import { MembersComponent } from './authentication/members/members.component';
+
+import { SignupComponent } from './authentication/signup/signup.component';
+import { EmailComponent } from './authentication/email/email.component';
+
 //Directives
 import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
 
@@ -31,7 +38,7 @@ import { SelectCategoryComponent } from './create-challenge/select-category/sele
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { CreateChallengesService } from 'app/services/create-challenges.service';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
-
+import { AuthGuard } from './services/auth.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
@@ -42,10 +49,10 @@ export const firebaseConfig = {
 
 };
 
-const firebaseAuthConfig = {
+/*const firebaseAuthConfig = {
   provider: AuthProviders.Google,
   method: AuthMethods.Popup
-};
+};*/
 
 
 @NgModule({
@@ -62,9 +69,11 @@ const firebaseAuthConfig = {
     DetailMyChallengeComponent,
     CreateSavingmoneyChallengeComponent,
     ProgressBarDirective,
-    SelectCategoryComponent
-
-
+    SelectCategoryComponent,
+    LoginComponent,
+    EmailComponent,
+    SignupComponent,
+    MembersComponent
 
   ],
   imports: [
@@ -73,9 +82,10 @@ const firebaseAuthConfig = {
     HttpModule,
     BrowserModule,
     NgbModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
     routing,
-    FlashMessagesModule
+    FlashMessagesModule,
+    BrowserAnimationsModule
 
   ],
   providers: [
@@ -83,7 +93,8 @@ const firebaseAuthConfig = {
     AddMoneyService,
     DatetimestampService,
     CreateChallengesService,
-    CalculatePercentSuccessService
+    CalculatePercentSuccessService,
+    AuthGuard
     ],
   bootstrap: [AppComponent]
   

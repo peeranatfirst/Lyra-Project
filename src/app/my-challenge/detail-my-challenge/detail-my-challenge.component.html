@@ -119,8 +119,8 @@
             <td>{{cha.datestamp}}</td>
             <td>{{cha.timestamp}}</td>
             <td>{{cha.balance | currency:'THB':true:'1.2-2'}}</td>
-            <td>
-              <span *ngIf="detailMyChallenge.challengeStatus == 'processing'">
+            <td *ngIf="detailMyChallenge.challengeStatus == 'processing'">
+              <span >
                 <a (click)="onDeleteTransaction(cha.key)" role="button" class="btn btn-danger">
                       <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                     </a>
