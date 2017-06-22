@@ -107,6 +107,16 @@ export class NavbarComponent implements OnInit {
         document.getElementById('notiBellOId').style.display = "";
         document.getElementById('notiBellId').style.display = "none";
       });
+
+      // $("#home").click(function(){
+      //   document.getElementById('navColor').style.backgroundColor = "#f7f7f7";
+      // });
+
+      // $("#savingMoney").click(function(){
+      //   document.getElementById('navColor').style.backgroundColor = "#53d769";
+      //   document.getElementById('navColor').style.color = "white";
+      //   document.getElementById('mainColor').style.color = "white";
+      // });
   }
 
 }

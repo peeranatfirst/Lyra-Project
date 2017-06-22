@@ -1,3 +1,6 @@
+.container{
+    margin-top: 80px;
+}
 h5 {
     font-size: 1.28571429em;
     font-weight: 700;
@@ -139,4 +142,18 @@ a:hover > .card{
     -webkit-box-shadow: 0 0 10px 3px #378d3b;
     box-shadow: 0 0 10px 3px #378d3b;
     color: white;
+}
+.nav{
+    display: grid;
+}
+#navStatus{
+    margin-top: 10px;
+    text-align: center;
+}
+.dropdown-menu{
+    text-align: center;
+    width: 100%;
+}
+#tabStatus{
+    text-align: right;
 }

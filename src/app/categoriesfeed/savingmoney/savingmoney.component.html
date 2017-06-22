@@ -1,7 +1,5 @@
 <div class="container">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active">Saving Money</li>
-  </ol>
+  <h1><b>Saving Money</b></h1>
   <div class="row">
     <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let cha of listOfChallenge">
       <a [routerLink]="['/detailsavingmoney/'+cha.chaId]" routerLinkActive='active' class="card-link">
@@ -14,8 +12,7 @@
             </figure>
             <h6 class="card-title">Pim Patcha</h6>
             <div class="card-text">
-              <b>{{cha.chaName}}</b><br>
-              Goal Amount: {{cha.chaGoal | currency:'THB':true:'1.2-2'}}<br>
+              <b>{{cha.chaName}}</b><br> Goal Amount: {{cha.chaGoal | currency:'THB':true:'1.2-2'}}<br>
             </div>
           </div>
           <div class="card-footer">
@@ -30,6 +27,6 @@
 
 
 <!-- floating action button-->
-<a  type="button" [routerLink]="['/selectCategory']" class="btn btn-circle fixedbutton" role="button">
+<a type="button" [routerLink]="['/selectCategory']" class="btn btn-circle fixedbutton" role="button">
   <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
 </a>

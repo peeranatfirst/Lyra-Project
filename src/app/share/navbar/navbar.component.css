@@ -4,7 +4,7 @@
 }
 .profile{
 	margin-left: 20px;
-	margin-bottom: 40px;
+	margin-bottom: 25px;
 	width: 50px;
     height: 50px;
 }
@@ -75,6 +75,12 @@
 }
 .navbar{
     height: 65px;
+	background-color: white;
+	border: 1px solid;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom-color: #e8e8e8; 
 }
 .navbar-brand{
 	font-size: 21px;
@@ -181,6 +187,20 @@ a:hover{
 	background-color: white;
 	width: 90%;
 }
+.notiNumber{
+	width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50px;
+    position: absolute;
+    right: 13px;
+	top: 15px;
+    font-size: 8pt;
+    color: white;
+    padding-top: 2px;
+    text-align: center;
+    font-weight: bold;
+}
 @media screen and (min-width: 480px) {
 	.notification{
 		width: 0px;
@@ -190,7 +210,7 @@ a:hover{
 		top: 0;
 		right: 0;
 		overflow-x: hidden;
-		padding-top: 100px;
+		padding-top: 80px;
 		color:white;
 	}
     .notiOpen{
@@ -200,6 +220,7 @@ a:hover{
 		height: auto;
     	background-color: #292b2c;
 		transition:all 0.3s;
+		border-radius: 20px 20px 20px 20px;
 	}
 	.notiClose{
 		background-color:  #bcbdbd;
@@ -220,7 +241,7 @@ a:hover{
 		color:white;
 	}
 	.menuOpen{
-		width: 25%;
+		width: 35%;
 		background-color: #292b2c;
 		transition:all 0.3s;
 	}
