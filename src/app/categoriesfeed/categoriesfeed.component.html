@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-2"></div>
-    <div class="col-lg-8" align="center">
-      <h3>Select Category that You Interested.</h3>
+    <div class="col-lg-8">
+      <h1 class="select"><b>Select Category</b></h1>
     </div>
     <div class="col-lg-2"></div>
   </div>
@@ -21,14 +21,16 @@
       <br>
     </div>
     <div class="col-lg-4">
-      <div class="card text-center">
-        <img class="card-img commingsoon animated zoomIn" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/CookingCategory.png?alt=media&token=ddd02f0b-9eb2-4006-b85c-e148dc8752f2"
-          alt="Card image">
-        <div class="card-img-overlay">
-          <h4 class="card-title">Cooking Skills</h4>
+      <a [routerLink]="['/cookingskills']" routerLinkActive="active" class="card-link">
+        <div class="card card-cooking text-center">
+          <img class="card-img animated zoomIn" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/CookingCategory.png?alt=media&token=ddd02f0b-9eb2-4006-b85c-e148dc8752f2"
+            alt="Card image">
+          <div class="card-img-overlay">
+            <h4 class="card-title">Cooking Skills</h4>
+          </div>
         </div>
-      </div>
-      <br>
+        <br>
+      </a>
     </div>
     <div class="col-lg-2"></div>
   </div>
@@ -57,7 +59,7 @@
   </div>
 
   <!-- floating action button-->
-  <a  type="button" [routerLink]="['/selectCategory']" class="btn btn-circle fixedbutton" role="button">
+  <a type="button" [routerLink]="['/selectCategory']" class="btn btn-circle fixedbutton" role="button">
     <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
   </a>
 </div>

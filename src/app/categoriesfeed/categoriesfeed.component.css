@@ -1,3 +1,6 @@
+.select{
+    margin-top: 60px;
+}
 .card{
   display: block;
   width: 100%;
@@ -17,6 +20,11 @@ a{
 a:hover > .card{
   border: dashed 5px;
   border-color: #4bae4f;
+}
+
+a:hover > .card-cooking{
+  border: dashed 5px;
+  border-color: #fea000;
 }
 
 .commingsoon{

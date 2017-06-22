@@ -13,26 +13,21 @@ import { moveIn, fallIn, moveInLeft } from '../../router.animation';
 export class MembersComponent implements OnInit {
 
   name: any;
-  uid: any;
+  user: any;
   state: string = '';
 
   constructor(public af: AngularFire,private router: Router) {
 
-    this.af.auth.subscribe(auth => {
-      if(auth) {
-        this.name = auth;
-        this.uid = auth.uid;
-      }
-    });
-
   }
 
-  logout() {
-     this.af.auth.logout();
-     this.router.navigateByUrl('/login');
-  }
 
   ngOnInit() {
+    this.af.auth.subscribe(auth => {
+      if(auth) {
+        this.name = auth.auth.displayName;
+        this.user = auth.auth.photoURL;
+      }
+    });
   }
 
 }

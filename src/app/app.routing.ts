@@ -9,6 +9,7 @@ import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/d
 import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
 import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
 import { SelectCategoryComponent } from './create-challenge/select-category/select-category.component';
+import { CookingskillsComponent } from './categoriesfeed/cookingskills/cookingskills.component';
 
 import { LoginComponent } from './authentication/login/login.component';
 import { MembersComponent } from './authentication/members/members.component';
@@ -33,8 +34,10 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login-email', component: EmailComponent },
-  { path: 'members', component: MembersComponent, canActivate: [AuthGuard] }
-
+  { path: 'members', component: MembersComponent, canActivate: [AuthGuard] },
+  { path: 'createSavingmoneyChallenge', component: CreateSavingmoneyChallengeComponent},
+  { path: 'selectCategory', component: SelectCategoryComponent },
+  { path: 'cookingskills', component: CookingskillsComponent }
 
 ];
 

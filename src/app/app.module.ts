@@ -28,6 +28,8 @@ import { MembersComponent } from './authentication/members/members.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { EmailComponent } from './authentication/email/email.component';
 
+import { CookingskillsComponent } from './categoriesfeed/cookingskills/cookingskills.component';
+
 //Directives
 import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
 
@@ -38,7 +40,11 @@ import { SelectCategoryComponent } from './create-challenge/select-category/sele
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { CreateChallengesService } from 'app/services/create-challenges.service';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
+
 import { AuthGuard } from './services/auth.service';
+
+
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
@@ -48,11 +54,6 @@ export const firebaseConfig = {
   messagingSenderId: "943399750478"
 
 };
-
-/*const firebaseAuthConfig = {
-  provider: AuthProviders.Google,
-  method: AuthMethods.Popup
-};*/
 
 
 @NgModule({
@@ -73,7 +74,9 @@ export const firebaseConfig = {
     LoginComponent,
     EmailComponent,
     SignupComponent,
-    MembersComponent
+    MembersComponent,
+    CookingskillsComponent
+
 
   ],
   imports: [
