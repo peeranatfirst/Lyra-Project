@@ -1,6 +1,6 @@
 .profileBar{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 .profile{
 	margin-left: 20px;
@@ -10,6 +10,9 @@
 }
 .nav-menu{
 	margin-top: 5px;
+}
+.listg{
+	margin-top: 10px;
 }
 .menu{
 	width: 0px;
@@ -21,16 +24,16 @@
     left: 0;
     overflow-x: hidden;
     transition: 0.5s;
-    background-color: #292b2c;
-    padding-top: 30px;
-    color:white;
+    background-color: white;
+    padding-top: 10px;
+    color:black;
 }
 .menu i{
 	margin:5px 0px;
 	top: 0px;
 	right: 10px;
 	position: absolute;
-	font-size: 30px;
+	font-size: 20px;
 }
 .fa.fa-bars{
 	margin:5px 0px;
@@ -38,6 +41,15 @@
 	font-size: 22px;
 	color:black;	
     z-index: 1;
+}
+.home-icon{
+	position: fixed;
+}
+.fa-home{
+	font-size: 21px;
+}
+.fa-home:before{
+	font-size: 21px;
 }
 .menu li{
     list-style: none;
@@ -47,20 +59,23 @@
 }
 .menu li:hover{
 	background-color: #bcbdbd;
-	font-size: 25px;
+	font-size: 20px;
+	width: auto;
 }
 .menu ul{
-	padding-top: 20px;
-	padding-left: 0px;
-	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	width: auto;
 }
 .menuOpen{
 	width: 100%;
-    background-color: #292b2c;
+	height: 100%;
+    background-color: white;
 	transition:all 0.3s;
 }
 .menuClose{
-	background-color:  #bcbdbd;
+	background-color:  black;
 	transition:all 0.3s;
 	padding-left: 0px!important;
 	transition:all 0.3s;
@@ -88,7 +103,7 @@
 	margin-left: 10px;
 }
 a{
-	color:white;
+	color:black;
 }
 a:hover{
 	text-decoration: none;
@@ -96,20 +111,27 @@ a:hover{
 .fa-search{
 	font-size: 22px;
 	position: absolute;
-    right: 50px;
+    right: 90px;
     padding: 10px;
 }
 .fa-bell-o{
 	font-size: 22px;
 	position: absolute;
-    right: 10px;
+    right: 52px;
     padding: 10px;
 }
 .fa-bell{
 	font-size: 22px;
 	position: absolute;
+    right: 52px;
+    padding: 10px;
+}
+.fa-pencil-square-o{
+	font-size: 22px;
+	position: absolute;
     right: 10px;
     padding: 10px;
+	color: black;
 }
 .search{
 	width: 0px;
@@ -121,7 +143,7 @@ a:hover{
     left: 0;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 14px;
+    padding-top: 13px;
     color:white;
 }
 .searchClose{
@@ -144,11 +166,12 @@ a:hover{
 	color:white;
 }
 .form-control{
-	width: 100%;
+	width: 80%;
 	margin-left: 50px;
 }
 .form-group{
 	width: 100%;
+	margin-bottom: 0;
 }
 .notification{
 	width: 0px;
@@ -170,7 +193,7 @@ a:hover{
     background-color: #292b2c;
 }
 .triangle{
-	right: 21px;
+	right: 63px;
 	top: 52px;
 	position: absolute;
 	width: 0;
@@ -193,7 +216,7 @@ a:hover{
     background: red;
     border-radius: 50px;
     position: absolute;
-    right: 13px;
+    right: 52px;
 	top: 15px;
     font-size: 8pt;
     color: white;
@@ -204,7 +227,7 @@ a:hover{
 @media screen and (min-width: 480px) {
 	.notification{
 		width: 0px;
-		height: 100%;
+		height: auto;
 		position: fixed;
 		z-index: 1;
 		top: 0;
@@ -236,17 +259,24 @@ a:hover{
 		left: 0;
 		overflow-x: hidden;
 		transition: 0.5s;
-		background-color: #292b2c;
+		background-color: white;
 		padding-top: 30px;
-		color:white;
+		color:black;
 	}
 	.menuOpen{
-		width: 35%;
-		background-color: #292b2c;
-		transition:all 0.3s;
+		width: 30%;
+		height: auto;
+		margin-top: 64px;
+		background-color: white;
+		transition: all 0.3s;
+		border: 1px solid;
+		border-top-color: #e8e8e8;
+		border-left: none;
+		border-right-color: #e8e8e8;
+		border-bottom-color: #e8e8e8;
 	}
 	.menuClose{
-		background-color:  #bcbdbd;
+		background-color:  black;
 		transition:all 0.3s;
 		padding-left: 0px!important;
 		transition:all 0.3s;
@@ -258,5 +288,18 @@ a:hover{
 		transition:all 0.3s;
 		margin-left: 5px;
 		transition:all 0.3s;
+	}
+	.menu ul{
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 0;
+		width: auto;
+	}
+	.fa-bars1{
+		margin:5px 0px;
+		right: 10px;
+		font-size: 22px;
+		color:black;	
+		z-index: 1;
 	}
 }

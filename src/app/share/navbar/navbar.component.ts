@@ -10,15 +10,25 @@ import $ from 'jquery';
 })
 export class NavbarComponent implements OnInit {
 
+  user: any;
+  userImg: any;
   constructor(
     public af: AngularFire,
     private router: Router,
     public flashMessage: FlashMessagesService
-  ) { }
+  ) {
+    
+       this.af.auth.subscribe(auth =>{
+      if(auth){
+        this.user = auth;
+        this.userImg = auth.auth.photoURL;
+      }
+    });
+   }
 
   login() {
-    this.af.auth.login();
-
+    this.router.navigateByUrl('/login');
+    
   }
 
   logout() {
@@ -26,17 +36,21 @@ export class NavbarComponent implements OnInit {
     this.flashMessage.show('You are logged out',
       { cssClass: 'alert-success', timeout: 3000 });
   }
-  ngOnInit() {
-    $(document).ready(function () {
 
-      $(".fa-bars").click(function () {
+  ngOnInit() {
+
+    $(document).ready(function () {
+      $(".fa-bars2").hide();
+
+      $(".fa-bars1").click(function () {
         $(".menu").removeClass('menuClose');
         $(".menu").addClass('menuOpen');
 
         $(".mainClose").addClass('mainOpen');
         $(".mainOpen").removeClass('mainClose');
 
-        $(".fa-bars").hide(500);
+        $(".fa-bars1").hide(500);
+        $(".fa-bars2").show(500);
         $(".navbar-brand").hide(500);
         $(".fa-times").show(500);
 
@@ -48,6 +62,19 @@ export class NavbarComponent implements OnInit {
         document.getElementById('notiBellOId').style.display = "";
       });
 
+      $(".fa-bars2").click(function () {
+        $(".menu").addClass('menuClose');
+        $(".menu").removeClass('menuOpen');
+
+        $(".mainOpen").addClass('mainClose');
+        $(".mainClose").removeClass('mainOpen');
+
+        $(".fa-times").hide(500);
+        $(".fa-bars2").hide(500);
+        $(".fa-bars1").show(500);
+        $(".navbar-brand").show(500);
+      });
+
       $(".fa-times").click(function () {
         $(".menu").addClass('menuClose');
         $(".menu").removeClass('menuOpen');
@@ -57,6 +84,7 @@ export class NavbarComponent implements OnInit {
 
         $(".fa-times").hide(500);
         $(".fa-bars").show(500);
+        $(".fa-bars2").hide(500);
         $(".navbar-brand").show(500);
       });
 
@@ -107,7 +135,6 @@ export class NavbarComponent implements OnInit {
         document.getElementById('notiBellOId').style.display = "";
         document.getElementById('notiBellId').style.display = "none";
       });
-
       // $("#home").click(function(){
       //   document.getElementById('navColor').style.backgroundColor = "#f7f7f7";
       // });

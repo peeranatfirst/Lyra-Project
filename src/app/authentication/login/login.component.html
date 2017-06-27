@@ -1,0 +1,14 @@
+<div class="container">
+  <h1><b>Sign in</b></h1>
+  <hr>
+  <div class="form-container">
+    <span class="error" *ngIf="error">{{ error }}</span><br>
+
+    <button (click)="loginFb()">Login With Facebook</button><br>
+    <button (click)="loginGoogle()">Login With Google</button><br>
+
+
+    <a routerLink="/login-email" routerLinkActive="active" id="email"> Email</a><br> No account?<a routerLink="/signup" routerLinkActive="active"
+      class="alc"> <strong>Create one here</strong></a>
+  </div>
+</div>

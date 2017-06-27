@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
 import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Components
 import { AppComponent } from './app.component';
@@ -21,6 +22,14 @@ import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-mo
 import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
 import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
 
+import { LoginComponent } from './authentication/login/login.component';
+import { MembersComponent } from './authentication/members/members.component';
+
+import { SignupComponent } from './authentication/signup/signup.component';
+import { EmailComponent } from './authentication/email/email.component';
+
+import { CookingskillsComponent } from './categoriesfeed/cookingskills/cookingskills.component';
+
 //Directives
 import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
 
@@ -31,7 +40,10 @@ import { SelectCategoryComponent } from './create-challenge/select-category/sele
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { CreateChallengesService } from 'app/services/create-challenges.service';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
-import { CookingskillsComponent } from './categoriesfeed/cookingskills/cookingskills.component';
+
+import { AuthGuard } from './services/auth.service';
+
+
 
 
 export const firebaseConfig = {
@@ -41,11 +53,6 @@ export const firebaseConfig = {
   storageBucket: "lyra-24b71.appspot.com",
   messagingSenderId: "943399750478"
 
-};
-
-const firebaseAuthConfig = {
-  provider: AuthProviders.Google,
-  method: AuthMethods.Popup
 };
 
 
@@ -64,8 +71,11 @@ const firebaseAuthConfig = {
     CreateSavingmoneyChallengeComponent,
     ProgressBarDirective,
     SelectCategoryComponent,
+    LoginComponent,
+    EmailComponent,
+    SignupComponent,
+    MembersComponent,
     CookingskillsComponent
-
 
 
   ],
@@ -75,9 +85,10 @@ const firebaseAuthConfig = {
     HttpModule,
     BrowserModule,
     NgbModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
     routing,
-    FlashMessagesModule
+    FlashMessagesModule,
+    BrowserAnimationsModule
 
   ],
   providers: [
@@ -85,7 +96,8 @@ const firebaseAuthConfig = {
     AddMoneyService,
     DatetimestampService,
     CreateChallengesService,
-    CalculatePercentSuccessService
+    CalculatePercentSuccessService,
+    AuthGuard
     ],
   bootstrap: [AppComponent]
   
