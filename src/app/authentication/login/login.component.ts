@@ -2,6 +2,8 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { Router } from '@angular/router';
 import { moveIn } from '../../router.animation';
+import { AuthGuard } from "../../services/auth.service";
+import { FirebaseService } from "../../services/firebase.service";
 
 @Component({
   selector: 'app-login',
@@ -13,11 +15,14 @@ import { moveIn } from '../../router.animation';
 export class LoginComponent implements OnInit {
 
   error: any;
-  constructor(public af: AngularFire,private router: Router) {
+  userList:any[];
+  authUID:any;
+
+  constructor(public af: AngularFire,private router: Router, private ag: AuthGuard, private fs: FirebaseService) {
 
       this.af.auth.subscribe(auth => { 
       if(auth) {
-        this.router.navigateByUrl('/members');
+        this.router.navigateByUrl('/');
       }
     });
 
@@ -29,7 +34,8 @@ export class LoginComponent implements OnInit {
       method: AuthMethods.Popup,
     }).then(
         (success) => {
-        this.router.navigate(['/members']);
+        this.checkUserID();
+        this.router.navigate(['/']);
       }).catch(
         (err) => {
         this.error = err;
@@ -42,11 +48,21 @@ export class LoginComponent implements OnInit {
       method: AuthMethods.Popup,
     }).then(
         (success) => {
-        this.router.navigate(['/members']);
+          this.checkUserID();
+        this.router.navigate(['/']);
       }).catch(
         (err) => {
         this.error = err;
       })
+  }
+
+  checkUserID(){
+    this.af.auth.subscribe(auth => {
+      if(auth){
+        this.authUID = auth.uid;
+        this.ag.checkExistUsers(this.authUID);
+      }
+    });
   }
 
 

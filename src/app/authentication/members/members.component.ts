@@ -20,6 +20,7 @@ export class MembersComponent implements OnInit {
 
   }
 
+  
 
   ngOnInit() {
     this.af.auth.subscribe(auth => {
