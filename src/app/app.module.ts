@@ -8,7 +8,7 @@ import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//Components
+//Component
 import { AppComponent } from './app.component';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
 import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.component';
@@ -28,7 +28,6 @@ import { MembersComponent } from './authentication/members/members.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { EmailComponent } from './authentication/email/email.component';
 
-import { CookingskillsComponent } from './categoriesfeed/cookingskills/cookingskills.component';
 
 //Directives
 import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
@@ -74,8 +73,7 @@ export const firebaseConfig = {
     LoginComponent,
     EmailComponent,
     SignupComponent,
-    MembersComponent,
-    CookingskillsComponent
+    MembersComponent
 
 
   ],
