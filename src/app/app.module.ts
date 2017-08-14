@@ -52,7 +52,6 @@ export const firebaseConfig = {
   databaseURL: "https://lyra-24b71.firebaseio.com",
   storageBucket: "lyra-24b71.appspot.com",
   messagingSenderId: "943399750478"
-
 };
 
 
