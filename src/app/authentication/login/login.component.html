@@ -1,14 +1,24 @@
 <div class="container">
-  <h1><b>Sign in</b></h1>
-  <hr>
-  <div class="form-container">
-    <span class="error" *ngIf="error">{{ error }}</span><br>
-
-    <button (click)="loginFb()">Login With Facebook</button><br>
-    <button (click)="loginGoogle()">Login With Google</button><br>
-
-
-    <a routerLink="/login-email" routerLinkActive="active" id="email"> Email</a><br> No account?<a routerLink="/signup" routerLinkActive="active"
-      class="alc"> <strong>Create one here</strong></a>
+  <div class="row">
+      <div class="col-lg-3 flex-first"></div>
+      <div class="col-lg-3 flex-last"></div>
+      <div class="col-lg-6">
+          <h1><b>Sign in</b></h1>
+          <hr>
+          <div class="form-container">
+              <span class="error" *ngIf="error">{{ error }}</span>
+              <button type="button" class="btn btn-primary btn-sm btn-block" (click)="loginFb()">
+                  <i class="fa fa-facebook fa-2x"></i>
+              </button>
+              <button type="button" class="btn btn-danger btn-sm btn-block" (click)="loginGoogle()">
+                  <i class="fa fa-google fa-2x"></i>
+              </button>
+              <button type="button" class="btn btn-success btn-sm btn-block">
+                  <a routerLink="/login-email" routerLinkActive="active" id="email">
+                      <i class="fa fa-envelope-o fa-2x"></i>
+                  </a>
+              </button> No account?<a routerLink="/signup" routerLinkActive="active" class="alc"> <strong>Create one here</strong></a>
+          </div>
+      </div>
   </div>
 </div>

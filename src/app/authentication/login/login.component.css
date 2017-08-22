@@ -17,6 +17,16 @@
    /* background: #ECECEC  url('../../assets/images/email.svg') no-repeat 25px;*/
     background-size: 25px;
 }
+.facebook{
+    background-color: blue;
+    width: 100%;
+}
+.fa-envelope-o{
+    color: white;
+}
+a{
+    color: pink;
+}
 
 @media (max-width: 600px) {
     #page {

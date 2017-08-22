@@ -1,6 +1,6 @@
 .profileBar{
-    width: 80px;
-    height: 80px;
+    width: 30px;
+    height: 30px;
 }
 .profile{
 	margin-left: 20px;
@@ -53,13 +53,13 @@
 }
 .menu li{
     list-style: none;
-	font-size: 20px;
+	font-size: 16px;
 	padding: 5px 0px;
-	font-weight: 600;
+	font-weight: bold;
 }
 .menu li:hover{
 	background-color: #bcbdbd;
-	font-size: 20px;
+	font-size: 16px;
 	width: auto;
 }
 .menu ul{
@@ -265,8 +265,7 @@ a:hover{
 	}
 	.menuOpen{
 		width: 30%;
-		height: auto;
-		margin-top: 64px;
+		height: 100%;
 		background-color: white;
 		transition: all 0.3s;
 		border: 1px solid;
@@ -293,13 +292,7 @@ a:hover{
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 0;
+		margin-top: -241px;
 		width: auto;
-	}
-	.fa-bars1{
-		margin:5px 0px;
-		right: 10px;
-		font-size: 22px;
-		color:black;	
-		z-index: 1;
 	}
 }
