@@ -1,6 +1,6 @@
 .profileBar{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+	height: 40px;
 }
 .profile{
 	margin-left: 20px;
@@ -8,12 +8,15 @@
 	width: 50px;
     height: 50px;
 }
+.displayName{
+	font-weight: bold;
+}
 .nav-menu{
 	margin-top: 5px;
 }
-.listg{
+/* .listg{
 	margin-top: 10px;
-}
+} */
 .menu{
 	width: 0px;
 	transition:all 0.3s;
@@ -26,7 +29,8 @@
     transition: 0.5s;
     background-color: white;
     padding-top: 10px;
-    color:black;
+	color:black;
+	align-items: flex-start;
 }
 .menu i{
 	margin:5px 0px;
@@ -45,23 +49,20 @@
 .home-icon{
 	position: fixed;
 }
-.fa-home{
-	font-size: 21px;
-}
-.fa-home:before{
-	font-size: 21px;
+.profile-icon{
+	position: fixed;
 }
 .menu li{
     list-style: none;
-	font-size: 16px;
+	font-size: larger;
 	padding: 5px 0px;
-	font-weight: bold;
+	margin-top: 5%;
 }
-.menu li:hover{
+/* .menu li:hover{
 	background-color: #bcbdbd;
-	font-size: 16px;
+	font-size: larger;
 	width: auto;
-}
+} */
 .menu ul{
 	margin-left: auto;
 	margin-right: auto;
@@ -225,6 +226,11 @@ a:hover{
     font-weight: bold;
 }
 @media screen and (min-width: 480px) {
+	.profileBar{
+		width: 40px;
+		height: 40px;
+	}
+	
 	.notification{
 		width: 0px;
 		height: auto;
@@ -264,7 +270,7 @@ a:hover{
 		color:black;
 	}
 	.menuOpen{
-		width: 30%;
+		width: 300px;
 		height: 100%;
 		background-color: white;
 		transition: all 0.3s;
@@ -292,7 +298,8 @@ a:hover{
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 0;
-		margin-top: -241px;
+		margin-top: -145px;
 		width: auto;
+		margin-top: 5%;
 	}
 }
