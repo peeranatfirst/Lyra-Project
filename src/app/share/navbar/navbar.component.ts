@@ -40,17 +40,15 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
 
     $(document).ready(function () {
-      $(".fa-bars2").hide();
-
-      $(".fa-bars1").click(function () {
+      //open menu list
+      $(".fa-bars").click(function () {
         $(".menu").removeClass('menuClose');
         $(".menu").addClass('menuOpen');
 
         $(".mainClose").addClass('mainOpen');
         $(".mainOpen").removeClass('mainClose');
 
-        $(".fa-bars1").hide(500);
-        $(".fa-bars2").show(500);
+        $(".fa-bars").hide(500);
         $(".navbar-brand").hide(500);
         $(".fa-times").show(500);
 
@@ -61,20 +59,8 @@ export class NavbarComponent implements OnInit {
         document.getElementById('notiBellId').style.display = "none";
         document.getElementById('notiBellOId').style.display = "";
       });
-
-      $(".fa-bars2").click(function () {
-        $(".menu").addClass('menuClose');
-        $(".menu").removeClass('menuOpen');
-
-        $(".mainOpen").addClass('mainClose');
-        $(".mainClose").removeClass('mainOpen');
-
-        $(".fa-times").hide(500);
-        $(".fa-bars2").hide(500);
-        $(".fa-bars1").show(500);
-        $(".navbar-brand").show(500);
-      });
-
+      
+      //close menu list
       $(".fa-times").click(function () {
         $(".menu").addClass('menuClose');
         $(".menu").removeClass('menuOpen');
@@ -87,6 +73,20 @@ export class NavbarComponent implements OnInit {
         $(".fa-bars2").hide(500);
         $(".navbar-brand").show(500);
       });
+
+      $(".list-group").click(function () {
+        $(".menu").addClass('menuClose');
+        $(".menu").removeClass('menuOpen');
+
+        $(".mainOpen").addClass('mainClose');
+        $(".mainClose").removeClass('mainOpen');
+
+        $(".fa-times").hide(500);
+        $(".fa-bars").show(500);
+        $(".fa-bars2").hide(500);
+        $(".navbar-brand").show(500);
+      });
+      //
 
       $(".list-item").click(function () {
         $(".menu").addClass('menuClose');
@@ -135,15 +135,6 @@ export class NavbarComponent implements OnInit {
         document.getElementById('notiBellOId').style.display = "";
         document.getElementById('notiBellId').style.display = "none";
       });
-      // $("#home").click(function(){
-      //   document.getElementById('navColor').style.backgroundColor = "#f7f7f7";
-      // });
-
-      // $("#savingMoney").click(function(){
-      //   document.getElementById('navColor').style.backgroundColor = "#53d769";
-      //   document.getElementById('navColor').style.color = "white";
-      //   document.getElementById('mainColor').style.color = "white";
-      // });
   }
 
 }

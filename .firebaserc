@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "lyra-24b71"
+    "default": "lyra-24b71",
+    "dist": "lyra-best-app",
+    "staging": "lyra-best-app"
   }
 }
