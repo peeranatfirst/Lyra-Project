@@ -13,7 +13,9 @@ import { FirebaseService } from "../../app/services/firebase.service";
 export class AuthGuard implements CanActivate {
 
      
-    userList: FirebaseListObservable<any>;
+    userList: FirebaseListObservable<any[]>;
+    listOfUsers: any;
+    existUsers: any[];
 
     constructor(private auth: AngularFireAuth, private router: Router, private af: AngularFire, private fs: FirebaseService) {}
 
@@ -30,15 +32,17 @@ export class AuthGuard implements CanActivate {
 
     getUsersList(){
       this.userList = this.af.database.list('/users') as FirebaseListObservable<userslist[]>;
-      console.log(this.userList);
+      //console.log(this.userList);
       return this.userList;
     }
 
+    getUserID(UserList: userslist) {
+      return UserList.$uid;
+    }
+
+
     checkExistUsers(uid){
-        this.getUsersList().subscribe(userList => {
-          this.userList = userList;
-          
-        })
+        
     }
     
  

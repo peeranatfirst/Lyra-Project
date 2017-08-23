@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { moveIn } from '../../router.animation';
 import { AuthGuard } from "../../services/auth.service";
 import { FirebaseService } from "../../services/firebase.service";
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +16,6 @@ import { FirebaseService } from "../../services/firebase.service";
 export class LoginComponent implements OnInit {
 
   error: any;
-  userList:any[];
-  authUID:any;
 
   constructor(public af: AngularFire,private router: Router, private ag: AuthGuard, private fs: FirebaseService) {
 
@@ -34,7 +33,12 @@ export class LoginComponent implements OnInit {
       method: AuthMethods.Popup,
     }).then(
         (success) => {
-        this.checkUserID();
+          this.af.auth.subscribe(auth => {
+            if(auth) {
+              const uid = auth.uid;
+              this.checkExistUser(uid);
+            }
+          });
         this.router.navigate(['/']);
       }).catch(
         (err) => {
@@ -48,7 +52,12 @@ export class LoginComponent implements OnInit {
       method: AuthMethods.Popup,
     }).then(
         (success) => {
-          this.checkUserID();
+          this.af.auth.subscribe(auth => {
+            if(auth) {
+              const uid = auth.uid;
+              this.checkExistUser(uid);
+            }
+          });
         this.router.navigate(['/']);
       }).catch(
         (err) => {
@@ -56,15 +65,23 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  checkUserID(){
-    this.af.auth.subscribe(auth => {
-      if(auth){
-        this.authUID = auth.uid;
-        this.ag.checkExistUsers(this.authUID);
+  checkExistUser(uid){
+    // console.log(uid);
+    const ref = firebase.database().ref('/users');
+
+    ref.once("value").then(function(snapshot){
+      const userExist = snapshot.child(uid).exists(); // check uid in database
+     
+      if(userExist){
+        console.log("user already exist!");
+      }else{
+        console.log("user is new"); 
+        firebase.database().ref('/users/'+uid).set({
+          joined: firebase.database.ServerValue.TIMESTAMP
+        });
       }
     });
   }
-
 
   ngOnInit() {
   }
