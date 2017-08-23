@@ -1,6 +1,6 @@
 .profileBar{
-    width: 40px;
-	height: 40px;
+    width: 30px;
+	height: 30px;
 }
 .profile{
 	margin-left: 20px;
@@ -14,9 +14,13 @@
 .nav-menu{
 	margin-top: 5px;
 }
-/* .listg{
-	margin-top: 10px;
-} */
+.close{
+	margin:5px 0px;
+	top: 0px;
+	right: 10px;
+	position: absolute;
+	font-size: 20px;
+}
 .menu{
 	width: 0px;
 	transition:all 0.3s;
@@ -32,12 +36,19 @@
 	color:black;
 	align-items: flex-start;
 }
-.menu i{
+/* .menu i{
 	margin:5px 0px;
 	top: 0px;
 	right: 10px;
 	position: absolute;
 	font-size: 20px;
+} */
+.list-group{
+	margin-left: auto;
+	margin-right: auto;
+}
+.list-group-item{
+	border: none;
 }
 .fa.fa-bars{
 	margin:5px 0px;
@@ -46,15 +57,9 @@
 	color:black;	
     z-index: 1;
 }
-.home-icon{
-	position: fixed;
-}
-.profile-icon{
-	position: fixed;
-}
 .menu li{
     list-style: none;
-	font-size: larger;
+	font-size: large;
 	padding: 5px 0px;
 	margin-top: 5%;
 }
@@ -67,6 +72,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 0;
+	margin-top: 30px;
 	width: auto;
 }
 .menuOpen{
@@ -226,11 +232,6 @@ a:hover{
     font-weight: bold;
 }
 @media screen and (min-width: 480px) {
-	.profileBar{
-		width: 40px;
-		height: 40px;
-	}
-	
 	.notification{
 		width: 0px;
 		height: auto;
@@ -275,7 +276,7 @@ a:hover{
 		background-color: white;
 		transition: all 0.3s;
 		border: 1px solid;
-		border-top-color: #e8e8e8;
+		border-top: none;
 		border-left: none;
 		border-right-color: #e8e8e8;
 		border-bottom-color: #e8e8e8;
@@ -298,7 +299,6 @@ a:hover{
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 0;
-		margin-top: -145px;
 		width: auto;
 		margin-top: 5%;
 	}

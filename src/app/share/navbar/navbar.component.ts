@@ -40,6 +40,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
 
     $(document).ready(function () {
+      //open menu list
       $(".fa-bars").click(function () {
         $(".menu").removeClass('menuClose');
         $(".menu").addClass('menuOpen');
@@ -59,6 +60,7 @@ export class NavbarComponent implements OnInit {
         document.getElementById('notiBellOId').style.display = "";
       });
       
+      //close menu list
       $(".fa-times").click(function () {
         $(".menu").addClass('menuClose');
         $(".menu").removeClass('menuOpen');
@@ -71,6 +73,20 @@ export class NavbarComponent implements OnInit {
         $(".fa-bars2").hide(500);
         $(".navbar-brand").show(500);
       });
+
+      $(".list-group").click(function () {
+        $(".menu").addClass('menuClose');
+        $(".menu").removeClass('menuOpen');
+
+        $(".mainOpen").addClass('mainClose');
+        $(".mainClose").removeClass('mainOpen');
+
+        $(".fa-times").hide(500);
+        $(".fa-bars").show(500);
+        $(".fa-bars2").hide(500);
+        $(".navbar-brand").show(500);
+      });
+      //
 
       $(".list-item").click(function () {
         $(".menu").addClass('menuClose');
@@ -119,15 +135,6 @@ export class NavbarComponent implements OnInit {
         document.getElementById('notiBellOId').style.display = "";
         document.getElementById('notiBellId').style.display = "none";
       });
-      // $("#home").click(function(){
-      //   document.getElementById('navColor').style.backgroundColor = "#f7f7f7";
-      // });
-
-      // $("#savingMoney").click(function(){
-      //   document.getElementById('navColor').style.backgroundColor = "#53d769";
-      //   document.getElementById('navColor').style.color = "white";
-      //   document.getElementById('mainColor').style.color = "white";
-      // });
   }
 
 }

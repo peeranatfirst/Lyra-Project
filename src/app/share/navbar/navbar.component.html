@@ -2,69 +2,36 @@
   <nav class="navbar fixed-top navbar-light bg-faded">
     <div class="nav-menu">
       <div class="menu menu-close">
-        <a><i class="fa fa-times" aria-hidden="true"></i></a>
-        <ul class="listg">
-          <span *ngIf="!(af.auth | async)" >
-            <img class="profileBar rounded-circle" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/user%20(1).png?alt=media&token=d6607806-e826-451a-a25f-471f4f01eebf">
-          </span>
-            <span *ngIf="(af.auth | async)">
-            <li class="list-item">
-            <img class="profileBar rounded-circle" src="{{userImg}}">
-            <br>
-            <span class="displayName">{{user.auth.displayName}}</span>
-          </li>
+        <a><span class="close"><i class="fa fa-times" aria-hidden="true"></i></span></a>
+        <div class="list-group">
+          <span *ngIf="!(af.auth | async)">
+              <a class="list-group-item" href="#">
+                <img class="profileBar rounded-circle" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/user%20(1).png?alt=media&token=d6607806-e826-451a-a25f-471f4f01eebf">      
+              </a>
+            </span>
+          <span *ngIf="(af.auth | async)">
+                <a class="list-group-item" href="#"><img class="profileBar rounded-circle" src="{{userImg}}">
+                  <span class="displayName">{{user.auth.displayName}}</span>
+          </a>
           </span>
           <span *ngIf="!(af.auth | async)">
-              <li class="list-item">
-                  <a (click)="login()">Login</a>
-              </li>
-          </span>
-          <li class="list-item">
-            <a href="">
-              <span class="home-icon"><i class="fa fa-home" aria-hidden="true"> </i></span>Home
-            </a>
-          </li>
-          <li class="list-item">
-            <a href="">
-              <span class="profile-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>Profile
-            </a>
-          </li>
+              <a class="list-group-item" href="#"><b>Hello Guest</b></a>
+              <a class="list-group-item" (click)="login()"><i class="fa fa-sign-in fa-fw" aria-hidden="true"></i>&nbsp; <b>Login</b></a>  
+            </span>
+          <a class="list-group-item" href=""><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
           <span *ngIf="(af.auth | async)">
-          <li class="list-item">
-            <a [routerLink]="['/mychallenge']">
-              <span class="profile-icon"><i class="fa fa-address-card-o" aria-hidden="true"></i></span>My Challenge
-            </a>
-          </li>
-          <li class="list-item">
-            <a href="">
-              <span class="profile-icon"><i class="fa fa-trophy" aria-hidden="true"></i></span>Achievement
-            </a>
-          </li>
-          </span>
-          <li class="list-item">
-            <a [routerLink]="['/savingmoney']">
-              <span class="profile-icon"><i class="fa fa-money" aria-hidden="true"></i></span>Saving Money Challenge
-            </a>
-          </li>
-          <li class="list-item">
-            <a [routerLink]="['/']">
-              <span class="profile-icon"><i class="fa fa-check-circle-o" aria-hidden="true"></i></span>Checklist Challenge
-            </a>
-          </li>
-          <li class="list-item">
-            <a [routerLink]="['/']">
-                <span class="profile-icon"><i class="fa fa-list" aria-hidden="true"></i></span>Step Challenge
-            </a>
-          </li>
-          <li class="list-item">
-              <a [routerLink]="['/']">
-                <span class="profile-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>Routine Challenge
-              </a>
-          </li>
-          <li class="list-item" *ngIf="(af.auth | async)">
-            <a (click)="logout()">Log out</a>
-          </li>
-        </ul>
+              <a class="list-group-item" href="#"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i>&nbsp; Profile</a>
+            </span>
+          <a class="list-group-item" [routerLink]="['/mychallenge']"><i class="fa fa-address-card-o fa-fw" aria-hidden="true"></i>&nbsp; My Challenge</a>
+          <a class="list-group-item" href="#"><i class="fa fa-trophy fa-fw" aria-hidden="true"></i>&nbsp; Achievement</a>
+          <a class="list-group-item" [routerLink]="['/savingmoney']"><i class="fa fa-money fa-fw" aria-hidden="true"></i>&nbsp; Saving Money Challenge</a>
+          <a class="list-group-item" href="#"><i class="fa fa-check-circle-o fa-fw" aria-hidden="true"></i>&nbsp; Checklist Challenge</a>
+          <a class="list-group-item" href="#"><i class="fa fa-list fa-fw" aria-hidden="true"></i>&nbsp; Step Challenge</a>
+          <a class="list-group-item" href="#"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp; Routine Challenge</a>
+          <span *ngIf="(af.auth | async)">
+              <a class="list-group-item" (click)="logout()"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>&nbsp; Logout</a>
+            </span>
+        </div>
       </div>
       <div class="hiddenNav"></div>
       <div class="mainClose">
