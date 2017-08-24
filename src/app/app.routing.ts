@@ -18,6 +18,7 @@ import { EmailComponent } from './authentication/email/email.component';
 import { ChecklistChallengeComponent } from "app/categoriesfeed/checklist-challenge/checklist-challenge.component";
 import { DetailChecklistComponent } from "app/categoriesfeed/checklist-challenge/detail-checklist/detail-checklist.component";
 import { CreateChecklistChallengeComponent } from "app/create-challenge/create-checklist-challenge/create-checklist-challenge.component";
+import { DetailMyChecklistChallengeComponent } from "app/my-challenge/detail-my-checklist-challenge/detail-my-checklist-challenge.component";
 
 const appRoutes: Routes = [
   { path: '', component: CategoriesfeedComponent },
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
   { path: 'selectCategory', component: SelectCategoryComponent },
   { path: 'checklistChallenge', component: ChecklistChallengeComponent},
   { path: 'detailchecklist', component: DetailChecklistComponent},
-  { path: 'createChecklistChallenge', component: CreateChecklistChallengeComponent}
+  { path: 'createChecklistChallenge', component: CreateChecklistChallengeComponent},
+  { path: 'detailmyChecklistChallenge', component: DetailMyChecklistChallengeComponent}
 
 ];
 

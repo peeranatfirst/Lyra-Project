@@ -44,6 +44,7 @@ import { AuthGuard } from './services/auth.service';
 import { CreateChecklistChallengeComponent } from './create-challenge/create-checklist-challenge/create-checklist-challenge.component';
 import { ChecklistChallengeComponent } from './categoriesfeed/checklist-challenge/checklist-challenge.component';
 import { DetailChecklistComponent } from './categoriesfeed/checklist-challenge/detail-checklist/detail-checklist.component';
+import { DetailMyChecklistChallengeComponent } from './my-challenge/detail-my-checklist-challenge/detail-my-checklist-challenge.component';
 
 
 
@@ -78,7 +79,8 @@ export const firebaseConfig = {
     MembersComponent,
     CreateChecklistChallengeComponent,
     ChecklistChallengeComponent,
-    DetailChecklistComponent
+    DetailChecklistComponent,
+    DetailMyChecklistChallengeComponent
 
 
   ],
