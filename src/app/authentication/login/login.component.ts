@@ -77,7 +77,10 @@ export class LoginComponent implements OnInit {
       }else{
         console.log("user is new"); 
         firebase.database().ref('/users/'+uid).set({
-          joined: firebase.database.ServerValue.TIMESTAMP
+          joined: firebase.database.ServerValue.TIMESTAMP,
+          description: "write something about you",
+          name: firebase.auth().currentUser.displayName,
+          pathPhoto: firebase.auth().currentUser.photoURL
         });
       }
     });

@@ -39,13 +39,13 @@ import { SelectCategoryComponent } from './create-challenge/select-category/sele
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { CreateChallengesService } from 'app/services/create-challenges.service';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
+import { GetUserInfoService } from "app/services/get-user-info.service";
 
 import { AuthGuard } from './services/auth.service';
 import { CreateChecklistChallengeComponent } from './create-challenge/create-checklist-challenge/create-checklist-challenge.component';
 import { ChecklistChallengeComponent } from './categoriesfeed/checklist-challenge/checklist-challenge.component';
 import { DetailChecklistComponent } from './categoriesfeed/checklist-challenge/detail-checklist/detail-checklist.component';
 import { DetailMyChecklistChallengeComponent } from './my-challenge/detail-my-checklist-challenge/detail-my-checklist-challenge.component';
-
 
 
 
@@ -102,7 +102,8 @@ export const firebaseConfig = {
     DatetimestampService,
     CreateChallengesService,
     CalculatePercentSuccessService,
-    AuthGuard
+    AuthGuard,
+    GetUserInfoService
     ],
   bootstrap: [AppComponent]
   

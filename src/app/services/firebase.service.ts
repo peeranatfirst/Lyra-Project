@@ -13,27 +13,29 @@ export class FirebaseService {
   balance: FirebaseListObservable<any[]>;
   detailBalance: FirebaseListObservable<any[]>;
 
+  detailMySMChallenge: FirebaseObjectObservable<any>;
+
   constructor(
     private af: AngularFire,
     private router: Router,
     private route: ActivatedRoute) {
   }
 
-  // Get challange list on category feeds
   getChallengeList() {
-    this.challengeList = this.af.database.list('/Categories /SavingMoney') as FirebaseListObservable<challengeList[]>;
+    this.challengeList = this.af.database.list('/AllChallenge') as FirebaseListObservable<challengeList[]>;
     return this.challengeList;
   }
 
-  getChallengeDetail(id) {
-    this.challengeDetail = this.af.database.object('/Categories /SavingMoney/' + id) as FirebaseObjectObservable<challengeList>;
+  // get new detail challenge with owner info
+  getChallengeDetails(id) {
+    this.challengeDetail = this.af.database.object('/AllChallenge/' + id) as FirebaseObjectObservable<challengeList>;
     return this.challengeDetail;
   }
 
 
   // Get my challenge list of User
-  getMyChallenges() {
-    this.myChallenges = this.af.database.list('/users/userid1/Challenges') as FirebaseListObservable<myChallengesList[]>;
+  getMyChallenges(uid) {
+    this.myChallenges = this.af.database.list('/users/'+uid+'/Challenges') as FirebaseListObservable<myChallengesList[]>;
     return this.myChallenges;
   }
 
@@ -42,9 +44,15 @@ export class FirebaseService {
     return this.detailMyChallenge;
   }
 
+  // get details of My Saving Money Challenges
+  getDetailMySMChallenge(uid, key){
+    this.detailMySMChallenge = this.af.database.object('/users/'+uid+'/Challenges/'+key) as FirebaseObjectObservable<myChallengesList>;
+    return this.detailMySMChallenge;
+  }
+
   // Get Saving Money Transaction of challenges
-  getTransaction(key) {
-    this.balance = this.af.database.list('/users/userid1/Challenges/' + key + '/savingTransaction') as FirebaseListObservable<myBalance[]>;
+  getTransaction(uid, key) {
+    this.balance = this.af.database.list('/users/'+uid+'/Challenges/' + key + '/savingTransaction') as FirebaseListObservable<myBalance[]>;
     return this.balance;
   }
 
@@ -76,6 +84,7 @@ export class FirebaseService {
     return transactionBalance.balance;
   }
 
+  // get challenge list (feed page)
   getListOfChallengeId(listOfChallenge: challengeList) {
     return listOfChallenge.$key;
   }
@@ -98,6 +107,13 @@ export class FirebaseService {
     return listOfChallenge.datetimestamp;
   }
 
+  getListOfChallengeCategory(listOfChallenge: challengeList){
+    return listOfChallenge.category;
+  }
+
+  getListOfOwnwer(listOfChallenge: challengeList){
+    return listOfChallenge.owner;
+  }
 }
 
 interface challengeList {
@@ -108,6 +124,8 @@ interface challengeList {
   totalAmount?: string;
   path?: string;
   datetimestamp?: string;
+  owner?: string;
+  category?: string;
 }
 
 interface myChallengesList {

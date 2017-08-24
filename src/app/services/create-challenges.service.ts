@@ -20,9 +20,9 @@ export class CreateChallengesService {
         createSavingmoneyChallenge.image = selectedFile.name;
         createSavingmoneyChallenge.path = path;
         const promise = new Promise((resolve, reject) => {
-          resolve(firebase.database().ref('/Categories /SavingMoney').push().key);
+          resolve(firebase.database().ref('/AllChallenge').push().key);
         }).then((val) => {
-          firebase.database().ref('/Categories /SavingMoney/' + val).set(createSavingmoneyChallenge);
+          firebase.database().ref('/AllChallenge/' + val).set(createSavingmoneyChallenge);
           return val;
         }).then((key) => {
           this.router.navigate(['detailsavingmoney/' + key]);

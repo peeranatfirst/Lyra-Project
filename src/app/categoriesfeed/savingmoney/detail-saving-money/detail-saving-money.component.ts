@@ -4,6 +4,7 @@ import { FirebaseService } from 'app/services/firebase.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import * as firebase from 'firebase';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
+import { GetUserInfoService } from "app/services/get-user-info.service";
 
 @Component({
   selector: 'app-detail-saving-money',
@@ -20,17 +21,21 @@ export class DetailSavingMoneyComponent implements OnInit {
   challengeDescription: any;
   duration:any;
   totalAmount;
+  displayName:any;
+  info:any;
+  ownerPhoto:any;
 
   constructor(
     private firebaseService: FirebaseService,
     private routing: Router,
     private route: ActivatedRoute,
-    private dt: DatetimestampService) { }
+    private dt: DatetimestampService,
+    private userinfo: GetUserInfoService) { }
 
   ngOnInit() {
     // Get id
     this.id = this.route.snapshot.params['id'];
-    this.firebaseService.getChallengeDetail(this.id).subscribe(challengeDetail => {
+    this.firebaseService.getChallengeDetails(this.id).subscribe(challengeDetail => {
       // console.log(challengeDetail)
       this.challengeDetail = challengeDetail;
       this.datestamp = this.dt.getDatestamp(this.challengeDetail.datetimestamp);
@@ -42,6 +47,15 @@ export class DetailSavingMoneyComponent implements OnInit {
         // Set image url
         this.imageUrl = url;
       });
+      
+      const uid = this.challengeDetail.owner;
+      this.userinfo.getUserInfo(uid).subscribe(info => {
+        this.info = info;
+        this.displayName = this.info.name;
+        this.ownerPhoto = this.info.pathPhoto;
+      });
+      
+      
     });
 
   }
