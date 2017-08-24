@@ -1,89 +1,33 @@
-<div *ngIf="detailMyChallenge">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="card">
-            <div class="card-header">
-              {{detailMyChallenge.challengeName}}
-            </div>
-            <div class="card-block">
-              <div class="row">
-                <div class="col-sm-5">
-                  <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
-                  <p class="card-text">{{detailMyChallenge.challengeDescription}}</p>
-                  <p class="card-text">Duration(days) : {{detailMyChallenge.duration}} Days</p>
-                  <p class="card-text">Goal Amount : {{detailMyChallenge.totalAmount | currency:'THB':true:'1.0-0'}} Baht</p>
-                  <p class="card-text">Total Amount : {{currentBalance | currency:'THB':true:'1.0-0'}} Baht</p>
-                  <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}<br>
-                    <p class="card-text">Start Date: {{startDate}}<br>
-                      <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
-                <h5><span class="badge badge-default">{{percent | number:'1.0-0'}}%</span></h5>
-                      </span>
-                      <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
-                <h5><span class="badge badge-success">{{percent | number:'1.0-0'}}% Success</span></h5>
-                      </span>
-                    </p>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
-                        <a class="btn btn-success btn-add disabled" aria-disabled="true">
-                          <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
-                        </a>
-                      </span>
-                      <span *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
-                        <a class="btn btn-success btn-add disabled" aria-disabled="true">
-                          <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
-                        </a>
-                      </span>
-    
-                        <span *ngIf="detailMyChallenge.challengeStatus == 'processing' ">
-                        <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-success btn-add">
-                          <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
-                        </a>
-                      </span>
-                    
-                        <br><br>
-                      </div>
-                      <div class="col-sm-6"> 
-                        <span class="delete"  *ngIf="detailMyChallenge.challengeStatus == 'processing'">
-                        <a (click)="onCancelChallenge()" role="button" class="btn btn-danger bth-delete">
-                          <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Cancel Challenge
-                        </a>
-                      </span>
-                      <span class="delete"  *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
-                        <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">
-                          <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete Challenge
-                        </a>
-                      </span>
-                      <span class="delete"  *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
-                        <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">
-                          <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete Challenge
-                        </a>
-                      </span>
-                        <br><br>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-sm-7"> 
-                  <img src="{{imgURL}}" class="img-fluid">
-                </div>
+<div class="container">
+<br>
+<br>
+<br>
+<br>
+  <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            Drink Starbucks coffee 3 cups
+          </div>
+          <div class="card-block">
+            <div class="row">
+              <div class="col-sm-5">
+                <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
+                <p class="card-text">{{detailMyChallenge.challengeDescription}}</p>
+                <p class="card-text">Duration(days) : {{detailMyChallenge.duration}} Days</p>
+                <p class="card-text">Goal Amount : {{detailMyChallenge.totalAmount | currency:'THB':true:'1.0-0'}} Baht</p>
+                <p class="card-text">Total Amount : {{currentBalance | currency:'THB':true:'1.0-0'}} Baht</p>
+                <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}<br>
+                <p class="card-text">Start Date: {{startDate}}<br>
+                  </p>
               </div>
-    
+              <div class="col-sm-7"> 
+                <img src="{{imgURL}}" class="img-fluid">
+              </div>
             </div>
+  
           </div>
         </div>
       </div>
-    
-      <div class="row">
-        <div class="col-sm-12" align="center">
-          <br>
-          <a [routerLink]="['/mychallenge']" class="btn btn-danger">
-                <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
-            </a>
-          <br>
-        </div>
-      </div>
-      <br />
-      <br>
     </div>
-    </div>
+</div>
