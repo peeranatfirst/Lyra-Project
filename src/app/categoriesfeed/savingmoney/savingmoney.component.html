@@ -7,10 +7,10 @@
           <img class="card-img-top img-fluid" src="{{cha.imgSRC}}">
           <div class="card-block">
             <figure class="profile profile-inline">
-              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Pim%20Profile.jpg?alt=media&token=da2b0bd2-354b-47f6-8510-b01fb5398810"
+              <img src="{{cha.pic}}"
                 class="profile-avatar" alt="">
             </figure>
-            <h6 class="card-title">Pim Patcha</h6>
+            <h6 class="card-title">{{cha.username}}</h6>
             <div class="card-text">
               <b>{{cha.chaName}}</b><br> Goal Amount: {{cha.chaGoal | currency:'THB':true:'1.2-2'}}<br>
             </div>

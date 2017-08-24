@@ -38,13 +38,18 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
       challengeDescription: this.challengeDescription,
       duration: this.duration,
       totalAmount: this.totalAmount,
-      datetimestamp: timestamp
+      datetimestamp: timestamp,
+      category: "SavingMoney",
+      owner: firebase.auth().currentUser.uid
     };
+    
     const createSavingmoneyChallengeNoDescrip = {
       challengeName: this.challengeName,
       duration: this.duration,
       totalAmount: this.totalAmount,
-      datetimestamp: timestamp
+      datetimestamp: timestamp,
+      category: "SavingMoney",
+      owner: firebase.auth().currentUser.uid
     };
 
     if (this.challengeDescription === undefined) {

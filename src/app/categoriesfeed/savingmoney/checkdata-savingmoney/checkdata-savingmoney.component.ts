@@ -30,14 +30,16 @@ export class CheckdataSavingmoneyComponent implements OnInit {
   ngOnInit() {
     // Get id
     this.id = this.route.snapshot.params['id'];
-    this.firebaseService.getChallengeDetail(this.id).subscribe(checkdata => {
+    this.firebaseService.getChallengeDetails(this.id).subscribe(checkdata => {
       this.checkdata = checkdata;
     });
   }
 
   onAddSubmit() {
+    const uid = firebase.auth().currentUser.uid;
     const status = "processing";
     const start = firebase.database.ServerValue.TIMESTAMP;
+
     const savingmoneydetail = {
       challengeName: this.checkdata.challengeName,
       challengeDescription: this.checkdata.challengeDescription,
@@ -45,7 +47,9 @@ export class CheckdataSavingmoneyComponent implements OnInit {
       duration: this.checkdata.duration,
       totalAmount: this.checkdata.totalAmount,
       startDate : start,
-      path : this.checkdata.path
+      path : this.checkdata.path,
+      secondOwner : uid,
+      category : this.checkdata.category
     };
 
     const savingmoneydetailNoDescrip = {
@@ -54,13 +58,15 @@ export class CheckdataSavingmoneyComponent implements OnInit {
       duration: this.checkdata.duration,
       totalAmount: this.checkdata.totalAmount,
       startDate : start,
-      path : this.checkdata.path
+      path : this.checkdata.path,
+      secondOwner : uid,
+      category : this.checkdata.category
     };
 
     if (this.challengeDescription === undefined) {
-      this.addmoney.addSavingmoneydetailChallenges(savingmoneydetailNoDescrip);
+      this.addmoney.addSavingmoneydetailChallenges(savingmoneydetailNoDescrip, uid);
     } else {
-      this.addmoney.addSavingmoneydetailChallenges(savingmoneydetail);
+      this.addmoney.addSavingmoneydetailChallenges(savingmoneydetail, uid);
     }
     this.router.navigate(['/mychallenge']);
 

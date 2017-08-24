@@ -26,7 +26,7 @@ export class DetailMyChallengeComponent implements OnInit {
   currentBalance: any;
   detailMyTransaction: any;
   startDate: any;
-
+  uid:any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -39,12 +39,13 @@ export class DetailMyChallengeComponent implements OnInit {
   ngOnInit() {
     // Get ID
     this.id = this.route.snapshot.params['id'];
+    this.uid = firebase.auth().currentUser.uid;
 
-    this.firebaseService.getDetailMyChallenge(this.id).subscribe(detailMyChallenge => {
+    this.firebaseService.getDetailMySMChallenge(this.uid,this.id).subscribe(detailMyChallenge => {
       this.detailMyChallenge = detailMyChallenge;
       this.startDate = this.dt.getDatestamp(this.detailMyChallenge.startDate); // convert timestamp to date
       this.getImgURL(this.detailMyChallenge.path);
-      this.firebaseService.getTransaction(detailMyChallenge.$key).subscribe(toCal => {
+      this.firebaseService.getTransaction(this.uid, detailMyChallenge.$key).subscribe(toCal => {
         let sum = 0;
         for (const calB of toCal) {
           const balance = this.firebaseService.getTransactionBalance(calB);
@@ -58,7 +59,7 @@ export class DetailMyChallengeComponent implements OnInit {
       });
     });
 
-    this.firebaseService.getTransaction(this.id).subscribe(detailTransaction => {
+    this.firebaseService.getTransaction(this.uid ,this.id).subscribe(detailTransaction => {
       this.detailTransaction = detailTransaction;
       this.detailMyTransaction = new Array();
       this.detailTransaction.forEach(element => {
@@ -73,7 +74,7 @@ export class DetailMyChallengeComponent implements OnInit {
 
   onCancelChallenge() {
     if (confirm("Are you sure to cancel " + this.detailMyChallenge.challengeName + " Challenge?")) {
-      this.AddMoneyService.cancelChallengeUpdate(this.detailMyChallenge.$key);
+      this.AddMoneyService.cancelChallengeUpdate(this.uid, this.detailMyChallenge.$key);
       this.router.navigate(['/mychallenge']);
     }
 
@@ -81,7 +82,7 @@ export class DetailMyChallengeComponent implements OnInit {
 
   onDeleteChallenge() {
     if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge?")) {
-      this.AddMoneyService.deleteChallenge(this.detailMyChallenge.$key);
+      this.AddMoneyService.deleteChallenge(this.uid, this.detailMyChallenge.$key);
       this.router.navigate(['/mychallenge']);
     }
 
@@ -89,7 +90,7 @@ export class DetailMyChallengeComponent implements OnInit {
 
   onDeleteTransaction(key) {
     if (confirm("Are you sure to delete?")) {
-      this.AddMoneyService.deleteTransaction(this.detailMyChallenge.$key, key);
+      this.AddMoneyService.deleteTransaction(this.uid, this.detailMyChallenge.$key, key);
       this.router.navigate(['/detailmychallenge/' + this.detailMyChallenge.$key]);
     }
   }

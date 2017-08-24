@@ -16,8 +16,8 @@ export class AddMoneyService {
   constructor(private firebaseService: FirebaseService) { }
 
 
-  addSavingmoneydetailChallenges(savingmoneydetail) {
-    firebase.database().ref('/users/userid1/Challenges').push(savingmoneydetail);
+  addSavingmoneydetailChallenges(savingmoneydetail, uid) {
+    firebase.database().ref('/users/'+uid+'/Challenges').push(savingmoneydetail);
   }
   
   calculateBalance(toCal){
@@ -30,36 +30,36 @@ export class AddMoneyService {
   }
 
 
-  addMoney(addmoney, id) {
+  addMoney(addmoney,uid, id) {
     const timestamp = firebase.database.ServerValue.TIMESTAMP;
 
-    firebase.database().ref('/users/userid1/Challenges/' + id + '/savingTransaction').push({
+    firebase.database().ref('/users/'+uid+'/Challenges/' + id + '/savingTransaction').push({
       balance: addmoney,
       datetimestamp: timestamp
     });
 
   }
 
-  achievedStatusUpdate(id) {
+  achievedStatusUpdate(uid,id) {
     const status = {
       challengeStatus: "Achieved"
     };
-    firebase.database().ref('/users/userid1/Challenges/' + id).update(status);
+    firebase.database().ref('/users/'+uid+'/Challenges/' + id).update(status);
   }
 
-  cancelChallengeUpdate(id){
+  cancelChallengeUpdate(uid,id){
     const status = {
       challengeStatus: "Cancelled"
     };
-    firebase.database().ref('/users/userid1/Challenges/'+ id).update(status);
+    firebase.database().ref('/users/'+uid+'/Challenges/'+ id).update(status);
   }
 
-  deleteTransaction(key,tId){
-    firebase.database().ref('/users/userid1/Challenges/'+key+'/savingTransaction/'+tId).remove();
+  deleteTransaction(uid,key,tId){
+    firebase.database().ref('/users/'+uid+'/Challenges/'+key+'/savingTransaction/'+tId).remove();
   }
 
-  deleteChallenge(id){
-    firebase.database().ref('/users/userid1/Challenges/'+id).remove();
+  deleteChallenge(uid,id){
+    firebase.database().ref('/users/'+uid+'/Challenges/'+id).remove();
   }
 
 }
