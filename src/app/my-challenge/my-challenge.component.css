@@ -1,5 +1,20 @@
+.category-header{
+    margin-top: 62px;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/MyChallengeHeader.jpg?alt=media&token=29c513ca-dc6f-48d0-8137-e31b327e0ada');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 150px;
+}
+.mychallenges{
+    color: white;
+    padding-top: 108px;
+}
+h3{
+    font-weight: bold;
+}
 .container{
-    margin-top: 80px;
+    margin-top: 10px;
 }
 h5 {
     font-size: 1.28571429em;
@@ -15,7 +30,7 @@ h5 {
     border: none;
     border-radius: .28571429rem;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
-    background-color: #4bae4f;
+    background-color: #efefef;
 }
 
 .card-block {
@@ -24,16 +39,9 @@ h5 {
     margin: 0;
     padding: 1em;
     border: none;
-    border-top: 1px solid rgba(34, 36, 38, .1);
+    /* border-top: 1px solid rgba(34, 36, 38, .1); */
     box-shadow: none;
 }
-
-.card-img-top {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
 .card-title {
     font-size: 1em;
     font-weight: 700;
@@ -44,6 +52,9 @@ h5 {
     clear: both;
     margin-top: .5em;
     color: rgba(0, 0, 0, .68);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-footer {
@@ -55,8 +66,8 @@ h5 {
     padding: .75em 1em;
     color: rgba(0, 0, 0, .4);
     border-top: 1px solid rgba(0, 0, 0, .05) !important;
-    background: #378d3b;
-    color: white;
+    background: #efefef;
+    color: black;
 }
 
 .card-inverse .btn {
@@ -108,40 +119,25 @@ h5 {
     text-decoration: none;
     color: rgba(0, 0, 0, .4);
 }
-.fixedbutton {
-    position: fixed;
-    bottom: 2%;
-    right: 1%;
-}
-.btn-circle{
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  padding: 14px 4px;
-  border-radius: 50%;
-  background-color: #e81d62;
-}
-.btn-circle:hover{
-  -webkit-box-shadow: 0 5px 10px 2px #BDBDBD;
-  box-shadow: 0 5px 10px 2px #BDBDBD;
-}
-.fa-pencil{
-  color: white;
-}
 .badge-success{
-    background-color: white;
-    color: #4bae4f;
+    background: linear-gradient(to right,#5cb85c,#f0ad4e,#d9534f,#5bc0de);
+    color: white;
     width: 100%;
     text-align: center;
 }
 .badge-default{
     width: 100%;
+    background: white;
+    color: black;
     text-align: center;
 }
 a:hover > .card{
-    -webkit-box-shadow: 0 0 10px 3px #378d3b;
-    box-shadow: 0 0 10px 3px #378d3b;
+    -webkit-box-shadow: 0 0 5px 1px #636c72;
+    box-shadow: 0 0 5px 1px #636c72;
     color: white;
+}
+ol, ul {
+    margin-left: 0px;
 }
 .nav{
     display: grid;
@@ -156,4 +152,25 @@ a:hover > .card{
 }
 #tabStatus{
     text-align: right;
+}
+.nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active {
+    color: #fff;
+    font-weight: bold;
+    cursor: default;
+    background: linear-gradient(to right,#5cb85c,#f0ad4e,#d9534f,#5bc0de); /* Standard syntax */
+}
+
+@media screen and (min-width: 480px) {
+    .category-header{
+        margin-top: 62px;
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/MyChallengeHeader.jpg?alt=media&token=29c513ca-dc6f-48d0-8137-e31b327e0ada');
+        background-size: cover;
+        width: 100%;
+        height: 300px;
+        background-position: center;
+    }
+    .mychallenges{
+        color: white;
+        padding-top: 235px;
+    }
 }

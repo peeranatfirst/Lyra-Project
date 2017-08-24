@@ -1,3 +1,64 @@
-<p>
-  create-checklist-challenge works!
-</p>
+<div class="container">
+  <br>
+  <br>
+  <br>
+    <div class="row">
+      <div class="col-sm-2 flex-first"></div>
+      <div class="col-sm-2 flex-last"></div>
+      <div class="col-sm-8">
+        <h1><b>Creating Checklist Challenge</b></h1>
+        <form ngNativeValidate (submit)="onAddSubmit()" #savingmoneyForm="ngForm">
+          <div class="card">
+            <div class="card-block">
+              <div class="form-group no-border">
+                <label for="challengeName">Challenge Name</label>
+                <input type="text" class="form-control" [(ngModel)]="challengeName" name="challengeName" required minlength="5" #challengeName1="ngModel">
+                <div *ngIf="challengeName1.errors && (challengeName1.dirty || challengeName1.touched)" class="alert alert-danger">
+                  <div [hidden]="!challengeName1.errors.required">
+                    Challenge Name is required !
+                  </div>
+                  <div [hidden]="!challengeName1.errors.minlength">
+                    Challenge Name will be minimum of 5 characters..
+                  </div>
+                </div>
+              </div>
+              <div class="form-group no-border">
+                <label>Challenge Description</label>
+                <input type="text" class="form-control" [(ngModel)]="challengeDescription" name="challengeDescription">
+              </div>
+              <div class="form-group no-border">
+                <label>Expired Date</label>
+                  <input type="datetime-local" class="form-control" [(ngModel)]="expireddate" name="expireddate" required #expireddate1="ngModel">
+                <div *ngIf="expireddate1.errors && (expireddate1.dirty || expireddate1.touched)" class="alert alert-danger">
+                  <div [hidden]="!expireddate1.errors.required">
+                    Expired date is required !
+                  </div>
+                </div>
+              </div>
+              <div class="form-group no-border">
+                <label>Upload image of Challenge</label>
+                <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image">
+              </div>
+              <div class="col-sm-12 btn-submit">
+                <button type="submit" value="Submit" class="btn btn-success" [disabled]="!savingmoneyForm.form.valid">
+                    <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
+                  </button>
+              </div>
+              <br>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="row">
+    <div class="col-sm-12" align="center">
+      <br>
+      <a [routerLink]="['/selectCategory']" class="btn btn-danger">
+          <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
+        </a>
+    </div>
+  </div>
+  <br>

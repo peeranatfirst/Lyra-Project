@@ -234,6 +234,11 @@ a:hover{
     text-align: center;
     font-weight: bold;
 }
+/* .navbar-brand{
+	background: linear-gradient(to right,#5cb85c,#f0ad4e,#d9534f,#5bc0de);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+} */
 @media screen and (min-width: 480px) {
 	.notification{
 		width: 0px;
