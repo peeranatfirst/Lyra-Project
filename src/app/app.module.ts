@@ -43,6 +43,7 @@ import { CalculatePercentSuccessService } from 'app/services/calculate-percent-s
 import { AuthGuard } from './services/auth.service';
 import { CreateChecklistChallengeComponent } from './create-challenge/create-checklist-challenge/create-checklist-challenge.component';
 import { ChecklistChallengeComponent } from './categoriesfeed/checklist-challenge/checklist-challenge.component';
+import { DetailChecklistComponent } from './categoriesfeed/checklist-challenge/detail-checklist/detail-checklist.component';
 
 
 
@@ -76,7 +77,8 @@ export const firebaseConfig = {
     SignupComponent,
     MembersComponent,
     CreateChecklistChallengeComponent,
-    ChecklistChallengeComponent
+    ChecklistChallengeComponent,
+    DetailChecklistComponent
 
 
   ],
