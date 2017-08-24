@@ -1,53 +1,41 @@
 <div class="container">
-  <!-- <div class="row">
-    <div class="col-lg-12">
-      <h1 class="select"><b>Select Category</b></h1>
-    </div>
-  </div> -->
   <div class="row">
-    <div class="col-lg-6">
-      <a [routerLink]="['/savingmoney']" routerLinkActive="active" class="card-link">
-        <div class="card text-center animated zoomIn">
-          <img class="card-img" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/SavingMoneyCategory.png?alt=media&token=08110d5b-2825-4337-ba31-396fe59c8611"
-            alt="Card image">
-          <div class="card-img-overlay">
-            <h4 class="card-title">Saving Money</h4>
+    <div class="col-sm-6">
+      <a [routerLink]="['/savingmoney']">
+        <div class="card text-white bg-success text-center pt-2 mb-4">
+          <div class="card-body card-title">
+            <h1 class="m-b-2"><i class="fa fa-money display-2"></i></h1>
+            <h6 class="text-light">Saving Money Challenge</h6>
           </div>
         </div>
       </a>
-      <br>
     </div>
-    <div class="col-lg-6">
-      <a [routerLink]="['/cookingskills']" routerLinkActive="active" class="card-link">
-        <div class="card card-cooking text-center">
-          <img class="card-img animated zoomIn" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/CookingCategory.png?alt=media&token=ddd02f0b-9eb2-4006-b85c-e148dc8752f2"
-            alt="Card image">
-          <div class="card-img-overlay">
-            <h4 class="card-title">Cooking Skills</h4>
-          </div>
-        </div>
-        <br>
-      </a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6">
-      <div class="card text-center">
-        <img class="card-img commingsoon animated zoomIn" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/ExerciseCategory.png?alt=media&token=0dac939e-11be-475d-897c-cc75f2bd62b8"
-          alt="Card image">
-        <div class="card-img-overlay">
-          <h4 class="card-title">Exercising</h4>
+    <div class="clearfix"> </div>
+    <div class="col-sm-6">
+      <div class="card text-white bg-warning text-center py-2 mb-4">
+        <div class="card-body card-title">
+          <h1 class="m-b-2"><i class="fa fa-check-circle-o display-2"></i></h1>
+          <h6 class="text-light">Checklist Challenge</h6>
         </div>
       </div>
-      <br>
     </div>
-    <div class="col-lg-6">
-      <div class="card text-center">
-        <img class="card-img commingsoon animated zoomIn" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/ReadingCategory.png?alt=media&token=16b5ccf2-165b-46b5-93a4-d8fc343c4ee7"
-          alt="Card image">
-        <div class="card-img-overlay">
-          <h4 class="card-title">Reading</h4>
+    <div class="clearfix"> </div>
+    <div class="col-sm-6">
+      <div class="card text-white bg-danger text-center py-2 mb-4">
+        <div class="card-body card-title">
+          <h1 class="m-b-2"><i class="fa fa-list display-2"></i></h1>
+          <h6 class="text-light">Step Challenge</h6>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+    <div class="col-sm-6">
+      <div class="card text-white bg-info text-center pt-2 mb-4">
+        <div class="card-body card-title">
+          <h1 class="m-b-2"><i class="fa fa-calendar display-2"></i></h1>
+          <h6 class="text-light">Routine Challenge</h6>
         </div>
       </div>
     </div>
   </div>
+</div>

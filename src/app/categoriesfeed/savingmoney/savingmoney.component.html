@@ -1,7 +1,10 @@
+<div class="savingmoney-header">
+    <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/ON40SB0.jpg?alt=media&token=97b0e7a6-fdbc-434f-ab7d-0843eaf95890">
+  </div>
 <div class="container">
-  <h1><b>Saving Money</b></h1>
+  <h3><b>Saving Money</b></h3>
   <div class="row">
-    <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let cha of listOfChallenge">
+    <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of listOfChallenge">
       <a [routerLink]="['/detailsavingmoney/'+cha.chaId]" routerLinkActive='active' class="card-link">
         <div class="card card-inverse card-info">
           <img class="card-img-top img-fluid" src="{{cha.imgSRC}}">

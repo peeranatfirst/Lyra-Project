@@ -1,9 +1,11 @@
+<div class="category-header">
+  <div class="container mychallenges">
+    <h3>My Challenges</h3>
+  </div>
+</div>
 <div class="container">
   <div class="row">
-    <div class="col-sm-9">
-      <h1><b>My Challenges</b></h1>
-    </div>
-    <div class="col-sm-3" id="tabStatus">
+    <div class="col-lg-12" id="tabStatus">
       <ul class="nav nav-pills" id="navStatus">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Status</a>
@@ -37,7 +39,7 @@
   <div class="tab-content">
     <div class="tab-pane fade show active" id="All" role="tabpanel">
       <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let cha of DetailOfChallenges">
+        <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of DetailOfChallenges">
           <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
             <div class="card card-inverse card-info">
               <div class="card-block">
@@ -63,7 +65,7 @@
 
     <div class="tab-pane fade" id="InProgress" role="tabpanel">
       <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let cha of inProgressChallenges">
+        <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of inProgressChallenges">
           <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
             <div class="card card-inverse card-info">
               <div class="card-block">
@@ -130,7 +132,6 @@
         </div>
       </div>
     </div>
-
   </div>
   <br>
 </div>
