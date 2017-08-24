@@ -1,24 +1,27 @@
+<div class="category-header">
+    <div class="container login">
+        <h3>Login to Lyra</h3>
+    </div>
+</div>
 <div class="container">
-  <div class="row">
-      <div class="col-lg-3 flex-first"></div>
-      <div class="col-lg-3 flex-last"></div>
-      <div class="col-lg-6">
-          <h1><b>Sign in</b></h1>
-          <hr>
-          <div class="form-container">
-              <span class="error" *ngIf="error">{{ error }}</span>
-              <button type="button" class="btn btn-primary btn-sm btn-block" (click)="loginFb()">
+    <div class="row">
+        <div class="col-lg-3 flex-first"></div>
+        <div class="col-lg-3 flex-last"></div>
+        <div class="col-lg-6">
+            <div class="form-container">
+                <span class="error" *ngIf="error">{{ error }}</span>
+                <button type="button" class="btn btn-primary btn-sm btn-block" (click)="loginFb()">
                   <i class="fa fa-facebook fa-2x"></i>
               </button>
-              <button type="button" class="btn btn-danger btn-sm btn-block" (click)="loginGoogle()">
+                <button type="button" class="btn btn-danger btn-sm btn-block" (click)="loginGoogle()">
                   <i class="fa fa-google fa-2x"></i>
               </button>
-              <button type="button" class="btn btn-success btn-sm btn-block">
+                <button type="button" class="btn btn-success btn-sm btn-block">
                   <a routerLink="/login-email" routerLinkActive="active" id="email">
                       <i class="fa fa-envelope-o fa-2x"></i>
                   </a>
               </button> No account?<a routerLink="/signup" routerLinkActive="active" class="alc"> <strong>Create one here</strong></a>
-          </div>
-      </div>
-  </div>
+            </div>
+        </div>
+    </div>
 </div>
