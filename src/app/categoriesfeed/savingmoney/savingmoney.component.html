@@ -11,16 +11,18 @@
           <img class="card-img-top img-fluid" src="{{cha.imgSRC}}">
           <div class="card-block">
             <figure class="profile profile-inline">
-              <img src="{{cha.pic}}"
-                class="profile-avatar" alt="">
+              <img src="{{cha.pic}}" class="profile-avatar" alt="">
             </figure>
-            <h6 class="card-title">{{cha.username}}</h6>
+            <h6 class="card-title">{{cha.thisDay}}, {{cha.thisTime}} <!-- {{cha.username}} --></h6>
             <div class="card-text">
               <b>{{cha.chaName}}</b><br> Goal Amount: {{cha.chaGoal | currency:'THB':true:'1.2-2'}}<br>
             </div>
           </div>
           <div class="card-footer">
-            <small>created on {{cha.thisDay}} at {{cha.thisTime}} </small>
+            <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+            <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+            <i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+            <!-- <small>created on {{cha.thisDay}} at {{cha.thisTime}} </small> -->
           </div>
         </div>
       </a>
