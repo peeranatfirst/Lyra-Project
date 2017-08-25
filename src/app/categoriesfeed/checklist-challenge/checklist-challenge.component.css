@@ -33,11 +33,11 @@ h5 {
   border: none;
   border-radius: .28571429rem;
   box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
-    position: relative;
-    float: left;
-    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
-    overflow: hidden;
-    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  position: relative;
+  float: left;
+  box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
   border-radius: 1.285714rem;
   background-color: white;
   height: 100%;
@@ -115,7 +115,7 @@ h5 {
 }
 a:hover > .card{
   -webkit-box-shadow: 0 5px 5px 0 #ababab;
-  box-shadow: 0 5px 5px 0 #ababab;
+  box-shadow: 0 1px 3px 0 #ababab;
   color: white;
 }
 @media screen and (min-width: 480px) {
