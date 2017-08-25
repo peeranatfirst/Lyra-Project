@@ -1,33 +1,34 @@
 <div class="container">
-<br>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div class="row">
-      <div class="col-sm-12">
-        <div class="card">
-          <div class="card-header">
-            Drink Starbucks coffee 3 cups
-          </div>
-          <div class="card-block">
-            <div class="row">
-              <div class="col-sm-5">
-                <h4 class="card-title">{{detailMyChallenge.challengeName}}</h4>
-                <p class="card-text">{{detailMyChallenge.challengeDescription}}</p>
-                <p class="card-text">Duration(days) : {{detailMyChallenge.duration}} Days</p>
-                <p class="card-text">Goal Amount : {{detailMyChallenge.totalAmount | currency:'THB':true:'1.0-0'}} Baht</p>
-                <p class="card-text">Total Amount : {{currentBalance | currency:'THB':true:'1.0-0'}} Baht</p>
-                <p class="card-text">Status : {{detailMyChallenge.challengeStatus}}<br>
-                <p class="card-text">Start Date: {{startDate}}<br>
-                  </p>
-              </div>
-              <div class="col-sm-7"> 
-                <img src="{{imgURL}}" class="img-fluid">
-              </div>
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          Drink Starbucks coffee 3 cups
+        </div>
+        <div class="card-block">
+          <div class="row">
+            <div class="col-sm-5">
+              <h4 class="card-title">Drink Starbucks coffee 3 cups</h4>
+              <p class="card-text">{{detailMyChallenge.challengeDescription}}</p>
+              <p class="card-text">Expired Date: {{startDate}}<br>
+              </p><br>
+              <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Check this !!</span>
+                </label>
             </div>
-  
+            <div class="col-sm-7">
+              <img src="https://www.thesun.co.uk/wp-content/uploads/2017/03/nintchdbpict000308845446.jpg?strip=all&quality=100&w=960" class="img-fluid">
+            </div>
           </div>
+
         </div>
       </div>
     </div>
+  </div>
 </div>

@@ -149,9 +149,13 @@ ol, ul {
 .dropdown-menu{
     text-align: center;
     width: 100%;
+    background: #efefef;
 }
 #tabStatus{
     text-align: right;
+}
+.dropdown-item:hover{
+    background: linear-gradient(to right,#5cb85c,#f0ad4e,#d9534f,#5bc0de); /* Standard syntax */
 }
 .nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active {
     color: #fff;
