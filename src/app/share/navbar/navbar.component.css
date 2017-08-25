@@ -10,7 +10,14 @@
 }
 .displayName{
 	font-weight: bold;
-	margin-top: -20px;
+    margin-top: -52px;
+    position: absolute;
+    margin-left: 68px;
+}
+.editProfile{
+	margin-top: -35px;
+    position: absolute;
+    margin-left: 68px
 }
 .nav-menu{
 	margin-top: 5px;
