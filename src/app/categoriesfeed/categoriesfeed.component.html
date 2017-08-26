@@ -24,21 +24,25 @@
   </div>
   <div class="row">
     <div class="col-sm-6">
-      <div class="card text-white bg-danger text-center py-2 mb-4">
-        <div class="card-body card-title">
-          <h1 class="m-b-2"><i class="fa fa-list display-2"></i></h1>
-          <h6 class="text-light">Step Challenge</h6>
+      <a [routerLink]="['/stepchallenge']">
+        <div class="card text-white bg-danger text-center py-2 mb-4">
+          <div class="card-body card-title">
+            <h1 class="m-b-2"><i class="fa fa-list display-2"></i></h1>
+            <h6 class="text-light">Step Challenge</h6>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
     <div class="clearfix"> </div>
     <div class="col-sm-6">
-      <div class="card text-white bg-info text-center pt-2 mb-4">
-        <div class="card-body card-title">
-          <h1 class="m-b-2"><i class="fa fa-calendar display-2"></i></h1>
-          <h6 class="text-light">Routine Challenge</h6>
+      <a [routerLink]="['/routinechallenge']">
+        <div class="card text-white bg-info text-center pt-2 mb-4">
+          <div class="card-body card-title">
+            <h1 class="m-b-2"><i class="fa fa-calendar display-2"></i></h1>
+            <h6 class="text-light">Routine Challenge</h6>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </div>
