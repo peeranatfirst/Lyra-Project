@@ -1,14 +1,17 @@
-.container{
-    margin-top: 90px;
-}
 .card{
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
     border: solid 1px;
-    border-color: #378d3b; 
+    background-color: white;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+    border-radius: 1.285714rem;
 }
-.card-header{
-    background-color: #378d3b;
-    color: white;
-    text-align: center;
+.detailcard{
+    padding-top: 80px;
 }
 thead{
     background-color: #378d3b;
@@ -53,4 +56,11 @@ table{
 .x{
     width: 5;
     padding-right: 3px;
+}
+.detailcontent{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.chaName{
+    color: #14AE4E;
 }
