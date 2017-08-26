@@ -42,7 +42,7 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
       category: "SavingMoney",
       owner: firebase.auth().currentUser.uid
     };
-    
+     
     const createSavingmoneyChallengeNoDescrip = {
       challengeName: this.challengeName,
       duration: this.duration,

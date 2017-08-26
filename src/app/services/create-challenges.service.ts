@@ -31,4 +31,14 @@ export class CreateChallengesService {
     }
     return "should be fix";
   }
+
+  // Fuction for create a checklist challenge with Image Upload
+  addCreateChecklistChallenge(createChecklistChallenge) {
+
+  }
+
+  // Function for add tasks to checklist challenge
+  addTasksChecklistChallenge(){
+    
+  }
 }
