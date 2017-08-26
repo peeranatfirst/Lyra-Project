@@ -164,8 +164,10 @@ a:hover > .card{
     border-radius: 50px;
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    color: white;
-    background-color: #14AE4E;
+    color: #14AE4E;
+    text-decoration: underline;
+    text-decoration-color: #14AE4E;
+    background: none;
 }
 @media screen and (min-width: 480px) {
     .category-header{

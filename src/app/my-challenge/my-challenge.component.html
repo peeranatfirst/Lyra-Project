@@ -14,42 +14,15 @@
           <a class="nav-link" data-toggle="tab" href="#InProgress" role="tab">Doing</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#Acheived" role="tab">Acheived</a>
+          <a class="nav-link" data-toggle="tab" href="#Achieved" role="tab">Achieved</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#Cancelled" role="tab">Cancelled</a>
         </li>
       </ul>
 
-
-      <!-- <ul class="nav nav-pills" id="navStatus">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Status</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" data-toggle="tab" href="#All">All</a>
-            <a class="dropdown-item" data-toggle="tab" href="#InProgress">In Progress</a>
-            <a class="dropdown-item" data-toggle="tab" href="#Acheived">Acheived</a>
-            <a class="dropdown-item" data-toggle="tab" href="#Cancelled">Cancelled</a>
-          </div>
-        </li>
-      </ul> -->
     </div>
   </div>
-  <!--<ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#All" role="tab">All</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#InProgress" role="tab">Doing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#Acheived" role="tab">Acheived</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#Cancelled" role="tab">Cancelled</a>
-      </li>
-    </ul>-->
-
 
   <!-- Tab panes-->
   <div class="tab-content">
@@ -105,7 +78,7 @@
 
     <div class="tab-pane fade" id="Achieved" role="tabpanel">
       <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let cha of achievedChallenges">
+        <div class="col-sm-6 col-md-4 col-lg-4 mt-4" *ngFor="let cha of achievedChallenges">
           <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
             <div class="card card-inverse card-info">
               <div class="card-block">
