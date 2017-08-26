@@ -1,17 +1,25 @@
 <div class="container">
-  <div class="form-container" style="margin-top: 50px;">
-    <a routerLink="/login" id="goback">Go back</a>
-    <h2>Custom Login</h2>
+  <div class="row">
+    <div class="col-lg-3 flex-first"></div>
+    <div class="col-lg-3 flex-last"></div>
+    <div class="col-lg-6">
+      <div class="form-container">
+        <div align="center">
+          <img class="img-fluid" alt="Responsive image" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/email.png?alt=media&token=4930e801-d391-451a-8150-ebbee750f2ab">
+          <h3>Email Login to LYRA</h3><br>
+          <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+          <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
 
-    <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
-
-    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-
-      <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="txt" required>
-      <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
-
-      <button type="submit" [disabled]="!formData.valid" class="basic-btn">Log in</button>
-      <a routerLink="/signup" class="alc">Don't have an account?</a>
-    </form>
+            <input type="email" placeholder="Email address.." (ngModel)="email" name="email" class="txt" required>
+            <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
+            <br>
+            <button type="submit" [disabled]="!formData.valid" class="btn btn-success">Log in</button>
+            <a class="btn btn-danger" routerLink="/login" id="goback">Back</a>
+            <br><br>
+            <a routerLink="/signup" class="alc">Don't have an account?</a>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
