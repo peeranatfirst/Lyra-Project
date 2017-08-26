@@ -38,9 +38,11 @@
                 <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image">
               </div>
               <div class="col-sm-12 btn-submit">
-                <button type="submit" value="Submit" class="btn btn-warning" [disabled]="!savingmoneyForm.form.valid">
-                    <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
+                  <a [routerLink]="['/createtaskchecklist']" routerLinkActive="active" class="card-link">
+                <button type="submit" value="Submit" class="btn btn-warning">
+                    Add your task  <i class="fa fa-tasks fa-lg" aria-hidden="true"></i> 
                   </button>
+                  </a>
               </div>
               <br>
             </div>
@@ -61,4 +63,4 @@
   </div>
   <br>
 
-  
+   
