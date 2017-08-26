@@ -143,6 +143,7 @@ a:hover > .card{
 .chaName{
     color: #14AE4E;
     font-weight: bold;
+    font-size: 20px;
 }
 .nav-tabs .nav-item {
     margin-bottom: -1px;
@@ -150,7 +151,7 @@ a:hover > .card{
 }
 #tabStatus{
     margin-top: 15px;
-    margin-left: -11px;
+    margin-left: -21px;
     font-weight: bold;
 }
 .nav-tabs {

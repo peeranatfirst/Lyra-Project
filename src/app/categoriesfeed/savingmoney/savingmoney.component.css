@@ -12,9 +12,6 @@
 }
 h3{
     font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .container{
     margin-top: 10px;
@@ -40,8 +37,8 @@ h5 {
     transition: box-shadow 0.25s ease, transform 0.25s ease;
     border-radius: 1.285714rem;
     background-color: white;
-    height: 100%;
-    width: 100%
+    height: auto;
+    width: 100%;
 }
 
 .card-block {
@@ -71,6 +68,9 @@ h5 {
     clear: both;
     margin-top: .5em;
     color: rgba(0, 0, 0, .68);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-footer {
@@ -149,6 +149,7 @@ h5 {
 .chaName{
     font-weight: bold;
     font-size: 20px;
+    color: #14AE4E;
 }
 @media screen and (min-width: 480px) {
     .category-header{
