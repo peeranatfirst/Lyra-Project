@@ -14,6 +14,8 @@ export class FirebaseService {
   balance: FirebaseListObservable<any[]>;
   detailBalance: FirebaseListObservable<any[]>;
 
+  tasks: FirebaseListObservable<any[]>;
+
   detailMySMChallenge: FirebaseObjectObservable<any>;
 
   constructor(
@@ -60,6 +62,12 @@ export class FirebaseService {
   getTransaction(uid, key) {
     this.balance = this.af.database.list('/users/'+uid+'/Challenges/' + key + '/savingTransaction') as FirebaseListObservable<myBalance[]>;
     return this.balance;
+  }
+
+  // get checklist challenge's task 
+  getTasksOfChecklistChallenge(id){
+    this.tasks = this.af.database.list('/AllChallenge/'+ id+'/tasks') as FirebaseListObservable<myTasks[]>;
+    return this.tasks;
   }
 
 
@@ -163,6 +171,12 @@ interface myBalance {
   $key?: string;
   datetimestamp?: string;
   balance?: number;
+}
+
+interface myTasks {
+  $key?: string;
+  taskName?: string;
+  level?: string;
 }
 
 

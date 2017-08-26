@@ -4,6 +4,11 @@
     <div class="col-sm-2 flex-last"></div>
     <div class="col-sm-8">
       <h1><b>Add your task</b></h1>
+      <div class="card" *ngFor="let cha of myTasks;"> 
+        <h4> {{cha.taskName}} </h4><br>
+        <h4> {{cha.level}}</h4>
+      </div>
+
       <form>
         <div class="card">
           <div>
@@ -45,7 +50,7 @@
 
 
 
-<div class="row">
+<!--<div class="row">
   <div class="col-sm-12" align="center">
     <br>
     <a [routerLink]="['/createChecklistChallenge']" class="btn btn-danger">
@@ -53,4 +58,4 @@
         </a>
   </div>
 </div>
-<br>
+<br>-->

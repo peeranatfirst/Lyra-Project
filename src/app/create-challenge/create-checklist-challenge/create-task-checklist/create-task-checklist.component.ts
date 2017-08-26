@@ -17,6 +17,7 @@ export class CreateTaskChecklistComponent implements OnInit {
   id:any;
   checklistDetails:any;
   imageUrl: any;
+  myTasks: any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -41,7 +42,21 @@ export class CreateTaskChecklistComponent implements OnInit {
 
     });
 
-    $(document).ready(function () {
+    var ref = firebase.database().ref("/AllChallenge");
+    ref.once("value")
+    .then(function(snapshot) {
+      var hasTask = snapshot.hasChild("tasks"); 
+    }).then((hasTask)=>{
+      if(hasTask){
+        this.firebaseService.getTasksOfChecklistChallenge(this.id).subscribe((myTasks)=>{
+          this.myTasks = myTasks; 
+        })
+      }
+    });
+
+
+
+    /*$(document).ready(function () {
       var max_fields = 10; //maximum input boxes allowed
       var wrapper = $(".input_fields_wrap"); //Fields wrapper
       var add_button = $(".add_field_button"); //Add button ID
@@ -51,14 +66,14 @@ export class CreateTaskChecklistComponent implements OnInit {
         e.preventDefault();
         if (x < max_fields) { //max input box allowed
           x++; //text box increment
-          $(wrapper).append('<div><a href="#" class="remove_field remove"><small>Remove Task</small></a><input type="text" class="form-control" name="challengeName"></div>'); //add input box
+          $(wrapper).append('<div><a href="#" class="remove_field remove"><small>Remove Task</small></a><input type="text" class="form-control" name="challengeName" required minlength="5"></div>'); //add input box
         }
       });
 
       $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
         e.preventDefault(); $(this).parent('div').remove(); x--;
       })
-    });
+    });*/
   }
 
 }
