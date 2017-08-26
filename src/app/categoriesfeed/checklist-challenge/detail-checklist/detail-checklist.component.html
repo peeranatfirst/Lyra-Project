@@ -1,28 +1,23 @@
 <div class="container">
-  <div class="row">
+  <div class="row detailcard">
     <div class="col-sm-3 flex-first"></div>
     <div class="col-sm-6">
       <div class="card card-inverse card-info">
         <div class="card-block">
           <figure class="profile profile-inline">
-            <img src=""
-              class="profile-avatar" alt="">
+            <img src="" class="profile-avatar" alt="">
           </figure>
           <div class="card-title">Pim Patcha<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span></div>
           <div class="card-text">
-            <p>Drink Starbucks coffe 3 cups<b></b><br>
-              <br>Expired Date : <br>
+            <span class="chaName"><p><h3><b>Drink Starbucks coffe 3 cups</b></h3></span> Duration : <br>
           </div>
+          <br>
           <img src="https://www.thesun.co.uk/wp-content/uploads/2017/03/nintchdbpict000308845446.jpg?strip=all&quality=100&w=960" class="img-fluid">
           <br>
-          <br>
-          <div>
-          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-              Challenge it !
-            </button></div>
         </div>
         <div class="card-footer">
           <a href="#" class="card-link"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Like</a>
           <a href="#" class="card-link"><i class="fa fa-comments-o" aria-hidden="true"></i>Comment</a>
+          <a [routerLink]="[]" class="card-link"><span class="fa fa-plus-square-o" aria-hidden="true"></span>Add to My Challenge</a>
         </div>
       </div>
