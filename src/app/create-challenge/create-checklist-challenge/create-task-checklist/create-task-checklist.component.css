@@ -1,0 +1,27 @@
+.container{
+    margin-top: 90px;
+  }
+  .card{
+    border: solid 1px;
+    border-color: #378d3b;
+  }
+  .card-header{
+    color: white;
+    background-color: #378d3b;
+    text-align: center;
+  }
+  .card-footer{
+    background-color: #378d3b;
+  }
+  .btn-submit{
+    text-align: center;
+  }
+  .ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+  .remove{
+    color: black;
+  }
