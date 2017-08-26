@@ -31,17 +31,17 @@ export class SavingmoneyComponent implements OnInit {
     let imgPath;
     this.firebaseService.getChallengeList().subscribe(challengeList => {
       
-      let key,name,des,duration,goal ,path, datestamp,timestamp,category,uid,ownerPhoto,displayName;
+      let key,name,des,duration,goal ,path, datestamp,timestamp,category;
       
       for(const addObj of challengeList){
         path = this.firebaseService.getListOfChallengePath(addObj);   
         category = this.firebaseService.getListOfChallengeCategory(addObj);
         if(category === "SavingMoney"){
-          uid = this.firebaseService.getListOfOwnwer(addObj);
+          /*uid = this.firebaseService.getListOfOwnwer(addObj);
           const userinfo = this.userInfo.getUserInfo(uid).subscribe(info => {
             displayName = info.name;
             ownerPhoto = info.pathPhoto;
-          })
+          })*/
 
           const storage = firebase.storage();
           const pathRef = storage.ref();
@@ -60,7 +60,7 @@ export class SavingmoneyComponent implements OnInit {
               const datetimestamp = this.firebaseService.getListOfChallengeTimestamp(addObj);
               datestamp = this.dt.getDatestamp(datetimestamp);
               timestamp = this.dt.getTimestamp(datetimestamp);
-              this.listOfChallenge.push({chaId: key,chaName: name,chaGoal: goal,description:des,time:duration,imgSRC:imgPath , thisTime: timestamp, thisDay: datestamp, pic: ownerPhoto, username: displayName });
+              this.listOfChallenge.push({chaId: key,chaName: name,chaGoal: goal,description:des,time:duration,imgSRC:imgPath , thisTime: timestamp, thisDay: datestamp });
           });
         }
       }
