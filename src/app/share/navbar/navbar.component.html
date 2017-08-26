@@ -12,11 +12,11 @@
           <span *ngIf="(af.auth | async)">
             <a class="list-group-item" href="#"><img class="profileBar rounded-circle" src="{{userImg}}"></a>
             <span class="displayName">{{user.auth.displayName}}</span>
-            <span class="editProfile">Edit Profile</span>
+          <span class="editProfile">Edit Profile</span>
           </span>
           <span *ngIf="!(af.auth | async)">
-              <a class="list-group-item" href="#"><b>Hello Guest</b></a>
-              <a class="list-group-item" (click)="login()"><i class="fa fa-sign-in fa-fw" aria-hidden="true"></i>&nbsp; <b>Login</b></a>  
+              <span class="helloGuest">Hello Guest</span>
+          <a class="list-group-item" (click)="login()"><i class="fa fa-sign-in fa-fw" aria-hidden="true"></i>&nbsp; Login</a>
           </span>
           <a class="list-group-item" href=""><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
           <span *ngIf="(af.auth | async)">
@@ -55,11 +55,19 @@
       </div>
     </div>
     <div class="noti"></div>
-    <div class="notiNumber">99</div>
+    <div class="notiNumber">1</div>
   </nav>
 </div>
 <div class="notification notiClose">
-  <h1 class="notiHeader">Notifications</h1>
+  <h3 class="notiHeader">Notifications</h3>
   <hr class="notiHr">
-  <img class="profile rounded-circle" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/user%20(1).png?alt=media&token=d6607806-e826-451a-a25f-471f4f01eebf">
+  <h6 class="notiIfNotLogin" *ngIf="!(af.auth | async)">Please login to see your Notifications</h6>
+  <div class="media" *ngIf="(af.auth | async)">
+    <img class="profile rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/user%20(1).png?alt=media&token=d6607806-e826-451a-a25f-471f4f01eebf">
+    <div class="media-body">
+      <h6 class="mt-0">LYRA</h6>
+      Hello, {{user.auth.displayName}}. Welcome to LYRA Life Achievement Community :)
+    </div>
+  </div>
+  <hr>
 </div>

@@ -1,32 +1,34 @@
 <div class="category-header">
-  <div class="container savingmoney">
-    <h3>Saving Money Challenge</h3>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of listOfChallenge">
-      <a [routerLink]="['/detailsavingmoney/'+cha.chaId]" routerLinkActive='active' class="card-link">
-        <div class="card card-inverse card-info">
-          <img class="card-img-top img-fluid" src="{{cha.imgSRC}}">
-          <div class="card-block">
-            <!--<figure class="profile profile-inline">
-              <img src="{{cha.pic}}" class="profile-avatar" alt=""></figure>-->
-            <!-- {{cha.username}} -->
-            <div class="card-text">
-              <h4><b>{{cha.chaName}}</b></h4>
-              Goal Amount: {{cha.chaGoal | currency:'THB':true:'1.2-2'}}
-            </div>
-            <div class="created"><small>created on {{cha.thisDay}} at {{cha.thisTime}} </small></div>
-          </div>
-          <div class="card-footer">
-            <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
-            <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
-            <i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
-          </div>
-        </div>
-      </a>
+    <div class="container savingmoney">
+      <h3>Saving Money Challenge</h3>
     </div>
   </div>
-  <br>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of listOfChallenge">
+        <a [routerLink]="['/detailsavingmoney/'+cha.chaId]" routerLinkActive='active' class="card-link">
+          <div class="card card-inverse card-info">
+            <img class="card-img-top img-fluid" src="{{cha.imgSRC}}">
+            <div class="card-block">
+              <!-- <figure class="profile profile-inline">
+                <img src="{{cha.pic}}" class="profile-avatar" alt="">
+              </figure> -->
+              <!-- <h6 class="card-title">{{cha.username}}</h6> -->
+              <div class="card-text">
+                <span class="chaName">{{cha.chaName}}</span>
+                <br> Goal Amount: {{cha.chaGoal | currency:'THB':true:'1.2-2'}}
+                <br><small>Created on {{cha.thisDay}} at {{cha.thisTime}}</small>
+              </div>
+            </div>
+            <div class="card-footer">
+              <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+              <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+              <i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+              <!-- <small>created on {{cha.thisDay}} at {{cha.thisTime}} </small> -->
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <br>
+  </div>

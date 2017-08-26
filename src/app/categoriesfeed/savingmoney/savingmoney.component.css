@@ -41,6 +41,7 @@ h5 {
     border-radius: 1.285714rem;
     background-color: white;
     height: 100%;
+    width: 100%
 }
 
 .card-block {
@@ -110,9 +111,10 @@ h5 {
 }
 
 .profile-inline {
-    position: relative;
+    position: absolute;
     top: 0;
     display: inline-block;
+    margin-top: -27px;
 }
 
 .profile-inline ~ .card-title {
@@ -143,6 +145,10 @@ h5 {
     box-shadow: 0 1px 3px 0 #ababab;
     color: white;
 
+}
+.chaName{
+    font-weight: bold;
+    font-size: 20px;
 }
 @media screen and (min-width: 480px) {
     .category-header{

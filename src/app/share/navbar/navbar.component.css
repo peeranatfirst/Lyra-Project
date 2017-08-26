@@ -5,19 +5,28 @@
 .profile{
 	margin-left: 20px;
 	margin-bottom: 25px;
-	width: 50px;
-    height: 50px;
+	width: 40px;
+    height: 40px;
 }
 .displayName{
 	font-weight: bold;
-    margin-top: -52px;
+    margin-top: -54px;
     position: absolute;
     margin-left: 68px;
+    font-size: 18px;
+}
+.helloGuest{
+	font-weight: bold;
+    margin-top: -44px;
+    position: absolute;
+    margin-left: 68px;
+    font-size: 18px;
 }
 .editProfile{
-	margin-top: -35px;
+	margin-top: -32px;
     position: absolute;
-    margin-left: 68px
+    margin-left: 68px;
+    font-size: 15px;
 }
 .nav-menu{
 	margin-top: 5px;
@@ -55,7 +64,7 @@
 .list-group{
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 18px;
+	margin-top: 10px;
 }
 .list-group-item{
 	border: none;
@@ -222,6 +231,10 @@ a:hover{
 }
 .notiHeader{
 	margin-left: 20px;
+	margin-top: -20px;
+}
+.notiIfNotLogin{
+	margin-left: 20px;
 }
 .notiHr{
 	background-color: white;
@@ -246,6 +259,12 @@ a:hover{
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 } */
+.media-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    padding-right: 20px;
+}
 @media screen and (min-width: 480px) {
 	.notification{
 		width: 0px;
@@ -255,7 +274,6 @@ a:hover{
 		top: 0;
 		right: 0;
 		overflow-x: hidden;
-		padding-top: 80px;
 		color:white;
 	}
     .notiOpen{

@@ -121,6 +121,7 @@ export class NavbarComponent implements OnInit {
         $(".notification").removeClass('notiClose');
         $(".notification").addClass('notiOpen');
         $(".noti").addClass('triangle');
+        $(".notiNumber").hide(500);
 
         document.getElementById('notiBellOId').style.display = "none";
         document.getElementById('notiBellId').style.display = "";
