@@ -1,9 +1,19 @@
-.container{
-    margin-top: 90px;
-  }
-  .card{
-    border: solid 1px;
-    border-color: #378d3b;
+.card{
+  font-size: 1em;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  border-radius: .28571429rem;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  position: relative;
+  float: left;
+  box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  border-radius: 1.285714rem;
+  background-color: white;
+  height: auto;
+  width: 100%;
   }
   .card-header{
     color: white;
@@ -24,4 +34,7 @@
   }
   .remove{
     color: black;
+  }
+  .content{
+    padding-top: 80px;
   }

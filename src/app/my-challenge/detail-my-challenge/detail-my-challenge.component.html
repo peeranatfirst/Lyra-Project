@@ -23,7 +23,7 @@
                     </span>
                   </p>
                   <div class="row">
-                    <div class="col-sm-6">
+                    <div class=".col-xs-6 .col-md-4">
                       <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
                     <a class="btn btn-success btn-add disabled" aria-disabled="true">
                       <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
@@ -42,7 +42,7 @@
                   </span>
                       <br><br>
                     </div>
-                    <div class="col-sm-6">
+                    <div class=".col-xs-6 .col-md-4">
                       <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'processing'">
                     <a (click)="onCancelChallenge()" role="button" class="btn btn-danger bth-delete">
                       <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Cancel Challenge
