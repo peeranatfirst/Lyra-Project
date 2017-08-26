@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import $ from 'jquery';
 import { AngularFire } from 'angularfire2';
-import { Router } from '@angular/router';
+import { routing } from '../../../app.routing';
+import { FirebaseService } from 'app/services/firebase.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import * as firebase from 'firebase';
+import { DatetimestampService } from 'app/services/datetimestamp.service';
+import { GetUserInfoService } from "app/services/get-user-info.service";
 
 @Component({
   selector: 'app-create-task-checklist',
@@ -9,10 +14,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-task-checklist.component.css']
 })
 export class CreateTaskChecklistComponent implements OnInit {
+  id:any;
+  checklistDetails:any;
+  imageUrl: any;
 
-  constructor() { }
+  constructor(
+    private firebaseService: FirebaseService,
+    private routing: Router,
+    private route: ActivatedRoute,
+    private dt: DatetimestampService,
+    private userinfo: GetUserInfoService) { }
 
   ngOnInit() {
+
+    // Get id
+    this.id = this.route.snapshot.params['id'];
+    this.firebaseService.getChecklistChallengeDetails(this.id).subscribe((checklistDetails)=>{
+      this.checklistDetails = checklistDetails;
+
+      const storageRef = firebase.storage().ref();
+      const spaceRef = storageRef.child(checklistDetails.path);
+      storageRef.child(checklistDetails.path).getDownloadURL().then((url) => {
+        // Set image url
+        this.imageUrl = url;
+      });
+
+    });
 
     $(document).ready(function () {
       var max_fields = 10; //maximum input boxes allowed

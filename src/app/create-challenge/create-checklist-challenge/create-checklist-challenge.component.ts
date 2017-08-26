@@ -48,9 +48,9 @@ export class CreateChecklistChallengeComponent implements OnInit {
     };
 
     if (this.challengeDescription === undefined) {
-      this.createCha.addCreateSavingmoneyChallenge(createChecklistChallengeNoDescrip);
+      this.createCha.addCreateChecklistChallenge(createChecklistChallengeNoDescrip);
     } else {
-      this.createCha.addCreateSavingmoneyChallenge(createChecklistChallenge);
+      this.createCha.addCreateChecklistChallenge(createChecklistChallenge);
     }
 
   }

@@ -4,7 +4,7 @@
       <div class="col-sm-2 flex-last"></div>
       <div class="col-sm-8">
         <h1><b>Creating Checklist Challenge</b></h1>
-        <form ngNativeValidate (submit)="onAddSubmit()" #savingmoneyForm="ngForm">
+        <form ngNativeValidate (submit)="onAddSubmit()" #checklistForm="ngForm">
           <div class="card">
             <div class="card-block">
               <div class="form-group no-border">
@@ -38,11 +38,11 @@
                 <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image">
               </div>
               <div class="col-sm-12 btn-submit">
-                  <a [routerLink]="['/createtaskchecklist']" routerLinkActive="active" class="card-link">
-                <button type="submit" value="Submit" class="btn btn-warning">
+                <!--  <a [routerLink]="['/createtaskchecklist']" routerLinkActive="active" class="card-link">-->
+                <button type="submit" value="Submit" class="btn btn-warning" [disabled]="!checklistForm.form.valid">
                     Add your task  <i class="fa fa-tasks fa-lg" aria-hidden="true"></i> 
                   </button>
-                  </a>
+              
               </div>
               <br>
             </div>

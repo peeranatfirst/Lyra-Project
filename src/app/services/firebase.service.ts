@@ -7,6 +7,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class FirebaseService {
   challengeList: FirebaseListObservable<any[]>;
   challengeDetail: FirebaseObjectObservable<any>;
+  checklistChalengeDetail: FirebaseObjectObservable<any>;
   checkdata: FirebaseObjectObservable<any>;
   myChallenges: FirebaseListObservable<any[]>;
   detailMyChallenge: FirebaseObjectObservable<any>;
@@ -26,12 +27,17 @@ export class FirebaseService {
     return this.challengeList;
   }
 
-  // get new detail challenge with owner info
+  // get new detail saving money challenge with owner info
   getChallengeDetails(id) {
     this.challengeDetail = this.af.database.object('/AllChallenge/' + id) as FirebaseObjectObservable<challengeList>;
     return this.challengeDetail;
   }
 
+  // get new detail saving money challenge with owner info
+  getChecklistChallengeDetails(id){
+    this.checklistChalengeDetail = this.af.database.object('/AllChallenge/'+id) as FirebaseObjectObservable<checklistChallengeList>;
+    return this.checklistChalengeDetail;
+  }
 
   // Get my challenge list of User
   getMyChallenges(uid) {
@@ -55,6 +61,7 @@ export class FirebaseService {
     this.balance = this.af.database.list('/users/'+uid+'/Challenges/' + key + '/savingTransaction') as FirebaseListObservable<myBalance[]>;
     return this.balance;
   }
+
 
 
   getKeyOfChallenge(challengeslist: myChallengesList) {
@@ -114,6 +121,8 @@ export class FirebaseService {
   getListOfOwnwer(listOfChallenge: challengeList){
     return listOfChallenge.owner;
   }
+
+  
 }
 
 interface challengeList {
@@ -122,6 +131,17 @@ interface challengeList {
   challengeDescription?: string;
   duration?: string;
   totalAmount?: string;
+  path?: string;
+  datetimestamp?: string;
+  owner?: string;
+  category?: string;
+}
+
+interface checklistChallengeList {
+  $key?: string;
+  challengeName?: string;
+  challengeDescription?: string;
+  duration?: string;
   path?: string;
   datetimestamp?: string;
   owner?: string;
