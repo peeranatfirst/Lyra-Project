@@ -61,16 +61,15 @@ export class NavbarComponent implements OnInit {
       });
       
       //close menu list
-      $(".fa-times").click(function () {
+      $("#menuX").click(function () {
         $(".menu").addClass('menuClose');
         $(".menu").removeClass('menuOpen');
 
         $(".mainOpen").addClass('mainClose');
         $(".mainClose").removeClass('mainOpen');
 
-        $(".fa-times").hide(500);
+        $("#menuX").hide(500);
         $(".fa-bars").show(500);
-        $(".fa-bars2").hide(500);
         $(".navbar-brand").show(500);
       });
 
@@ -112,7 +111,7 @@ export class NavbarComponent implements OnInit {
         document.getElementById('notiBellOId').style.display = "";
       });
 
-      $(".fa-chevron-left").click(function () {
+      $("#searchX").click(function () {
         $(".search").removeClass('searchOpen');
         $(".search").addClass('searchClose');
       });

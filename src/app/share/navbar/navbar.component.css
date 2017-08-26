@@ -183,17 +183,18 @@ a:hover{
     background-color: #292b2c;
 	transition:all 0.3s;
 }
-.fa-chevron-left{
+#searchX{
 	margin-top: 8px;
 	font-size: 22px;
 	position: absolute;
-	left: 25px;
+	right: 25px;
 	z-index: 1;
 	color:white;
 }
 .form-control{
-	width: 80%;
-	margin-left: 50px;
+	width: 88%;
+    margin-left: 16px;
+    border-radius: 5.2rem;
 }
 .form-group{
 	width: 100%;
@@ -334,5 +335,10 @@ a:hover{
 		margin-bottom: 0;
 		width: auto;
 		margin-top: 5%;
+	}
+	.form-control{
+		width: 95%;
+		margin-left: 16px;
+		border-radius: 5.2rem;
 	}
 }
