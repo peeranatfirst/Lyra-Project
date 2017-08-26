@@ -130,6 +130,10 @@ h5 {
     font-size: 1em;
     color: rgba(0, 0, 0, .4);
 }
+.created{
+    font-size: 1em;
+    color: rgba(0, 0, 0, .4);
+}
 
 .meta a {
     text-decoration: none;
