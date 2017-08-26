@@ -24,7 +24,7 @@
               <a class="list-group-item" href="#"><i class="fa fa-trophy fa-fw" aria-hidden="true"></i>&nbsp; Achievement</a>
           </span>
           <a class="list-group-item" [routerLink]="['/savingmoney']"><i class="fa fa-money fa-fw" aria-hidden="true"></i>&nbsp; Saving Money Challenge</a>
-          <a class="list-group-item" href="#"><i class="fa fa-check-circle-o fa-fw" aria-hidden="true"></i>&nbsp; Checklist Challenge</a>
+          <a class="list-group-item" [routerLink]="['/checklistChallenge']"><i class="fa fa-check-circle-o fa-fw" aria-hidden="true"></i>&nbsp; Checklist Challenge</a>
           <a class="list-group-item" href="#"><i class="fa fa-list fa-fw" aria-hidden="true"></i>&nbsp; Step Challenge</a>
           <a class="list-group-item" href="#"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp; Routine Challenge</a>
           <span *ngIf="(af.auth | async)">

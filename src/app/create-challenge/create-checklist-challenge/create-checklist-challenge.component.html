@@ -1,7 +1,4 @@
 <div class="container">
-  <br>
-  <br>
-  <br>
     <div class="row">
       <div class="col-sm-2 flex-first"></div>
       <div class="col-sm-2 flex-last"></div>
@@ -27,14 +24,15 @@
                 <input type="text" class="form-control" [(ngModel)]="challengeDescription" name="challengeDescription">
               </div>
               <div class="form-group no-border">
-                <label>Expired Date</label>
-                  <input type="datetime-local" class="form-control" [(ngModel)]="expireddate" name="expireddate" required #expireddate1="ngModel">
-                <div *ngIf="expireddate1.errors && (expireddate1.dirty || expireddate1.touched)" class="alert alert-danger">
-                  <div [hidden]="!expireddate1.errors.required">
-                    Expired date is required !
+                  <label>Duration (days)</label>
+                  <input type="number" class="form-control" [(ngModel)]="duration" name="duration" required #duration1="ngModel" min="0" max="999999999999"
+                    step="1">
+                  <div *ngIf="duration1.errors && (duration1.dirty || duration1.touched)" class="alert alert-danger">
+                    <div [hidden]="!duration1.errors.required">
+                      Duration is required !
+                    </div>
                   </div>
                 </div>
-              </div>
               <div class="form-group no-border">
                 <label>Upload image of Challenge</label>
                 <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image">
