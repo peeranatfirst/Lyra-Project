@@ -2,6 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { Router } from '@angular/router';
 import { moveIn, fallIn } from '../../router.animation';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-signup',
@@ -25,9 +26,9 @@ export class SignupComponent implements OnInit {
       this.af.auth.createUser({
         email: formData.value.email,
         password: formData.value.password
-      }).then(
+        }).then(
         (success) => {
-        this.router.navigate(['/members'])
+        this.router.navigate(['/'])
       }).catch(
         (err) => {
         this.error = err;

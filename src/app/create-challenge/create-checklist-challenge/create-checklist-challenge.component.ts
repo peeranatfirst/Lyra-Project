@@ -30,7 +30,7 @@ export class CreateChecklistChallengeComponent implements OnInit {
   onAddSubmit(){
     const timestamp = firebase.database.ServerValue.TIMESTAMP;
 
-    const createSavingmoneyChallenge = {
+    const createChecklistChallenge = {
       challengeName: this.challengeName,
       challengeDescription: this.challengeDescription,
       duration: this.duration,
@@ -39,7 +39,7 @@ export class CreateChecklistChallengeComponent implements OnInit {
       owner: firebase.auth().currentUser.uid
     };
     
-    const createSavingmoneyChallengeNoDescrip = {
+    const createChecklistChallengeNoDescrip = {
       challengeName: this.challengeName,
       duration: this.duration,
       datetimestamp: timestamp,
@@ -48,9 +48,10 @@ export class CreateChecklistChallengeComponent implements OnInit {
     };
 
     if (this.challengeDescription === undefined) {
-      this.createCha.addCreateSavingmoneyChallenge(createSavingmoneyChallengeNoDescrip);
+      this.createCha.addCreateSavingmoneyChallenge(createChecklistChallengeNoDescrip);
     } else {
-      this.createCha.addCreateSavingmoneyChallenge(createSavingmoneyChallenge);
+      this.createCha.addCreateSavingmoneyChallenge(createChecklistChallenge);
     }
+
   }
 }
