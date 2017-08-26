@@ -5,8 +5,8 @@
 .profile{
 	margin-left: 20px;
 	margin-bottom: 25px;
-	width: 50px;
-    height: 50px;
+	width: 40px;
+    height: 40px;
 }
 .displayName{
 	font-weight: bold;
@@ -231,6 +231,10 @@ a:hover{
 }
 .notiHeader{
 	margin-left: 20px;
+	margin-top: -20px;
+}
+.notiIfNotLogin{
+	margin-left: 20px;
 }
 .notiHr{
 	background-color: white;
@@ -255,6 +259,12 @@ a:hover{
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 } */
+.media-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    padding-right: 20px;
+}
 @media screen and (min-width: 480px) {
 	.notification{
 		width: 0px;
@@ -264,7 +274,6 @@ a:hover{
 		top: 0;
 		right: 0;
 		overflow-x: hidden;
-		padding-top: 80px;
 		color:white;
 	}
     .notiOpen{
