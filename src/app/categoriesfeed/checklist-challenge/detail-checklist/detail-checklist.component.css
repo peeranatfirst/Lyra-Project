@@ -57,6 +57,7 @@ h5 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: rgba(0, 0, 0, .68);
 }
 .profile {
     position: absolute;
