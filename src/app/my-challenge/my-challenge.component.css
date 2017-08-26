@@ -153,6 +153,7 @@ a:hover > .card{
     margin-top: 15px;
     margin-left: -21px;
     font-weight: bold;
+    font-size: 17px;
 }
 .nav-tabs {
     border-bottom: 0px solid #ddd;
