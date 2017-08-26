@@ -10,14 +10,23 @@
 }
 .displayName{
 	font-weight: bold;
-    margin-top: -52px;
+    margin-top: -54px;
     position: absolute;
     margin-left: 68px;
+    font-size: 18px;
+}
+.helloGuest{
+	font-weight: bold;
+    margin-top: -44px;
+    position: absolute;
+    margin-left: 68px;
+    font-size: 18px;
 }
 .editProfile{
-	margin-top: -35px;
+	margin-top: -32px;
     position: absolute;
-    margin-left: 68px
+    margin-left: 68px;
+    font-size: 15px;
 }
 .nav-menu{
 	margin-top: 5px;
@@ -55,7 +64,7 @@
 .list-group{
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 18px;
+	margin-top: 10px;
 }
 .list-group-item{
 	border: none;

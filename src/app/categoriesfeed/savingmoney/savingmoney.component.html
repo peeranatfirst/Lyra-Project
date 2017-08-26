@@ -13,9 +13,11 @@
             <figure class="profile profile-inline">
               <img src="{{cha.pic}}" class="profile-avatar" alt="">
             </figure>
-            <h6 class="card-title">{{cha.thisDay}}, {{cha.thisTime}} <!-- {{cha.username}} --></h6>
+            <h6 class="card-title">{{cha.username}}</h6>
             <div class="card-text">
-              <b>{{cha.chaName}}</b><br> Goal Amount: {{cha.chaGoal | currency:'THB':true:'1.2-2'}}<br>
+              <span class="chaName">{{cha.chaName}}</span>
+              <br> Goal Amount: {{cha.chaGoal | currency:'THB':true:'1.2-2'}}
+              <br><small>Created on{{cha.thisDay}} at {{cha.thisTime}}</small>
             </div>
           </div>
           <div class="card-footer">
