@@ -45,6 +45,7 @@ const appRoutes: Routes = [
   { path: 'selectCategory', component: SelectCategoryComponent },
   { path: 'checklistChallenge', component: ChecklistChallengeComponent},
   { path: 'detailchecklist', component: DetailChecklistComponent},
+  { path: 'detailchecklist/:id', component: DetailChecklistComponent},
   { path: 'createChecklistChallenge', component: CreateChecklistChallengeComponent},
   { path: 'detailmyChecklistChallenge', component: DetailMyChecklistChallengeComponent},
   { path: 'detailmyChecklistChallenge/:id', component: DetailMyChecklistChallengeComponent},

@@ -1,59 +1,50 @@
-<div class="container">
-  <div class="row category">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <h1><b>Create Challenge</b></h1>
-      <div class="card card-all">
-        <div class="card-block">
-
-          <div class="card card-inverse card-success mb-3 text-center">
-            <a [routerLink]="['/createSavingmoneyChallenge']" routerLinkActive="active" class="card-link">
+<div class="menu">
+    <div class="container">
+      <h3>Create Challenge</h3>
+      <div class="row">
+        <div class="col col-sm-6 col-md-3 col-lg-3 mt-3">
+          <a [routerLink]="['/createSavingmoneyChallenge']">
+            <div class="card" align="center">
+              <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/createchallengeicon%2FSavingIcon.png?alt=media&token=36571649-c31d-4276-ac27-fd3249f57cc9"
+                alt="Card image cap">
               <div class="card-block">
-                <blockquote class="card-blockquote">
-                  <i class="fa fa-money fa-2x" aria-hidden="true"></i>
-                  <p class="name">Saving Money</p>
-                </blockquote>
+                <p class="card-text">Saving Money Challenge</p>
               </div>
-            </a>
-          </div>
-
-
-          <div class="card card-inverse card-warning mb-3 text-center">
-            <a [routerLink]="['/createChecklistChallenge']" routerLinkActive="active" class="card-link">
+            </div>
+          </a>
+        </div>
+        <div class="col col-sm-6 col-md-3 col-lg-3 mt-3">
+          <a [routerLink]="['/createChecklistChallenge']">
+            <div class="card" align="center">
+              <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/createchallengeicon%2FCheckListIcon.jpg?alt=media&token=d704f44f-3238-4d3f-8bc0-0ef7bbf907ba"
+                alt="Card image cap">
               <div class="card-block">
-                <blockquote class="card-blockquote">
-                  <i class="fa fa-check-circle-o fa-2x" aria-hidden="true"></i>
-                  <p class="name">Checklist Challenge</p>
-                </blockquote>
+                <p class="card-text">Checklist Challenge</p>
               </div>
-            </a>
-          </div>
-
-          <div class="card mb-3 card-inverse text-center" style="background-color: #333; border-color: #333;">
-            <div class="card-block">
-              <blockquote class="card-blockquote">
-                <p>Exercising</p>
-              </blockquote>
             </div>
-          </div>
-          <div class="card card-inverse mb-3 text-center" style="background-color: #333; border-color: #333;">
-            <div class="card-block">
-              <blockquote class="card-blockquote">
-                <p>Reading</p>
-              </blockquote>
+          </a>
+        </div>
+        <div class="col col-sm-6 col-md-3 col-lg-3 mt-3">
+          <a [routerLink]="['/stepchallenge']">
+            <div class="card" align="center">
+              <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/createchallengeicon%2FStepIcon.jpg?alt=media&token=904cb036-e47e-42b0-bed7-e16aafd4052b"
+                alt="Card image cap">
+              <div class="card-block">
+                <p class="card-text">Step Challenge</p>
+              </div>
             </div>
-          </div>
+          </a>
+        </div>
+        <div class="col col-sm-6 col-md-3 col-lg-3 mt-3">
+          <a [routerLink]="['/routinechallenge']">
+            <div class="card" align="center">
+              <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/createchallengeicon%2FRoutineIcon.png?alt=media&token=aac077b3-79c3-411f-be93-d82c4690b03f"
+                alt="Card image cap">
+              <div class="card-block">
+                <p class="card-text">Routine Challenge</p>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
-      <div class="col-md-2"></div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12" align="center">
-      <a [routerLink]="['/']" class="btn btn-danger">
-        <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
-      </a>
-    </div>
-  </div>
-</div>
-<br>

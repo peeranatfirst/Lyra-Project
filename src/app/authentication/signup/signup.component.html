@@ -1,18 +1,25 @@
 <div class="container">
-  <div class="form-container" style="margin-top: 50px;">
-    <a routerLink="/login" id="goback">Go back</a>
+  <div class="row">
+    <div class="col-lg-3 flex-first"></div>
+    <div class="col-lg-3 flex-last"></div>
+    <div class="col-lg-6">
+      <div align="center">
+        <h3>Join now</h3>
+      </div>
+      <br>
+      <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
 
-    <h2>Join now</h2>
+      <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+        <input type="text" placeholder="Name" [(ngModel)]="displayname" name="displayname" class="txt" required>
 
-    <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
-
-    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-      <input type="text" placeholder="name" [(ngModel)]="displayname" name="displayname" class="txt" required>
-
-      <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="txt" required>
-      <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
-
-      <button type="submit" [disabled]="!formData.valid" class="basic-btn">Create my account</button>
-    </form>
+        <input type="email" placeholder="Email address.." (ngModel)="email" name="email" class="txt" required>
+        <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
+        <br>
+        <div align="center">
+          <button type="submit" [disabled]="!formData.valid" class="btn btn-success">Create account</button>
+          <a routerLink="/login" id="goback" class="btn btn-danger">Go back</a>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
