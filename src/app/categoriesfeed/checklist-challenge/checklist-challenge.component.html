@@ -4,27 +4,31 @@
   </div>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 mt-4">
-      <a [routerLink]="['/detailchecklist']" routerLinkActive='active' class="card-link">
-        <div class="card card-inverse card-info">
-          <img class="card-img-top img-fluid" src="https://www.thesun.co.uk/wp-content/uploads/2017/03/nintchdbpict000308845446.jpg?strip=all&quality=100&w=960">
-          <div class="card-block">
-            <h6 class="card-title"></h6>
-            <div class="card-text">
-              <h4><b>Drink Starbucks coffee 3 cups</b></h4>
-              Expired Date: <br>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of listOfChallenge">
+        <a [routerLink]="['/detailchecklist/'+cha.chaId]" routerLinkActive='active' class="card-link">
+          <div class="card card-inverse card-info">
+            <img class="card-img-top img-fluid" src="{{cha.imgSRC}}">
+            <div class="card-block">
+              <!-- <figure class="profile profile-inline">
+                <img src="{{cha.pic}}" class="profile-avatar" alt="">
+              </figure> -->
+              <!-- <h6 class="card-title">{{cha.username}}</h6> -->
+              <div class="card-text">
+                <span class="chaName">{{cha.chaName}}</span>
+                
+                <br><small>Created on {{cha.thisDay}} at {{cha.thisTime}}</small>
+              </div>
             </div>
-            <div class="created"><small>created on {{cha.thisDay}} at {{cha.thisTime}} </small></div>
-          </div>
-          <div class="card-footer">
+            <div class="card-footer">
               <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
               <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
-              <i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+              <!-- <i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp; 99 &nbsp; -->
+              <!-- <small>created on {{cha.thisDay}} at {{cha.thisTime}} </small> -->
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
+    <br>
   </div>
-  <br>
-</div>
