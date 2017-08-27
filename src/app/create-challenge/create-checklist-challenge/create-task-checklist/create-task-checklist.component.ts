@@ -7,6 +7,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import * as firebase from 'firebase';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
+import { CreateChallengesService } from "app/services/create-challenges.service";
 
 @Component({
   selector: 'app-create-task-checklist',
@@ -20,12 +21,15 @@ export class CreateTaskChecklistComponent implements OnInit {
   myTasks: any;
   hasTask: any;
 
+  taskForAdd: any[];
+
   constructor(
     private firebaseService: FirebaseService,
-    private routing: Router,
+    private router: Router,
     private route: ActivatedRoute,
     private dt: DatetimestampService,
-    private userinfo: GetUserInfoService) { }
+    private userinfo: GetUserInfoService,
+    private cc: CreateChallengesService) { }
 
   ngOnInit() {
 
@@ -34,12 +38,13 @@ export class CreateTaskChecklistComponent implements OnInit {
     this.firebaseService.getChecklistChallengeDetails(this.id).subscribe((checklistDetails)=>{
       this.checklistDetails = checklistDetails;
 
-      const storageRef = firebase.storage().ref();
+    // In case we want to show challenge photo in add task component
+    /*const storageRef = firebase.storage().ref();
       const spaceRef = storageRef.child(checklistDetails.path);
       storageRef.child(checklistDetails.path).getDownloadURL().then((url) => {
         // Set image url
         this.imageUrl = url;
-      });
+      });*/
 
     });
 
@@ -51,36 +56,49 @@ export class CreateTaskChecklistComponent implements OnInit {
     }).then((hasTask)=>{
       console.log("do this2");
       if(hasTask){
-       this.hasTask = "has some Task";
+       this.hasTask = true;
       }else{
-        this.hasTask = "There is no task in this challenge";
+       this.hasTask = false;
       }
     });
 
-
-
-    /*$(document).ready(function () {
-      var max_fields = 10; //maximum input boxes allowed
-      var wrapper = $(".input_fields_wrap"); //Fields wrapper
-      var add_button = $(".add_field_button"); //Add button ID
-
-      var x = 1; //initlal text box count
-      $(add_button).click(function (e) { //on add input button click
-        e.preventDefault();
-        if (x < max_fields) { //max input box allowed
-          x++; //text box increment
-          $(wrapper).append('<div><a href="#" class="remove_field remove"><small>Remove Task</small></a><input type="text" class="form-control" name="challengeName" required minlength="5"></div>'); //add input box
-        }
-      });
-
-      $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-      })
-    });*/
+    this.taskForAdd = new Array();
   }
 
-  onAddSubmit(){
+  onAddSubmit(formData){
+      if(formData.value){
+        const taskName = formData.value.taskName;
+        const levelOfTask = formData.value.level;
+        this.taskForAdd.push({
+          taskname: taskName,
+          level: levelOfTask
+        });
+      }
+  }
+
+  onAddTask(){
+    if(this.taskForAdd[0] !== undefined ){
+      console.log("add to database");
+      var ref = firebase.database().ref("/AllChallenge"+this.id);
+      ref.once("value")
+      .then(function(snapshot) {
+        var hasTask = snapshot.hasChild("tasks"); 
+      }).then((hasTask)=>{
+        for(var i=0; i<this.taskForAdd.length ; i++){
+          const obj ={
+            taskName: this.taskForAdd[i].taskname, 
+            level: this.taskForAdd[i].level
+          };
+          this.cc.addTasksChecklistChallenge(obj, this.id);
+        }
+      }).then(()=>{
+        this.router.navigate(['detailmyChecklistChallenge/'+this.id]);
+      })
+
+    }else{
+      console.log("nothing to add");
       
+    }
   }
 
 }
