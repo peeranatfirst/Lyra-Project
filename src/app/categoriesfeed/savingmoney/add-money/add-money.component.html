@@ -8,12 +8,19 @@
                     <span class="chaName"><h3 class="card-title"><b>{{detailMyChallenge.challengeName}}</b></h3></span>
                     <p>Goal : {{detailMyChallenge.totalAmount | currency:'THB':true:'1.0-0'}}</p>
                     <p>Total Amount : {{currentBalance | currency:'THB':true:'1.0-0'}}</p>
-                    <form (submit)="onAddSubmit()">
+                    <form ngNativeValidate (submit)="onAddSubmit()" #addmoneyForm="ngForm">
                         <div class="form-group" (submit)="onAddSubmit()">
-                            <label>fill your saving amount</label>
-                            <input type="number" class="form-control" [(ngModel)]="balance" name="balance" placeholder="Your Money" min="0" max="999999999999" autofocus>
+                            <label>Fill your saving amount</label>
+                            <input type="number" class="form-control" [(ngModel)]="balance" name="balance" placeholder="Your Money" min="0" max="999999999999"
+                                autofocus required #balance1="ngModel" min="0" max="999999999999" step="1">
+                            <div *ngIf="balance1.errors && (balance1.dirty || balance1.touched)" class="alert alert-danger">
+                                <div [hidden]="!balance1.errors.required">
+                                    Fill your amount !
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-success btn-add">
+
+                        <button type="submit" class="btn btn-success btn-add" [disabled]="!addmoneyForm.form.valid">
                             <i class="fa fa-dollar fa-lg" aria-hidden="true"></i> Add Money
                         </button>
                     </form>
