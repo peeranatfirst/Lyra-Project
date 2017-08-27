@@ -40,6 +40,7 @@ import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { CreateChallengesService } from 'app/services/create-challenges.service';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
+import { TaskManageService } from "app/services/task-manage.service";
 
 import { AuthGuard } from './services/auth.service';
 import { CreateChecklistChallengeComponent } from './create-challenge/create-checklist-challenge/create-checklist-challenge.component';
@@ -111,7 +112,8 @@ export const firebaseConfig = {
     CreateChallengesService,
     CalculatePercentSuccessService,
     AuthGuard,
-    GetUserInfoService
+    GetUserInfoService,
+    TaskManageService
     ],
   bootstrap: [AppComponent]
   
