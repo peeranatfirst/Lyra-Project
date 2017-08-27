@@ -101,11 +101,16 @@ h5 {
     text-decoration: underline;
 }
 .detailcard{
-    padding-top: 70px;
+    padding-top: 80px;
+}
+c
+a{
+    text-decoration: none;
 }
 .chaName{
     color: #14AE4E;
 }
-a{
-    text-decoration: none;
+.btn-danger{
+    border-radius: 5.2rem;
+    color: white;
 }

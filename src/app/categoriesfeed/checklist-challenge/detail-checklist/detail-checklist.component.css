@@ -107,3 +107,7 @@ h5 {
 .chaName{
     color: #14AE4E;
 }
+.btn-danger{
+    border-radius: 5.2rem;
+    color: white;
+}
