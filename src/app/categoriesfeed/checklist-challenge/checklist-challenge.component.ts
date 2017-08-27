@@ -15,6 +15,8 @@ import { GetUserInfoService } from "app/services/get-user-info.service";
 export class ChecklistChallengeComponent implements OnInit {
 
   listOfChallenge: any[]; // collecting Array of Object to show in feeds page
+  tasks : any;
+  totalTask: any ;
 
   constructor(private firebaseService: FirebaseService,
     private routing: Router,
@@ -26,9 +28,10 @@ export class ChecklistChallengeComponent implements OnInit {
     // Get list of challenges in Saving money categories and picture description to show
     this.listOfChallenge = new Array();
     let imgPath;
+    
     this.firebaseService.getChallengeList().subscribe(challengeList => {
       
-      let key,name,des,duration,path, datestamp,timestamp,category;
+      let key,name,des,duration,path, datestamp,timestamp,category, totalTask;
       
       for(const addObj of challengeList){
         path = this.firebaseService.getListOfChallengePath(addObj);   
@@ -52,12 +55,12 @@ export class ChecklistChallengeComponent implements OnInit {
               key = this.firebaseService.getListOfChallengeId(addObj);
               name = this.firebaseService.getListOfChallengeName(addObj);
               des = this.firebaseService.getListOfChallengeDes(addObj);
-
               duration = this.firebaseService.getListOfChallengeDuration(addObj);
               const datetimestamp = this.firebaseService.getListOfChallengeTimestamp(addObj);
+              totalTask = this.firebaseService.getTaskAmountOfChallenge(addObj);
               datestamp = this.dt.getDatestamp(datetimestamp);
               timestamp = this.dt.getTimestamp(datetimestamp);
-              this.listOfChallenge.push({chaId: key,chaName: name,description:des,time:duration,imgSRC:imgPath , thisTime: timestamp, thisDay: datestamp });
+              this.listOfChallenge.push({chaId: key,chaName: name,description:des,time:duration,imgSRC:imgPath , thisTime: timestamp, thisDay: datestamp, tasksAmount : totalTask });
           });
         }
       }

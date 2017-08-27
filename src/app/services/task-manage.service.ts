@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Injectable()
 export class TaskManageService {
+  amount: any;
 
   constructor(
     private af: AngularFire,

@@ -22,6 +22,7 @@ export class CreateTaskChecklistComponent implements OnInit {
   hasTask: any;
 
   taskForAdd: any[];
+  totalTaskAmount = 0;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -59,6 +60,7 @@ export class CreateTaskChecklistComponent implements OnInit {
           taskname: taskName,
           level: levelOfTask
         });
+        this.totalTaskAmount ++;
       }
   }
 
@@ -78,8 +80,10 @@ export class CreateTaskChecklistComponent implements OnInit {
           this.cc.addTasksChecklistChallenge(obj, this.id);
         }
       }).then(()=>{
+        firebase.database().ref('AllChallenge/'+this.id).child('taskAmount').set(this.totalTaskAmount);
+      }).then(()=>{
         this.router.navigate(['detailchecklist/'+this.id]);
-      })
+      });
 
     }else{
       console.log("nothing to add");

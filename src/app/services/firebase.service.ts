@@ -47,10 +47,10 @@ export class FirebaseService {
     return this.myChallenges;
   }
 
-  getDetailMyChallenge(id) {
+ /* getDetailMyChallenge(id) {
     this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/' + id) as FirebaseObjectObservable<myChallengesList>;
     return this.detailMyChallenge;
-  }
+  }*/
 
   // get details of My Saving Money Challenges
   getDetailMySMChallenge(uid, key){
@@ -92,6 +92,10 @@ export class FirebaseService {
   }
   getStartDateOfChallenge(challengeList: myChallengesList) {
     return challengeList.startDate;
+  }
+
+  getTaskAmountOfChallenge(challengeslist: checklistChallengeList){
+    return challengeslist.taskAmount;
   }
 
   // Return balance
@@ -154,6 +158,7 @@ interface checklistChallengeList {
   datetimestamp?: string;
   owner?: string;
   category?: string;
+  taskAmount?: string;
 }
 
 interface myChallengesList {
