@@ -12,6 +12,10 @@ import * as firebase from 'firebase';
 })
 export class CheckdataChecklistComponent implements OnInit {
 
+  id: any;
+  checklistChaDetail:any;
+
+
   constructor(
     private firebaseService: FirebaseService,
     private router: Router,
@@ -19,6 +23,11 @@ export class CheckdataChecklistComponent implements OnInit {
     private addmoney: AddMoneyService) { }
 
   ngOnInit() {
+     // Get id
+     this.id = this.route.snapshot.params['id'];
+     this.firebaseService.getChecklistChallengeDetails(this.id).subscribe(checklistDetail =>{
+       this.checklistChaDetail = checklistDetail ;
+     })
   }
 
 }

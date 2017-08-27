@@ -6,7 +6,7 @@
         <div class="list-group">
           <span *ngIf="!(af.auth | async)">
             <a class="list-group-item" href="#">
-              <img class="profileBar rounded-circle" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/user%20(1).png?alt=media&token=d6607806-e826-451a-a25f-471f4f01eebf">      
+              <img class="profileBar rounded-circle" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fuser.png?alt=media&token=31599b22-dbfe-40ac-8476-e54b838cb214">      
             </a>
           </span>
           <span *ngIf="(af.auth | async)">
@@ -21,12 +21,12 @@
           <a class="list-group-item" href=""><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
           <span *ngIf="(af.auth | async)">
               <a class="list-group-item" [routerLink]="['/mychallenge']"><i class="fa fa-address-card-o fa-fw" aria-hidden="true"></i>&nbsp; My Challenge</a>
-              <a class="list-group-item" href="#"><i class="fa fa-trophy fa-fw" aria-hidden="true"></i>&nbsp; Achievement</a>
+              <a class="list-group-item" [routerLink]="['/routinechallenge']"><i class="fa fa-trophy fa-fw" aria-hidden="true"></i>&nbsp; Achievement</a>
           </span>
           <a class="list-group-item" [routerLink]="['/savingmoney']"><i class="fa fa-money fa-fw" aria-hidden="true"></i>&nbsp; Saving Money Challenge</a>
           <a class="list-group-item" [routerLink]="['/checklistChallenge']"><i class="fa fa-check-circle-o fa-fw" aria-hidden="true"></i>&nbsp; Checklist Challenge</a>
-          <a class="list-group-item" href="#"><i class="fa fa-list fa-fw" aria-hidden="true"></i>&nbsp; Step Challenge</a>
-          <a class="list-group-item" href="#"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp; Routine Challenge</a>
+          <a class="list-group-item" [routerLink]="['/routinechallenge']"><i class="fa fa-list fa-fw" aria-hidden="true"></i>&nbsp; Step Challenge</a>
+          <a class="list-group-item" [routerLink]="['/routinechallenge']"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp; Routine Challenge</a>
           <span *ngIf="(af.auth | async)">
               <a class="list-group-item" (click)="logout()"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>&nbsp; Logout</a>
             </span>
@@ -35,10 +35,17 @@
       <div class="hiddenNav"></div>
       <div class="mainClose">
         <a><i class="fa fa-bars" aria-hidden="true"></i></a>
-        <a [routerLink]="['/']"><h1 class="navbar-brand mb-0">LYRA</h1></a>
+        <a [routerLink]="['/']">
+          <h1 class="navbar-brand mb-0">LYRA</h1>
+        </a>
         <a><i class="fa fa-search" aria-hidden="true"></i></a>
         <a><i class="notiBell fa fa-bell-o" id="notiBellOId" aria-hidden="true"></i></a>
         <a><i class="notiBell fa fa-bell" id="notiBellId" aria-hidden="true" style="display: none;"></i></a>
+        <span *ngIf="!(af.auth | async)">
+            <a [routerLink]="['/login']">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </a>
+            </span>
         <span *ngIf="(af.auth | async)">
         <a [routerLink]="['/selectCategory']">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -65,7 +72,7 @@
   <hr class="notiHr">
   <h6 class="notiIfNotLogin" *ngIf="!(af.auth | async)">Please login to see your Notifications</h6>
   <div class="media" *ngIf="(af.auth | async)">
-    <img class="profile rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/user%20(1).png?alt=media&token=d6607806-e826-451a-a25f-471f4f01eebf">
+    <img class="profile rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fuser.png?alt=media&token=31599b22-dbfe-40ac-8476-e54b838cb214">
     <div class="media-body">
       <h6 class="mt-0">LYRA</h6>
       Hello, {{user.auth.displayName}}. Welcome to LYRA Life Achievement Community :)
