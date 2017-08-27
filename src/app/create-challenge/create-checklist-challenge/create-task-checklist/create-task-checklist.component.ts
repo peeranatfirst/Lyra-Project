@@ -18,6 +18,7 @@ export class CreateTaskChecklistComponent implements OnInit {
   checklistDetails:any;
   imageUrl: any;
   myTasks: any;
+  hasTask: any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -46,11 +47,13 @@ export class CreateTaskChecklistComponent implements OnInit {
     ref.once("value")
     .then(function(snapshot) {
       var hasTask = snapshot.hasChild("tasks"); 
+      console.log("do this1");
     }).then((hasTask)=>{
+      console.log("do this2");
       if(hasTask){
-        this.firebaseService.getTasksOfChecklistChallenge(this.id).subscribe((myTasks)=>{
-          this.myTasks = myTasks; 
-        })
+       this.hasTask = "has some Task";
+      }else{
+        this.hasTask = "There is no task in this challenge";
       }
     });
 
@@ -74,6 +77,10 @@ export class CreateTaskChecklistComponent implements OnInit {
         e.preventDefault(); $(this).parent('div').remove(); x--;
       })
     });*/
+  }
+
+  onAddSubmit(){
+      
   }
 
 }
