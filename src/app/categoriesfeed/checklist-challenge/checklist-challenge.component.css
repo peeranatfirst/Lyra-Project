@@ -40,7 +40,8 @@ h5 {
   transition: box-shadow 0.25s ease, transform 0.25s ease;
   border-radius: 1.285714rem;
   background-color: white;
-  height: 100%;
+  height: auto;
+  width: 100%;
 }
 
 .card-block {
