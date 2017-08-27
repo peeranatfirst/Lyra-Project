@@ -1,20 +1,28 @@
-.container{
-    margin-top: 90px;
+.row{
+  padding-top: 80px;
 }
 .card{
+  font-size: 1em;
+  overflow: hidden;
+  padding: 0;
   border: solid 1px;
-  border-color: #378d3b;
+  background-color: white;
+  border: none;
+  border-radius: .28571429rem;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+  border-radius: 1.285714rem;
 }
-.card-header{
-  color: white;
-  background-color: #378d3b;
+input{
+  border-radius: 5.2rem;
+}
+.btn{
   text-align: center;
+  border-radius: 5.2rem;
 }
-.card-footer{
-  background-color: #378d3b;
-}
-.btn-submit{
-  text-align: center;
+h3{
+  font-weight: bold;
+  color: #14AE4E;
 }
 .add{
     font-family: 'Kanit', sans-serif;

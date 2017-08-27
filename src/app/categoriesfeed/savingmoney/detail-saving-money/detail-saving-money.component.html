@@ -11,17 +11,16 @@
             </figure>
             <div class="card-title">{{displayName}}<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span></div>
             <div class="card-text">
-                <span class="chaName"><p><h3><b>{{challengeDetail.challengeName}}</b></h3></span>
-                  {{challengeDetail.challengeDescription}}
-                <br> Duration : {{challengeDetail.duration}} Days<br> Total Amount : {{challengeDetail.totalAmount}} Baht<br>
-                <br><img src="{{imageUrl}}" class="img-fluid">
+              <span class="chaName"><p><h3><b>{{challengeDetail.challengeName}}</b></h3></span> {{challengeDetail.challengeDescription}}
+              <br> Duration : {{challengeDetail.duration}} Days<br> Total Amount : {{challengeDetail.totalAmount}} Baht<br>
+              <br><img src="{{imageUrl}}" class="img-fluid">
             </div>
           </div>
           <div class="card-footer">
-              <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
-              <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
-              <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="card-link"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a>
-         
+            <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+            <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+            <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="card-link"><i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp; Add to MyChallenge</a>
+
           </div>
         </div>
         <div class="row">
