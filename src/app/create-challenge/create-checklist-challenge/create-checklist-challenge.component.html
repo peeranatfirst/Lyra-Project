@@ -37,12 +37,13 @@
               <label>Upload image of Challenge</label>
               <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image">
             </div>
-            <div class="col-xs-6 .col-sm-4 btn-submit">
-                <a [routerLink]="['/createtaskchecklist']" routerLinkActive="active" class="card-link">
-              <button type="submit" value="Submit" class="btn btn-warning">
-                  Add your task  <i class="fa fa-tasks fa-lg" aria-hidden="true"></i> 
+            <div class="col-sm-12 btn-submit">
+              <!--  <a [routerLink]="['/createtaskchecklist']" routerLinkActive="active" class="card-link">-->
+              <button type="submit" value="Submit" class="btn btn-warning" [disabled]="!checklistForm.form.valid">
+                  Add your task  <i class="fa fa-tasks fa-lg" aria-hidden="true"></i>
                 </button>
-            </div>
+            
+           </div>
           </div>
         </div>
       </form>
@@ -58,5 +59,3 @@
   </div>
 </div>
 <br>
-
- 
