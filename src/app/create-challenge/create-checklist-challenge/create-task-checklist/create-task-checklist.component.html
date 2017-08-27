@@ -4,13 +4,33 @@
     <div class="col-sm-2 flex-last"></div>
     <div class="col-sm-8">
       <h1><b>Add your task</b></h1>
-      <form>
-        <div class="card">
+      
+
+      <div class="card">
+        <div>
+          <br>
+          <br>
+            <b>{{checklistDetails.challengeName}}</b><br> {{checklistDetails.challengeDescription}}<br>
+            {{hasTask}}
+        </div>
+
+        <div class="card"  *ngFor="let cha of myTasks;" > 
+          <h4> {{cha.taskName}} </h4><br>
+          <h4> {{cha.level}}</h4>
+        </div>
+
+      <form ngNativeValidate (submit)="onAddSubmit(formData)"  #formData='ngForm' >
+        
           <div class="card-block">
             <div class="form-group no-border">
                 <div class="input_fields_wrap">
               <label for="challengeName">Task Name</label>
               <input type="text" class="form-control" [(ngModel)]="challengeName" name="challengeName" required minlength="5" #challengeName1="ngModel">
+              <select name="level">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+              </select>
               <!--<div *ngIf="challengeName1.errors && (challengeName1.dirty || challengeName1.touched)" class="alert alert-danger">
                 <div [hidden]="!challengeName1.errors.required">
                   Task Name is required !
@@ -20,16 +40,23 @@
                 </div>
               </div>-->
             </div>
-            <button class="add_field_button btn btn-secondary btn-sm">Add More Task</button>
+            <button  type="submit" value="Submit" class="btn btn-secondary btn-sm">Add More Task</button>
+            <!--<button class="add_field_button btn btn-secondary btn-sm">Add More Task</button> -->
           </div>
             
             <br>
-            <div class="col-sm-12 btn-submit">
-              <button type="submit" value="Submit" class="btn btn-warning">
+           <!-- <div class="col-sm-12 btn-submit">
+              <button type="submit" value="Submit" class="btn btn-warning" >
                     <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
                   </button>
+<<<<<<< HEAD
+            </div>-->
+            <br>
+     
+=======
             </div>
           </div>
+>>>>>>> 77d7e8d00be9ab19baa39d7172197de96af9c907
         </div>
       </form>
     </div>
@@ -39,11 +66,11 @@
 
 
 
-<div class="row">
+<!--<div class="row">
   <div class="col-sm-12" align="center">
     <a [routerLink]="['/createChecklistChallenge']" class="btn btn-danger">
           <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
         </a>
   </div>
 </div>
-<br>
+<br>-->

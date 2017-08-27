@@ -49,7 +49,8 @@ const appRoutes: Routes = [
   { path: 'detailmyChecklistChallenge', component: DetailMyChecklistChallengeComponent},
   { path: 'stepchallenge', component: StepChallengeComponent},
   { path: 'routinechallenge', component: RoutineChallengeComponent},
-  { path: 'createtaskchecklist', component: CreateTaskChecklistComponent}
+  { path: 'createtaskchecklist', component: CreateTaskChecklistComponent},
+  { path: 'createtaskchecklist/:id', component: CreateTaskChecklistComponent}
 
 ];
 
