@@ -10,7 +10,12 @@
     box-shadow: 0 6px 15px rgba(36,37,38,0.08);
     border-radius: 1.285714rem;
 }
-.detailcard{
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.container{
     padding-top: 80px;
 }
 thead{
@@ -19,14 +24,17 @@ thead{
 .close{
     text-align: right;
 }
-.btn-add{
-    width: 100%;
-}
 .delete{
     color: #FFFFFF;
 }
-.btn-delete{
+.btn-success, .btn-primary, .btn-danger{
+    border-radius: 5.2rem;
     width: 100%;
+    margin-top: 10px;
+}
+#btn-back{
+    width: auto;
+    margin-top: -10px;
 }
 .tran{
     text-align: center;
@@ -63,4 +71,10 @@ table{
 }
 .chaName{
     color: #14AE4E;
+}
+@media screen and (min-width: 767px) {
+    .btn-success, .btn-primary, .btn-danger{
+        border-radius: 5.2rem;
+        width: auto;
+    }
 }

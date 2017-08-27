@@ -7,6 +7,7 @@ import { AddMoneyService } from '../../services/add-money.service';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import * as firebase from 'firebase';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-detail-my-challenge',
