@@ -38,3 +38,42 @@
   .content{
     padding-top: 80px;
   }
+  .chaName{
+    color: #14AE4E;
+}
+.card-task{
+  font-size: 1em;
+  overflow: hidden;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  border: none;
+  border-radius: .28571429rem;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -webkit-border-radius: 7px 7px 7px 7px;
+  border: 0px solid #000000;
+  background-color: #FBFBFB;
+  height: auto;
+  width: 100%;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+.card-addtask{
+  padding-left: 10px;
+}
+.btn-danger{
+  border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  width: 100%;
+}
+input{
+  border-radius: 5.2rem;
+}
+.btn{
+  border-radius: 5.2rem;
+}

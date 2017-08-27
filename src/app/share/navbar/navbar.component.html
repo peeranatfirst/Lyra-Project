@@ -39,9 +39,11 @@
         <a><i class="fa fa-search" aria-hidden="true"></i></a>
         <a><i class="notiBell fa fa-bell-o" id="notiBellOId" aria-hidden="true"></i></a>
         <a><i class="notiBell fa fa-bell" id="notiBellId" aria-hidden="true" style="display: none;"></i></a>
+        <span *ngIf="(af.auth | async)">
         <a [routerLink]="['/selectCategory']">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </a>
+        </span>
       </div>
     </div>
     <div class="search searchClose">

@@ -13,8 +13,8 @@
   box-shadow: 0 6px 15px rgba(36,37,38,0.08);
   border-radius: 1.285714rem;
 }
-input{
-  border-radius: 5.2rem;
+.card-footer{
+  color: black;
 }
 .btn{
   text-align: center;
@@ -32,4 +32,11 @@ h3{
 }
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
+}
+.btn-success{
+  border-radius: 5.2rem;
+  color: white;
+}
+.detailcard{
+  padding-top: 80px;
 }

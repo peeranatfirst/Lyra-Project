@@ -19,8 +19,9 @@
           <div class="card-footer">
             <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
             <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
-            <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="card-link"><i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp; Add to MyChallenge</a>
-
+            <span *ngIf="(af.auth | async)">
+            <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="card-link"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp; Add to MyChallenge</span></a>
+            </span>
           </div>
         </div>
         <div class="row">
