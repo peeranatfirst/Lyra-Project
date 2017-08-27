@@ -36,34 +36,9 @@ thead{
     width: auto;
     margin-top: -10px;
 }
-.tran{
-    text-align: center;
-}
-.No{
-    width: 10%;
-}
-.Date{
-    width: 25%;
-}
-.Time{
-    width: 30%;
-}
-.Balance{
-    width: 35%;
-}
-table{
-    font-size: 10pt;
-}
-.Transaction{
+#delete{
+    color: white;
     width: 100%;
-    text-align: center;
-}
-.Tran{
-    width: 95%;
-}
-.x{
-    width: 5;
-    padding-right: 3px;
 }
 .detailcontent{
     padding-left: 10px;
@@ -76,5 +51,9 @@ table{
     .btn-success, .btn-primary, .btn-danger{
         border-radius: 5.2rem;
         width: auto;
+    }
+    #delete{
+        color: white;
+        width: 20%;
     }
 }
