@@ -48,20 +48,6 @@ export class CreateTaskChecklistComponent implements OnInit {
 
     });
 
-    var ref = firebase.database().ref("/AllChallenge");
-    ref.once("value")
-    .then(function(snapshot) {
-      var hasTask = snapshot.hasChild("tasks"); 
-      console.log("do this1");
-    }).then((hasTask)=>{
-      console.log("do this2");
-      if(hasTask){
-       this.hasTask = true;
-      }else{
-       this.hasTask = false;
-      }
-    });
-
     this.taskForAdd = new Array();
   }
 
@@ -97,7 +83,7 @@ export class CreateTaskChecklistComponent implements OnInit {
 
     }else{
       console.log("nothing to add");
-      
+
     }
   }
 
