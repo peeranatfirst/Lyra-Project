@@ -38,6 +38,14 @@ export class DetailMyChallengeComponent implements OnInit {
     private calculate :CalculatePercentSuccessService) { }
 
   ngOnInit() {
+    
+    $(document).ready(function () {
+      $("#transactionBt").click(function () {
+        document.getElementById('transaction').style.display = '';
+      })
+    });
+
+
     // Get ID
     this.id = this.route.snapshot.params['id'];
     this.uid = firebase.auth().currentUser.uid;
@@ -70,7 +78,7 @@ export class DetailMyChallengeComponent implements OnInit {
       });
 
     });
-
+    
   }
 
   onCancelChallenge() {
