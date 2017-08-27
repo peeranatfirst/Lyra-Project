@@ -32,6 +32,9 @@ thead{
     width: 100%;
     margin-top: 10px;
 }
+#transactionBt{
+    color: white;
+}
 #btn-back{
     width: auto;
     margin-top: -10px;
@@ -46,6 +49,9 @@ thead{
 }
 .chaName{
     color: #14AE4E;
+}
+.badge{
+    border-radius: 5.2rem;
 }
 @media screen and (min-width: 767px) {
     .btn-success, .btn-primary, .btn-danger{
