@@ -51,6 +51,8 @@ import { StepChallengeComponent } from './categoriesfeed/step-challenge/step-cha
 import { RoutineChallengeComponent } from './categoriesfeed/routine-challenge/routine-challenge.component';
 import { CreateTaskChecklistComponent } from './create-challenge/create-checklist-challenge/create-task-checklist/create-task-checklist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { CheckdataChecklistComponent } from "app/categoriesfeed/checklist-challenge/checkdata-checklist/checkdata-checklist.component";
+
 
 
 
@@ -89,8 +91,8 @@ export const firebaseConfig = {
     StepChallengeComponent,
     RoutineChallengeComponent,
     CreateTaskChecklistComponent,
-    UserProfileComponent
-
+    UserProfileComponent,
+    CheckdataChecklistComponent
 
   ],
   imports: [
