@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row content">
     <div class="col-sm-2 flex-first"></div>
     <div class="col-sm-2 flex-last"></div>
     <div class="col-sm-8">
@@ -47,23 +47,19 @@
               <label>Upload image of Challenge</label>
               <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image">
             </div>
-            <div class="col-sm-12 btn-submit">
+            <div class="col-xs-6 .col-sm-4 btn-submit">
               <button type="submit" value="Submit" class="btn btn-success" [disabled]="!savingmoneyForm.form.valid">
                   <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
                 </button>
             </div>
-            <br>
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
-
-
 <div class="row">
   <div class="col-sm-12" align="center">
-    <br>
     <a [routerLink]="['/selectCategory']" class="btn btn-danger">
         <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
       </a>
