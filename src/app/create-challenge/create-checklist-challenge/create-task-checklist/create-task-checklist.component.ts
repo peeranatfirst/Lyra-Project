@@ -78,7 +78,7 @@ export class CreateTaskChecklistComponent implements OnInit {
           this.cc.addTasksChecklistChallenge(obj, this.id);
         }
       }).then(()=>{
-        this.router.navigate(['detailmyChecklistChallenge/'+this.id]);
+        this.router.navigate(['detailchecklist/'+this.id]);
       })
 
     }else{

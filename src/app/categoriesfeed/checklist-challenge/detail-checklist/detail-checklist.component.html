@@ -1,24 +1,61 @@
-<div class="container">
-  <div class="row detailcard">
-    <div class="col-sm-3 flex-first"></div>
-    <div class="col-sm-6">
-      <div class="card card-inverse card-info">
-        <div class="card-block">
-          <figure class="profile profile-inline">
-            <img src="" class="profile-avatar" alt="">
-          </figure>
-          <div class="card-title">Pim Patcha<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span></div>
-          <div class="card-text">
-            <span class="chaName"><p><h3><b>Drink Starbucks coffe 3 cups</b></h3></span> Duration : <br>
+<div *ngIf="checklistChaDetail">
+    <div class="container">
+      <div class="row detailcard">
+        <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+        <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+        <div class="col-sm-10 col-md-8 col-lg-6">
+          <div class="card card-inverse card-info">
+            <div class="card-block">
+              <figure class="profile profile-inline">
+                <img src="{{ownerPhoto}}" class="profile-avatar" alt="">
+              </figure>
+              <div class="card-title">{{displayName}}<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span></div>
+              <div class="card-text">
+                  <span class="chaName"><p><h3><b>{{checklistChaDetail.challengeName}}</b></h3></span>
+                    {{checklistChaDetail.challengeDescription}}
+                  <br> Tasks : N <br>
+                  <br><img src="{{imageUrl}}" class="img-fluid">
+              </div>
+            </div>
+            <div class="card-footer">
+                <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+                <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
+              <!--  <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="card-link"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a> -->
+           
+            </div>
           </div>
-          <br>
-          <img src="https://www.thesun.co.uk/wp-content/uploads/2017/03/nintchdbpict000308845446.jpg?strip=all&quality=100&w=960" class="img-fluid">
-          <br>
-        </div>
-        <div class="card-footer">
-          <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
-          <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
-          <i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp; 99 &nbsp;
-          <a [routerLink]="[]" class="card-link"><span class="fa fa-plus-square-o" aria-hidden="true">&nbsp;</span>Add to My Challenge</a>
+
+          <div >
+              <div class="row">
+                <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+                <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+                <div class="col-sm-10 col-md-8 col-lg-6">
+                  <div class="card" *ngFor="let cha of tasks;">
+                    <div class="card-block">
+                      <div class="media">
+                        <img width="50px" class="rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/plant.png?alt=media&token=b3e67207-a620-458e-8b88-9246871522fe">
+                        <div class="media-body">
+                          {{cha.taskName}} level : {{cha.level}}
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div class="row">
+            <div class="col-sm-1 flex-first"></div>
+            <div class="col-sm-1 flex-last"></div>
+            <div class="col-sm-10" align="center">
+              <a [routerLink]="['/savingmoney']" class="btn btn-danger"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
+            </div>
+          </div>
+
         </div>
       </div>
+    </div>
+    <br>
+    <br>
+  </div>
