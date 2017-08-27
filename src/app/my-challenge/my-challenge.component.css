@@ -131,7 +131,7 @@ h5 {
 }
 .badge-default{
     width: 100%;
-    background: white;
+    background: #ddd;
     color: black;
     text-align: center;
 }

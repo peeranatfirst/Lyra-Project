@@ -40,3 +40,15 @@ h3{
     font-size: 21;
     font-weight: bold;
 }
+.card-footer {
+    font-size: 1em;
+    position: static;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: .75em 1em;
+    color: rgba(0, 0, 0, .4);
+    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+    background: white;
+    color: black;
+}

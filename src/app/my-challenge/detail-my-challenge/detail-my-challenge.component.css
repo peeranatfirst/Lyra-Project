@@ -1,14 +1,22 @@
-.container{
-    margin-top: 90px;
-}
 .card{
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
     border: solid 1px;
-    border-color: #378d3b; 
+    background-color: white;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+    border-radius: 1.285714rem;
 }
-.card-header{
-    background-color: #378d3b;
-    color: white;
-    text-align: center;
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.container{
+    padding-top: 80px;
 }
 thead{
     background-color: #378d3b;
@@ -16,41 +24,36 @@ thead{
 .close{
     text-align: right;
 }
-.btn-add{
-    width: 100%;
-}
 .delete{
     color: #FFFFFF;
 }
-.btn-delete{
+.btn-success, .btn-primary, .btn-danger{
+    border-radius: 5.2rem;
+    width: 100%;
+    margin-top: 10px;
+}
+#btn-back{
+    width: auto;
+    margin-top: -10px;
+}
+#delete{
+    color: white;
     width: 100%;
 }
-.tran{
-    text-align: center;
+.detailcontent{
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.No{
-    width: 10%;
+.chaName{
+    color: #14AE4E;
 }
-.Date{
-    width: 25%;
-}
-.Time{
-    width: 30%;
-}
-.Balance{
-    width: 35%;
-}
-table{
-    font-size: 10pt;
-}
-.Transaction{
-    width: 100%;
-    text-align: center;
-}
-.Tran{
-    width: 95%;
-}
-.x{
-    width: 5;
-    padding-right: 3px;
+@media screen and (min-width: 767px) {
+    .btn-success, .btn-primary, .btn-danger{
+        border-radius: 5.2rem;
+        width: auto;
+    }
+    #delete{
+        color: white;
+        width: 20%;
+    }
 }
