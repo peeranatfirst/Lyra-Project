@@ -11,11 +11,10 @@
           <br>
           <br>
             <b>{{checklistDetails.challengeName}}</b><br> {{checklistDetails.challengeDescription}}<br>
-            {{hasTask}}
         </div>
 
-        <div class="card"  *ngFor="let cha of myTasks;" > 
-          <h4> {{cha.taskName}} </h4><br>
+        <div class="card"  *ngFor="let cha of taskForAdd;" > 
+          <h4> {{cha.taskname}} </h4><br>
           <h4> {{cha.level}}</h4>
         </div>
 
@@ -25,8 +24,8 @@
             <div class="form-group no-border">
                 <div class="input_fields_wrap">
               <label for="challengeName">Task Name</label>
-              <input type="text" class="form-control" [(ngModel)]="challengeName" name="challengeName" required minlength="5" #challengeName1="ngModel">
-              <select name="level">
+              <input type="text" class="form-control" [(ngModel)]="taskName" name="taskName" required minlength="5" #challengeName1="ngModel">
+              <select name="level" [(ngModel)]="level">
                 <option value="easy">Easy</option>
                 <option value="medium" selected>Medium</option>
                 <option value="hard">Hard</option>
@@ -49,9 +48,19 @@
               <button type="submit" value="Submit" class="btn btn-warning" >
                     <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
                   </button>
-            </div>
-          </div>
+            </div>-->
+            <br>
+     
         </div>
+      </form>
+
+      <form ngNativeValidate (submit)="onAddTask()"  #createTasks='ngForm' > 
+          <div class="col-sm-12 btn-submit">
+              <button type="submit" value="Submit" class="btn btn-warning"  >
+                    <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
+                  </button>
+            </div>
+
       </form>
     </div>
   </div>

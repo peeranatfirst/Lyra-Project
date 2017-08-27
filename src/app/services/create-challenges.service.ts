@@ -55,7 +55,7 @@ export class CreateChallengesService {
   }
 
   // Function for add tasks to checklist challenge
-  addTasksChecklistChallenge(){
-    
+  addTasksChecklistChallenge(obj, id){
+    firebase.database().ref('/AllChallenge/'+id+'/tasks').push(obj);
   }
 }
