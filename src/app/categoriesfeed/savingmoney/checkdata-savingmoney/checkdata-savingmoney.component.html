@@ -1,14 +1,12 @@
 <div *ngIf="checkdata">
 <div class="container">
-  <div class="row">
+  <div class="row detailcard">
     <div class="col-sm-2 flex-first"></div>
     <div class="col-sm-2 flex-last"></div>
     <div class="col-sm-8">
+        <h1><b>Checking your data</b></h1>
       <form ngNativeValidate (submit)="onAddSubmit()">
         <div class="card">
-          <div class="card-header">
-            Checking your data
-          </div>
           <div class="card-block">
             <div class="form-group no-border">
               <label>Challenge Name</label>
