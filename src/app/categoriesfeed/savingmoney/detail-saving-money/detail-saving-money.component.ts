@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import * as firebase from 'firebase';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
+import { AngularFire } from 'angularfire2';
 
 @Component({
   selector: 'app-detail-saving-money',
@@ -24,13 +25,21 @@ export class DetailSavingMoneyComponent implements OnInit {
   displayName:any;
   info:any;
   ownerPhoto:any;
+  user: any;
 
   constructor(
+    public af: AngularFire,
     private firebaseService: FirebaseService,
     private routing: Router,
     private route: ActivatedRoute,
     private dt: DatetimestampService,
-    private userinfo: GetUserInfoService) { }
+    private userinfo: GetUserInfoService) { 
+      this.af.auth.subscribe(auth =>{
+        if(auth){
+          this.user = auth;
+        }
+      });
+    }
 
   ngOnInit() {
     // Get id
