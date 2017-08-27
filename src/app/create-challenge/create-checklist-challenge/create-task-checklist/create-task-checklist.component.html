@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row content">
+    <div class="col-sm-2 flex-first"></div>
+    <div class="col-sm-2 flex-last"></div>
+    <div class="col-sm-8">
+      <h1><b>Add your task</b></h1>
+      
+
+      <div class="card">
+        <div>
+          <br>
+          <br>
+            <b>{{checklistDetails.challengeName}}</b><br> {{checklistDetails.challengeDescription}}<br>
+        </div>
+
+        <div class="card"  *ngFor="let cha of taskForAdd;" > 
+          <h4> {{cha.taskname}} </h4><br>
+          <h4> {{cha.level}}</h4>
+        </div>
+
+      <form ngNativeValidate (submit)="onAddSubmit(formData)"  #formData='ngForm' >
+        
+          <div class="card-block">
+            <div class="form-group no-border">
+                <div class="input_fields_wrap">
+              <label for="challengeName">Task Name</label>
+              <input type="text" class="form-control" [(ngModel)]="taskName" name="taskName" required minlength="5" #challengeName1="ngModel">
+              <select name="level" [(ngModel)]="level">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+              <!--<div *ngIf="challengeName1.errors && (challengeName1.dirty || challengeName1.touched)" class="alert alert-danger">
+                <div [hidden]="!challengeName1.errors.required">
+                  Task Name is required !
+                </div>
+                <div [hidden]="!challengeName1.errors.minlength">
+                  Task Name will be minimum of 5 characters..
+                </div>
+              </div>-->
+            </div>
+            <button  type="submit" value="Submit" class="btn btn-secondary btn-sm">Add More Task</button>
+            <!--<button class="add_field_button btn btn-secondary btn-sm">Add More Task</button> -->
+          </div>
+            
+            <br>
+           <!-- <div class="col-sm-12 btn-submit">
+              <button type="submit" value="Submit" class="btn btn-warning" >
+                    <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
+                  </button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <form ngNativeValidate (submit)="onAddTask()"  #createTasks='ngForm' > 
+          <div class="col-sm-12 btn-submit">
+              <button type="submit" value="Submit" class="btn btn-warning"  >
+                    <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
+                  </button>
+            </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--<div class="row">
+  <div class="col-sm-12" align="center">
+    <a [routerLink]="['/createChecklistChallenge']" class="btn btn-danger">
+          <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
+        </a>
+  </div>
+</div>
+<br>-->
