@@ -35,3 +35,7 @@
   .content{
     padding-top: 80px;
   }
+.btn-warning, .btn-danger{
+    border-radius: 5.2rem;
+
+}
