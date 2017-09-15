@@ -11,7 +11,6 @@ import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-s
 import { SelectCategoryComponent } from './create-challenge/select-category/select-category.component';
 
 import { LoginComponent } from './authentication/login/login.component';
-import { MembersComponent } from './authentication/members/members.component';
 import { AuthGuard } from './services/auth.service';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { EmailComponent } from './authentication/email/email.component';
@@ -41,7 +40,6 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login-email', component: EmailComponent },
-  { path: 'members', component: MembersComponent, canActivate: [AuthGuard] },
   { path: 'createSavingmoneyChallenge', component: CreateSavingmoneyChallengeComponent},
   { path: 'selectCategory', component: SelectCategoryComponent },
   { path: 'checklistChallenge', component: ChecklistChallengeComponent},

@@ -23,7 +23,7 @@ import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/d
 import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
 
 import { LoginComponent } from './authentication/login/login.component';
-import { MembersComponent } from './authentication/members/members.component';
+
 
 import { SignupComponent } from './authentication/signup/signup.component';
 import { EmailComponent } from './authentication/email/email.component';
@@ -50,8 +50,10 @@ import { DetailMyChecklistChallengeComponent } from './my-challenge/detail-my-ch
 import { StepChallengeComponent } from './categoriesfeed/step-challenge/step-challenge.component';
 import { RoutineChallengeComponent } from './categoriesfeed/routine-challenge/routine-challenge.component';
 import { CreateTaskChecklistComponent } from './create-challenge/create-checklist-challenge/create-task-checklist/create-task-checklist.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserProfileComponent } from './users/user-profile/user-profile.component';
 import { CheckdataChecklistComponent } from "app/categoriesfeed/checklist-challenge/checkdata-checklist/checkdata-checklist.component";
+import { EditProfileComponent } from './users/edit-profile/edit-profile/edit-profile.component';
+import { UsersChallengeComponent } from './users/users-challenge/users-challenge.component';
 
 
 
@@ -83,7 +85,6 @@ export const firebaseConfig = {
     LoginComponent,
     EmailComponent,
     SignupComponent,
-    MembersComponent,
     CreateChecklistChallengeComponent,
     ChecklistChallengeComponent,
     DetailChecklistComponent,
@@ -92,7 +93,9 @@ export const firebaseConfig = {
     RoutineChallengeComponent,
     CreateTaskChecklistComponent,
     UserProfileComponent,
-    CheckdataChecklistComponent
+    CheckdataChecklistComponent,
+    EditProfileComponent,
+    UsersChallengeComponent
 
   ],
   imports: [
