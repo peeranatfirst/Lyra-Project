@@ -10,11 +10,11 @@ import { CalculatePercentSuccessService } from 'app/services/calculate-percent-s
 import $ from 'jquery';
 
 @Component({
-  selector: 'app-detail-my-challenge',
-  templateUrl: './detail-my-challenge.component.html',
-  styleUrls: ['./detail-my-challenge.component.css']
+  selector: 'app-detail-my-savingmoney-challenge',
+  templateUrl: './detail-my-savingmoney-challenge.component.html',
+  styleUrls: ['./detail-my-savingmoney-challenge.component.css']
 })
-export class DetailMyChallengeComponent implements OnInit {
+export class DetailMySavingmoneyChallengeComponent implements OnInit {
   id: any;
   key: any;
   detailMyChallenge: any;

@@ -13,35 +13,29 @@ import { AppComponent } from './app.component';
 import { CategoriesfeedComponent } from './categoriesfeed/categoriesfeed.component';
 import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.component';
 import { NavbarComponent } from './share/navbar/navbar.component';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';
 import { MyChallengeComponent } from './my-challenge/my-challenge.component';
 import { CheckdataSavingmoneyComponent } from './categoriesfeed/savingmoney/checkdata-savingmoney/checkdata-savingmoney.component';
 import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
-import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
+import { DetailMySavingmoneyChallengeComponent } from './my-challenge/detail-my-savingmoney-challenge/detail-my-savingmoney-challenge.component';
 import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
-
 import { LoginComponent } from './authentication/login/login.component';
-
-
 import { SignupComponent } from './authentication/signup/signup.component';
 import { EmailComponent } from './authentication/email/email.component';
 
 
 //Directives
-import { ProgressBarDirective } from './my-challenge/progress-bar.directive';
 
 //Services
 import { AddMoneyService } from 'app/services/add-money.service';
 import { FirebaseService } from './services/firebase.service';
-import { SelectCategoryComponent } from './create-challenge/select-category/select-category.component';
+import { SelectCategoryComponent } from './create-challenge/select-category.component';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { CreateChallengesService } from 'app/services/create-challenges.service';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
 import { TaskManageService } from "app/services/task-manage.service";
-
 import { AuthGuard } from './services/auth.service';
 import { CreateChecklistChallengeComponent } from './create-challenge/create-checklist-challenge/create-checklist-challenge.component';
 import { ChecklistChallengeComponent } from './categoriesfeed/checklist-challenge/checklist-challenge.component';
@@ -52,10 +46,8 @@ import { RoutineChallengeComponent } from './categoriesfeed/routine-challenge/ro
 import { CreateTaskChecklistComponent } from './create-challenge/create-checklist-challenge/create-task-checklist/create-task-checklist.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
 import { CheckdataChecklistComponent } from "app/categoriesfeed/checklist-challenge/checkdata-checklist/checkdata-checklist.component";
-import { EditProfileComponent } from './users/edit-profile/edit-profile/edit-profile.component';
+import { EditProfileComponent } from './users/edit-profile/edit-profile.component';
 import { UsersChallengeComponent } from './users/users-challenge/users-challenge.component';
-
-
 
 
 export const firebaseConfig = {
@@ -78,9 +70,8 @@ export const firebaseConfig = {
     CheckdataSavingmoneyComponent,
     AddMoneyComponent,
     AddMoneyComponent,
-    DetailMyChallengeComponent,
+    DetailMySavingmoneyChallengeComponent,
     CreateSavingmoneyChallengeComponent,
-    ProgressBarDirective,
     SelectCategoryComponent,
     LoginComponent,
     EmailComponent,

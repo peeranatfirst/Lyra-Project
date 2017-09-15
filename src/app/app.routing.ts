@@ -5,10 +5,10 @@ import { SavingmoneyComponent } from './categoriesfeed/savingmoney/savingmoney.c
 import { DetailSavingMoneyComponent } from './categoriesfeed/savingmoney/detail-saving-money/detail-saving-money.component';
 import { MyChallengeComponent } from './my-challenge/my-challenge.component';
 import { CheckdataSavingmoneyComponent } from './categoriesfeed/savingmoney/checkdata-savingmoney/checkdata-savingmoney.component';
-import { DetailMyChallengeComponent } from './my-challenge/detail-my-challenge/detail-my-challenge.component';
+import { DetailMySavingmoneyChallengeComponent } from './my-challenge/detail-my-savingmoney-challenge/detail-my-savingmoney-challenge.component';
 import { AddMoneyComponent } from './categoriesfeed/savingmoney/add-money/add-money.component';
 import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-savingmoney-challenge/create-savingmoney-challenge.component';
-import { SelectCategoryComponent } from './create-challenge/select-category/select-category.component';
+import { SelectCategoryComponent } from './create-challenge/select-category.component';
 
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthGuard } from './services/auth.service';
@@ -31,8 +31,8 @@ const appRoutes: Routes = [
   { path: 'mychallenge', component: MyChallengeComponent },
   { path: 'checkdatamoney', component: CheckdataSavingmoneyComponent },
   { path: 'checkdatamoney/:id', component: CheckdataSavingmoneyComponent },
-  { path: 'detailmychallenge', component: DetailMyChallengeComponent },
-  { path: 'detailmychallenge/:id', component: DetailMyChallengeComponent },
+  { path: 'detailmychallenge', component: DetailMySavingmoneyChallengeComponent },
+  { path: 'detailmychallenge/:id', component: DetailMySavingmoneyChallengeComponent },
   { path: 'addmoney', component: AddMoneyComponent },
   { path: 'addmoney/:id', component: AddMoneyComponent },
   { path: 'createSavingmoneyChallenge', component: CreateSavingmoneyChallengeComponent },
