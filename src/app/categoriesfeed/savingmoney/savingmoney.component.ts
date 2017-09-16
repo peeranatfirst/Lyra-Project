@@ -61,7 +61,7 @@ export class SavingmoneyComponent implements OnInit {
               datestamp = this.dt.getDatestamp(datetimestamp);
               timestamp = this.dt.getTimestamp(datetimestamp);
               this.listOfChallenge.push({chaId: key,chaName: name,chaGoal: goal,description:des,time:duration,imgSRC:imgPath , thisTime: timestamp, thisDay: datestamp });
-          });
+            });
         }
       }
       
