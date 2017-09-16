@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
 import { AngularFire } from 'angularfire2';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-detail-saving-money',
@@ -33,6 +34,7 @@ export class DetailSavingMoneyComponent implements OnInit {
     private routing: Router,
     private route: ActivatedRoute,
     private dt: DatetimestampService,
+    private location: Location,
     private userinfo: GetUserInfoService) { 
       this.af.auth.subscribe(auth =>{
         if(auth){
@@ -67,6 +69,10 @@ export class DetailSavingMoneyComponent implements OnInit {
       
     });
 
+  }
+
+  onBack(){
+    this.location.back();
   }
 
 }

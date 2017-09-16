@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import * as firebase from 'firebase';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-detail-checklist',
@@ -29,7 +30,8 @@ export class DetailChecklistComponent implements OnInit {
     private routing: Router,
     private route: ActivatedRoute,
     private dt: DatetimestampService,
-    private userinfo: GetUserInfoService) { }
+    private userinfo: GetUserInfoService,
+    private location: Location) { }
 
   ngOnInit() {
      // Get id
@@ -60,6 +62,10 @@ export class DetailChecklistComponent implements OnInit {
      });
 
 
+  }
+
+  onBack(){
+    this.location.back();
   }
 
 }
