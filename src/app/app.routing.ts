@@ -23,6 +23,8 @@ import { RoutineChallengeComponent } from "app/categoriesfeed/routine-challenge/
 import { CreateTaskChecklistComponent } from "app/create-challenge/create-checklist-challenge/create-task-checklist/create-task-checklist.component";
 import { CheckdataChecklistComponent } from "app/categoriesfeed/checklist-challenge/checkdata-checklist/checkdata-checklist.component";
 
+import { UserProfileComponent } from "app/users/user-profile/user-profile.component";
+
 const appRoutes: Routes = [
   { path: '', component: CategoriesfeedComponent },
   { path: 'savingmoney', component: SavingmoneyComponent },
@@ -53,7 +55,8 @@ const appRoutes: Routes = [
   { path: 'createtaskchecklist', component: CreateTaskChecklistComponent},
   { path: 'createtaskchecklist/:id', component: CreateTaskChecklistComponent},
   { path: 'checkdataChecklist', component: CheckdataChecklistComponent},
-  { path: 'checkdataChecklist/:id', component: CheckdataChecklistComponent}
+  { path: 'checkdataChecklist/:id', component: CheckdataChecklistComponent},
+  { path: 'myprofile', component: UserProfileComponent}
 
 ];
 

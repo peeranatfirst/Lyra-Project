@@ -21,6 +21,19 @@ export class GetUserInfoService {
     getDisplayPhoto(displayphoto: usersInfo){
       return displayphoto.pathPhoto;
     }
+
+    getDescription(description: usersInfo){
+      return description.description;
+    }
+
+    getName(name: usersInfo){
+      return name.name;
+    }
+
+    getJoinDate(date: usersInfo){
+      return date.joined;
+    }
+
 }
 
 interface usersInfo {
