@@ -32,12 +32,12 @@
     <div class="tab-pane fade show active" id="All" role="tabpanel">
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of DetailOfChallenges">
-          <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
+          <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
             <div class="card card-inverse card-info">
               <div class="card-block">
                 <div class="card-text">
-                  <span class="chaName">{{cha.name}}</span><br> Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
-                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}
+                  <span class="chaName">{{cha.name}}</span><br> <!-- Goal : {{cha.total | currency:'THB':true:'1.2-2'}} 
+                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}-->
                   <span *ngIf="cha.status != 'Achieved'">
                         <!--<h5><span class="badge badge-default">{{cha.percent | number:'1.0-0'}}%</span></h5>-->
                   <div class="progress">
@@ -68,12 +68,12 @@
     <div class="tab-pane fade" id="InProgress" role="tabpanel">
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of inProgressChallenges">
-          <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
+          <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
             <div class="card card-inverse card-info">
               <div class="card-block">
                 <div class="card-text">
-                  <span class="chaName">{{cha.name}}</span><br> Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
-                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}
+                  <span class="chaName">{{cha.name}}</span><br> <!--Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
+                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}} -->
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
                     </div>
@@ -93,12 +93,12 @@
     <div class="tab-pane fade" id="Achieved" role="tabpanel">
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-4 mt-4" *ngFor="let cha of achievedChallenges">
-          <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
+          <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
             <div class="card card-inverse card-info">
               <div class="card-block">
                 <div class="card-text">
-                  <span class="chaName">{{cha.name}}</span><br> Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
-                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}
+                  <span class="chaName">{{cha.name}}</span><br> <!-- Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
+                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}} -->
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
                     </div>
@@ -117,12 +117,12 @@
     <div class="tab-pane fade" id="Cancelled" role="tabpanel">
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-4 mt-4" *ngFor="let cha of cancelledChallenges">
-          <a [routerLink]="['/detailmychallenge/'+cha.myk]" routerLinkActive='active' class="card-link">
+          <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
             <div class="card card-inverse card-info">
               <div class="card-block">
                 <div class="card-text">
-                  <span class="chaName">{{cha.name}}</span><br> Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
-                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}
+                  <span class="chaName">{{cha.name}}</span><br> <!-- Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
+                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}} -->
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
                     </div>

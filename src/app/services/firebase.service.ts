@@ -94,9 +94,18 @@ export class FirebaseService {
     return challengeList.startDate;
   }
 
+  getCategoryOfChallenge(challengeList: myChallengesList) {
+    return challengeList.category;
+  }
+
+  getPercentOfChallenge(challengeList: myChallengesList) {
+    return challengeList.percent;
+  }
+  
   getTaskAmountOfChallenge(challengeslist: checklistChallengeList){
     return challengeslist.taskAmount;
   }
+
 
   // Return balance
   getTransactionBalance(transactionBalance: myBalance) {
@@ -170,6 +179,8 @@ interface myChallengesList {
   totalAmount?: number;
   image?: string;
   startDate?: string;
+  category?: string;
+  percent?: string;
 }
 
 interface myBalance {
