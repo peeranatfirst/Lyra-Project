@@ -1,0 +1,38 @@
+.center {
+    text-align: center;
+}
+.bg{
+    margin-top: -20px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+
+}
+.container{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+h2{
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #14AE4E;
+}
+h5 {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+    margin: 0;
+}
+.btn-success{
+    border-radius: 5.2rem;
+    color: white;
+}
+.profileBar{
+    width: 150px;
+	height: 150px;
+}
+p{
+    font-weight: 700;
+}
