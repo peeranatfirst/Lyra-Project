@@ -4,8 +4,6 @@ import { routing } from '../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
 import * as firebase from 'firebase';
-// import { ProgressBarDirective } from "./progress-bar.directive";
-
 
 
 
@@ -38,36 +36,60 @@ export class MyChallengeComponent implements OnInit {
       this.achievedChallenges = new Array(); // achieved
       this.cancelledChallenges = new Array(); // cancelled
       const uid = firebase.auth().currentUser.uid;
+
       for (const obj of myChallenges) {
-        let pullKey, pullName, pullDes, pullTotal, progress, pullStatus , currentMoney ,startDate;
+        let pullKey, pullName, pullTotal, progress, pullStatus , currentMoney ,startDate, pullPercent, category;
 
         pullKey = this.firebaseService.getKeyOfChallenge(obj);
         pullName = this.firebaseService.getNameOfChallenge(obj);
-        pullDes = this.firebaseService.getDesOfChallenge(obj);
-        pullTotal = this.firebaseService.getTotalOfChallenge(obj);
         pullStatus = this.firebaseService.getStatusOfChallenge(obj);
         startDate = this.firebaseService.getStartDateOfChallenge(obj);
-        this.firebaseService.getTransaction(uid, pullKey).subscribe(toCal => {
-          let sum = 0;
-          for (const calB of toCal) {
-            const balance = this.firebaseService.getTransactionBalance(calB);
-            sum = sum + balance;
-          }
-          currentMoney = sum;
-          progress = this.calculate.calculateSMProgressPercent(sum, pullTotal);
-          if(progress>100){
-            progress = 100;
-          }
-          this.DetailOfChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney, start: startDate });
-          if(pullStatus==='processing'){
-            this.inProgressChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney, start: startDate  });
-          }else if(pullStatus==='Achieved'){
-            this.achievedChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney , start: startDate });
-          }else{
-            this.cancelledChallenges.push({ name: pullName, des: pullDes, percent: progress, total: pullTotal, myk: pullKey, status: pullStatus ,balance: currentMoney , start: startDate });
-          }
+        category = this.firebaseService.getCategoryOfChallenge(obj);
+        // Saving Money Challenge
+        if(category === "SavingMoney"){
+          pullTotal = this.firebaseService.getTotalOfChallenge(obj);
+          this.firebaseService.getTransaction(uid, pullKey).subscribe(toCal => {
+            let sum = 0;
+            for (const calB of toCal) {
+              const balance = this.firebaseService.getTransactionBalance(calB);
+              sum = sum + balance;
+            }
+            currentMoney = sum;
+            progress = this.calculate.calculateSMProgressPercent(sum, pullTotal);
+            if(progress>100){
+              progress = 100;
+            }
+            this.DetailOfChallenges.push({ name: pullName, percent: progress, myk: pullKey, status: pullStatus , start: startDate ,cate : category });
+            if(pullStatus==='processing'){
+              this.inProgressChallenges.push({ name: pullName, percent: progress,  myk: pullKey, status: pullStatus , start: startDate ,cate : category  });
+            }else if(pullStatus==='Achieved'){
+              this.achievedChallenges.push({ name: pullName,  percent: progress, myk: pullKey, status: pullStatus , start: startDate ,cate : category});
+            }else{
+              this.cancelledChallenges.push({ name: pullName,  percent: progress,  myk: pullKey, status: pullStatus , start: startDate ,cate : category });
+            }
+            
 
-        });
+          });
+        }else{
+            // Checklist Challenge
+            progress = this.firebaseService.getPercentOfChallenge(obj);
+            if(progress>100){
+              progress = 100;
+            }
+            this.DetailOfChallenges.push({ name: pullName, percent: progress, myk: pullKey, status: pullStatus , start: startDate ,cate : category });
+            if(pullStatus==='processing'){
+              this.inProgressChallenges.push({ name: pullName, percent: progress,  myk: pullKey, status: pullStatus , start: startDate ,cate : category  });
+            }else if(pullStatus==='Achieved'){
+              this.achievedChallenges.push({ name: pullName,  percent: progress, myk: pullKey, status: pullStatus , start: startDate ,cate : category});
+            }else{
+              this.cancelledChallenges.push({ name: pullName,  percent: progress,  myk: pullKey, status: pullStatus , start: startDate ,cate : category });
+            }
+        }
+        
+        
+
+        
+        
 
       }
       // console.log(this.achievedChallenges);

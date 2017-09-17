@@ -44,6 +44,7 @@ export class CheckdataChecklistComponent implements OnInit {
     const uid = firebase.auth().currentUser.uid;
     const status = "processing";
     const start = firebase.database.ServerValue.TIMESTAMP;
+    const per = "0";
 
     const checklistdetail = {
       challengeName: this.checklistChaDetail.challengeName,
@@ -54,7 +55,8 @@ export class CheckdataChecklistComponent implements OnInit {
       startDate : start,
       path : this.checklistChaDetail.path,
       secondOwner : uid,
-      category : this.checklistChaDetail.category
+      category : this.checklistChaDetail.category,
+      percent : per
     };
 
     const checklistdetailNoDesc = {
@@ -65,7 +67,8 @@ export class CheckdataChecklistComponent implements OnInit {
       startDate : start,
       path : this.checklistChaDetail.path,
       secondOwner : uid,
-      category : this.checklistChaDetail.category
+      category : this.checklistChaDetail.category,
+      percent : per
     };
 
     if (this.checklistChaDetail.challengeDescription === undefined) {

@@ -15,8 +15,10 @@ export class FirebaseService {
   detailBalance: FirebaseListObservable<any[]>;
 
   tasks: FirebaseListObservable<any[]>;
+  mytasks: FirebaseListObservable<any[]>;
 
   detailMySMChallenge: FirebaseObjectObservable<any>;
+  detailMyCLChallenge: FirebaseObjectObservable<any>;
 
   constructor(
     private af: AngularFire,
@@ -58,6 +60,12 @@ export class FirebaseService {
     return this.detailMySMChallenge;
   }
 
+  // get details of My Checklist Challenges
+  getDetailMyCLChallenge(uid, key){
+    this.detailMyCLChallenge = this.af.database.object('/users/'+uid+'/Challenges/'+key) as FirebaseObjectObservable<myChallengesList>;
+    return this.detailMyCLChallenge;
+  }
+
   // Get Saving Money Transaction of challenges
   getTransaction(uid, key) {
     this.balance = this.af.database.list('/users/'+uid+'/Challenges/' + key + '/savingTransaction') as FirebaseListObservable<myBalance[]>;
@@ -67,6 +75,12 @@ export class FirebaseService {
   // get checklist challenge's task 
   getTasksOfChecklistChallenge(id){
     this.tasks = this.af.database.list('/AllChallenge/'+ id+'/tasks') as FirebaseListObservable<myTasks[]>;
+    return this.tasks;
+  }
+
+  // get My Checklist challenge's task 
+  getTasksOfMyChecklistChallenge(uid, key){
+    this.mytasks = this.af.database.list('/users/'+uid+'/Challenges/'+key+'/tasks' ) as FirebaseListObservable<myDoingTasks[]>;
     return this.tasks;
   }
 
@@ -94,9 +108,18 @@ export class FirebaseService {
     return challengeList.startDate;
   }
 
+  getCategoryOfChallenge(challengeList: myChallengesList) {
+    return challengeList.category;
+  }
+
+  getPercentOfChallenge(challengeList: myChallengesList) {
+    return challengeList.percent;
+  }
+
   getTaskAmountOfChallenge(challengeslist: checklistChallengeList){
     return challengeslist.taskAmount;
   }
+
 
   // Return balance
   getTransactionBalance(transactionBalance: myBalance) {
@@ -170,6 +193,8 @@ interface myChallengesList {
   totalAmount?: number;
   image?: string;
   startDate?: string;
+  category?: string;
+  percent?: string;
 }
 
 interface myBalance {
@@ -182,6 +207,13 @@ interface myTasks {
   $key?: string;
   taskName?: string;
   level?: string;
+}
+
+interface myDoingTasks {
+  $key?: string;
+  taskName?: string;
+  level?: string;
+  taskStatus?: string;
 }
 
 

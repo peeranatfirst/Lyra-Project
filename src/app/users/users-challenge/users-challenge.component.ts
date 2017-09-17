@@ -24,11 +24,11 @@ export class UsersChallengeComponent implements OnInit {
   ngOnInit() {
     this.Challenge = new Array();
     let imgPath;
-    this.af.auth.subscribe(auth => {
-      let key, name, chaDes, owner, category, date, time, path;
-
-      if (auth) {
-
+    this.af.auth.subscribe(auth =>{
+      let key, name, chaDes, owner, category, date, time, path, idKey;
+      
+      if(auth){   
+            
         const query = firebase.database().ref("AllChallenge").orderByKey();
         query.once("value")
 
@@ -51,16 +51,16 @@ export class UsersChallengeComponent implements OnInit {
                       imgPath = res;
                       return imgPath;
                     }).then((res) => {
-                      name = data.challengeName;
-                      chaDes = data.challengeDescription;
-                      owner = data.owner;
-                      category = data.category;
-                      date = this.dt.getDatestamp(data.datetimestamp);
-                      time = this.dt.getTimestamp(data.datetimestamp);
-                      const obj = { chaId: key, chaName: name, description: chaDes, thisDay: date, thisTime: time, imgSRC: imgPath, cate: category, ownId: owner };
-                      console.log(obj);
-                      this.Challenge.push(obj);
-                    })
+                        idKey = thirdSnapshot.key;
+                        name = data.challengeName;
+                        chaDes = data.challengeDescription;
+                        owner = data.owner;
+                        category = data.category;
+                        date = this.dt.getDatestamp(data.datetimestamp);
+                        time = this.dt.getTimestamp(data.datetimestamp);
+                        const obj = {chaId: idKey, chaName: name, description: chaDes, thisDay: date, thisTime: time, imgSRC: imgPath, cate: category, ownId: owner};
+                        this.Challenge.push(obj);
+                    }) 
                   }
                 })
             });

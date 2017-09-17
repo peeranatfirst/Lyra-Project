@@ -59,7 +59,7 @@ export class AddMoneyComponent implements OnInit {
       this.AddMoneyService.addMoney(addmoney,uid, this.id);
       this.AddMoneyService.achievedStatusUpdate(uid, this.id);
     }
-    this.router.navigate(['/detailmychallenge/' + this.id]);
+    this.router.navigate(['/detailmySavingMoneychallenge/' + this.id]);
   }
 
 }
