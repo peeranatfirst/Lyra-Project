@@ -119,3 +119,7 @@ a:not([href]):not([tabindex]) {
     color:white;
     text-decoration: none;
 }
+.doChecklist{
+    color: #14AE4E;
+    font-weight: bold;
+}
