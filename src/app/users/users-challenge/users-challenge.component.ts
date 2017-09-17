@@ -24,44 +24,45 @@ export class UsersChallengeComponent implements OnInit {
   ngOnInit() {
     this.Challenge = new Array();
     let imgPath;
-    this.af.auth.subscribe(auth =>{
+    this.af.auth.subscribe(auth => {
       let key, name, chaDes, owner, category, date, time, path;
-      
-      if(auth){   
-            
+
+      if (auth) {
+
         const query = firebase.database().ref("AllChallenge").orderByKey();
         query.once("value")
-        
-          .then((snapshot)=> {
+
+          .then((snapshot) => {
             snapshot.forEach((childSnapshot) => {
               key = childSnapshot.key;
-              const subQuery = firebase.database().ref("AllChallenge/"+key).orderByKey();
+              const subQuery = firebase.database().ref("AllChallenge/" + key).orderByKey();
               subQuery.once("value")
-                .then((thirdSnapshot)=>{
+                .then((thirdSnapshot) => {
                   var data = thirdSnapshot.val();
                   var user = auth.uid;
-                  if(data.owner === user){
+                  if (data.owner === user) {
                     path = data.path;
                     const storage = firebase.storage();
                     const pathRef = storage.ref();
-                    const promise = new Promise((resolve, reject)=> {
-                        resolve(pathRef.child(path).getDownloadURL());
+                    const promise = new Promise((resolve, reject) => {
+                      resolve(pathRef.child(path).getDownloadURL());
                     });
                     promise.then((res) => {
-                        imgPath =  res ; 
-                        return imgPath ;
+                      imgPath = res;
+                      return imgPath;
                     }).then((res) => {
-                        name = data.challengeName;
-                        chaDes = data.challengeDescription;
-                        owner = data.owner;
-                        category = data.category;
-                        date = this.dt.getDatestamp(data.datetimestamp);
-                        time = this.dt.getTimestamp(data.datetimestamp);
-                        const obj = {chaId: key, chaName: name, description: chaDes, thisDay: date, thisTime: time, imgSRC: imgPath, cate: category, ownId: owner};
-                        this.Challenge.push(obj);
-                    }) 
+                      name = data.challengeName;
+                      chaDes = data.challengeDescription;
+                      owner = data.owner;
+                      category = data.category;
+                      date = this.dt.getDatestamp(data.datetimestamp);
+                      time = this.dt.getTimestamp(data.datetimestamp);
+                      const obj = { chaId: key, chaName: name, description: chaDes, thisDay: date, thisTime: time, imgSRC: imgPath, cate: category, ownId: owner };
+                      console.log(obj);
+                      this.Challenge.push(obj);
+                    })
                   }
-                }) 
+                })
             });
           })
       }
