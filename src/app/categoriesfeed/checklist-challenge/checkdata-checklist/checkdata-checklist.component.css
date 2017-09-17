@@ -1,0 +1,42 @@
+.row{
+    padding-top: 80px;
+  }
+  .card{
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: solid 1px;
+    background-color: white;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+    border-radius: 1.285714rem;
+  }
+  .card-footer{
+    color: black;
+  }
+  .btn{
+    text-align: center;
+    border-radius: 5.2rem;
+  }
+  h3{
+    font-weight: bold;
+    color: #14AE4E;
+  }
+  .add{
+      font-family: 'Kanit', sans-serif;
+  }
+  .ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+  .btn-success{
+    border-radius: 5.2rem;
+    color: white;
+  }
+  .detailcard{
+    padding-top: 80px;
+  }

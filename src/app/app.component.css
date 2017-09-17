@@ -1,5 +1,6 @@
 .message{
     padding-top: 200px;
+    margin: auto;
     z-index: 1;
     position: absolute;
 }
