@@ -7,6 +7,7 @@ import * as firebase from 'firebase';
 
 import { Location } from "@angular/common";
 import { TaskManageService } from "app/services/task-manage.service";
+import { CalculatePercentSuccessService } from "app/services/calculate-percent-success.service";
 
 @Component({
   selector: 'app-done-checklist',
@@ -22,12 +23,14 @@ export class DoneChecklistComponent implements OnInit {
   uid: any;
 
   detailTask: any;
+  tasks: any;
 
   constructor(private location: Location,
     private firebaseService: FirebaseService,
     private router: Router,
     private route: ActivatedRoute,
-    private taskmanage: TaskManageService) { }
+    private taskmanage: TaskManageService,
+    private calPercent: CalculatePercentSuccessService) { }
 
   ngOnInit() {
     // Get ID
@@ -37,6 +40,10 @@ export class DoneChecklistComponent implements OnInit {
 
     this.firebaseService.getTaskDetail(this.uid,this.chaId,this.taskId).subscribe(detailTask =>{
       this.detailTask = detailTask;
+    });
+
+    this.firebaseService.getTasksOfMyChecklistChallenge(this.uid,this.chaId).subscribe(tasks =>{
+      this.tasks = tasks;
     })
     
 
@@ -72,6 +79,7 @@ export class DoneChecklistComponent implements OnInit {
         
       }
     }
+    this.calPercent.calculateCLProgressPercent(this.uid,this.chaId,this.tasks);
     this.router.navigate(['/detailmyChecklistchallenge/'+this.chaId]);
   }
 
