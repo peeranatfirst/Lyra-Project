@@ -24,6 +24,7 @@ import { CreateTaskChecklistComponent } from "app/create-challenge/create-checkl
 import { CheckdataChecklistComponent } from "app/categoriesfeed/checklist-challenge/checkdata-checklist/checkdata-checklist.component";
 
 import { UserProfileComponent } from "app/users/user-profile/user-profile.component";
+import { DoneChecklistComponent } from "app/my-challenge/detail-my-checklist-challenge/done-checklist/done-checklist.component";
 
 const appRoutes: Routes = [
   { path: '', component: CategoriesfeedComponent },
@@ -56,7 +57,9 @@ const appRoutes: Routes = [
   { path: 'createtaskchecklist/:id', component: CreateTaskChecklistComponent},
   { path: 'checkdataChecklist', component: CheckdataChecklistComponent},
   { path: 'checkdataChecklist/:id', component: CheckdataChecklistComponent},
-  { path: 'myprofile', component: UserProfileComponent}
+  { path: 'myprofile', component: UserProfileComponent},
+  { path: 'checkPost', component: DoneChecklistComponent},
+  { path: 'checkPost/:id', component: DoneChecklistComponent}
 
 ];
 
