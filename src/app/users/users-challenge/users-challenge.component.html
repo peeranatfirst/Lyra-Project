@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of Challenge">
+    <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let cha of Challenge">
       <a [routerLink]="['/detail'+cha.cate+'/'+cha.chaId]" routerLinkActive='active' class="card-link">
         <div class="card card-inverse card-info">
           <img class="card-img-top img-fluid" src="{{cha.imgSRC}}">
