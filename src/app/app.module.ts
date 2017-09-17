@@ -49,6 +49,7 @@ import { CheckdataChecklistComponent } from "app/categoriesfeed/checklist-challe
 import { EditProfileComponent } from './users/edit-profile/edit-profile.component';
 import { UsersChallengeComponent } from './users/users-challenge/users-challenge.component';
 import { UserDetailComponent } from './users/user-profile/user-detail/user-detail.component';
+import { DoneChecklistComponent } from './my-challenge/detail-my-checklist-challenge/done-checklist/done-checklist.component';
 
 
 export const firebaseConfig = {
@@ -88,7 +89,8 @@ export const firebaseConfig = {
     CheckdataChecklistComponent,
     EditProfileComponent,
     UsersChallengeComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    DoneChecklistComponent
 
   ],
   imports: [
