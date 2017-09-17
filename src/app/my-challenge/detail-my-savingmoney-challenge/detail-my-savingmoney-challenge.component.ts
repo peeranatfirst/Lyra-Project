@@ -50,6 +50,10 @@ export class DetailMySavingmoneyChallengeComponent implements OnInit {
       $("#transactionBt").click(function () {
         document.getElementById('transaction').style.display = '';
       })
+
+      $("#closeBt").click(function () {
+        document.getElementById('transaction').style.display = 'none';
+      })
     });
 
 

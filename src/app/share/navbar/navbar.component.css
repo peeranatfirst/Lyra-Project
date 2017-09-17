@@ -13,7 +13,8 @@
     margin-top: -54px;
     position: absolute;
     margin-left: 68px;
-    font-size: 18px;
+	font-size: 18px;
+	color: #14ae4e;
 }
 .helloGuest{
 	font-weight: bold;
@@ -53,6 +54,8 @@
     padding-top: 10px;
 	color:black;
 	align-items: flex-start;
+	font-family: 'Comfortaa';
+	font-size: 15px;
 }
 /* .menu i{
 	margin:5px 0px;
@@ -69,6 +72,9 @@
 .list-group-item{
 	border: none;
 }
+/* .list-group-item:hover{
+	color: #14ae4e;
+} */
 .fa.fa-bars{
 	margin:5px 0px;
 	right: 10px;
@@ -124,6 +130,7 @@
 	border-bottom-color: #e8e8e8; 
 }
 .navbar-brand{
+	font-family: 'Comfortaa';
 	font-size: 21px;
 	font-weight: bold;
 	margin-left: 10px;

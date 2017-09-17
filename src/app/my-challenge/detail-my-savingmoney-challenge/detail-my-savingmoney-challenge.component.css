@@ -35,6 +35,10 @@ thead{
 #transactionBt{
     color: white;
 }
+#closeBt{
+    color: white;
+    border-radius: 20px;
+}
 #btn-back{
     width: auto;
     margin-top: -10px;
@@ -69,6 +73,14 @@ thead{
     height: 1rem;
     color: #fff;
     background-color: #14AE4E;
+}
+a:not([href]):not([tabindex]):hover {
+    color: white;
+    text-decoration: none;
+}
+a:not([href]):not([tabindex]) {
+    color:white;
+    text-decoration: none;
 }
 @media screen and (min-width: 767px) {
     .btn-success, .btn-primary, .btn-danger{
