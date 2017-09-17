@@ -180,7 +180,7 @@ a:hover{
 }
 .searchOpen{
 	width: 100%;
-    background-color: #292b2c;
+    background-color: #14ae4e;
 	transition:all 0.3s;
 }
 #searchX{
@@ -192,9 +192,10 @@ a:hover{
 	color:white;
 }
 .form-control{
-	width: 88%;
-    margin-left: 16px;
-    border-radius: 5.2rem;
+	width: 80%;
+	margin-left: 16px;
+	border:none;
+    border-radius: 20px;
 }
 .form-group{
 	width: 100%;
@@ -339,6 +340,7 @@ a:hover{
 	.form-control{
 		width: 95%;
 		margin-left: 16px;
-		border-radius: 5.2rem;
+		border: none;
+		border-radius: 20px;
 	}
 }

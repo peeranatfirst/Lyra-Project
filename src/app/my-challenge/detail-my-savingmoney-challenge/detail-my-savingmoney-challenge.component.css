@@ -53,6 +53,23 @@ thead{
 .badge{
     border-radius: 5.2rem;
 }
+.progress {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    font-size: .75rem;
+    line-height: 1rem;
+    text-align: center;
+    background-color: #cacaca;
+    border-radius: 1.25rem;
+    height: 8px;
+}
+.progress-bar {
+    height: 1rem;
+    color: #fff;
+    background-color: #14AE4E;
+}
 @media screen and (min-width: 767px) {
     .btn-success, .btn-primary, .btn-danger{
         border-radius: 5.2rem;

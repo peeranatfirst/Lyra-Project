@@ -13,18 +13,22 @@
             <div class="card-text">
 
               {{detailMyChallenge.challengeDescription}}
+              <br>Start Date: {{startDate}}
               <br>Duration(days) : {{detailMyChallenge.duration}} Days
               <br>Goal Amount : {{detailMyChallenge.totalAmount | currency:'THB':true:'1.0-0'}} Baht
               <br>Total Amount : {{currentBalance | currency:'THB':true:'1.0-0'}} Baht
               <br>Status : {{detailMyChallenge.challengeStatus}}
-              <br>Start Date: {{startDate}}
-              <br>
-              <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
+              <br><br><b>{{percent | number:'1.0-0'}}%</b>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+              </div>
+              <!-- <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
                     <h5><span class="badge badge-default">{{percent | number:'1.0-0'}}%</span></h5>
               </span>
               <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
                     <h5><span class="badge badge-success">{{percent | number:'1.0-0'}}% Success</span></h5>
-              </span>
+              </span> -->
 
               <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
                 <a class="btn btn-success btn-add disabled" aria-disabled="true">Add Money</a>
@@ -52,7 +56,7 @@
         </div>
       </div>
     </div>
-    
+
     <div id="transaction" style="display: none">
       <div class="row">
         <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
