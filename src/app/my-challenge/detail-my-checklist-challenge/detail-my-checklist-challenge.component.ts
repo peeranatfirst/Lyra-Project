@@ -28,6 +28,8 @@ export class DetailMyChecklistChallengeComponent implements OnInit {
   totalTask: any;
   done: any;
 
+  chaId: any;
+
   constructor(private location: Location,
     private firebaseService: FirebaseService,
     private router: Router,
@@ -43,6 +45,7 @@ export class DetailMyChecklistChallengeComponent implements OnInit {
 
     this.firebaseService.getDetailMyCLChallenge(this.uid,this.id).subscribe(detailMyChallenge =>{
       this.detailMyChallenge = detailMyChallenge;
+      this.chaId = detailMyChallenge.$key;
       this.startDate = this.dt.getDatestamp(this.detailMyChallenge.startDate); // convert timestamp to date
       this.getImgURL(this.detailMyChallenge.path);
       this.percent = this.detailMyChallenge.percent;

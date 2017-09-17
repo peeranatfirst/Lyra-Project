@@ -59,7 +59,7 @@ const appRoutes: Routes = [
   { path: 'checkdataChecklist/:id', component: CheckdataChecklistComponent},
   { path: 'myprofile', component: UserProfileComponent},
   { path: 'checkPost', component: DoneChecklistComponent},
-  { path: 'checkPost/:id', component: DoneChecklistComponent}
+  { path: 'checkPost/:id1/:id2', component: DoneChecklistComponent}
 
 ];
 
