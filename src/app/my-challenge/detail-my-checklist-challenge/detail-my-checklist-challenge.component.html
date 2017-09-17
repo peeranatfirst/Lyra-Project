@@ -47,7 +47,7 @@
         <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
         <div class="col-sm-10 col-md-8 col-lg-6">
 
-          <h3 class="chaName">Checklist</h3>
+          <h3 class="doChecklist">Do Checklist</h3>
           <div class="card" *ngFor="let cha of myTasks;">
             <div class="card-block">
               <a [routerLink]="['/checkPost/'+cha.key]">
@@ -61,13 +61,16 @@
                     </span>
                   <div class="media-body">
                     <span *ngIf="cha.lev == 'easy'" style="color:#14AE4E">
-                      <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
+                      <h6>{{cha.tName}}</h6>
+                      Level : {{cha.lev}}
                     </span>
                     <span *ngIf="cha.lev == 'medium'" style="color:#f0ad4e">
-                      <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
+                      <h6>{{cha.tName}}</h6>
+                      Level : {{cha.lev}}
                     </span>
                     <span *ngIf="cha.lev == 'hard'" style="color:#d9534f">
-                      <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
+                      <h6>{{cha.tName}}</h6>
+                      Level : {{cha.lev}}
                     </span>
                   </div>
                 </div>

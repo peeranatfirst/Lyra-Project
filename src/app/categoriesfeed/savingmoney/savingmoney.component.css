@@ -10,11 +10,15 @@
     color: white;
     padding-top: 108px;
 }
+.savingmonetText{
+    background-color: #14AE4E;
+}
 h3{
     font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding: 10px;
 }
 .container{
     margin-top: 10px;
@@ -164,7 +168,12 @@ h5 {
     }
     .savingmoney{
         color: white;
-        padding-top: 235px;
+        padding-top: 215px;
+        padding-left: 30px;
+    }
+    .savingmonetText{
+        background-color: #14AE4E;
+        border-radius: 30px;
     }
 }
 
