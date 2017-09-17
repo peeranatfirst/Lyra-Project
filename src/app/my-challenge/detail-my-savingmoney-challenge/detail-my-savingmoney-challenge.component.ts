@@ -8,6 +8,7 @@ import { DatetimestampService } from 'app/services/datetimestamp.service';
 import * as firebase from 'firebase';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
 import $ from 'jquery';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-detail-my-savingmoney-challenge',
@@ -35,7 +36,8 @@ export class DetailMySavingmoneyChallengeComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private dt: DatetimestampService,
-    private calculate :CalculatePercentSuccessService) { }
+    private calculate :CalculatePercentSuccessService,
+    private location: Location) { }
 
   ngOnInit() {
     
@@ -79,6 +81,10 @@ export class DetailMySavingmoneyChallengeComponent implements OnInit {
 
     });
     
+  }
+
+  onBack(){
+    this.location.back();
   }
 
   onCancelChallenge() {
