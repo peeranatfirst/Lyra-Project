@@ -48,18 +48,20 @@ export class DetailChecklistComponent implements OnInit {
          // Set image url
          this.imageUrl = url;
        });
+
+        const uid = this.checklistChaDetail.owner;
+        this.userinfo.getUserInfo(uid).subscribe(info => {
+          this.info = info;
+          this.displayName = this.info.name;
+          this.ownerPhoto = this.info.pathPhoto;
+        });
      });
 
      this.firebaseService.getTasksOfChecklistChallenge(this.id).subscribe(tasks =>{
        this.tasks = tasks;
      });
 
-     const uid = this.checklistChaDetail.owner;
-     this.userinfo.getUserInfo(uid).subscribe(info => {
-       this.info = info;
-       this.displayName = this.info.name;
-       this.ownerPhoto = this.info.pathPhoto;
-     });
+     
 
 
   }
