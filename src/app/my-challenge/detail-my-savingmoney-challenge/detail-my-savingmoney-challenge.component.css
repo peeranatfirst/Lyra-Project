@@ -35,6 +35,10 @@ thead{
 #transactionBt{
     color: white;
 }
+#closeBt{
+    color: white;
+    border-radius: 20px;
+}
 #btn-back{
     width: auto;
     margin-top: -10px;

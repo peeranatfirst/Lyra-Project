@@ -192,6 +192,9 @@ a:hover > .card{
     color: #fff;
     background-color: #14AE4E;
 }
+.tab-pane{
+    margin-top: 20px;
+}
 
 @media screen and (min-width: 480px) {
     .category-header{

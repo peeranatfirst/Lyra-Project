@@ -80,8 +80,8 @@ export class FirebaseService {
 
   // get My Checklist challenge's task 
   getTasksOfMyChecklistChallenge(uid, key){
-    this.mytasks = this.af.database.list('/users/'+uid+'/Challenges/'+key+'/tasks' ) as FirebaseListObservable<myDoingTasks[]>;
-    return this.tasks;
+    this.mytasks = this.af.database.list('/users/'+uid+'/Challenges/'+ key +'/tasks' ) as FirebaseListObservable<myDoingTasks[]>;
+    return this.mytasks;
   }
 
 

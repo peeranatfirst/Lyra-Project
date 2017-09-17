@@ -21,20 +21,17 @@ export class TaskManageService {
     this.checklistDetails = checklistdetail;
     this.tasks = task;
     this.uid = uid;
-    console.log(checklistdetail);
     const promise = new Promise((resolve, reject) => {
       resolve(firebase.database().ref('/users/'+this.uid+'/Challenges').push().key);
     }).then((val) => {
-      console.log(val);
       firebase.database().ref('/users/'+ this.uid +'/Challenges/'+val).set(this.checklistDetails);
-      console.log(this.checklistDetails);
       return val;
     }).then((val)=>{
       for(var i=0; i<this.tasks.length ;i++){
         const obj = {
           taskName : task[i].taskName,
           level : task[i].level,
-          taskStatus : "undone"
+          taskStatus : "uncheck"
         }
         firebase.database().ref('/users/'+this.uid+'/Challenges/'+val).child('tasks').push(obj);
       }

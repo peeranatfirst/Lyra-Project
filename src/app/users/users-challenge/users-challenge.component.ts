@@ -31,25 +31,25 @@ export class UsersChallengeComponent implements OnInit {
             
         const query = firebase.database().ref("AllChallenge").orderByKey();
         query.once("value")
-        
-          .then((snapshot)=> {
+
+          .then((snapshot) => {
             snapshot.forEach((childSnapshot) => {
               key = childSnapshot.key;
-              const subQuery = firebase.database().ref("AllChallenge/"+key).orderByKey();
+              const subQuery = firebase.database().ref("AllChallenge/" + key).orderByKey();
               subQuery.once("value")
-                .then((thirdSnapshot)=>{
+                .then((thirdSnapshot) => {
                   var data = thirdSnapshot.val();
                   var user = auth.uid;
-                  if(data.owner === user){
+                  if (data.owner === user) {
                     path = data.path;
                     const storage = firebase.storage();
                     const pathRef = storage.ref();
-                    const promise = new Promise((resolve, reject)=> {
-                        resolve(pathRef.child(path).getDownloadURL());
+                    const promise = new Promise((resolve, reject) => {
+                      resolve(pathRef.child(path).getDownloadURL());
                     });
                     promise.then((res) => {
-                        imgPath =  res ; 
-                        return imgPath ;
+                      imgPath = res;
+                      return imgPath;
                     }).then((res) => {
                         idKey = thirdSnapshot.key;
                         name = data.challengeName;
@@ -62,7 +62,7 @@ export class UsersChallengeComponent implements OnInit {
                         this.Challenge.push(obj);
                     }) 
                   }
-                }) 
+                })
             });
           })
       }

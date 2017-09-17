@@ -13,32 +13,28 @@
             <div class="card-text">
 
               {{detailMyChallenge.challengeDescription}}
-              <br>Duration(days) : {{detailMyChallenge.duration}} Days
-              <br>Done :  Task
-              <br>Total :  Tasks 
-              <br>Status : {{detailMyChallenge.challengeStatus}}
               <br>Start Date: {{startDate}}
-              <br>
-              <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
-                    <h5><span class="badge badge-default">{{percent | number:'1.0-0'}}%</span></h5>
-              </span>
-              <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
-                    <h5><span class="badge badge-success">{{percent | number:'1.0-0'}}% Success</span></h5>
-              </span>
+              <br>Duration(days) : {{detailMyChallenge.duration}} Days
+              <br>Done : {{done}} Task
+              <br>Total : {{totalTask}} Tasks
+              <br>Status : {{detailMyChallenge.challengeStatus}}
+              <br><br><b>{{percent | number:'1.0-0'}}%</b>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+              </div>
 
-              
-
-              
-              <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'processing'">
+              <div align="center">
+                <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'processing'">
                 <a (click)="onCancelChallenge()" role="button" class="btn btn-danger bth-delete">Cancel Challenge</a>
               </span>
-              <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
+                <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
                 <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
               </span>
-              <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
+                <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
                 <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
               </span>
-
+              </div>
             </div>
           </div>
         </div>
@@ -50,28 +46,38 @@
         <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
         <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
         <div class="col-sm-10 col-md-8 col-lg-6">
+
+          <h3 class="chaName">Checklist</h3>
           <div class="card" *ngFor="let cha of myTasks;">
             <div class="card-block">
-              <div class="media">
-                <img width="40px" class="rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fchecklist.png?alt=media&token=90ec984a-ee15-42d8-9582-54c6d0846a56">
-                <div class="media-body">
-                  <span *ngIf="cha.lev == 'easy'" style="color:#14AE4E">
-                    <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
-                  </span>
-                  <span *ngIf="cha.lev == 'medium'" style="color:#f0ad4e">
-                    <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
-                  </span>
-                  <span *ngIf="cha.lev == 'hard'" style="color:#d9534f">
-                    <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
-                  </span>
+              <a [routerLink]="['/checkPost/'+cha.key]">
+                <!-- cha.tStatus for checking if status is checked or unchecked -->
+                <div class="media">
+                    <span *ngIf="cha.tStatus == 'uncheck'">
+                      <img width="40px" class="rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fcheck-unmark.png?alt=media&token=d3afd7d8-494f-4453-8879-546f4eb8c13d">
+                    </span>
+                    <span *ngIf="cha.tStatus == 'check'">
+                      <img width="40px" class="rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fcheck-mark%20.png?alt=media&token=a6a50b39-d025-4c3c-af9b-e794c9fec692">
+                    </span>
+                  <div class="media-body">
+                    <span *ngIf="cha.lev == 'easy'" style="color:#14AE4E">
+                      <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
+                    </span>
+                    <span *ngIf="cha.lev == 'medium'" style="color:#f0ad4e">
+                      <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
+                    </span>
+                    <span *ngIf="cha.lev == 'hard'" style="color:#d9534f">
+                      <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
+
 
     <div class="row">
       <div class="col-sm-12" align="center">

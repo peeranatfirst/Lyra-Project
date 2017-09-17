@@ -3,7 +3,7 @@ import { AngularFire } from 'angularfire2';
 import { Router } from '@angular/router';
 import { GetUserInfoService } from "app/services/get-user-info.service";
 import { FirebaseService } from "app/services/firebase.service";
-
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-user-detail',
@@ -17,23 +17,43 @@ export class UserDetailComponent implements OnInit {
   displayPhoto: any;
   description: any;
   userInfo: any;
+
+  challengeNum: any;
   
   constructor(private user: GetUserInfoService,
-  private af: AngularFire) { }
+    private af: AngularFire) { }
 
   ngOnInit() {
-    this.af.auth.subscribe(auth =>{
-      if(auth){
+    this.af.auth.subscribe(auth => {
+      if (auth) {
         this.uid = auth.uid;
-        this.user.getUserInfo(this.uid).subscribe(info =>{
+        this.user.getUserInfo(this.uid).subscribe(info => {
           this.userInfo = info;
           this.displayName = this.user.getName(info);
-          // console.log(this.displayName);
           this.displayPhoto = this.user.getDisplayPhoto(info);
-          // console.log(this.displayPhoto);
           this.description = this.user.getDescription(info);
-          // console.log(this.description);
         })
+
+
+        let key;
+        let num = 0;
+        const query = firebase.database().ref("AllChallenge").orderByKey();
+        query.once("value")
+          .then((snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+              key = childSnapshot.key;
+              const subQuery = firebase.database().ref("AllChallenge/" + key).orderByKey();
+              subQuery.once("value")
+                .then((thirdSnapshot) => {
+                  var data = thirdSnapshot.val();
+                  var user = auth.uid;
+                  if (data.owner === user) {
+                    num = num + 1;
+                    this.challengeNum = num; // should improve
+                  }
+                })
+            })
+          })
       }
     });
   }
