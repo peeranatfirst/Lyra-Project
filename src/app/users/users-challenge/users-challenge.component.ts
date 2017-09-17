@@ -25,7 +25,7 @@ export class UsersChallengeComponent implements OnInit {
     this.Challenge = new Array();
     let imgPath;
     this.af.auth.subscribe(auth =>{
-      let key, name, chaDes, owner, category, date, time, path;
+      let key, name, chaDes, owner, category, date, time, path, idKey;
       
       if(auth){   
             
@@ -51,14 +51,14 @@ export class UsersChallengeComponent implements OnInit {
                         imgPath =  res ; 
                         return imgPath ;
                     }).then((res) => {
+                        idKey = thirdSnapshot.key;
                         name = data.challengeName;
                         chaDes = data.challengeDescription;
                         owner = data.owner;
                         category = data.category;
                         date = this.dt.getDatestamp(data.datetimestamp);
                         time = this.dt.getTimestamp(data.datetimestamp);
-                        const obj = {chaId: key, chaName: name, description: chaDes, thisDay: date, thisTime: time, imgSRC: imgPath, cate: category, ownId: owner};
-                        console.log(obj);
+                        const obj = {chaId: idKey, chaName: name, description: chaDes, thisDay: date, thisTime: time, imgSRC: imgPath, cate: category, ownId: owner};
                         this.Challenge.push(obj);
                     }) 
                   }

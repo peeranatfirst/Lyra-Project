@@ -10,6 +10,7 @@ export class TaskManageService {
   tasks:any;
   uid: any;
 
+
   constructor(
     private af: AngularFire,
     private router: Router,
@@ -42,6 +43,4 @@ export class TaskManageService {
     return "should be fix";
     
   }
-
-
 }

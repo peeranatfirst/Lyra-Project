@@ -70,6 +70,14 @@ thead{
     color: #fff;
     background-color: #14AE4E;
 }
+a:not([href]):not([tabindex]):hover {
+    color: white;
+    text-decoration: none;
+}
+a:not([href]):not([tabindex]) {
+    color:white;
+    text-decoration: none;
+}
 @media screen and (min-width: 767px) {
     .btn-success, .btn-primary, .btn-danger{
         border-radius: 5.2rem;

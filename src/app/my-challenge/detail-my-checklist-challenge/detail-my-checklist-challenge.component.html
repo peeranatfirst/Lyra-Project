@@ -1,36 +1,85 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          Drink Starbucks coffee 3 cups
-        </div>
-        <div class="card-block">
-          <div class="row">
-            <div class="col-sm-5">
-              <h4 class="card-title">Drink Starbucks coffee 3 cups</h4>
-              <p class="card-text">{{detailMyChallenge.challengeDescription}}</p>
-              <p class="card-text">Expired Date: {{startDate}}<br>
-              </p><br>
-              <form>
-                <label class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Check this !!</span>
-                </label>
-                <button type="submit" value="Submit" class="btn btn-warning">
-                        Confirm !
-                      </button>
-              </form>
-            </div>
-            <br>
-            <div class="col-sm-7">
-              <img src="https://www.thesun.co.uk/wp-content/uploads/2017/03/nintchdbpict000308845446.jpg?strip=all&quality=100&w=960" class="img-fluid">
+<div *ngIf="detailMyChallenge">
+  <div class="container">
+    <div class="row detailcard">
+      <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+      <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+      <div class="col-sm-10 col-md-8 col-lg-6">
+        <div class="card card-info">
+          <img src="{{imgURL}}" class="card-img-top img-fluid">
+          <div class="card-block">
+            <h3 class="card-title chaName">
+              <b>{{detailMyChallenge.challengeName}}</b>
+            </h3>
+            <div class="card-text">
+
+              {{detailMyChallenge.challengeDescription}}
+              <br>Duration(days) : {{detailMyChallenge.duration}} Days
+              <br>Done :  Task
+              <br>Total :  Tasks 
+              <br>Status : {{detailMyChallenge.challengeStatus}}
+              <br>Start Date: {{startDate}}
+              <br>
+              <span *ngIf="detailMyChallenge.challengeStatus != 'Achieved'">
+                    <h5><span class="badge badge-default">{{percent | number:'1.0-0'}}%</span></h5>
+              </span>
+              <span *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
+                    <h5><span class="badge badge-success">{{percent | number:'1.0-0'}}% Success</span></h5>
+              </span>
+
+              
+
+              
+              <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'processing'">
+                <a (click)="onCancelChallenge()" role="button" class="btn btn-danger bth-delete">Cancel Challenge</a>
+              </span>
+              <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
+                <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
+              </span>
+              <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
+                <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
+              </span>
+
             </div>
           </div>
-
         </div>
       </div>
     </div>
+
+    <div class="taskchecklist">
+      <div class="row">
+        <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+        <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+        <div class="col-sm-10 col-md-8 col-lg-6">
+          <div class="card" *ngFor="let cha of myTasks;">
+            <div class="card-block">
+              <div class="media">
+                <img width="40px" class="rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fchecklist.png?alt=media&token=90ec984a-ee15-42d8-9582-54c6d0846a56">
+                <div class="media-body">
+                  <span *ngIf="cha.lev == 'easy'" style="color:#14AE4E">
+                    <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
+                  </span>
+                  <span *ngIf="cha.lev == 'medium'" style="color:#f0ad4e">
+                    <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
+                  </span>
+                  <span *ngIf="cha.lev == 'hard'" style="color:#d9534f">
+                    <h6 class="mt-2">{{cha.tName}} : {{cha.lev}}</h6>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="row">
+      <div class="col-sm-12" align="center">
+        <br>
+        <a (click)="onBack()" class="btn btn-danger" id="btn-back">
+            <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
+        </a>
+        <br><br>
+      </div>
+    </div>
   </div>
-</div>
