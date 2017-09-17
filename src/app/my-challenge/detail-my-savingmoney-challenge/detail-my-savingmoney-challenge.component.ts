@@ -9,6 +9,7 @@ import * as firebase from 'firebase';
 import { CalculatePercentSuccessService } from 'app/services/calculate-percent-success.service';
 import $ from 'jquery';
 import { Location } from "@angular/common";
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-my-savingmoney-challenge',
@@ -30,6 +31,8 @@ export class DetailMySavingmoneyChallengeComponent implements OnInit {
   startDate: any;
   uid:any;
 
+  closeResult: string;
+
   constructor(
     private firebaseService: FirebaseService,
     private AddMoneyService: AddMoneyService,
@@ -37,7 +40,9 @@ export class DetailMySavingmoneyChallengeComponent implements OnInit {
     private route: ActivatedRoute,
     private dt: DatetimestampService,
     private calculate :CalculatePercentSuccessService,
-    private location: Location) { }
+    private location: Location,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit() {
     
@@ -116,4 +121,5 @@ export class DetailMySavingmoneyChallengeComponent implements OnInit {
         this.imgURL=val;
       });
    }
+
 }
