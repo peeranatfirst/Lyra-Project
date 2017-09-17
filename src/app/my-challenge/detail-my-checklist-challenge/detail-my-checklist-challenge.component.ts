@@ -25,6 +25,9 @@ export class DetailMyChecklistChallengeComponent implements OnInit {
   tasks: any;
   myTasks: any[];
 
+  totalTask: any;
+  done: any;
+
   constructor(private location: Location,
     private firebaseService: FirebaseService,
     private router: Router,
@@ -47,15 +50,22 @@ export class DetailMyChecklistChallengeComponent implements OnInit {
         this.percent = 100;
       }
 
+      
+
     })
 
     this.firebaseService.getTasksOfMyChecklistChallenge(this.uid,this.id).subscribe(detailTasks =>{
       this.tasks = detailTasks;
+      this.totalTask = detailTasks.length;
+      let checked = 0;
       this.myTasks = new Array();
       this.tasks.forEach(element => {
         this.myTasks.push({ key: element.$key, tName: element.taskName, lev: element.level, tStatus: element.taskStatus });
+        if(element.taskStatus === "checked"){
+          checked = checked +1;
+        }
       });
-
+      this.done = checked;
     })
   }
 

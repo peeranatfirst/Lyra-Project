@@ -34,7 +34,7 @@ export class TaskManageService {
         const obj = {
           taskName : task[i].taskName,
           level : task[i].level,
-          taskStatus : "undone"
+          taskStatus : "uncheck"
         }
         firebase.database().ref('/users/'+this.uid+'/Challenges/'+val).child('tasks').push(obj);
       }
