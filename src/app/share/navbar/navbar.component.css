@@ -69,6 +69,9 @@
 .list-group-item{
 	border: none;
 }
+/* .list-group-item:hover{
+	color: #14ae4e;
+} */
 .fa.fa-bars{
 	margin:5px 0px;
 	right: 10px;

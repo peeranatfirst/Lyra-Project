@@ -58,6 +58,7 @@ export class UsersChallengeComponent implements OnInit {
                         date = this.dt.getDatestamp(data.datetimestamp);
                         time = this.dt.getTimestamp(data.datetimestamp);
                         const obj = {chaId: key, chaName: name, description: chaDes, thisDay: date, thisTime: time, imgSRC: imgPath, cate: category, ownId: owner};
+                        console.log(obj);
                         this.Challenge.push(obj);
                     }) 
                   }
