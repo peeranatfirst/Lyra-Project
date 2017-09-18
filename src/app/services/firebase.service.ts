@@ -20,6 +20,8 @@ export class FirebaseService {
   detailMySMChallenge: FirebaseObjectObservable<any>;
   detailMyCLChallenge: FirebaseObjectObservable<any>;
 
+  detailOfTask: FirebaseObjectObservable<any>;
+
   constructor(
     private af: AngularFire,
     private router: Router,
@@ -83,6 +85,29 @@ export class FirebaseService {
     this.mytasks = this.af.database.list('/users/'+uid+'/Challenges/'+ key +'/tasks' ) as FirebaseListObservable<myDoingTasks[]>;
     return this.mytasks;
   }
+
+  // get My Checklist Task's Detail
+  getTaskDetail(uid,chaKey,taskKey){
+    this.detailOfTask = this.af.database.object('/users/'+uid+'/Challenges/'+chaKey+'/tasks/'+taskKey) as FirebaseObjectObservable<myDoingTasks[]>;
+    return this.detailOfTask;
+  }
+
+  getTaskName(taskDetail: myDoingTasks){
+    return taskDetail.taskName;
+  }
+
+  getTaskLevel(taskDetail: myDoingTasks){
+    return taskDetail.level;
+  }
+
+  getTaskStatus(taskDetail: myDoingTasks){
+    return taskDetail.taskStatus;
+  }
+
+  getTaskKey(taskDetail: myDoingTasks){
+    return taskDetail.$key;
+  }
+
 
 
 

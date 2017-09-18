@@ -7,6 +7,7 @@ import { routing } from '../../app.routing';
 import { FirebaseService } from "app/services/firebase.service";
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { TaskManageService } from "app/services/task-manage.service";
+import { AddMoneyService } from "app/services/add-money.service";
 
 @Component({
   selector: 'app-detail-my-checklist-challenge',
@@ -28,13 +29,16 @@ export class DetailMyChecklistChallengeComponent implements OnInit {
   totalTask: any;
   done: any;
 
+  chaId: any;
+
   constructor(private location: Location,
     private firebaseService: FirebaseService,
     private router: Router,
     private route: ActivatedRoute,
     private dt: DatetimestampService,
     private calculate :CalculatePercentSuccessService,
-    private taskmanage: TaskManageService) { }
+    private taskmanage: TaskManageService,
+    private addmoney: AddMoneyService) { }
 
   ngOnInit() {
     // Get ID
@@ -43,15 +47,10 @@ export class DetailMyChecklistChallengeComponent implements OnInit {
 
     this.firebaseService.getDetailMyCLChallenge(this.uid,this.id).subscribe(detailMyChallenge =>{
       this.detailMyChallenge = detailMyChallenge;
+      this.chaId = detailMyChallenge.$key;
       this.startDate = this.dt.getDatestamp(this.detailMyChallenge.startDate); // convert timestamp to date
       this.getImgURL(this.detailMyChallenge.path);
       this.percent = this.detailMyChallenge.percent;
-      if (this.percent > 100) {
-        this.percent = 100;
-      }
-
-      
-
     })
 
     this.firebaseService.getTasksOfMyChecklistChallenge(this.uid,this.id).subscribe(detailTasks =>{
@@ -61,7 +60,7 @@ export class DetailMyChecklistChallengeComponent implements OnInit {
       this.myTasks = new Array();
       this.tasks.forEach(element => {
         this.myTasks.push({ key: element.$key, tName: element.taskName, lev: element.level, tStatus: element.taskStatus });
-        if(element.taskStatus === "checked"){
+        if(element.taskStatus === "Checked"){
           checked = checked +1;
         }
       });
@@ -78,6 +77,20 @@ export class DetailMyChecklistChallengeComponent implements OnInit {
     const pathRef = storage.ref().child(path).getDownloadURL().then((val)=>{
       this.imgURL=val;
     });
+ }
+
+ onCancelChallenge(){
+  if (confirm("Are you sure to cancel " + this.detailMyChallenge.challengeName + " Challenge?")) {
+    this.addmoney.cancelChallengeUpdate(this.uid, this.chaId);
+    this.router.navigate(['/mychallenge']);
+  }
+ }
+
+ onDeleteChallenge(){
+  if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge?")) {
+    this.addmoney.deleteChallenge(this.uid,  this.chaId);
+    this.router.navigate(['/mychallenge']);
+  }
  }
 
 }

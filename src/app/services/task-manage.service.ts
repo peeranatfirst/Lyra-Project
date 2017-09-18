@@ -40,4 +40,43 @@ export class TaskManageService {
     return "should be fix";
     
   }
+
+  checkTask(uid, chaId, taskId){
+    let stamp = firebase.database.ServerValue.TIMESTAMP;
+    const status = {
+      taskStatus: "Checked",
+      datetimeStamp: stamp
+    };
+    firebase.database().ref('/users/'+uid+'/Challenges/' + chaId+'/tasks/'+taskId).update(status);
+  }
+
+  checkTaskWithCaptionNoImage(uid, chaId, taskId, cap){
+    let stamp = firebase.database.ServerValue.TIMESTAMP;
+    const status = {
+      taskStatus: "Checked",
+      caption: cap,
+      datetimeStamp: stamp
+    }
+    firebase.database().ref('/users/'+uid+'/Challenges/' + chaId+'/tasks/'+taskId).update(status);
+  }
+
+  checkTaskWithImage(uid, chaId,taskId, cap){
+    const storageRef = firebase.storage().ref(); 
+    
+    for (const selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
+      const path = `/ChecklistReview/${chaId}${selectedFile.name}`;
+      const iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        cap.image = selectedFile.name;
+        cap.path = path;
+        const promise = new Promise((resolve, reject) => {
+          // resolve(firebase.database().ref('/AllChallenge').push().key);
+          resolve(firebase.database().ref('/users/'+uid+'/Challenges/' + chaId+'/tasks/'+taskId).update(cap));
+        }).then((val) => {
+          // firebase.database().ref('/AllChallenge/' + val).set(createSavingmoneyChallenge);
+          return val;
+        })
+      });
+    }
+  }
 }

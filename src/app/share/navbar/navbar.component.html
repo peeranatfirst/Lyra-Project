@@ -10,8 +10,8 @@
             </a>
           </span>
           <span *ngIf="(af.auth | async)">
-            <a class="list-group-item" href="#"><img class="profileBar rounded-circle" src="{{userImg}}"></a>
-            <span class="displayName" [routerLink]="['/myprofile']">{{user.auth.displayName}}</span>
+            <a class="list-group-item" [routerLink]="['/myprofile']"><img class="profileBar rounded-circle" src="{{userImg}}"></a>
+            <a [routerLink]="['/myprofile']"><span class="displayName">{{user.auth.displayName}}</span></a>
           <span class="editProfile">Edit Profile</span>
           </span>
           <span *ngIf="!(af.auth | async)">
@@ -20,7 +20,7 @@
           </span>
           <a class="list-group-item" href=""><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
           <span *ngIf="(af.auth | async)">
-              <a class="list-group-item" [routerLink]="['/mychallenge']"><i class="fa fa-address-card-o fa-fw" aria-hidden="true"></i>&nbsp; My Challenges</a>
+              <a class="list-group-item" [routerLink]="['/mychallenge']"><i class="fa fa-address-card-o fa-fw" aria-hidden="true"></i>&nbsp; My Challenge</a>
               <a class="list-group-item" [routerLink]="['/routinechallenge']"><i class="fa fa-trophy fa-fw" aria-hidden="true"></i>&nbsp; Achievement</a>
           </span>
           <a class="list-group-item" [routerLink]="['/savingmoney']"><i class="fa fa-money fa-fw" aria-hidden="true"></i>&nbsp; Saving Money Challenge</a>
