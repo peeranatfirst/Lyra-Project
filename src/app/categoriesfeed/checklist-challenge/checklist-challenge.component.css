@@ -20,6 +20,7 @@ h3{
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 10px;
+    font-size: 20px;
 }
 .container{
     margin-top: 10px;
@@ -176,6 +177,9 @@ h5 {
     background-color: #14AE4E;
     border-radius: 30px;
     width: auto;
+    }
+    h3{
+        font-size: 1.75rem;
     }
 }
 /* .card-img-top {
