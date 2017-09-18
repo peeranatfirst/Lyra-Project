@@ -103,6 +103,16 @@ export class NavbarComponent implements OnInit {
         $(".search").removeClass('searchClose');
         $(".search").addClass('searchOpen');
 
+        $(".menu").addClass('menuClose');
+        $(".menu").removeClass('menuOpen');
+
+        $(".mainOpen").addClass('mainClose');
+        $(".mainClose").removeClass('mainOpen');
+
+        $("#menuX").hide(500);
+        $(".fa-bars").show(500);
+        $(".navbar-brand").show(500);
+
         $(".notification").removeClass('notiOpen');
         $(".notification").addClass('notiClose');
         $(".noti").removeClass('triangle');
