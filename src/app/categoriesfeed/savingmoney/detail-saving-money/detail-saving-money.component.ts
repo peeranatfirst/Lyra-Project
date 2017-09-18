@@ -48,7 +48,7 @@ export class DetailSavingMoneyComponent implements OnInit {
 
     //open comment
     $(document).ready(function () {
-      $(".fa-comment-o").click(function () {
+      $("#commentBt").click(function () {
         document.getElementById('card-comment').style.display = '';
       })
 

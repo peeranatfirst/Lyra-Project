@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
 import { Location } from "@angular/common";
+import $ from 'jquery';
 
 @Component({
   selector: 'app-detail-checklist',
@@ -16,13 +17,13 @@ export class DetailChecklistComponent implements OnInit {
 
   id: any;
   checklistChaDetail: any;
-  datestamp:any;
-  timestamp:any;
+  datestamp: any;
+  timestamp: any;
   imageUrl: any;
   info: any;
-  displayName:any;
-  ownerPhoto:any;
-  tasks:any;
+  displayName: any;
+  ownerPhoto: any;
+  tasks: any;
 
 
   constructor(
@@ -34,39 +35,51 @@ export class DetailChecklistComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-     // Get id
-     this.id = this.route.snapshot.params['id'];
-     this.firebaseService.getChecklistChallengeDetails(this.id).subscribe(checklist =>{
-       this.checklistChaDetail = checklist;
 
-       this.datestamp = this.dt.getDatestamp(this.checklistChaDetail.datetimestamp);
-       this.timestamp = this.dt.getTimestamp(this.checklistChaDetail.datetimestamp);
+    //open comment
+    $(document).ready(function () {
+      $("#commentBt").click(function () {
+        document.getElementById('card-comment').style.display = '';
+      })
 
-       const storageRef = firebase.storage().ref();
-       const spaceRef = storageRef.child(checklist.path);
-       storageRef.child(checklist.path).getDownloadURL().then((url) => {
-         // Set image url
-         this.imageUrl = url;
-       });
+      $("#closeBt").click(function () {
+        document.getElementById('transaction').style.display = 'none';
+      })
+    });
 
-        const uid = this.checklistChaDetail.owner;
-        this.userinfo.getUserInfo(uid).subscribe(info => {
-          this.info = info;
-          this.displayName = this.info.name;
-          this.ownerPhoto = this.info.pathPhoto;
-        });
-     });
+    // Get id
+    this.id = this.route.snapshot.params['id'];
+    this.firebaseService.getChecklistChallengeDetails(this.id).subscribe(checklist => {
+      this.checklistChaDetail = checklist;
 
-     this.firebaseService.getTasksOfChecklistChallenge(this.id).subscribe(tasks =>{
-       this.tasks = tasks;
-     });
+      this.datestamp = this.dt.getDatestamp(this.checklistChaDetail.datetimestamp);
+      this.timestamp = this.dt.getTimestamp(this.checklistChaDetail.datetimestamp);
 
-     
+      const storageRef = firebase.storage().ref();
+      const spaceRef = storageRef.child(checklist.path);
+      storageRef.child(checklist.path).getDownloadURL().then((url) => {
+        // Set image url
+        this.imageUrl = url;
+      });
+
+      const uid = this.checklistChaDetail.owner;
+      this.userinfo.getUserInfo(uid).subscribe(info => {
+        this.info = info;
+        this.displayName = this.info.name;
+        this.ownerPhoto = this.info.pathPhoto;
+      });
+    });
+
+    this.firebaseService.getTasksOfChecklistChallenge(this.id).subscribe(tasks => {
+      this.tasks = tasks;
+    });
+
+
 
 
   }
 
-  onBack(){
+  onBack() {
     this.location.back();
   }
 
