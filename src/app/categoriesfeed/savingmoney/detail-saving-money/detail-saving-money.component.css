@@ -121,3 +121,9 @@ a:not([href]):not([tabindex]) {
     color:white;
     text-decoration: none;
 }
+input{
+    border-radius: 20px;
+}
+#comment{
+    padding-top: 14px;
+}

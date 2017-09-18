@@ -49,8 +49,9 @@
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
                 <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
               </span>
-
+              <span *ngIf="currentBalance != '0'">
                 <a class="btn btn-primary" id="transactionBt">View Transactions</a>
+              </span>
               </div>
             </div>
           </div>
@@ -74,9 +75,7 @@
               </div>
               <div align="center">
                 <span *ngIf="detailMyChallenge.challengeStatus == 'processing'">
-                  <a (click)="onDeleteTransaction(cha.key)" role="button" class="btn btn-danger" id="delete">
-                    <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
-                  </a>
+                  <a (click)="onDeleteTransaction(cha.key)" role="button" class="btn btn-danger" id="delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
                 </span>
               </div>
             </div>
