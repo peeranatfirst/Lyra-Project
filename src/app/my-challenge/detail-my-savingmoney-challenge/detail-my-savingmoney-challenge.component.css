@@ -82,6 +82,10 @@ a:not([href]):not([tabindex]) {
     color:white;
     text-decoration: none;
 }
+.pigTransaction{
+    width: 50px;
+    height: auto;
+}
 @media screen and (min-width: 767px) {
     .btn-success, .btn-primary, .btn-danger{
         border-radius: 5.2rem;
