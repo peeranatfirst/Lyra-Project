@@ -29,6 +29,7 @@
                 <a (click)="onCancelChallenge()" role="button" class="btn btn-danger bth-delete">Cancel Challenge</a>
               </span>
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
+                <a class="btn btn-success btn-add disabled" aria-disabled="true">Achieved</a>
                 <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
               </span>
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
