@@ -40,3 +40,6 @@ h3{
 .detailcard{
   padding-top: 80px;
 }
+input{
+  border-radius: 20px;
+}
