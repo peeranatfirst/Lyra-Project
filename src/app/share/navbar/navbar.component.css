@@ -166,6 +166,9 @@ a:hover{
     padding: 10px;
 	color: black;
 }
+.fa-circle{
+	color: #14ae4e;
+}
 .search{
 	width: 0px;
 	transition:all 0.3s;
