@@ -100,6 +100,9 @@ h5 {
 .card-footer > a:hover{
     text-decoration: none;
 }
+.img-fluid{
+    margin-top: 18px;
+}
 .detailcard{
     padding-top: 80px;
 }
@@ -107,11 +110,7 @@ a{
     text-decoration: none;
 }
 .chaName{
-    color: #14AE4E;
-}
-.btn-danger{
-    border-radius: 20px;
-    color: white;
+    color: #13AE4D;
 }
 a:not([href]):not([tabindex]):hover {
     color: white;
@@ -121,9 +120,98 @@ a:not([href]):not([tabindex]) {
     color:white;
     text-decoration: none;
 }
-input{
-    border-radius: 20px;
-}
 #comment{
     padding-top: 14px;
 }
+.btn-danger{
+    border-radius: 20px;
+    color: white;
+}
+.getChallengeWeb{
+    border-radius: 20px;
+    color: white;
+    position: absolute;
+    right: 16px;
+    margin-top: -38px;
+}
+.getChallengeMobile{
+    border-radius: 20px;
+    color: white;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.reviews{
+    background-color: #cacaca;
+    border-radius: 20px;
+}
+@media screen and (min-width: 480px) {
+    .getChallengeMobile{
+        border-radius: 20px;
+        color: white;
+        display: none;
+    }
+}
+@media screen and (max-width: 480px) {
+    
+    .getChallengeWeb{
+        border-radius: 20px;
+        color: white;
+        position: absolute;
+        right: 16px;
+        margin-top: -38px;
+        display: none;
+    }
+    .getChallengeMobile{
+        border-radius: 20px;
+        color: white;
+        width: 100%;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+}
+
+/* .rating {
+    float:left;
+}
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+}
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+.rating > input:checked ~ label {
+    color: gold;
+}
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+}
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+.rating[_ngcontent-c2]:not(:checked) > label[_ngcontent-c2] {
+    font-size: 25px;
+} */
