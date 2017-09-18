@@ -131,8 +131,8 @@ a:not([href]):not([tabindex]) {
     border-radius: 20px;
     color: white;
     position: absolute;
-    right: 16px;
-    margin-top: -38px;
+    right: 15px;
+    margin-top: -40px;
 }
 .getChallengeMobile{
     border-radius: 20px;
@@ -158,8 +158,8 @@ a:not([href]):not([tabindex]) {
         border-radius: 20px;
         color: white;
         position: absolute;
-        right: 16px;
-        margin-top: -38px;
+        right: 15px;
+        margin-top: -40px;
         display: none;
     }
     .getChallengeMobile{
