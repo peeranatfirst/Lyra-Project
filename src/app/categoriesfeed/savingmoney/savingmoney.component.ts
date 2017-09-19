@@ -15,6 +15,7 @@ import { GetUserInfoService } from "app/services/get-user-info.service";
 export class SavingmoneyComponent implements OnInit {
 
   listOfChallenge: any[]; // collecting Array of Object to show in feeds page
+  
 
   constructor(
     private firebaseService: FirebaseService,
@@ -67,5 +68,7 @@ export class SavingmoneyComponent implements OnInit {
       
     });
   }
+
+ 
 
 }

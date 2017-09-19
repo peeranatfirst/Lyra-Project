@@ -28,6 +28,9 @@ export class DetailSavingMoneyComponent implements OnInit {
   info: any;
   ownerPhoto: any;
   user: any;
+  uid: any;
+
+  isOwner: any;
 
   constructor(
     public af: AngularFire,
@@ -65,7 +68,6 @@ export class DetailSavingMoneyComponent implements OnInit {
       this.challengeDetail = challengeDetail;
       this.datestamp = this.dt.getDatestamp(this.challengeDetail.datetimestamp);
       this.timestamp = this.dt.getTimestamp(this.challengeDetail.datetimestamp);
-
       const storageRef = firebase.storage().ref();
       const spaceRef = storageRef.child(challengeDetail.path);
       storageRef.child(challengeDetail.path).getDownloadURL().then((url) => {
@@ -73,8 +75,14 @@ export class DetailSavingMoneyComponent implements OnInit {
         this.imageUrl = url;
       });
 
-      const uid = this.challengeDetail.owner;
-      this.userinfo.getUserInfo(uid).subscribe(info => {
+      this.uid = this.challengeDetail.owner;
+      var currentUser = firebase.auth().currentUser.uid;
+      if(this.uid == currentUser){
+        this.isOwner = true;
+      }else{
+        this.isOwner = false;
+      }
+      this.userinfo.getUserInfo(this.uid).subscribe(info => {
         this.info = info;
         this.displayName = this.info.name;
         this.ownerPhoto = this.info.pathPhoto;
@@ -87,6 +95,11 @@ export class DetailSavingMoneyComponent implements OnInit {
 
   onBack() {
     this.location.back();
+  }
+
+  onDeleteChallenge(){
+      firebase.database().ref('/AllChallenge/'+this.id).remove();
+      this.routing.navigate(['savingmoney/']);
   }
 
 }
