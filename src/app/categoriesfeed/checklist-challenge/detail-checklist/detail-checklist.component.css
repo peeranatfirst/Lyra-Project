@@ -130,6 +130,9 @@ input{
 #comment{
     padding-top: 14px;
 }
+.commentIp{
+    border-radius: 20px;
+}
 .getChallengeWeb{
     border-radius: 20px;
     color: white;
