@@ -7,6 +7,7 @@ import { AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
 import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { enableProdMode } from '@angular/core';
 
 //Component
 import { AppComponent } from './app.component';
@@ -51,6 +52,7 @@ import { UsersChallengeComponent } from './users/users-challenge/users-challenge
 import { UserDetailComponent } from './users/user-profile/user-detail/user-detail.component';
 import { DoneChecklistComponent } from './my-challenge/detail-my-checklist-challenge/done-checklist/done-checklist.component';
 import { ChecklistTaskTransactionComponent } from './my-challenge/detail-my-checklist-challenge/checklist-task-transaction/checklist-task-transaction.component';
+import { DetailStepComponent } from './categoriesfeed/step-challenge/detail-step/detail-step.component';
 
 
 export const firebaseConfig = {
@@ -92,7 +94,8 @@ export const firebaseConfig = {
     UsersChallengeComponent,
     UserDetailComponent,
     DoneChecklistComponent,
-    ChecklistTaskTransactionComponent
+    ChecklistTaskTransactionComponent,
+    DetailStepComponent
 
   ],
   imports: [
@@ -104,7 +107,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     routing,
     FlashMessagesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
 
   ],
   providers: [
