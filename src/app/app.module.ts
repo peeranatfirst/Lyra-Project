@@ -50,6 +50,7 @@ import { EditProfileComponent } from './users/edit-profile/edit-profile.componen
 import { UsersChallengeComponent } from './users/users-challenge/users-challenge.component';
 import { UserDetailComponent } from './users/user-profile/user-detail/user-detail.component';
 import { DoneChecklistComponent } from './my-challenge/detail-my-checklist-challenge/done-checklist/done-checklist.component';
+import { ChecklistTaskTransactionComponent } from './my-challenge/detail-my-checklist-challenge/checklist-task-transaction/checklist-task-transaction.component';
 
 
 export const firebaseConfig = {
@@ -90,7 +91,8 @@ export const firebaseConfig = {
     EditProfileComponent,
     UsersChallengeComponent,
     UserDetailComponent,
-    DoneChecklistComponent
+    DoneChecklistComponent,
+    ChecklistTaskTransactionComponent
 
   ],
   imports: [
