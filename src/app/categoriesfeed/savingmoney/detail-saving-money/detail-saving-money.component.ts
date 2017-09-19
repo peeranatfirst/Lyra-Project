@@ -7,6 +7,7 @@ import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
 import { AngularFire } from 'angularfire2';
 import { Location } from '@angular/common';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-detail-saving-money',
@@ -17,15 +18,15 @@ export class DetailSavingMoneyComponent implements OnInit {
   id: any;
   challengeDetail: any;
   imageUrl: any;
-  datestamp:any;
-  timestamp:any;
+  datestamp: any;
+  timestamp: any;
   challengeName: any;
   challengeDescription: any;
-  duration:any;
+  duration: any;
   totalAmount;
-  displayName:any;
-  info:any;
-  ownerPhoto:any;
+  displayName: any;
+  info: any;
+  ownerPhoto: any;
   user: any;
 
   constructor(
@@ -35,15 +36,28 @@ export class DetailSavingMoneyComponent implements OnInit {
     private route: ActivatedRoute,
     private dt: DatetimestampService,
     private location: Location,
-    private userinfo: GetUserInfoService) { 
-      this.af.auth.subscribe(auth =>{
-        if(auth){
-          this.user = auth;
-        }
-      });
-    }
+    private userinfo: GetUserInfoService) {
+    this.af.auth.subscribe(auth => {
+      if (auth) {
+        this.user = auth;
+      }
+    });
+  }
 
   ngOnInit() {
+
+    //open comment
+    $(document).ready(function () {
+      $("#commentBt").click(function () {
+        document.getElementById('card-comment').style.display = '';
+      })
+
+      $("#closeBt").click(function () {
+        document.getElementById('transaction').style.display = 'none';
+      })
+    });
+
+
     // Get id
     this.id = this.route.snapshot.params['id'];
     this.firebaseService.getChallengeDetails(this.id).subscribe(challengeDetail => {
@@ -58,20 +72,20 @@ export class DetailSavingMoneyComponent implements OnInit {
         // Set image url
         this.imageUrl = url;
       });
-      
+
       const uid = this.challengeDetail.owner;
       this.userinfo.getUserInfo(uid).subscribe(info => {
         this.info = info;
         this.displayName = this.info.name;
         this.ownerPhoto = this.info.pathPhoto;
       });
-      
-      
+
+
     });
 
   }
 
-  onBack(){
+  onBack() {
     this.location.back();
   }
 

@@ -16,19 +16,47 @@
           </span>
           <span *ngIf="!(af.auth | async)">
               <span class="helloGuest">Hello Guest</span>
-          <a class="list-group-item" (click)="login()"><i class="fa fa-sign-in fa-fw" aria-hidden="true"></i>&nbsp; Login</a>
+          <a class="list-group-item" (click)="login()"><span class="fa-stack">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-sign-in fa-stack-1x fa-inverse"></i>
+            </span>&nbsp; Login</a>
           </span>
-          <a class="list-group-item" href=""><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
+          <a class="list-group-item" href="">
+            <span class="fa-stack">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+            </span>&nbsp; Home</a>
           <span *ngIf="(af.auth | async)">
-              <a class="list-group-item" [routerLink]="['/mychallenge']"><i class="fa fa-address-card-o fa-fw" aria-hidden="true"></i>&nbsp; My Challenge</a>
-              <a class="list-group-item" [routerLink]="['/routinechallenge']"><i class="fa fa-trophy fa-fw" aria-hidden="true"></i>&nbsp; Achievement</a>
+              <a class="list-group-item" [routerLink]="['/mychallenge']"><span class="fa-stack">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-address-card-o fa-stack-1x fa-inverse"></i>
+                </span>&nbsp; My Challenge</a>
+              <a class="list-group-item" [routerLink]="['/routinechallenge']"><span class="fa-stack">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-trophy fa-stack-1x fa-inverse"></i>
+                </span>&nbsp; Achievement</a>
           </span>
-          <a class="list-group-item" [routerLink]="['/savingmoney']"><i class="fa fa-money fa-fw" aria-hidden="true"></i>&nbsp; Saving Money Challenge</a>
-          <a class="list-group-item" [routerLink]="['/checklistChallenge']"><i class="fa fa-check-circle-o fa-fw" aria-hidden="true"></i>&nbsp; Checklist Challenge</a>
-          <a class="list-group-item" [routerLink]="['/routinechallenge']"><i class="fa fa-list fa-fw" aria-hidden="true"></i>&nbsp; Step Challenge</a>
-          <a class="list-group-item" [routerLink]="['/routinechallenge']"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp; Routine Challenge</a>
+          <a class="list-group-item" [routerLink]="['/savingmoney']"><span class="fa-stack">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-money fa-stack-1x fa-inverse"></i>
+            </span>&nbsp; Saving Money Challenge</a>
+          <a class="list-group-item" [routerLink]="['/checklistChallenge']"><span class="fa-stack">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-check-circle-o fa-stack-1x fa-inverse"></i>
+            </span>&nbsp; Checklist Challenge</a>
+          <a class="list-group-item" [routerLink]="['/routinechallenge']"><span class="fa-stack">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-list fa-stack-1x fa-inverse"></i>
+            </span>&nbsp; Step Challenge</a>
+          <a class="list-group-item" [routerLink]="['/routinechallenge']"><span class="fa-stack">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-calendar fa-stack-1x fa-inverse"></i>
+            </span>&nbsp; Routine Challenge</a>
           <span *ngIf="(af.auth | async)">
-              <a class="list-group-item" (click)="logout()"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>&nbsp; Logout</a>
+              <a class="list-group-item" (click)="logout()"><span class="fa-stack">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-sign-out fa-stack-1x fa-inverse"></i>
+                </span>&nbsp; Logout</a>
             </span>
         </div>
       </div>
