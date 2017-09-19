@@ -35,7 +35,7 @@
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
                 <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
               </span>
-              <span class="delete">
+                <span class="delete">
                 <a [routerLink]="['/checkHistory/'+chaId]" role="button" class="btn btn-danger bth-delete">View Task History</a>
               </span>
               </div>
@@ -57,12 +57,14 @@
               <div>
                 <!-- cha.tStatus for checking if status is checked or unchecked -->
                 <div class="media">
-                    <span *ngIf="cha.tStatus == 'uncheck'" [routerLink]="['/checkPost/'+chaId+'/'+cha.key]">
-                      <img class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fcheck-unmark.png?alt=media&token=d3afd7d8-494f-4453-8879-546f4eb8c13d">
-                    </span>
-                    <span *ngIf="cha.tStatus == 'Checked'">
-                      <img width="40px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fcheck-mark%20.png?alt=media&token=a6a50b39-d025-4c3c-af9b-e794c9fec692">
-                    </span>
+                  <span *ngIf="cha.tStatus == 'uncheck'" [routerLink]="['/checkPost/'+chaId+'/'+cha.key]">
+                      <a>
+                        <img class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fcheck-unmark.png?alt=media&token=d3afd7d8-494f-4453-8879-546f4eb8c13d">
+                      </a>
+                      </span>
+                  <span *ngIf="cha.tStatus == 'Checked'">
+                    <img width="40px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fcheck-mark%20.png?alt=media&token=a6a50b39-d025-4c3c-af9b-e794c9fec692">
+                  </span>
                   <div class="media-body">
                     <span *ngIf="cha.lev == 'easy'" style="color:#14AE4E">
                       <h6>{{cha.tName}}</h6>
@@ -78,7 +80,8 @@
                     </span>
                   </div>
                 </div>
-              </div> <!-- changed from a tag -->
+              </div>
+              <!-- changed from a tag -->
             </div>
           </div>
         </div>

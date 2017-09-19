@@ -123,6 +123,9 @@ a:not([href]):not([tabindex]) {
 #comment{
     padding-top: 14px;
 }
+.commentIp{
+    border-radius: 20px;
+}
 .btn-danger{
     border-radius: 20px;
     color: white;
