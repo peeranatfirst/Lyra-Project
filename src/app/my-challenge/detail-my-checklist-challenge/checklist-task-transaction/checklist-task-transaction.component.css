@@ -33,13 +33,14 @@
     font-weight: 700;
     line-height: 1.2857em;
     color: black;
+    margin-bottom: 0;
 }
 
-.card-text {
+/* .card-text {
     clear: both;
     margin-top: .5em;
     color: rgba(0, 0, 0, .68);
-}
+} */
 
 .card-footer {
     font-size: 1em;
