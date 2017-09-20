@@ -19,8 +19,7 @@
               <br> Total Amount : {{challengeDetail.totalAmount}} Baht
               <img src="{{imageUrl}}" class="img-fluid">
               <br><a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="btn btn-success getChallengeMobile">Get Challenge</a>
-              <span *ngIf="challengeDetail.isOwner == true">
-                555
+              <span>
                 <a (click)="onDeleteChallenge()" class="btn btn-danger getChallengeMobile">Delete Challenge</a>
               </span>
               <!-- <h5>Ratings & Reviews</h5> -->
