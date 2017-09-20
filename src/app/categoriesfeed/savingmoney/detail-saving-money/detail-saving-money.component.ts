@@ -82,6 +82,7 @@ export class DetailSavingMoneyComponent implements OnInit {
       }else{
         this.isOwner = false;
       }
+      console.log("isOwner "+this.isOwner);
       this.userinfo.getUserInfo(this.uid).subscribe(info => {
         this.info = info;
         this.displayName = this.info.name;
