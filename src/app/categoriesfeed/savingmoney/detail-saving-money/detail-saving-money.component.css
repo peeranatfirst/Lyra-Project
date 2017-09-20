@@ -151,6 +151,12 @@ a:not([href]):not([tabindex]) {
     background-color: #cacaca;
     border-radius: 20px;
 }
+.deleteCha{
+    position: absolute;
+    display: inherit;
+    right: 16px;
+    margin-top: 5px;
+}
 @media screen and (min-width: 480px) {
     .getChallengeMobile{
         border-radius: 20px;

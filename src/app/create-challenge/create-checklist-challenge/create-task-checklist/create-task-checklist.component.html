@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row content">
-    <div class="col-sm-2 flex-first"></div>
-    <div class="col-sm-2 flex-last"></div>
-    <div class="col-sm-8">
+    <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+    <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+    <div class="col-sm-10 col-md-8 col-lg-6">
       <h1><b>Add your task</b></h1>
+      <br>
       <div class="card">
         <div class="card-block">
           <div>
@@ -52,7 +53,7 @@
         <form ngNativeValidate (submit)="onAddTask()" #createTasks='ngForm'>
           <div class="col-sm-12 btn-submit">
             <button type="submit" value="Submit" class="btn btn-warning">
-                    <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
+                    Create Challenge
                   </button>
           </div>
         </form>

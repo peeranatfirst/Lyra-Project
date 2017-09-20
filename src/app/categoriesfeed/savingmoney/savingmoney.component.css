@@ -90,7 +90,7 @@ h5 {
     max-width: 100%;
     padding: .75em 1em;
     color: rgba(0, 0, 0, .4);
-    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+    /* border-top: 1px solid rgba(0, 0, 0, .05) !important; */
     background: white;
     color: black;
 }
@@ -158,6 +158,27 @@ h5 {
     font-weight: bold;
     font-size: 20px;
     color: #14AE4E;
+}
+.fa-inverse {
+    color: #fff;
+    font-size: 2px;
+}
+#heart{
+    color: #f25268;
+    font-size: 30px;
+}
+#comment{
+    color: #4080ff;
+    font-size: 30px;
+}
+.likeNumber{
+    margin-left: 33px;
+}
+.commentNumber{
+    margin-left: 33px;
+}
+.space{
+    margin: 0 15px 0 15px;
 }
 @media screen and (min-width: 480px) {
     .category-header{
