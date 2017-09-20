@@ -24,6 +24,7 @@ import { CreateSavingmoneyChallengeComponent } from './create-challenge/create-s
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { EmailComponent } from './authentication/email/email.component';
+import { CreateStepChallengeComponent } from "app/create-challenge/create-step-challenge/create-step-challenge.component";
 
 
 //Directives
@@ -53,6 +54,7 @@ import { UserDetailComponent } from './users/user-profile/user-detail/user-detai
 import { DoneChecklistComponent } from './my-challenge/detail-my-checklist-challenge/done-checklist/done-checklist.component';
 import { ChecklistTaskTransactionComponent } from './my-challenge/detail-my-checklist-challenge/checklist-task-transaction/checklist-task-transaction.component';
 import { DetailStepComponent } from './categoriesfeed/step-challenge/detail-step/detail-step.component';
+import { CreateTaskStepComponent } from './create-challenge/create-step-challenge/create-task-step/create-task-step.component';
 
 
 export const firebaseConfig = {
@@ -95,7 +97,9 @@ export const firebaseConfig = {
     UserDetailComponent,
     DoneChecklistComponent,
     ChecklistTaskTransactionComponent,
-    DetailStepComponent
+    DetailStepComponent,
+    CreateTaskStepComponent,
+    CreateStepChallengeComponent
 
   ],
   imports: [
@@ -107,8 +111,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     routing,
     FlashMessagesModule,
-    BrowserAnimationsModule,
-
+    BrowserAnimationsModule
   ],
   providers: [
     FirebaseService,

@@ -1,3 +1,61 @@
-<p>
-  create-step-challenge works!
-</p>
+<div class="container">
+  <div class="row content">
+    <div class="col-sm-2 flex-first"></div>
+    <div class="col-sm-2 flex-last"></div>
+    <div class="col-sm-8">
+      <h1><b>Create</b></h1>
+      <h4><b>Step Challenge</b></h4>
+      <br>
+      <form ngNativeValidate (submit)="onAddSubmit()" #stepForm="ngForm">
+        <div class="card">
+          <div class="card-block">
+            <div class="form-group no-border">
+              <label for="challengeName">Challenge Name</label>
+              <input type="text" class="form-control" [(ngModel)]="challengeName" name="challengeName" required minlength="5" #challengeName1="ngModel">
+              <div *ngIf="challengeName1.errors && (challengeName1.dirty || challengeName1.touched)" class="alert alert-danger">
+                <div [hidden]="!challengeName1.errors.required">
+                  Challenge Name is required !
+                </div>
+                <div [hidden]="!challengeName1.errors.minlength">
+                  Challenge Name will be minimum of 5 characters..
+                </div>
+              </div>
+            </div>
+            <div class="form-group no-border">
+              <label>Challenge Description</label>
+              <input type="text" class="form-control" [(ngModel)]="challengeDescription" name="challengeDescription">
+            </div>
+            <div class="form-group no-border">
+              <label>Duration (days)</label>
+              <input type="number" class="form-control" [(ngModel)]="duration" name="duration" required #duration1="ngModel" min="0" max="999999999999"
+                step="1">
+              <div *ngIf="duration1.errors && (duration1.dirty || duration1.touched)" class="alert alert-danger">
+                <div [hidden]="!duration1.errors.required">
+                  Duration is required !
+                </div>
+              </div>
+            </div>
+            <div class="form-group no-border">
+              <label>Upload image of Challenge</label>
+              <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image">
+            </div>
+            <div class="col-sm-12 btn-submit">
+              <!--  <a [routerLink]="['/createtaskchecklist']" routerLinkActive="active" class="card-link">-->
+              <button type="submit" value="Submit" class="btn btn-warning" [disabled]="!stepForm.form.valid">
+                  Add your step
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-sm-12" align="center">
+      <a [routerLink]="['/selectCategory']" class="btn btn-danger">
+          <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
+        </a>
+    </div>
+  </div>
+</div>
+<br>

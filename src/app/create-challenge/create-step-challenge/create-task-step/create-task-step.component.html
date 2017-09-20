@@ -1,0 +1,54 @@
+<div class="container">
+        <div class="row content">
+          <div class="col-sm-2 flex-first"></div>
+          <div class="col-sm-2 flex-last"></div>
+          <div class="col-sm-8">
+            <h1><b>Add your task</b></h1>
+            <div class="card">
+              <div class="card-block">
+                <div>
+                  <span class="chaName"><h3><b>challenge name</b></h3></span> description
+                </div>
+                <p>
+                  <div class="card-task" *ngFor="let cha of stepCha; let i=index;">
+                    <div class="card-addtask">
+                      <b>step No.{{cha.stepNo}}:</b> {{cha.stepname}}
+                      <p>
+                    </div>
+                  </div>
+              </div>
+              <form ngNativeValidate (submit)="onAddSubmit(formData)" #formData='ngForm'>
+                <div class="card-block">
+                  <div class="form-group no-border">
+                    <div class="input_fields_wrap">
+                      <div class="row">
+                        <div class="col">
+                          Step Name
+                          <input type="text" class="form-control" [(ngModel)]="stepName" name="stepName" required  #stepName1="ngModel"
+                            placeholder="Step name">
+                        </div>
+                        
+                        <div class="col col-lg-2">
+                          <br>
+                          <button type="submit" value="Submit" class="btn btn-danger">
+                              <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+      
+                  </div>
+                </div>
+              </form>
+      
+            <!--  <form ngNativeValidate (submit)="onAddTask()" #createTasks='ngForm'>
+                <div class="col-sm-12 btn-submit">
+                  <button type="submit" value="Submit" class="btn btn-warning">
+                          <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Create Challenge
+                        </button>
+                </div>
+              </form>-->
+              <br>
+            </div>
+          </div>
+        </div>

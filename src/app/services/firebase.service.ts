@@ -145,6 +145,9 @@ export class FirebaseService {
     return challengeslist.taskAmount;
   }
 
+  getStepAmountOfChallenge(challengeslist: stepChallengeList){
+    return challengeslist.stepAmount;
+  }
 
   // Return balance
   getTransactionBalance(transactionBalance: myBalance) {
@@ -207,6 +210,18 @@ interface checklistChallengeList {
   owner?: string;
   category?: string;
   taskAmount?: string;
+}
+
+interface stepChallengeList {
+  $key?: string;
+  challengeName?: string;
+  challengeDescription?: string;
+  duration?: string;
+  path?: string;
+  datetimestamp?: string;
+  owner?: string;
+  category?: string;
+  stepAmount?: string;
 }
 
 interface myChallengesList {

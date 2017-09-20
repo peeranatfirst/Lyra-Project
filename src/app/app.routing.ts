@@ -22,10 +22,13 @@ import { StepChallengeComponent } from "app/categoriesfeed/step-challenge/step-c
 import { RoutineChallengeComponent } from "app/categoriesfeed/routine-challenge/routine-challenge.component";
 import { CreateTaskChecklistComponent } from "app/create-challenge/create-checklist-challenge/create-task-checklist/create-task-checklist.component";
 import { CheckdataChecklistComponent } from "app/categoriesfeed/checklist-challenge/checkdata-checklist/checkdata-checklist.component";
-
 import { UserProfileComponent } from "app/users/user-profile/user-profile.component";
 import { DoneChecklistComponent } from "app/my-challenge/detail-my-checklist-challenge/done-checklist/done-checklist.component";
 import { ChecklistTaskTransactionComponent } from "app/my-challenge/detail-my-checklist-challenge/checklist-task-transaction/checklist-task-transaction.component";
+
+import { DetailStepComponent } from "app/categoriesfeed/step-challenge/detail-step/detail-step.component";
+import { CreateStepChallengeComponent } from "app/create-challenge/create-step-challenge/create-step-challenge.component";
+import { CreateTaskStepComponent } from "app/create-challenge/create-step-challenge/create-task-step/create-task-step.component";
 
 const appRoutes: Routes = [
   { path: '', component: CategoriesfeedComponent },
@@ -61,7 +64,12 @@ const appRoutes: Routes = [
   { path: 'myprofile', component: UserProfileComponent},
   { path: 'checkPost', component: DoneChecklistComponent},
   { path: 'checkPost/:id1/:id2', component: DoneChecklistComponent},
-  { path: 'checkHistory/:id', component: ChecklistTaskTransactionComponent}
+  { path: 'checkHistory/:id', component: ChecklistTaskTransactionComponent},
+  { path: 'detailStep', component: DetailStepComponent},
+  { path: 'detailStep/:id', component: DetailStepComponent},
+  { path: 'createStepChallenge', component: CreateStepChallengeComponent},
+  { path: 'createtaskstep', component: CreateTaskStepComponent},
+  { path: 'createtaskstep/:id', component: CreateTaskStepComponent}
 
 ];
 
