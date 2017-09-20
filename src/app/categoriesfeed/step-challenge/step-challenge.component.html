@@ -8,7 +8,7 @@
     <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of listOfChallenge"><!-- ngfor put here <<<<-->
       <a [routerLink]="['/detailStep/'+cha.chaId]" routerLinkActive='active' class="card-link">
         <div class="card card-inverse card-info">
-          <img class="card-img-top img-fluid" src="">
+          <img class="card-img-top img-fluid" src="{{cha.imgSRC}}">
           <div class="card-block">
             <!-- <figure class="profile profile-inline">
                 <img src="{{cha.pic}}" class="profile-avatar" alt="">
