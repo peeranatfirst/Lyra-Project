@@ -25,6 +25,8 @@ export class DetailChecklistComponent implements OnInit {
   ownerPhoto: any;
   tasks: any;
 
+  uid: any;
+  isOwner: any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -62,8 +64,15 @@ export class DetailChecklistComponent implements OnInit {
         this.imageUrl = url;
       });
 
-      const uid = this.checklistChaDetail.owner;
-      this.userinfo.getUserInfo(uid).subscribe(info => {
+      this.uid = this.checklistChaDetail.owner;
+      var currentUser = firebase.auth().currentUser.uid;
+      if(this.uid == currentUser){
+        this.isOwner = true;
+      }else{
+        this.isOwner = false;
+      }
+
+      this.userinfo.getUserInfo(this.uid).subscribe(info => {
         this.info = info;
         this.displayName = this.info.name;
         this.ownerPhoto = this.info.pathPhoto;
@@ -81,6 +90,13 @@ export class DetailChecklistComponent implements OnInit {
 
   onBack() {
     this.location.back();
+  }
+
+  onDeleteChallenge(){
+    if (confirm("Are you sure to delete?")) {
+      firebase.database().ref('/AllChallenge/'+this.id).remove();
+      this.routing.navigate(['checklistChallenge/']);
+    }
   }
 
 }

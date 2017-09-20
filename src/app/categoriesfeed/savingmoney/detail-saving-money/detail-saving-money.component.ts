@@ -82,6 +82,7 @@ export class DetailSavingMoneyComponent implements OnInit {
       }else{
         this.isOwner = false;
       }
+
       this.userinfo.getUserInfo(this.uid).subscribe(info => {
         this.info = info;
         this.displayName = this.info.name;
@@ -98,8 +99,10 @@ export class DetailSavingMoneyComponent implements OnInit {
   }
 
   onDeleteChallenge(){
+    if (confirm("Are you sure to delete?")) {
       firebase.database().ref('/AllChallenge/'+this.id).remove();
       this.routing.navigate(['savingmoney/']);
+    }
   }
 
 }
