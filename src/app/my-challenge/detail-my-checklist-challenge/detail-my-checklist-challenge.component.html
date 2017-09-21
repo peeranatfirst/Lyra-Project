@@ -11,7 +11,6 @@
               <b>{{detailMyChallenge.challengeName}}</b>
             </h3>
             <div class="card-text">
-
               {{detailMyChallenge.challengeDescription}}
               <br>Start Date: {{startDate}}
               <br>Duration(days) : {{detailMyChallenge.duration}} Days
@@ -35,7 +34,7 @@
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
                 <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
               </span>
-                <span class="delete">
+              <span class="delete">
                 <a [routerLink]="['/checkHistory/'+chaId]" role="button" class="btn btn-primary bth-delete">View Task History</a>
               </span>
               </div>
@@ -50,7 +49,6 @@
         <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
         <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
         <div class="col-sm-10 col-md-8 col-lg-6">
-
           <h3 class="doChecklist">Do Checklist</h3>
           <div class="card" *ngFor="let cha of myTasks;">
             <div class="card-block">
