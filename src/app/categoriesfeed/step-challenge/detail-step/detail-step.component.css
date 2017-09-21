@@ -15,7 +15,7 @@ h5 {
     border: solid 1px;
     background-color: white;
     border: none;
-    border-radius: .28571429rem;
+    border-radius: 20px;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
     box-shadow: 0 6px 15px rgba(36,37,38,0.08);
     border-radius: 20px;
@@ -157,6 +157,10 @@ a:not([href]):not([tabindex]) {
     right: 16px;
     margin-top: 5px;
 }
+.doStep{    
+    color: #14AE4E;
+    font-weight: bold;
+}
 @media screen and (min-width: 480px) {
     .getChallengeMobile{
         border-radius: 20px;
@@ -232,184 +236,176 @@ a:not([href]):not([tabindex]) {
 } */
 
 
-  
-  /*===== Vertical Timeline =====*/
-  #conference-timeline {
-    position: relative;
-    max-width: 920px;
-    width: 100%;
-    margin: 0 auto;
-  }
-  #conference-timeline .timeline-start,
-  #conference-timeline .timeline-end {
-    display: table;
-    font-family: "Roboto", sans-serif;
-    font-size: 18px;
-    font-weight: 900;
-    text-transform: uppercase;
-    background: #00b0bd;
-    padding: 15px 23px;
-    color: #fff;
-    max-width: 5%;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-  }
-  #conference-timeline .conference-center-line {
-    position: absolute;
-    width: 3px;
-    height: 100%;
-    top: 0;
-    left: 50%;
-    margin-left: -2px;
-    background: #00b0bd;
-    z-index: -1;
-  }
-  #conference-timeline .conference-timeline-content {
-    padding-top: 67px;
-    padding-bottom: 67px;
-  }
-  .timeline-article {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    margin: 20px 0;
-  }
-  .timeline-article .content-left-container,
-  .timeline-article .content-right-container {
-    max-width: 44%;
-    width: 100%;
-  }
-  .timeline-article .timeline-author {
-    display: block;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    color: #242424;
-    text-align: right;
-  }
-  .timeline-article .content-left,
-  .timeline-article .content-right {
-    position: relative;
-    width: auto;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,.03);
-    padding: 27px 25px;
-  }
-  .timeline-article p {
-    margin: 0 0 0 60px;
-    padding: 0;
-    font-weight: 400;
-    color: #242424;
-    font-size: 14px;
-    line-height: 24px;
-    position: relative;
-  }
-  .timeline-article p span.article-number {
-    position: absolute;
-    font-weight: 300;
-    font-size: 44px;
-    top: 10px;
-    left: -60px;
-    color: #00b0bd;
-  }
-  .timeline-article .content-left-container {
-    float: left;
-  }
-  .timeline-article .content-right-container {
-    float: right;
-  }
-  .timeline-article .content-left:before,
-  .timeline-article .content-right:before{
-    position: absolute;
-    top: 20px;
-    font-size: 23px;
-    font-family: "FontAwesome";
-    color: #fff;
-  }
-  .timeline-article .content-left:before {
-    content: "\f0da";
-    right: -8px;
-  }
-  .timeline-article .content-right:before {
-    content: "\f0d9";
-    left: -8px;
-  }
-  .timeline-article .meta-date {
+.cbp_tmtimeline {
+	margin: 30px 0 0 0px;
+	padding: 0;
+	list-style: none;
+	position: relative;
+} 
+
+/* The line */
+.cbp_tmtimeline:before {
+	content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 62px;
-    height: 62px;
-    margin-left: -31px;
-    color: #fff;
-    border-radius: 100%;
-    background: #00b0bd;
-  }
-  .timeline-article .meta-date .date,
-  .timeline-article .meta-date .month {
-    display: block;
-    text-align: center;
-    font-weight: 900;
-  }
-  .timeline-article .meta-date .date {
-    font-size: 30px;
-    line-height: 40px;
-  }
-  .timeline-article .meta-date .month {
-    font-size: 18px;
-    line-height: 10px;
-  }
-  /*===== // Vertical Timeline =====*/
-  
-  /*===== Resonsive Vertical Timeline =====*/
-  /* @media only screen and (max-width: 830px) {
-    #conference-timeline .timeline-start,
-    #conference-timeline .timeline-end {
-      margin: 0;
+    bottom: 0;
+    width: 5px;
+    height: 155px;
+    background: #14ae4e;
+    left: 90px;
+    margin-left: -67px;
+}
+
+.cbp_tmtimeline > li {
+	position: relative;
+}
+
+/* The date/time */
+.cbp_tmtimeline > li .cbp_tmtime {
+	display: block;
+	width: 25%;
+	padding-right: 100px;
+	position: absolute;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span {
+	display: block;
+	text-align: right;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span:first-child {
+	font-size: 0.9em;
+	color: #bdd0db;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+	font-size: 2.9em;
+	color: #3594cb;
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
+	color: #6cbfee;
+}
+
+/* Right content */
+.cbp_tmtimeline > li .cbp_tmlabel {
+	margin: 0 0 15px 62px;
+	padding: 15px;
+	/* font-size: 1.2em;
+	font-weight: 300; */
+	line-height: 1.4;
+	position: relative;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
+	background: white;
+}
+
+.cbp_tmtimeline > li .cbp_tmlabel h2 { 
+	margin-top: 0px;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+/* The triangle */
+.cbp_tmtimeline > li .cbp_tmlabel:after {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-right-color: #3594cb;
+	border-width: 10px;
+	top: 10px;
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+    border-right-color: #6cbfee;
+    display: none;
+}
+
+/* The icons */
+.cbp_tmtimeline > li .cbp_tmicon {
+	width: 40px;
+	height: 40px;
+	speak: none;
+	text-transform: none;
+	font-size: 1.4em;
+	line-height: 40px;
+	-webkit-font-smoothing: antialiased;
+	position: absolute;
+	color: #fff;
+	background: #14ae4e;
+	border-radius: 50%;
+	/* box-shadow: 0 0 0 8px #afdcf8; */
+	text-align: center;
+	left: 31px;
+	top: 0;
+	margin: 0 0 0 -25px;
+}
+
+.cbp_tmicon-phone:before {
+}
+
+/* Example Media Queries */
+@media screen and (max-width: 65.375em) {
+
+	.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+		font-size: 1.5em;
+	}
+}
+
+@media screen and (max-width: 47.2em) {
+	.cbp_tmtimeline:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        height: 160px;
+        background: #14ae4e;
+        left: 90px;
+        margin-left: -73px;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmtime {
+		width: 100%;
+		position: relative;
+		padding: 0 0 20px 0;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmtime span {
+		text-align: left;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmlabel {
+		margin: -35px 0 40px 50px;
+		padding: 1em;
+		font-weight: 400;
+		font-size: 95%;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmlabel:after {
+		right: auto;
+		left: 20px;
+		border-right-color: transparent;
+		border-bottom-color: #3594cb;
+		top: -20px;
+	}
+
+	.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+		border-right-color: transparent;
+		border-bottom-color: #6cbfee;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmicon {
+		position: relative;
+		left: auto;
+		margin: -12px 5px 0 0px;
     }
-    #conference-timeline .conference-center-line {
-      margin-left: 0;
-      left: 50px;
-    }
-    .timeline-article .meta-date {
-      margin-left: 0;
-      left: 20px;
-    }
-    .timeline-article .content-left-container,
-    .timeline-article .content-right-container {
-      max-width: 100%;
-      width: auto;
-      float: none;
-      margin-left: 110px;
-      min-height: 53px;
-    }
-    .timeline-article .content-left-container {
-      margin-bottom: 20px;
-    }
-    .timeline-article .content-left,
-    .timeline-article .content-right {
-      padding: 10px 25px;
-      min-height: 65px;
-    }
-    .timeline-article .content-left:before {
-      content: "\f0d9";
-      right: auto;
-      left: -8px;
-    }
-    .timeline-article .content-right:before {
-      display: none;
-    }
-  }
-  @media only screen and (max-width: 400px) {
-    .timeline-article p {
-      margin: 0;
-    }
-    .timeline-article p span.article-number {
-      display: none;
-    }
-    
-  }
-  /*===== // Resonsive Vertical Timeline =====*/
+}

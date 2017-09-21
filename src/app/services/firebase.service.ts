@@ -17,6 +17,8 @@ export class FirebaseService {
   tasks: FirebaseListObservable<any[]>;
   mytasks: FirebaseListObservable<any[]>;
 
+  steps: FirebaseListObservable<any[]>;
+
   detailMySMChallenge: FirebaseObjectObservable<any>;
   detailMyCLChallenge: FirebaseObjectObservable<any>;
 
@@ -50,11 +52,6 @@ export class FirebaseService {
     this.myChallenges = this.af.database.list('/users/'+uid+'/Challenges') as FirebaseListObservable<myChallengesList[]>;
     return this.myChallenges;
   }
-
- /* getDetailMyChallenge(id) {
-    this.detailMyChallenge = this.af.database.object('/users/userid1/Challenges/' + id) as FirebaseObjectObservable<myChallengesList>;
-    return this.detailMyChallenge;
-  }*/
 
   // get details of My Saving Money Challenges
   getDetailMySMChallenge(uid, key){
@@ -91,6 +88,14 @@ export class FirebaseService {
     this.detailOfTask = this.af.database.object('/users/'+uid+'/Challenges/'+chaKey+'/tasks/'+taskKey) as FirebaseObjectObservable<myDoingTasks[]>;
     return this.detailOfTask;
   }
+
+  // get step challenge's steps 
+  getStepsOfStepChallenge(id){
+    this.steps = this.af.database.list('/AllChallenge/'+id+'/steps') as FirebaseListObservable<mySteps[]>;
+    return this.steps;
+  }
+
+
 
   getTaskName(taskDetail: myDoingTasks){
     return taskDetail.taskName;
@@ -247,6 +252,13 @@ interface myTasks {
   $key?: string;
   taskName?: string;
   level?: string;
+}
+
+interface mySteps {
+  $key?: string;
+  stepNo?: string;
+  stepName?: string;
+  stepDes?: string;
 }
 
 interface myDoingTasks {
