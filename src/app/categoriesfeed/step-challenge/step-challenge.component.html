@@ -5,10 +5,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 mt-4"><!-- ngfor put here <<<<-->
-      <a [routerLink]="" routerLinkActive='active' class="card-link">
+    <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of listOfChallenge"><!-- ngfor put here <<<<-->
+      <a [routerLink]="['/detailStep/'+cha.chaId]" routerLinkActive='active' class="card-link">
         <div class="card card-inverse card-info">
-          <img class="card-img-top img-fluid" src="">
+          <img class="card-img-top img-fluid" src="{{cha.imgSRC}}">
           <div class="card-block">
             <!-- <figure class="profile profile-inline">
                 <img src="{{cha.pic}}" class="profile-avatar" alt="">
@@ -16,7 +16,7 @@
             <!-- <h6 class="card-title">{{cha.username}}</h6> -->
             <div class="card-text">
               <span class="chaName">{{cha.chaName}}</span>
-              <br> Goal Amount: {{cha.chaGoal | currency:'THB':true:'1.2-2'}}
+              <br> Steps : {{cha.stepAmount}}
               <br><small>Created on {{cha.thisDay}} at {{cha.thisTime}}</small>
             </div>
           </div>

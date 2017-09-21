@@ -58,4 +58,26 @@ export class CreateChallengesService {
   addTasksChecklistChallenge(obj, id){
     firebase.database().ref('/AllChallenge/'+id+'/tasks').push(obj);
   }
+
+  // Fuction for create a step challenge with Image Upload
+  addStepChallenge(createStepChallenge){
+    const storageRef = firebase.storage().ref();
+    for (const selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
+      const path = `/stepchallenges/${selectedFile.name}`;
+      const iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        createStepChallenge.image = selectedFile.name;
+        createStepChallenge.path = path;
+        const promise = new Promise((resolve, reject) => {
+          resolve(firebase.database().ref('/AllChallenge').push().key);
+        }).then((val) => {
+          firebase.database().ref('/AllChallenge/' + val).set(createStepChallenge);
+          return val;
+        }).then((key) => {
+          this.router.navigate(['createtaskstep/' + key]);
+        });
+      });
+    }
+    return "should be fix";
+  }
 }
