@@ -45,7 +45,7 @@ export class StepChallengeComponent implements OnInit {
             des = this.firebaseService.getListOfChallengeDes(addObj);
             duration = this.firebaseService.getListOfChallengeDuration(addObj);
             const datetimestamp = this.firebaseService.getListOfChallengeTimestamp(addObj);
-            totalStep = this.firebaseService.getTaskAmountOfChallenge(addObj);
+            totalStep = this.firebaseService.getStepAmountOfChallenge(addObj);
             datestamp = this.dt.getDatestamp(datetimestamp);
             timestamp = this.dt.getTimestamp(datetimestamp);
             this.listOfChallenge.push({ chaId: key, chaName: name, description: des, time: duration, imgSRC: imgPath, thisTime: timestamp, thisDay: datestamp, stepAmount: totalStep });

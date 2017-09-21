@@ -80,4 +80,9 @@ export class CreateChallengesService {
     }
     return "should be fix";
   }
+
+  // Function for add steps to step challenge
+  addTasksStepChallenge(obj, id){
+    firebase.database().ref('/AllChallenge/'+id+'/steps').push(obj);
+  }
 }
