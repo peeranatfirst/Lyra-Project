@@ -82,7 +82,7 @@ export class CreateTaskChecklistComponent implements OnInit {
       }).then(()=>{
         firebase.database().ref('AllChallenge/'+this.id).child('taskAmount').set(this.totalTaskAmount);
       }).then(()=>{
-        this.router.navigate(['detailchecklist/'+this.id]);
+        this.router.navigate(['detailChecklist/'+this.id]);
       });
 
     }else{

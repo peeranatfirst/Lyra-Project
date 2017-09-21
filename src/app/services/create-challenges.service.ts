@@ -25,7 +25,7 @@ export class CreateChallengesService {
           firebase.database().ref('/AllChallenge/' + val).set(createSavingmoneyChallenge);
           return val;
         }).then((key) => {
-          this.router.navigate(['detailsavingmoney/' + key]);
+          this.router.navigate(['detailSavingMoney/' + key]);
         });
       });
     }
