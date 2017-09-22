@@ -61,6 +61,7 @@ export class CreateTaskChecklistComponent implements OnInit {
           level: levelOfTask
         });
         this.totalTaskAmount ++;
+        formData.reset();
       }
   }
 
