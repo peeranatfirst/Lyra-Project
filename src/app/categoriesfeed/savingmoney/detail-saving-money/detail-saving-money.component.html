@@ -19,12 +19,6 @@
               <br> Total Amount : {{challengeDetail.totalAmount}} Baht
               <img src="{{imageUrl}}" class="img-fluid">
               <br><a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="btn btn-success getChallengeMobile">Get Challenge</a>
-                <span *ngIf="isOwner == true">
-                  <br>
-                  <div align="center">
-                    <a (click)="onDeleteChallenge()" class="btn btn-danger" id="delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
-                  </div>
-              </span>
               <!-- <h5>Ratings & Reviews</h5> -->
               <!-- <fieldset class="rating">
                 <legend>Please rate:</legend>
@@ -46,9 +40,8 @@
           <div class="card-footer">
             <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;
             <a id="commentBt"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;</span></a>
-            <span *ngIf="(af.auth | async)">
-            <!-- <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="card-link"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp; Add to My Challenge</span></a>
-            -->
+            <span *ngIf="this.isOwner == true">
+              <a (click)="onDeleteChallenge()" style="color:rgba(0, 0, 0, .68)"><i class="fa fa-trash-o deleteCha" aria-hidden="true"></i></a>
             </span>
           </div>
         </div>

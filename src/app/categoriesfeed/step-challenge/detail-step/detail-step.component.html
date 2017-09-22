@@ -11,25 +11,23 @@
             </figure>
             <div class="card-title">
               {{displayName}}<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span>
-              <a  class="btn btn-success getChallengeWeb">Get Challenge</a> <!-- [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" -->
+              <a class="btn btn-success getChallengeWeb">Get Challenge</a>
+              <!-- [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" -->
             </div>
             <div class="card-text">
               <span class="chaName"><p><h3><b>{{stepChaDetail.challengeName}}</b></h3></span> {{stepChaDetail.challengeDescription}}
               <br> Steps : {{stepChaDetail.stepAmount}} <br>
               <br><img src="{{imageUrl}}" class="img-fluid">
-              <a class="btn btn-success getChallengeMobile">Get Challenge</a> <!-- [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]"  -->
-              <span *ngIf="isOwner == true">
-                <br>
-                <div align="center">
-                  <a (click)="onDeleteChallenge()" class="btn btn-danger" id="delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
-                </div>
-            </span>
+              <a class="btn btn-success getChallengeMobile">Get Challenge</a>
+              <!-- [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]"  -->
             </div>
           </div>
           <div class="card-footer">
             <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;
             <a id="commentBt"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;</span></a>
-            <!-- <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="card-link"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp; Add to My Challenge</span></a> -->
+            <span *ngIf="this.isOwner == true">
+              <a (click)="onDeleteChallenge()" style="color:rgba(0, 0, 0, .68)"><i class="fa fa-trash-o deleteCha" aria-hidden="true"></i></a>
+            </span>
           </div>
         </div>
       </div>
@@ -59,21 +57,19 @@
         <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
         <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
         <div class="col-sm-10 col-md-8 col-lg-6">
-          <h3 class="doChecklist">Watch your step</h3>
-          <div class="card" *ngFor="let cha of stepSort;">
-            <div class="card-block">
-              <div class="media">
-                <img width="40px" class="rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fchecklist.png?alt=media&token=90ec984a-ee15-42d8-9582-54c6d0846a56">
-                <div class="media-body">
-                  <span>
-                    step no. {{cha.stepNo}}
-                    <h6>{{cha.stepName}}</h6>
-                    Description : {{cha.stepDes}}<!-- if undefined then hide it -->
-                  </span>
-                </div>
+          <h3 class="doStep">Watch your step</h3>
+
+          <ul class="cbp_tmtimeline"  *ngFor="let cha of stepSort;">
+            <li>
+              <!-- <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time> -->
+              <div class="cbp_tmicon cbp_tmicon-phone">{{cha.stepNo}}</div>
+              <div class="cbp_tmlabel">
+                <h3 class="chaName">{{cha.stepName}}</h3>
+                <p>Desription : {{cha.stepDes}}</p>
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
+
         </div>
       </div>
     </div>
@@ -82,6 +78,7 @@
       <div class="col-sm-1 flex-first"></div>
       <div class="col-sm-1 flex-last"></div>
       <div class="col-sm-10" align="center">
+        <br><br><br>
         <a (click)="onBack()" class="btn btn-danger"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
       </div>
     </div>
