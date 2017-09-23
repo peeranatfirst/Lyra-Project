@@ -11,13 +11,13 @@
             </figure>
             <div class="card-title">
               {{displayName}}<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span>
-              <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="btn btn-success getChallengeWeb">Get Challenge</a>
+              <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="btn btn-success getChallengeWeb">Add to My Challenge</a>
             </div>
             <div class="card-text">
               <span class="chaName"><p><h3><b>{{checklistChaDetail.challengeName}}</b></h3></span> {{checklistChaDetail.challengeDescription}}
               <br> Tasks : {{checklistChaDetail.taskAmount}} <br>
               <br><img src="{{imageUrl}}" class="img-fluid">
-              <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="btn btn-success getChallengeMobile">Get Challenge</a>
+              <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
             </div>
           </div>
           <div class="card-footer">
@@ -66,18 +66,18 @@
     </div>
   </div>
 
-  <div class="taskchecklist">
-    <div class="row">
-      <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
-      <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
-      <div class="col-sm-10 col-md-8 col-lg-6">
-        <h3 class="doChecklist">Do Checklist</h3>
-        <div class="card" *ngFor="let cha of tasks;">
-          <div class="card-block">
-            <div class="media">
-              <img width="40px" class="rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fchecklist.png?alt=media&token=90ec984a-ee15-42d8-9582-54c6d0846a56">
-              <div class="media-body">
-                <span *ngIf="cha.level == 'easy'" style="color:#14AE4E">
+    <div class="taskchecklist">
+      <div class="row">
+        <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+        <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+        <div class="col-sm-10 col-md-8 col-lg-6">
+          <h3 class="doChecklist">Do Checklist</h3>
+          <div class="card" *ngFor="let cha of tasks;">
+            <div class="card-block">
+              <div class="media">
+                <img width="50px" class="rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fclipboard.png?alt=media&token=1fcdb99b-5b1e-481a-baf3-69cb4128d17a">
+                <div class="media-body">
+                  <span *ngIf="cha.level == 'easy'" style="color:#14AE4E">
                     <h6>{{cha.taskName}}</h6>
                     Level : {{cha.level}}
                   </span>
