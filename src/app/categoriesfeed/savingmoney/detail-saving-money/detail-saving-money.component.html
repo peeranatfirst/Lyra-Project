@@ -11,14 +11,14 @@
             </figure>
             <div class="card-title">
               {{displayName}}<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span>
-              <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="btn btn-success getChallengeWeb">Get Challenge</a>
+              <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="btn btn-success getChallengeWeb">Add to My Challenge</a>
             </div>
             <div class="card-text">
               <span class="chaName"><p><h3><b>{{challengeDetail.challengeName}}</b></h3></span> {{challengeDetail.challengeDescription}}
               <br> Duration : {{challengeDetail.duration}} Days
               <br> Total Amount : {{challengeDetail.totalAmount}} Baht
               <img src="{{imageUrl}}" class="img-fluid">
-              <br><a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="btn btn-success getChallengeMobile">Get Challenge</a>
+              <br><a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
               <!-- <h5>Ratings & Reviews</h5> -->
               <!-- <fieldset class="rating">
                 <legend>Please rate:</legend>

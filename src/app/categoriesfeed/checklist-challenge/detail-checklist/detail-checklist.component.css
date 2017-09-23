@@ -153,14 +153,14 @@ input{
     right: 16px;
     margin-top: 5px;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 766px) {
     .getChallengeMobile{
         border-radius: 20px;
         color: white;
         display: none;
     }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 766px) {
     
     .getChallengeWeb{
         border-radius: 20px;
