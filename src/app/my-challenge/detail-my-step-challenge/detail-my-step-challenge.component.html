@@ -39,9 +39,39 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="stepList">
+      <div class="stepList">
+        <div class="row">
+          <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+          <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+          <div class="col-sm-10 col-md-8 col-lg-6">
+            <h3 class="doStep">Watch your step</h3>
+
+            <ul class="cbp_tmtimeline list-group" *ngFor="let cha of mysteps; let last = last;">
+              <li>
+                <!-- <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time> -->
+                <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == false">{{cha.stepNo}}</div>
+                <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == true">{{cha.stepNo}}</div>
+                <div class="cbp_tmlabel" *ngIf="cha.stepStatus != 'checked'">
+                  <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
+                  <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
+                </div>
+                <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'unlocked'" [routerLink]="['/checkStep/'+chaId+'/'+cha.key]">
+                  <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
+                  <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
+                </div>
+                <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'locked'">
+                  Locked
+                </div>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+
+
       <div class="row">
         <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
         <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
@@ -60,7 +90,7 @@
               </div>
 
               <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'locked'">
-                <img  width="50px" class="img-fluid" alt="Responsive image" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Flocked.png?alt=media&token=3b9834ec-d688-44e3-8458-c59a309396b3">
+                <img width="50px" class="img-fluid" alt="Responsive image" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Flocked.png?alt=media&token=3b9834ec-d688-44e3-8458-c59a309396b3">
                 <h3 class="chaName">This step was locked</h3>
               </div>
 
