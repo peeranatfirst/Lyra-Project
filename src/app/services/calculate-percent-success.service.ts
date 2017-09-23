@@ -48,25 +48,26 @@ export class CalculatePercentSuccessService {
       let percent = sumChecked/sumTotal;
       if(percent >= 100){
         percent=100;
-        this.updateChecklistProgressPercent(uid,chaId,percent);
-        this.achieveChecklistChallenge(uid,chaId);
+        this.updateProgressPercent(uid,chaId,percent);
+        this.achieveChallenge(uid,chaId);
       }else{
-        this.updateChecklistProgressPercent(uid,chaId,percent);
+        this.updateProgressPercent(uid,chaId,percent);
       }
   }
 
-  achieveChecklistChallenge(uid, chaId){
+  achieveChallenge(uid, chaId){
     const status = {
       challengeStatus: "Achieved"
     }
     firebase.database().ref('/users/'+uid+'/Challenges/'+chaId).update(status);
   }
 
-  updateChecklistProgressPercent(uid, chaId, num){
+  updateProgressPercent(uid, chaId, num){
     const status = {
       percent: num
     }
     firebase.database().ref('/users/'+uid+'/Challenges/'+chaId).update(status);
   }
 
+ 
 }

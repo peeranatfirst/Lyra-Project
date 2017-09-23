@@ -27,7 +27,7 @@ export class DetailMyStepChallengeComponent implements OnInit {
   mysteps: any[];
 
   totalStep: any;
-  done: any;
+  currentStep: any;
 
   chaId: any;
 
@@ -54,31 +54,22 @@ export class DetailMyStepChallengeComponent implements OnInit {
       this.percent = this.detailMyChallenge.percent;
     })
 
-   /* this.firebaseService.getStepsOfMyStepChallenge(this.uid, this.id).subscribe(detailSteps => {
-      this.steps = detailSteps;
-      let checked = 0;
-      this.mysteps = new Array();
-      this.steps.forEach(element => {
-        this.mysteps.push({ key: element.$key,sNo: element.stepNo, sName: element.stepName, sDes: element.stepDes, sStatus: element.stepStatus });
-        if (element.stepStatus !== "locked") {
-          checked = checked + 1;
-        }
-      });
-      this.done = checked;
-    })*/
-
-    const query = firebase.database().ref("users/" + this.uid +"/Challenges/" + this.chaId+"/steps" ).orderByChild("stepNo");
+    const query = firebase.database().ref("users/" + this.uid +"/Challenges/" + this.chaId +"/steps" ).orderByChild("stepNo");
     query.once("value")
       .then((snapshot) =>{
         snapshot.forEach(element => {
           var data = element.val();
           const steps = {
+            stepKey: element.key,
             stepNo: data.stepNo,
             stepName: data.stepName,
             stepDes: data.stepDes,
             stepStatus: data.stepStatus
           }
           this.mysteps.push(steps)
+          if(data.stepStatus == 'unlocked'){
+            this.currentStep = data.stepNo;
+          }
         });
       });
   }
