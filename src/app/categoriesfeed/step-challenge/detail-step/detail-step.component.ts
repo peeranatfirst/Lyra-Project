@@ -7,6 +7,7 @@ import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
 import { Location } from "@angular/common";
 import $ from 'jquery';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-step',
@@ -35,7 +36,8 @@ export class DetailStepComponent implements OnInit {
     private route: ActivatedRoute,
     private dt: DatetimestampService,
     private userinfo: GetUserInfoService,
-    private location: Location) { }
+    private location: Location,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
     
@@ -106,10 +108,11 @@ export class DetailStepComponent implements OnInit {
   }
 
   onDeleteChallenge(){
-    if (confirm("Are you sure to delete?")) {
       firebase.database().ref('/AllChallenge/'+this.id).remove();
       this.routing.navigate(['stepchallenge/']);
-    }
+  }
+  open(content) {
+    this.modalService.open(content);
   }
 
 }

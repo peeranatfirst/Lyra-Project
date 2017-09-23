@@ -27,7 +27,23 @@
             <a id="commentBt"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;</span></a>
             <i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;
             <span *ngIf="this.isOwner == true">
-              <a (click)="onDeleteChallenge()" style="color:rgba(0, 0, 0, .68)"><i class="fa fa-trash-o deleteCha" aria-hidden="true"></i></a>
+                <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Delete Challenge</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure to delete your {{stepChaDetail.challengeName}}  ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                      <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+                    </div>
+                  </ng-template>
+              <a (click)="open(content)" style="color:rgba(0, 0, 0, .68)"><i class="fa fa-trash-o deleteCha" aria-hidden="true"></i></a>
+      
             </span>
           </div>
         </div>
