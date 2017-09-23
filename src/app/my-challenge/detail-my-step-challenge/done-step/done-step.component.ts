@@ -83,7 +83,7 @@ export class DoneStepComponent implements OnInit {
     }
     this.taskmanage.unlockStep(this.uid, this.chaId, stepNum);
     new Promise(function (resolve, reject) {
-      setTimeout(() => resolve(), 3000);
+      setTimeout(() => resolve(), 2500);
     }).then(()=>{
       this.calculateSTProgressPercent();
     }).then(()=>{
