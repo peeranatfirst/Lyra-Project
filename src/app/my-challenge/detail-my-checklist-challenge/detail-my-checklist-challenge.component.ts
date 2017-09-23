@@ -8,6 +8,7 @@ import { FirebaseService } from "app/services/firebase.service";
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { TaskManageService } from "app/services/task-manage.service";
 import { AddMoneyService } from "app/services/add-money.service";
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-my-checklist-challenge',
@@ -38,7 +39,9 @@ export class DetailMyChecklistChallengeComponent implements OnInit {
     private dt: DatetimestampService,
     private calculate :CalculatePercentSuccessService,
     private taskmanage: TaskManageService,
-    private addmoney: AddMoneyService) { }
+    private addmoney: AddMoneyService,
+    private modalService: NgbModal)
+     { }
 
   ngOnInit() {
     // Get ID
@@ -80,17 +83,18 @@ export class DetailMyChecklistChallengeComponent implements OnInit {
  }
 
  onCancelChallenge(){
-  if (confirm("Are you sure to cancel " + this.detailMyChallenge.challengeName + " Challenge?")) {
     this.addmoney.cancelChallengeUpdate(this.uid, this.chaId);
     this.router.navigate(['/mychallenge']);
-  }
  }
 
  onDeleteChallenge(){
-  if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge?")) {
     this.addmoney.deleteChallenge(this.uid,  this.chaId);
     this.router.navigate(['/mychallenge']);
-  }
  }
+
+ open(content) {
+  this.modalService.open(content);
+}
+
 
 }
