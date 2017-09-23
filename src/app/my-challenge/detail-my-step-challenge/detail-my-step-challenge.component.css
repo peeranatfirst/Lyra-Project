@@ -1,0 +1,98 @@
+.card{
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: solid 1px;
+    background-color: white;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+    border-radius: 1.285714rem;
+}
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.container{
+    padding-top: 80px;
+}
+thead{
+    background-color: #378d3b;
+}
+.close{
+    text-align: right;
+}
+.delete{
+    color: #FFFFFF;
+}
+.btn-success, .btn-primary, .btn-danger{
+    border-radius: 5.2rem;
+    width: 100%;
+    margin-top: 10px;
+}
+#transactionBt{
+    color: white;
+}
+#btn-back{
+    width: auto;
+    margin-top: -10px;
+}
+#delete{
+    color: white;
+    width: 100%;
+}
+.detailcontent{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.chaName{
+    color: #14AE4E;
+}
+.badge{
+    border-radius: 5.2rem;
+}
+.progress {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    font-size: .75rem;
+    line-height: 1rem;
+    text-align: center;
+    background-color: #cacaca;
+    border-radius: 1.25rem;
+    height: 8px;
+}
+.progress-bar {
+    height: 1rem;
+    color: #fff;
+    background-color: #14AE4E;
+}
+a:not([href]):not([tabindex]):hover {
+    color: white;
+    text-decoration: none;
+}
+a:not([href]):not([tabindex]) {
+    color:white;
+    text-decoration: none;
+}
+.doChecklist{
+    color: #14AE4E;
+    font-weight: bold;
+}
+.checkmark{
+    width: 50px;
+    height: auto;
+}
+@media screen and (min-width: 767px) {
+    .btn-success, .btn-primary, .btn-danger{
+        border-radius: 5.2rem;
+        width: auto;
+    }
+    #delete{
+        color: white;
+        width: 20%;
+    }
+}

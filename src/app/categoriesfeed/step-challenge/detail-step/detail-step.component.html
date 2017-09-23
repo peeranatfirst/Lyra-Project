@@ -11,13 +11,13 @@
             </figure>
             <div class="card-title">
               {{displayName}}<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span>
-              <a  class="btn btn-success getChallengeWeb">Get Challenge</a> <!-- [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" -->
+              <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]"   class="btn btn-success getChallengeWeb">Get Challenge</a>
             </div>
             <div class="card-text">
               <span class="chaName"><p><h3><b>{{stepChaDetail.challengeName}}</b></h3></span> {{stepChaDetail.challengeDescription}}
               <br> Steps : {{stepChaDetail.stepAmount}} <br>
               <br><img src="{{imageUrl}}" class="img-fluid">
-              <a class="btn btn-success getChallengeMobile">Get Challenge</a> <!-- [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]"  -->
+              <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]" class="btn btn-success getChallengeMobile">Get Challenge</a>
               <span *ngIf="isOwner == true">
                 <br>
                 <div align="center">

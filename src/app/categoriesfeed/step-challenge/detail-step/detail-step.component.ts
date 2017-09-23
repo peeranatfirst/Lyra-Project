@@ -23,8 +23,6 @@ export class DetailStepComponent implements OnInit {
   info: any;
   displayName: any;
   ownerPhoto: any;
-  // steps: any;
-  
   stepSort: any[];
 
   uid: any;
@@ -53,6 +51,7 @@ export class DetailStepComponent implements OnInit {
     // Get id
     this.id = this.route.snapshot.params['id'];
     this.stepSort = new Array();
+    
     this.firebaseService.getChecklistChallengeDetails(this.id).subscribe(step => {
       this.stepChaDetail = step;
 
@@ -80,10 +79,6 @@ export class DetailStepComponent implements OnInit {
         this.ownerPhoto = this.info.pathPhoto;
       });
     });
-
-    /*this.firebaseService.getStepsOfStepChallenge(this.id).subscribe(steps => {
-      this.steps = steps;
-    });*/
 
     const query = firebase.database().ref("AllChallenge/" + this.id +"/steps" ).orderByChild("stepNo");
     query.once("value")

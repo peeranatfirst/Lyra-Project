@@ -55,7 +55,8 @@ import { DoneChecklistComponent } from './my-challenge/detail-my-checklist-chall
 import { ChecklistTaskTransactionComponent } from './my-challenge/detail-my-checklist-challenge/checklist-task-transaction/checklist-task-transaction.component';
 import { DetailStepComponent } from './categoriesfeed/step-challenge/detail-step/detail-step.component';
 import { CreateTaskStepComponent } from './create-challenge/create-step-challenge/create-task-step/create-task-step.component';
-
+import { CheckdataStepComponent } from './categoriesfeed/step-challenge/checkdata-step/checkdata-step.component';
+import { DetailMyStepChallengeComponent } from "app/my-challenge/detail-my-step-challenge/detail-my-step-challenge.component";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
@@ -99,7 +100,9 @@ export const firebaseConfig = {
     ChecklistTaskTransactionComponent,
     DetailStepComponent,
     CreateTaskStepComponent,
-    CreateStepChallengeComponent
+    CreateStepChallengeComponent,
+    CheckdataStepComponent,
+    DetailMyStepChallengeComponent
 
   ],
   imports: [

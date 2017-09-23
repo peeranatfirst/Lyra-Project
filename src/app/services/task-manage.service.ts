@@ -10,6 +10,9 @@ export class TaskManageService {
   tasks:any;
   uid: any;
 
+  stepDetails: any;
+  steps: any;
+
 
   constructor(
     private af: AngularFire,
@@ -78,5 +81,41 @@ export class TaskManageService {
         })
       });
     }
+  }
+
+  // add step challenge to my challenge
+  addStepChallengeDetail(stepdetail, steps, uid) {
+    this.stepDetails = stepdetail;
+    this.steps = steps;
+    this.uid = uid;
+    const promise = new Promise((resolve, reject) => {
+      resolve(firebase.database().ref('/users/'+this.uid+'/Challenges').push().key);
+    }).then((val) => {
+      firebase.database().ref('/users/'+ this.uid +'/Challenges/'+val).set(this.stepDetails);
+      return val;
+    }).then((val)=>{
+      for(var i=0; i< this.steps.length ;i++){
+
+          if(steps[i].stepNo == 1){
+            console.log(steps[i].stepNo);
+            const obj = {
+              stepNo : steps[i].stepNo,
+              stepName : steps[i].stepName,
+              stepDes : steps[i].stepDes,
+              stepStatus : "unlocked"
+            }
+            firebase.database().ref('/users/'+this.uid+'/Challenges/'+val).child('steps').push(obj);
+          }else{
+            console.log(steps[i].stepNo);
+            const obj = {
+              stepNo : steps[i].stepNo,
+              stepName : steps[i].stepName,
+              stepDes : steps[i].stepDes,
+              stepStatus : "locked"
+            }
+            firebase.database().ref('/users/'+this.uid+'/Challenges/'+val).child('steps').push(obj);
+          }
+      }
+    });
   }
 }
