@@ -1,116 +1,117 @@
-.container{
-    margin-top: 10px;
-}
-h5 {
-    font-size: 1.28571429em;
-    font-weight: 700;
-    line-height: 1.2857em;
-    margin: 0;
-}
-
-.card {
+.card{
     font-size: 1em;
     overflow: hidden;
     padding: 0;
     border: solid 1px;
     background-color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: .28571429rem;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
     box-shadow: 0 6px 15px rgba(36,37,38,0.08);
-    border-radius: 20px;
+    border-radius: 1.285714rem;
 }
-
-.card-block {
-    font-size: 1em;
-    position: relative;
-    margin: 0;
-    padding: 1em;
-}
-
 .card-img-top {
     display: block;
     width: 100%;
-    height: 250px;
+    height: auto;
 }
-
-.card-title {
-    font-size: 1em;
-    font-weight: 700;
-    line-height: 1.2857em;
-    color: black;
-}
-
-.card-text {
-    clear: both;
-    margin-top: .5em;
-    color: rgba(0, 0, 0, .68);
-}
-
-.card-footer {
-    font-size: 1em;
-    position: static;
-    top: 0;
-    left: 0;
-    max-width: 100%;
-    padding: .75em 1em;
-    color: rgba(0, 0, 0, .68);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.profile {
-    position: absolute;
-    top: -12px;
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    width: 40px;
-    height: 40px;
-    margin: 0;
-    border: 1px solid #fff;
-    border-radius: 50%;
-}
-
-.profile-avatar {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.profile-inline {
-    position: relative;
-    top: 0;
-    display: inline-block;
-}
-
-.profile-inline ~ .card-title {
-    display: inline-block;
-    margin-left: 4px;
-    vertical-align: top;
-}
-.card-title > .time{
-    font-size: 10pt;
-    font-weight: 100;
-}
-.card-footer > a{
-    color: rgba(0, 0, 0, .68);
-}
-.card-footer > a:hover{
-    text-decoration: none;
-}
-.img-fluid{
-    margin-top: 18px;
-}
-.detailcard{
+.container{
     padding-top: 80px;
 }
-a{
-    text-decoration: none;
+thead{
+    background-color: #378d3b;
+}
+.close{
+    text-align: right;
+}
+.delete{
+    color: #FFFFFF;
+}
+.btn-success, .btn-primary, .btn-danger, .btn-secondary{
+    border-radius: 5.2rem;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#btn-back{
+    width: auto;
+    margin-top: -10px;
+}
+#delete{
+    color: white;
+    width: 100%;
+}
+.detailcontent{
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .chaName{
-    color: #13AE4D;
+    color: #14AE4E;
+}
+.badge{
+    border-radius: 5.2rem;
+}
+.progress {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    font-size: .75rem;
+    line-height: 1rem;
+    text-align: center;
+    background-color: #cacaca;
+    border-radius: 1.25rem;
+    height: 8px;
+}
+.bg-0010 {
+    height: 1rem;
+    color: #fff;
+    background-color: #9eada4;
+}
+.bg-1019 {
+    height: 1rem;
+    color: #fff;
+    background-color: #92ad9c;
+}
+.bg-2029 {
+    height: 1rem;
+    color: #fff;
+    background-color: #84ad94;
+}
+.bg-3039 {
+    height: 1rem;
+    color: #fff;
+    background-color: #7bad8e;
+}
+.bg-4049 {
+    height: 1rem;
+    color: #fff;
+    background-color: #6aad84;
+}
+.bg-5059 {
+    height: 1rem;
+    color: #fff;
+    background-color: #58ad79;
+}
+.bg-6069 {
+    height: 1rem;
+    color: #fff;
+    background-color: #47ad6e;
+}
+.bg-7079 {
+    height: 1rem;
+    color: #fff;
+    background-color: #36ad64;
+}
+.bg-8089 {
+    height: 1rem;
+    color: #fff;
+    background-color: #24ad59;
+}
+.bg-9100 {
+    height: 1rem;
+    color: #fff;
+    background-color: #14ae4e;
 }
 a:not([href]):not([tabindex]):hover {
     color: white;
@@ -120,120 +121,25 @@ a:not([href]):not([tabindex]) {
     color:white;
     text-decoration: none;
 }
-#comment{
-    padding-top: 14px;
+.pigTransaction{
+    width: 50px;
+    height: auto;
 }
-.commentIp{
-    border-radius: 20px;
-}
-.btn-danger{
-    border-radius: 20px;
-    color: white;
-}
-#delete{
-    width: auto;
-}
-.getChallengeWeb{
-    border-radius: 20px;
-    color: white;
-    position: absolute;
-    right: 15px;
-    margin-top: -40px;
-}
-.getChallengeMobile{
-    border-radius: 20px;
-    color: white;
-    width: 100%;
-    margin-top: 25px;
-    margin-bottom: 15px;
-}
-.reviews{
-    background-color: #cacaca;
-    border-radius: 20px;
-}
-.deleteCha{
-    position: absolute;
-    display: inherit;
-    right: 16px;
-    margin-top: 5px;
-}
-.doStep{    
-    color: #14AE4E;
+.doStep{
+    color: #14ae4e;
     font-weight: bold;
 }
-@media screen and (min-width: 766px) {
-    .getChallengeMobile{
-        border-radius: 20px;
-        color: white;
-        display: none;
-    }
-}
-@media screen and (max-width: 766px) {
-    
-    .getChallengeWeb{
-        border-radius: 20px;
-        color: white;
-        position: absolute;
-        right: 15px;
-        margin-top: -40px;
-        display: none;
-    }
-    .getChallengeMobile{
-        border-radius: 20px;
-        color: white;
-        width: 100%;
-        margin-top: 25px;
-        margin-bottom: 15px;
+@media screen and (min-width: 767px) {
+    .btn-success, .btn-primary, .btn-danger,.btn-secondary{
+        border-radius: 5.2rem;
+        width: auto;
     }
     #delete{
-        width: 100%;
+        color: white;
+        width: 20%;
     }
 }
 
-/* .rating {
-    float:left;
-}
-.rating:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-    clip:rect(0,0,0,0);
-}
-.rating:not(:checked) > label {
-    float:right;
-    width:1em;
-    padding:0 .1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:200%;
-    line-height:1.2;
-    color:#ddd;
-}
-.rating:not(:checked) > label:before {
-    content: '★ ';
-}
-.rating > input:checked ~ label {
-    color: gold;
-}
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-    color: gold;
-}
-.rating > input:checked + label:hover,
-.rating > input:checked + label:hover ~ label,
-.rating > input:checked ~ label:hover,
-.rating > input:checked ~ label:hover ~ label,
-.rating > label:hover ~ input:checked ~ label {
-    color: #ea0;
-}
-.rating > label:active {
-    position:relative;
-    top:2px;
-    left:2px;
-}
-.rating[_ngcontent-c2]:not(:checked) > label[_ngcontent-c2] {
-    font-size: 25px;
-} */
 
 
 .cbp_tmtimeline {
@@ -250,7 +156,7 @@ a:not([href]):not([tabindex]) {
     top: 0;
     bottom: 0;
     width: 5px;
-    height: 155px;
+    height: auto;
     background: #14ae4e;
     left: 90px;
     margin-left: -67px;
@@ -367,7 +273,7 @@ a:not([href]):not([tabindex]) {
         top: 0;
         bottom: 0;
         width: 5px;
-        height: 160px;
+        height: auto;
         background: #14ae4e;
         left: 90px;
         margin-left: -73px;
