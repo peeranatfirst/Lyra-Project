@@ -118,4 +118,59 @@ export class TaskManageService {
       }
     });
   }
+
+  checkStep(uid, chaId, stepId){
+    let stamp = firebase.database.ServerValue.TIMESTAMP;
+    const status = {
+      stepStatus: "checked",
+      datetimeStamp: stamp
+    };
+    firebase.database().ref('/users/'+uid+'/Challenges/' + chaId+'/steps/'+stepId).update(status);
+  }
+
+  checkStepWithCaptionNoImage(uid, chaId, stepId, cap){
+    let stamp = firebase.database.ServerValue.TIMESTAMP;
+    const status = {
+      stepStatus: "checked",
+      caption: cap,
+      datetimeStamp: stamp
+    }
+    firebase.database().ref('/users/'+uid+'/Challenges/' + chaId+'/steps/'+stepId).update(status);
+  }
+
+  checkStepWithImage(uid, chaId, stepId, cap){
+    const storageRef = firebase.storage().ref(); 
+    
+    for (const selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
+      const path = `/StepReview/${chaId}${selectedFile.name}`;
+      const iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        cap.image = selectedFile.name;
+        cap.path = path;
+        const promise = new Promise((resolve, reject) => {
+          // resolve(firebase.database().ref('/AllChallenge').push().key);
+          resolve(firebase.database().ref('/users/'+uid+'/Challenges/' + chaId+'/steps/'+stepId).update(cap));
+        }).then((val) => {
+          // firebase.database().ref('/AllChallenge/' + val).set(createSavingmoneyChallenge);
+          return val;
+        })
+      });
+    }
+  }
+
+  unlockStep(uid,chaId,stepNum){
+    const query = firebase.database().ref("users/" + uid +"/Challenges/" + chaId+"/steps" ).orderByChild("stepNo");
+    query.once("value")
+      .then((snapshot) =>{
+        snapshot.forEach(element => {
+          var data = element.val();
+          if(data.stepNo == stepNum){
+            const status = {
+              stepStatus: "unlocked"
+            }
+            firebase.database().ref('/users/'+uid+'/Challenges/'+chaId+'/steps/'+element.key).update(status);
+          }
+      })
+    });
+  }
 }

@@ -40,13 +40,13 @@
         </div>
       </div>
     </div>
-    
+
     <div class="stepList">
       <div class="row">
         <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
         <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
         <div class="col-sm-10 col-md-8 col-lg-6">
-          <h3 class="doStep">your step</h3>
+          <h3 class="doStep">Watch your step</h3>
 
           <ul class="cbp_tmtimeline list-group" *ngFor="let cha of mysteps; let last = last;">
             <li>
@@ -60,8 +60,8 @@
               </div>
 
               <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'locked'">
-                <img width="50px" class="img-fluid" alt="Responsive image" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Flocked.png?alt=media&token=3b9834ec-d688-44e3-8458-c59a309396b3">
-                <h3 class="chaName">This step was locked</h3>
+                <img  width="50px" class="img-fluid" alt="Responsive image" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Flocked.png?alt=media&token=3b9834ec-d688-44e3-8458-c59a309396b3">
+                <h3></h3>
               </div>
 
             </li>
@@ -75,7 +75,7 @@
 
     <div class="row">
       <div class="col-lg-12" align="center">
-        <br><br>
+        <br>
         <a (click)="onBack()" class="btn btn-danger" id="btn-back">
               <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
           </a>
@@ -83,4 +83,3 @@
       </div>
     </div>
   </div>
-</div>

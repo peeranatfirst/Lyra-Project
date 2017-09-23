@@ -1,0 +1,54 @@
+
+.card{
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: solid 1px;
+    background-color: white;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+    border-radius: 1.285714rem;
+}
+.btn-add{
+    width: 100%;
+}
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+.detailcard{
+    padding-top: 80px;
+}
+.chaName{
+    color: #14AE4E;
+}
+.btn-success, .btn-primary{
+    border-radius: 5.2rem;
+    width: 100%;
+    margin-top: 10px;
+}
+.btn-danger{
+    border-radius: 5.2rem;
+    color: white;
+}
+input{
+    border-radius: 5.2rem;
+}
+a:not([href]):not([tabindex]):hover {
+    color: white;
+    text-decoration: none;
+}
+a:not([href]):not([tabindex]) {
+    color:white;
+    text-decoration: none;
+}
+@media screen and (min-width: 767px) {
+    .btn-success, .btn-primary, .btn-danger{
+        border-radius: 5.2rem;
+        width: auto;
+    }
+}

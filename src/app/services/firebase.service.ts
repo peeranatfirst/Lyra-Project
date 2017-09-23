@@ -24,6 +24,7 @@ export class FirebaseService {
   detailMyCLChallenge: FirebaseObjectObservable<any>;
 
   detailOfTask: FirebaseObjectObservable<any>;
+  detailOfStep: FirebaseObjectObservable<any>;
 
   constructor(
     private af: AngularFire,
@@ -102,7 +103,15 @@ export class FirebaseService {
     return this.mysteps;
   }
 
+  // get My Step's Step Detail
+  getStepsDetail(uid,chaKey,stepKey){
+    this.detailOfStep = this.af.database.object('/users/'+uid+'/Challenges/'+chaKey+'/steps/'+stepKey) as FirebaseObjectObservable<myDoingSteps[]>;
+    return this.detailOfStep;
+  }
 
+  getStepNumber(stepDetail: myDoingSteps){
+    return stepDetail.stepNo;
+  }
 
   getTaskName(taskDetail: myDoingTasks){
     return taskDetail.taskName;

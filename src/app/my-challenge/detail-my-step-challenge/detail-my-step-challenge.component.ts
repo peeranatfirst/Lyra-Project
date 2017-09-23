@@ -8,6 +8,7 @@ import { FirebaseService } from "app/services/firebase.service";
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { TaskManageService } from "app/services/task-manage.service";
 import { AddMoneyService } from "app/services/add-money.service";
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-my-step-challenge',
@@ -27,7 +28,7 @@ export class DetailMyStepChallengeComponent implements OnInit {
   mysteps: any[];
 
   totalStep: any;
-  done: any;
+  currentStep: any;
 
   chaId: any;
 
@@ -38,7 +39,8 @@ export class DetailMyStepChallengeComponent implements OnInit {
     private dt: DatetimestampService,
     private calculate: CalculatePercentSuccessService,
     private taskmanage: TaskManageService,
-    private addmoney: AddMoneyService) { }
+    private addmoney: AddMoneyService,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
     // Get ID
@@ -54,31 +56,22 @@ export class DetailMyStepChallengeComponent implements OnInit {
       this.percent = this.detailMyChallenge.percent;
     })
 
-   /* this.firebaseService.getStepsOfMyStepChallenge(this.uid, this.id).subscribe(detailSteps => {
-      this.steps = detailSteps;
-      let checked = 0;
-      this.mysteps = new Array();
-      this.steps.forEach(element => {
-        this.mysteps.push({ key: element.$key,sNo: element.stepNo, sName: element.stepName, sDes: element.stepDes, sStatus: element.stepStatus });
-        if (element.stepStatus !== "locked") {
-          checked = checked + 1;
-        }
-      });
-      this.done = checked;
-    })*/
-
-    const query = firebase.database().ref("users/" + this.uid +"/Challenges/" + this.chaId+"/steps" ).orderByChild("stepNo");
+    const query = firebase.database().ref("users/" + this.uid +"/Challenges/" + this.chaId +"/steps" ).orderByChild("stepNo");
     query.once("value")
       .then((snapshot) =>{
         snapshot.forEach(element => {
           var data = element.val();
           const steps = {
+            stepKey: element.key,
             stepNo: data.stepNo,
             stepName: data.stepName,
             stepDes: data.stepDes,
             stepStatus: data.stepStatus
           }
           this.mysteps.push(steps)
+          if(data.stepStatus == 'unlocked'){
+            this.currentStep = data.stepNo;
+          }
         });
       });
   }
@@ -95,17 +88,17 @@ export class DetailMyStepChallengeComponent implements OnInit {
   }
 
   onCancelChallenge() {
-    if (confirm("Are you sure to cancel " + this.detailMyChallenge.challengeName + " Challenge?")) {
       this.addmoney.cancelChallengeUpdate(this.uid, this.chaId);
       this.router.navigate(['/mychallenge']);
-    }
   }
 
   onDeleteChallenge() {
-    if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge?")) {
       this.addmoney.deleteChallenge(this.uid, this.chaId);
       this.router.navigate(['/mychallenge']);
-    }
+  }
+
+  open(content) {
+    this.modalService.open(content);
   }
 
 }
