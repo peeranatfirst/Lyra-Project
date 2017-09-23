@@ -64,7 +64,7 @@ export class CreateTaskStepComponent implements OnInit {
           stepDes: stepDes
         });
       }
-
+      formData.reset();
     }
   }
 

@@ -147,6 +147,12 @@ input{
     margin-top: 25px;
     margin-bottom: 15px;
 }
+.deleteCha{
+    position: absolute;
+    display: inherit;
+    right: 16px;
+    margin-top: 5px;
+}
 @media screen and (min-width: 480px) {
     .getChallengeMobile{
         border-radius: 20px;
