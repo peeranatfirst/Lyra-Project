@@ -79,6 +79,9 @@
           </ng-template>
           <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
           </span>
+          <span class="delete">
+            <a [routerLink]="['/checkStepTran/'+chaId]" role="button" class="btn btn-primary bth-delete">View Task History</a>
+          </span>
         </div>
       </div>
     </div>
