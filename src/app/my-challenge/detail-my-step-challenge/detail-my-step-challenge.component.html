@@ -53,7 +53,11 @@
                       <!-- <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time> -->
                       <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == false">{{cha.stepNo}}</div>
                       <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == true">{{cha.stepNo}}</div>
-                      <div class="cbp_tmlabel" *ngIf="cha.stepStatus != 'locked'">
+                      <div class="cbp_tmlabel" *ngIf="cha.stepStatus != 'checked'">
+                        <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
+                        <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
+                      </div>
+                      <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'unlocked'" [routerLink]="['/checkStep/'+chaId+'/'+cha.key]">
                         <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
                         <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
                       </div>
