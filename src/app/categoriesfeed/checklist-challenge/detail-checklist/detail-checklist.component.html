@@ -11,48 +11,60 @@
             </figure>
             <div class="card-title">
               {{displayName}}<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span>
-              <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="btn btn-success getChallengeWeb">Get Challenge</a>
+              <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="btn btn-success getChallengeWeb">Add to My Challenge</a>
             </div>
             <div class="card-text">
               <span class="chaName"><p><h3><b>{{checklistChaDetail.challengeName}}</b></h3></span> {{checklistChaDetail.challengeDescription}}
               <br> Tasks : {{checklistChaDetail.taskAmount}} <br>
               <br><img src="{{imageUrl}}" class="img-fluid">
-              <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="btn btn-success getChallengeMobile">Get Challenge</a>
-              <span *ngIf="isOwner == true">
-                <br>
-                <div align="center">
-                  <a (click)="onDeleteChallenge()" class="btn btn-danger" id="delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
-                </div>
-            </span>
+              <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
             </div>
           </div>
           <div class="card-footer">
             <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;
             <a id="commentBt"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;</span></a>
-            <!-- <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="card-link"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>&nbsp; Add to My Challenge</span></a> -->
+            <i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;
+            <span *ngIf="this.isOwner == true">
+                <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Delete Challenge</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+          <div class="modal-body">
+            <p>Are you sure to delete your {{checklistChaDetail.challengeName}} ?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+            <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+          </div>
+          </ng-template>
+          <a (click)="open(content)" style="color:rgba(0, 0, 0, .68)"><i class="fa fa-trash-o deleteCha" aria-hidden="true"></i></a>
+          </span>
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="card-comment" style="display: none;">
-      <div class="row">
-        <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
-        <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
-        <div class="col-sm-10 col-md-8 col-lg-6">
-          <div class="card" id="comment">
-            <div class="card-block">
-              <div class="media">
-                <img class="d-flex mr-3 profile-avatar" src="{{ownerPhoto}}" alt="Generic placeholder image">
-                <div class="media-body">
-                  <input type="text" class="commentIp" placeholder="write a comment..." autofocus>
-                </div>
+  <div id="card-comment" style="display: none;">
+    <div class="row">
+      <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+      <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+      <div class="col-sm-10 col-md-8 col-lg-6">
+        <div class="card" id="comment">
+          <div class="card-block">
+            <div class="media">
+              <img class="d-flex mr-3 profile-avatar" src="{{ownerPhoto}}" alt="Generic placeholder image">
+              <div class="media-body">
+                <input type="text" class="commentIp" placeholder="write a comment..." autofocus>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
     <div class="taskchecklist">
       <div class="row">
@@ -63,35 +75,35 @@
           <div class="card" *ngFor="let cha of tasks;">
             <div class="card-block">
               <div class="media">
-                <img width="40px" class="rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fchecklist.png?alt=media&token=90ec984a-ee15-42d8-9582-54c6d0846a56">
+                <img width="50px" class="rounded-circle d-flex mr-3" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fclipboard.png?alt=media&token=1fcdb99b-5b1e-481a-baf3-69cb4128d17a">
                 <div class="media-body">
                   <span *ngIf="cha.level == 'easy'" style="color:#14AE4E">
                     <h6>{{cha.taskName}}</h6>
                     Level : {{cha.level}}
                   </span>
-                  <span *ngIf="cha.level == 'medium'" style="color:#f0ad4e">
+                <span *ngIf="cha.level == 'medium'" style="color:#f0ad4e">
                     <h6>{{cha.taskName}}</h6>
                     Level : {{cha.level}}
                   </span>
-                  <span *ngIf="cha.level == 'hard'" style="color:#d9534f">
+                <span *ngIf="cha.level == 'hard'" style="color:#d9534f">
                     <h6>{{cha.taskName}}</h6>
                     Level : {{cha.level}}
                   </span>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="col-sm-1 flex-first"></div>
-      <div class="col-sm-1 flex-last"></div>
-      <div class="col-sm-10" align="center">
-        <a (click)="onBack()" class="btn btn-danger"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
-      </div>
+  <div class="row">
+    <div class="col-sm-1 flex-first"></div>
+    <div class="col-sm-1 flex-last"></div>
+    <div class="col-sm-10" align="center">
+      <a (click)="onBack()" class="btn btn-danger"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
     </div>
   </div>
-  <br>
+</div>
+<br>
 </div>

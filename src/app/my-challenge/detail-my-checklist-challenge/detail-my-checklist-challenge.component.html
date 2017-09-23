@@ -11,7 +11,6 @@
               <b>{{detailMyChallenge.challengeName}}</b>
             </h3>
             <div class="card-text">
-
               {{detailMyChallenge.challengeDescription}}
               <br>Start Date: {{startDate}}
               <br>Duration(days) : {{detailMyChallenge.duration}} Days
@@ -26,16 +25,61 @@
 
               <div align="center">
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'processing'">
-                <a (click)="onCancelChallenge()" role="button" class="btn btn-danger bth-delete">Cancel Challenge</a>
+                    <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Cancel Challenge</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure to cancel this {{detailMyChallenge.challengeName}} Challenge ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                          <button type="button" class="btn btn-danger" (click)="c(onCancelChallenge())">Yes</button>
+                        </div>
+                      </ng-template>
+                      <button class="btn btn-danger bth-delete" (click)="open(content)">Cancel Challenge</button>
               </span>
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
                 <a class="btn btn-success btn-add disabled" aria-disabled="true">Achieved</a>
-                <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
+                <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Delete Challenge</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                      <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+                    </div>
+                  </ng-template>
+                  <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
               </span>
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
-                <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
+                    <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Delete Challenge</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                          <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+                        </div>
+                      </ng-template>
+                      <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
               </span>
-                <span class="delete">
+              <span class="delete">
                 <a [routerLink]="['/checkHistory/'+chaId]" role="button" class="btn btn-primary bth-delete">View Task History</a>
               </span>
               </div>
@@ -50,7 +94,6 @@
         <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
         <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
         <div class="col-sm-10 col-md-8 col-lg-6">
-
           <h3 class="doChecklist">Do Checklist</h3>
           <div class="card" *ngFor="let cha of myTasks;">
             <div class="card-block">
@@ -59,11 +102,11 @@
                 <div class="media">
                   <span *ngIf="cha.tStatus == 'uncheck'" [routerLink]="['/checkPost/'+chaId+'/'+cha.key]">
                       <a>
-                        <img class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fcheck-unmark.png?alt=media&token=d3afd7d8-494f-4453-8879-546f4eb8c13d">
+                        <img class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fcheck-unmark.png?alt=media&token=6727f0dc-984c-4fa8-a6ca-5b301dbe3a13">
                       </a>
                       </span>
                   <span *ngIf="cha.tStatus == 'Checked'">
-                    <img width="40px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fcheck-mark%20.png?alt=media&token=a6a50b39-d025-4c3c-af9b-e794c9fec692">
+                    <img width="40px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fsuccess.png?alt=media&token=bd2e4df3-bf09-4411-b800-2b65bc3b1f36">
                   </span>
                   <div class="media-body">
                     <span *ngIf="cha.lev == 'easy'" style="color:#14AE4E">

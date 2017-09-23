@@ -41,13 +41,58 @@
                 <a [routerLink]="['/addmoney/'+detailMyChallenge.$key]" class="btn btn-success btn-add">Add Money</a>
               </span>
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'processing'">
-                <a (click)="onCancelChallenge()" role="button" class="btn btn-danger bth-delete">Cancel Challenge</a>
+                    <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Cancel Challenge</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure to cancel this {{detailMyChallenge.challengeName}} Challenge ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                          <button type="button" class="btn btn-danger" (click)="c(onCancelChallenge())">Yes</button>
+                        </div>
+                      </ng-template>
+                      <button class="btn btn-danger bth-delete" (click)="open(content)">Cancel Challenge</button>
               </span>
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
-                <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
+                    <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Delete Challenge</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                          <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+                        </div>
+                      </ng-template>
+                      <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
               </span>
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
-                <a (click)="onDeleteChallenge()" role="button" class="btn btn-danger bth-delete">Delete Challenge</a>
+                    <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Delete Challenge</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                          <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+                        </div>
+                      </ng-template>
+                      <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
               </span>
               <span *ngIf="currentBalance != '0'">
                 <a class="btn btn-primary" id="transactionBt">View Transactions</a>
@@ -68,14 +113,29 @@
           <div class="card" *ngFor="let cha of detailMyTransaction; let i=index;">
             <div class="card-block">
               <div class="media">
-                <img class="rounded-circle d-flex mr-3 pigTransaction" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fpiggy-bank.png?alt=media&token=266331c6-d1ec-4495-a3bf-38958d81b94b">
+                <img class="rounded-circle d-flex mr-3 pigTransaction" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fpiggy-bank.png?alt=media&token=a6939815-273d-4fdb-9603-72e4529c4643">
                 <div class="media-body">
                   No.{{i+1}} Add Money at {{cha.datestamp}} {{cha.timestamp}} with amount {{cha.balance | currency:'THB':true:'1.2-2'}}
                 </div>
               </div>
               <div align="center">
                 <span *ngIf="detailMyChallenge.challengeStatus == 'processing'">
-                  <a (click)="onDeleteTransaction(cha.key)" role="button" class="btn btn-danger" id="delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
+                    <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Delete Transaction</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure to delete this transaction ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                          <button type="button" class="btn btn-danger" (click)="c(onDeleteTransaction(cha.key))">Yes</button>
+                        </div>
+                      </ng-template>
+                  <a (click)="open(content)" role="button" class="btn btn-danger" id="delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
                 </span>
               </div>
             </div>

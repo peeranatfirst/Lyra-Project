@@ -1,12 +1,12 @@
 .container{
     margin-top: 10px;
 }
-/* h5 {
+h5 {
     font-size: 1.28571429em;
     font-weight: 700;
     line-height: 1.2857em;
     margin: 0;
-} */
+}
 
 .card {
     font-size: 1em;
@@ -15,10 +15,10 @@
     border: solid 1px;
     background-color: white;
     border: none;
-    border-radius: .28571429rem;
+    border-radius: 20px;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
     box-shadow: 0 6px 15px rgba(36,37,38,0.08);
-    border-radius: 1.285714rem;
+    border-radius: 20px;
 }
 
 .card-block {
@@ -31,7 +31,7 @@
 .card-img-top {
     display: block;
     width: 100%;
-    height: auto;
+    height: 250px;
 }
 
 .card-title {
@@ -54,10 +54,10 @@
     left: 0;
     max-width: 100%;
     padding: .75em 1em;
+    color: rgba(0, 0, 0, .68);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: rgba(0, 0, 0, .68);
 }
 .profile {
     position: absolute;
@@ -100,18 +100,18 @@
 .card-footer > a:hover{
     text-decoration: none;
 }
-
+.img-fluid{
+    margin-top: 18px;
+}
 .detailcard{
-    padding-top: 70px;
+    padding-top: 80px;
+}
+a{
+    text-decoration: none;
 }
 .chaName{
-    color: #14AE4E;
+    color: #13AE4D;
 }
-.btn-danger{
-    border-radius: 5.2rem;
-    color: white;
-}
-
 a:not([href]):not([tabindex]):hover {
     color: white;
     text-decoration: none;
@@ -120,18 +120,18 @@ a:not([href]):not([tabindex]) {
     color:white;
     text-decoration: none;
 }
-.doChecklist{
-    color: #14AE4E;
-    font-weight: bold;
-}
-input{
-    border-radius: 20px;
-}
 #comment{
     padding-top: 14px;
 }
 .commentIp{
     border-radius: 20px;
+}
+.btn-danger{
+    border-radius: 20px;
+    color: white;
+}
+#delete{
+    width: auto;
 }
 .getChallengeWeb{
     border-radius: 20px;
@@ -147,14 +147,28 @@ input{
     margin-top: 25px;
     margin-bottom: 15px;
 }
-@media screen and (min-width: 480px) {
+.reviews{
+    background-color: #cacaca;
+    border-radius: 20px;
+}
+.deleteCha{
+    position: absolute;
+    display: inherit;
+    right: 16px;
+    margin-top: 5px;
+}
+.doStep{    
+    color: #14AE4E;
+    font-weight: bold;
+}
+@media screen and (min-width: 766px) {
     .getChallengeMobile{
         border-radius: 20px;
         color: white;
         display: none;
     }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 766px) {
     
     .getChallengeWeb{
         border-radius: 20px;
@@ -170,5 +184,228 @@ input{
         width: 100%;
         margin-top: 25px;
         margin-bottom: 15px;
+    }
+    #delete{
+        width: 100%;
+    }
+}
+
+/* .rating {
+    float:left;
+}
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+}
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+.rating > input:checked ~ label {
+    color: gold;
+}
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+}
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+.rating[_ngcontent-c2]:not(:checked) > label[_ngcontent-c2] {
+    font-size: 25px;
+} */
+
+
+.cbp_tmtimeline {
+	margin: 30px 0 0 0px;
+	padding: 0;
+	list-style: none;
+	position: relative;
+} 
+
+/* The line */
+.cbp_tmtimeline:before {
+	content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    height: 155px;
+    background: #14ae4e;
+    left: 90px;
+    margin-left: -67px;
+}
+
+.cbp_tmtimeline > li {
+	position: relative;
+}
+
+/* The date/time */
+.cbp_tmtimeline > li .cbp_tmtime {
+	display: block;
+	width: 25%;
+	padding-right: 100px;
+	position: absolute;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span {
+	display: block;
+	text-align: right;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span:first-child {
+	font-size: 0.9em;
+	color: #bdd0db;
+}
+
+.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+	font-size: 2.9em;
+	color: #3594cb;
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
+	color: #6cbfee;
+}
+
+/* Right content */
+.cbp_tmtimeline > li .cbp_tmlabel {
+	margin: 0 0 15px 62px;
+	padding: 15px;
+	/* font-size: 1.2em;
+	font-weight: 300; */
+	line-height: 1.4;
+	position: relative;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
+	background: white;
+}
+
+.cbp_tmtimeline > li .cbp_tmlabel h2 { 
+	margin-top: 0px;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+/* The triangle */
+.cbp_tmtimeline > li .cbp_tmlabel:after {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-right-color: #3594cb;
+	border-width: 10px;
+	top: 10px;
+}
+
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+    border-right-color: #6cbfee;
+    display: none;
+}
+
+/* The icons */
+.cbp_tmtimeline > li .cbp_tmicon {
+	width: 40px;
+	height: 40px;
+	speak: none;
+	text-transform: none;
+	font-size: 1.4em;
+	line-height: 40px;
+	-webkit-font-smoothing: antialiased;
+	position: absolute;
+	color: #fff;
+	background: #14ae4e;
+	border-radius: 50%;
+	/* box-shadow: 0 0 0 8px #afdcf8; */
+	text-align: center;
+	left: 31px;
+	top: 0;
+	margin: 0 0 0 -25px;
+}
+
+.cbp_tmicon-phone:before {
+}
+
+/* Example Media Queries */
+@media screen and (max-width: 65.375em) {
+
+	.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+		font-size: 1.5em;
+	}
+}
+
+@media screen and (max-width: 47.2em) {
+	.cbp_tmtimeline:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        height: 160px;
+        background: #14ae4e;
+        left: 90px;
+        margin-left: -73px;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmtime {
+		width: 100%;
+		position: relative;
+		padding: 0 0 20px 0;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmtime span {
+		text-align: left;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmlabel {
+		margin: -35px 0 40px 50px;
+		padding: 1em;
+		font-weight: 400;
+		font-size: 95%;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmlabel:after {
+		right: auto;
+		left: 20px;
+		border-right-color: transparent;
+		border-bottom-color: #3594cb;
+		top: -20px;
+	}
+
+	.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
+		border-right-color: transparent;
+		border-bottom-color: #6cbfee;
+	}
+
+	.cbp_tmtimeline > li .cbp_tmicon {
+		position: relative;
+		left: auto;
+		margin: -12px 5px 0 0px;
     }
 }

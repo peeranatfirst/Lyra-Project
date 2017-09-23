@@ -8,6 +8,7 @@ import { GetUserInfoService } from "app/services/get-user-info.service";
 import { AngularFire } from 'angularfire2';
 import { Location } from '@angular/common';
 import $ from 'jquery';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-saving-money',
@@ -39,7 +40,8 @@ export class DetailSavingMoneyComponent implements OnInit {
     private route: ActivatedRoute,
     private dt: DatetimestampService,
     private location: Location,
-    private userinfo: GetUserInfoService) {
+    private userinfo: GetUserInfoService,
+    private modalService: NgbModal) {
     this.af.auth.subscribe(auth => {
       if (auth) {
         this.user = auth;
@@ -99,10 +101,12 @@ export class DetailSavingMoneyComponent implements OnInit {
   }
 
   onDeleteChallenge(){
-    if (confirm("Are you sure to delete?")) {
       firebase.database().ref('/AllChallenge/'+this.id).remove();
       this.routing.navigate(['savingmoney/']);
-    }
+  }
+
+  open(content) {
+    this.modalService.open(content);
   }
 
 }
