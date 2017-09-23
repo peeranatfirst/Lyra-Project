@@ -41,48 +41,32 @@
         </div>
       </div>
   
-      <div>
-        <div class="row">
-          <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
-          <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
-          <div class="col-sm-10 col-md-8 col-lg-6">
-  
-            <h3 class="doChecklist">Your step</h3>
-            <div class="card" *ngFor="let cha of mysteps;">
-              <div class="card-block">
-                <div>
-                  <!-- cha.tStatus for checking if status is checked or unchecked -->
-                  <div class="media">
-                    <span *ngIf="cha.tStatus == 'uncheck'" [routerLink]="['/checkPost/'+chaId+'/'+cha.key]">
-                        <a>
-                          <img class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fcheck-unmark.png?alt=media&token=d3afd7d8-494f-4453-8879-546f4eb8c13d">
-                        </a>
-                        </span>
-                    <span *ngIf="cha.tStatus == 'Checked'">
-                      <img width="40px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/iconInAllDetailMyChallenge%2Fcheck-mark%20.png?alt=media&token=a6a50b39-d025-4c3c-af9b-e794c9fec692">
-                    </span>
-                    <div class="media-body">
-                      <span *ngIf="cha.lev == 'easy'" style="color:#14AE4E">
-                        <h6>{{cha.tName}}</h6>
-                        Level : {{cha.lev}}
-                      </span>
-                      <span *ngIf="cha.lev == 'medium'" style="color:#f0ad4e">
-                        <h6>{{cha.tName}}</h6>
-                        Level : {{cha.lev}}
-                      </span>
-                      <span *ngIf="cha.lev == 'hard'" style="color:#d9534f">
-                        <h6>{{cha.tName}}</h6>
-                        Level : {{cha.lev}}
-                      </span>
-                    </div>
-                  </div>
+            <div class="stepList">
+              <div class="row">
+                <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+                <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+                <div class="col-sm-10 col-md-8 col-lg-6">
+                  <h3 class="doStep">Watch your step</h3>
+                  
+                  <ul class="cbp_tmtimeline list-group"  *ngFor="let cha of mysteps; let last = last;">
+                    <li>
+                      <!-- <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time> -->
+                      <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == false">{{cha.stepNo}}</div>
+                      <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == true">{{cha.stepNo}}</div>
+                      <div class="cbp_tmlabel" *ngIf="cha.stepStatus != 'locked'">
+                        <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
+                        <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
+                      </div>
+                      <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'locked'">
+                        Locked
+                      </div>
+                    </li>
+                  </ul>
+        
                 </div>
-                <!-- changed from a tag -->
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+         
   
   
       <div class="row">

@@ -44,6 +44,7 @@ export class DetailMyStepChallengeComponent implements OnInit {
     // Get ID
     this.id = this.route.snapshot.params['id'];
     this.uid = firebase.auth().currentUser.uid;
+    this.mysteps = new Array();
 
     this.firebaseService.getDetailMyCLChallenge(this.uid, this.id).subscribe(detailMyChallenge => {
       this.detailMyChallenge = detailMyChallenge;
@@ -53,18 +54,33 @@ export class DetailMyStepChallengeComponent implements OnInit {
       this.percent = this.detailMyChallenge.percent;
     })
 
-    this.firebaseService.getStepsOfMyStepChallenge(this.uid, this.id).subscribe(detailSteps => {
+   /* this.firebaseService.getStepsOfMyStepChallenge(this.uid, this.id).subscribe(detailSteps => {
       this.steps = detailSteps;
       let checked = 0;
       this.mysteps = new Array();
       this.steps.forEach(element => {
         this.mysteps.push({ key: element.$key,sNo: element.stepNo, sName: element.stepName, sDes: element.stepDes, sStatus: element.stepStatus });
-        if (element.taskStatus === "Checked") {
+        if (element.stepStatus !== "locked") {
           checked = checked + 1;
         }
       });
       this.done = checked;
-    })
+    })*/
+
+    const query = firebase.database().ref("users/" + this.uid +"/Challenges/" + this.chaId+"/steps" ).orderByChild("stepNo");
+    query.once("value")
+      .then((snapshot) =>{
+        snapshot.forEach(element => {
+          var data = element.val();
+          const steps = {
+            stepNo: data.stepNo,
+            stepName: data.stepName,
+            stepDes: data.stepDes,
+            stepStatus: data.stepStatus
+          }
+          this.mysteps.push(steps)
+        });
+      });
   }
 
   onBack() {
