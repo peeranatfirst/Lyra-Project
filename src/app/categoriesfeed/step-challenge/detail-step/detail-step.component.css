@@ -411,9 +411,9 @@ a:not([href]):not([tabindex]) {
 }
 .btn-danger, .btn-secondary{
     border-radius: 5.2rem;
-    width: 100%;
+    width: auto;
 }
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 766px) {
     .btn-danger,.btn-secondary{
         border-radius: 5.2rem;
         width: auto;

@@ -65,10 +65,55 @@ thead{
     border-radius: 1.25rem;
     height: 8px;
 }
-.progress-bar {
+.bg-0010 {
     height: 1rem;
     color: #fff;
-    background-color: #14AE4E;
+    background-color: #9eada4;
+}
+.bg-1019 {
+    height: 1rem;
+    color: #fff;
+    background-color: #92ad9c;
+}
+.bg-2029 {
+    height: 1rem;
+    color: #fff;
+    background-color: #84ad94;
+}
+.bg-3039 {
+    height: 1rem;
+    color: #fff;
+    background-color: #7bad8e;
+}
+.bg-4049 {
+    height: 1rem;
+    color: #fff;
+    background-color: #6aad84;
+}
+.bg-5059 {
+    height: 1rem;
+    color: #fff;
+    background-color: #58ad79;
+}
+.bg-6069 {
+    height: 1rem;
+    color: #fff;
+    background-color: #47ad6e;
+}
+.bg-7079 {
+    height: 1rem;
+    color: #fff;
+    background-color: #36ad64;
+}
+.bg-8089 {
+    height: 1rem;
+    color: #fff;
+    background-color: #24ad59;
+}
+.bg-90100 {
+    height: 1rem;
+    color: #fff;
+    background-color: #14ae4e;
 }
 a:not([href]):not([tabindex]):hover {
     color: white;

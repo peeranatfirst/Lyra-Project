@@ -11,19 +11,13 @@
             </figure>
             <div class="card-title">
               {{displayName}}<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span>
-              <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]"   class="btn btn-success getChallengeWeb">Get Challenge</a>
+              <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]"   class="btn btn-success getChallengeWeb">Add to my Challenge</a>
             </div>
             <div class="card-text">
               <span class="chaName"><p><h3><b>{{stepChaDetail.challengeName}}</b></h3></span> {{stepChaDetail.challengeDescription}}
               <br> Steps : {{stepChaDetail.stepAmount}} <br>
               <br><img src="{{imageUrl}}" class="img-fluid">
-              <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]" class="btn btn-success getChallengeMobile">Get Challenge</a>
-              <span *ngIf="isOwner == true">
-                <br>
-                <div align="center">
-                  <a (click)="onDeleteChallenge()" class="btn btn-danger" id="delete"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></a>
-                </div>
-            </span>
+              <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
             </div>
           </div>
           <div class="card-footer">
