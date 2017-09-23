@@ -185,6 +185,20 @@ a:not([href]):not([tabindex]) {
         width: 100%;
     }
 }
+.btn-danger, .btn-secondary{
+    border-radius: 5.2rem;
+    width: 100%;
+}
+@media screen and (min-width: 767px) {
+    .btn-danger,.btn-secondary{
+        border-radius: 5.2rem;
+        width: auto;
+    }
+    #delete{
+        color: white;
+        width: 20%;
+    }
+}
 
 /* .rating {
     float:left;

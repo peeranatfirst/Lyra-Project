@@ -7,6 +7,7 @@ import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
 import { Location } from "@angular/common";
 import $ from 'jquery';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-step',
@@ -23,8 +24,6 @@ export class DetailStepComponent implements OnInit {
   info: any;
   displayName: any;
   ownerPhoto: any;
-  // steps: any;
-  
   stepSort: any[];
 
   uid: any;
@@ -35,7 +34,8 @@ export class DetailStepComponent implements OnInit {
     private route: ActivatedRoute,
     private dt: DatetimestampService,
     private userinfo: GetUserInfoService,
-    private location: Location) { }
+    private location: Location,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
     
@@ -53,6 +53,7 @@ export class DetailStepComponent implements OnInit {
     // Get id
     this.id = this.route.snapshot.params['id'];
     this.stepSort = new Array();
+    
     this.firebaseService.getChecklistChallengeDetails(this.id).subscribe(step => {
       this.stepChaDetail = step;
 
@@ -81,10 +82,6 @@ export class DetailStepComponent implements OnInit {
       });
     });
 
-    /*this.firebaseService.getStepsOfStepChallenge(this.id).subscribe(steps => {
-      this.steps = steps;
-    });*/
-
     const query = firebase.database().ref("AllChallenge/" + this.id +"/steps" ).orderByChild("stepNo");
     query.once("value")
       .then((snapshot) =>{
@@ -106,10 +103,11 @@ export class DetailStepComponent implements OnInit {
   }
 
   onDeleteChallenge(){
-    if (confirm("Are you sure to delete?")) {
       firebase.database().ref('/AllChallenge/'+this.id).remove();
       this.routing.navigate(['stepchallenge/']);
-    }
+  }
+  open(content) {
+    this.modalService.open(content);
   }
 
 }

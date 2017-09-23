@@ -409,3 +409,17 @@ a:not([href]):not([tabindex]) {
 		margin: -12px 5px 0 0px;
     }
 }
+.btn-danger, .btn-secondary{
+    border-radius: 5.2rem;
+    width: 100%;
+}
+@media screen and (min-width: 767px) {
+    .btn-danger,.btn-secondary{
+        border-radius: 5.2rem;
+        width: auto;
+    }
+    #delete{
+        color: white;
+        width: 20%;
+    }
+}

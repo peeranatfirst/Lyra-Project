@@ -31,8 +31,6 @@ export class DetailMySavingmoneyChallengeComponent implements OnInit {
   startDate: any;
   uid:any;
 
-  closeResult: string;
-
   constructor(
     private firebaseService: FirebaseService,
     private AddMoneyService: AddMoneyService,
@@ -97,26 +95,19 @@ export class DetailMySavingmoneyChallengeComponent implements OnInit {
   }
 
   onCancelChallenge() {
-    if (confirm("Are you sure to cancel " + this.detailMyChallenge.challengeName + " Challenge?")) {
       this.AddMoneyService.cancelChallengeUpdate(this.uid, this.detailMyChallenge.$key);
       this.router.navigate(['/mychallenge']);
-    }
-
   }
 
   onDeleteChallenge() {
-    if (confirm("Are you sure to delete " + this.detailMyChallenge.challengeName + " Challenge?")) {
       this.AddMoneyService.deleteChallenge(this.uid, this.detailMyChallenge.$key);
       this.router.navigate(['/mychallenge']);
-    }
 
   }
 
   onDeleteTransaction(key) {
-    if (confirm("Are you sure to delete?")) {
       this.AddMoneyService.deleteTransaction(this.uid, this.detailMyChallenge.$key, key);
       this.router.navigate(['/detailmychallenge/' + this.detailMyChallenge.$key]);
-    }
   }
 
    getImgURL(path){
@@ -125,5 +116,13 @@ export class DetailMySavingmoneyChallengeComponent implements OnInit {
         this.imgURL=val;
       });
    }
+
+   open(content) {
+    this.modalService.open(content);
+  }
+
+  
+  
+
 
 }

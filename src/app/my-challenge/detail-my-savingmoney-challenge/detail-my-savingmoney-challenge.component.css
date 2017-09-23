@@ -27,11 +27,12 @@ thead{
 .delete{
     color: #FFFFFF;
 }
-.btn-success, .btn-primary, .btn-danger{
+.btn-success, .btn-primary, .btn-danger, .btn-secondary{
     border-radius: 5.2rem;
     width: 100%;
     margin-top: 10px;
 }
+
 #transactionBt{
     color: white;
 }
@@ -132,7 +133,7 @@ a:not([href]):not([tabindex]) {
     height: auto;
 }
 @media screen and (min-width: 767px) {
-    .btn-success, .btn-primary, .btn-danger{
+    .btn-success, .btn-primary, .btn-danger,.btn-secondary{
         border-radius: 5.2rem;
         width: auto;
     }
