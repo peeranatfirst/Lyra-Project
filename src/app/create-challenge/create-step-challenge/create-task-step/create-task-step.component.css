@@ -77,6 +77,14 @@
   .btn{
     border-radius: 5.2rem;
   }
+  .add{
+    text-align: center;
+  }
+  @media screen and (min-width: 767px) {
+    .btn-danger{
+        width: auto;
+    }
+}
 
 
 
