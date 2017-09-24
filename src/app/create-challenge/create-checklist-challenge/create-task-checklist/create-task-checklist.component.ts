@@ -15,8 +15,8 @@ import { CreateChallengesService } from "app/services/create-challenges.service"
   styleUrls: ['./create-task-checklist.component.css']
 })
 export class CreateTaskChecklistComponent implements OnInit {
-  id:any;
-  checklistDetails:any;
+  id: any;
+  checklistDetails: any;
   imageUrl: any;
   myTasks: any;
   hasTask: any;
@@ -33,60 +33,75 @@ export class CreateTaskChecklistComponent implements OnInit {
     private cc: CreateChallengesService) { }
 
   ngOnInit() {
+    $(document).ready(function () {
+      $("body").css('overflow', 'scroll');
 
+      $('.blockloadergrey').hide();
+      $('.blockloaderwhite').hide();
+      $('#create').click(function () {
+        $('.blockloadergrey').show();
+        $('.blockloaderwhite').show();
+        $('.blockloaderwhite').addClass('animated zoomIn');
+        setTimeout(disableScroll(), 5000);
+      });
+      function disableScroll() {
+        $("body").css('overflow', 'hidden');
+      }
+    });
     // Get id
     this.id = this.route.snapshot.params['id'];
-    this.firebaseService.getChecklistChallengeDetails(this.id).subscribe((checklistDetails)=>{
+    this.firebaseService.getChecklistChallengeDetails(this.id).subscribe((checklistDetails) => {
       this.checklistDetails = checklistDetails;
 
-    // In case we want to show challenge photo in add task component
-    /*const storageRef = firebase.storage().ref();
-      const spaceRef = storageRef.child(checklistDetails.path);
-      storageRef.child(checklistDetails.path).getDownloadURL().then((url) => {
-        // Set image url
-        this.imageUrl = url;
-      });*/
+      // In case we want to show challenge photo in add task component
+      /*const storageRef = firebase.storage().ref();
+        const spaceRef = storageRef.child(checklistDetails.path);
+        storageRef.child(checklistDetails.path).getDownloadURL().then((url) => {
+          // Set image url
+          this.imageUrl = url;
+        });*/
 
     });
 
     this.taskForAdd = new Array();
   }
 
-  onAddSubmit(formData){
-      if(formData.value){
-        const taskName = formData.value.taskName;
-        const levelOfTask = formData.value.level;
-        this.taskForAdd.push({
-          taskname: taskName,
-          level: levelOfTask
-        });
-        this.totalTaskAmount ++;
-        formData.reset();
-      }
+  onAddSubmit(formData) {
+    if (formData.value) {
+      const taskName = formData.value.taskName;
+      const levelOfTask = formData.value.level;
+      this.taskForAdd.push({
+        taskname: taskName,
+        level: levelOfTask
+      });
+      this.totalTaskAmount++;
+      formData.reset();
+    }
   }
 
-  onAddTask(){
-    if(this.taskForAdd[0] !== undefined ){
+  onAddTask() {
+    if (this.taskForAdd[0] !== undefined) {
       console.log("add to database");
-      var ref = firebase.database().ref("/AllChallenge"+this.id);
+      var ref = firebase.database().ref("/AllChallenge" + this.id);
       ref.once("value")
-      .then(function(snapshot) {
-        var hasTask = snapshot.hasChild("tasks"); 
-      }).then((hasTask)=>{
-        for(var i=0; i<this.taskForAdd.length ; i++){
-          const obj ={
-            taskName: this.taskForAdd[i].taskname, 
-            level: this.taskForAdd[i].level
-          };
-          this.cc.addTasksChecklistChallenge(obj, this.id);
-        }
-      }).then(()=>{
-        firebase.database().ref('AllChallenge/'+this.id).child('taskAmount').set(this.totalTaskAmount);
-      }).then(()=>{
-        this.router.navigate(['detailChecklist/'+this.id]);
-      });
+        .then(function (snapshot) {
+          var hasTask = snapshot.hasChild("tasks");
+        }).then((hasTask) => {
+          for (var i = 0; i < this.taskForAdd.length; i++) {
+            const obj = {
+              taskName: this.taskForAdd[i].taskname,
+              level: this.taskForAdd[i].level
+            };
+            this.cc.addTasksChecklistChallenge(obj, this.id);
+          }
+        }).then(() => {
+          firebase.database().ref('AllChallenge/' + this.id).child('taskAmount').set(this.totalTaskAmount);
+        }).then(() => {
+          this.router.navigate(['detailChecklist/' + this.id]);
+        });
 
-    }else{
+      setTimeout(8000);
+    } else {
       console.log("nothing to add");
 
     }

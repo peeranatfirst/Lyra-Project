@@ -1,3 +1,9 @@
+<div class="blockloadergrey" align="center">
+  <div class="blockloaderwhite" align="center">
+    <div class="loader"></div>
+    Creating Checklist Challenge
+  </div>
+</div>
 <div class="container">
   <div class="row content">
     <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
@@ -26,12 +32,11 @@
                 <div class="row">
                   <div class="col">
                     Task Name
-                    <input type="text" class="form-control" [(ngModel)]="taskName" name="taskName" required  #taskName1="ngModel"
-                      placeholder="Task name">
+                    <input type="text" class="form-control" [(ngModel)]="taskName" name="taskName" required #taskName1="ngModel" placeholder="Task name">
                   </div>
                   <div class="col-12 col-md-auto">
                     Level
-                      <select name="level" [(ngModel)]="level" required>
+                    <select name="level" [(ngModel)]="level" required>
                               <option value="easy">Easy</option>
                               <option value="medium" selected>Medium</option>
                               <option value="hard">Hard</option>
@@ -52,7 +57,7 @@
 
         <form ngNativeValidate (submit)="onAddTask()" #createTasks='ngForm'>
           <div class="col-sm-12 btn-submit">
-            <button type="submit" value="Submit" class="btn btn-warning">
+            <button type="submit" value="Submit" class="btn btn-warning" id="create">
                     Create Challenge
                   </button>
           </div>

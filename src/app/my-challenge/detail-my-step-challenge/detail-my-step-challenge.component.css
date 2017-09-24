@@ -32,7 +32,9 @@ thead{
     width: 100%;
     margin-top: 10px;
 }
-
+.Close{
+    margin-top: 0px;
+}
 #btn-back{
     width: auto;
     margin-top: -10px;
@@ -108,7 +110,7 @@ thead{
     color: #fff;
     background-color: #24ad59;
 }
-.bg-9100 {
+.bg-90100 {
     height: 1rem;
     color: #fff;
     background-color: #14ae4e;
@@ -143,7 +145,7 @@ a:not([href]):not([tabindex]) {
 
 
 .cbp_tmtimeline {
-	margin: 30px 0 0 0px;
+	margin: 0;
 	padding: 0;
 	list-style: none;
 	position: relative;
@@ -151,7 +153,7 @@ a:not([href]):not([tabindex]) {
 
 /* The line */
 .cbp_tmtimeline:before {
-	content: '';
+	/* content: ''; */
     position: absolute;
     top: 0;
     bottom: 0;
@@ -161,7 +163,16 @@ a:not([href]):not([tabindex]) {
     left: 90px;
     margin-left: -67px;
 }
-
+ .lastobject  {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    height: auto;
+    background: black;
+    left: 90px;
+    margin-left: -67px;
+}
 .cbp_tmtimeline > li {
 	position: relative;
 }
@@ -268,7 +279,7 @@ a:not([href]):not([tabindex]) {
 
 @media screen and (max-width: 47.2em) {
 	.cbp_tmtimeline:before {
-        content: '';
+        /* content: ''; */
         position: absolute;
         top: 0;
         bottom: 0;

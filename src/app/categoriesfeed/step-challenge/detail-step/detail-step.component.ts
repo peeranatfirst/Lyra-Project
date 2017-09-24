@@ -45,9 +45,7 @@ export class DetailStepComponent implements OnInit {
         document.getElementById('card-comment').style.display = '';
       })
 
-      $("#closeBt").click(function () {
-        document.getElementById('transaction').style.display = 'none';
-      })
+      $("body").css('overflow', 'scroll');
     });
 
     // Get id

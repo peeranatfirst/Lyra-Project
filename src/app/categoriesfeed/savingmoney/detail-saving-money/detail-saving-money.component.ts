@@ -56,10 +56,9 @@ export class DetailSavingMoneyComponent implements OnInit {
       $("#commentBt").click(function () {
         document.getElementById('card-comment').style.display = '';
       })
+      $("body").css('overflow', 'scroll');
 
-      $("#closeBt").click(function () {
-        document.getElementById('transaction').style.display = 'none';
-      })
+
     });
 
 
