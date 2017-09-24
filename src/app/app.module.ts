@@ -25,7 +25,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { EmailComponent } from './authentication/email/email.component';
 import { CreateStepChallengeComponent } from "app/create-challenge/create-step-challenge/create-step-challenge.component";
-
+import { DetailMyRoutineChallengeComponent } from "app/my-challenge/detail-my-routine-challenge/detail-my-routine-challenge.component";
 
 //Directives
 
@@ -63,6 +63,7 @@ import { CreateRoutineChallengeComponent } from 'app/create-challenge/create-rou
 import { MyhomeComponent } from './myhome/myhome.component';
 import { DetailRoutineComponent } from './categoriesfeed/routine-challenge/detail-routine/detail-routine.component';
 import { CheckdataRoutineComponent } from './categoriesfeed/routine-challenge/checkdata-routine/checkdata-routine.component';
+import { DoneRoutineComponent } from './my-challenge/detail-my-routine-challenge/done-routine/done-routine.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
@@ -114,8 +115,10 @@ export const firebaseConfig = {
     CreateRoutineChallengeComponent,
     MyhomeComponent,
     DetailRoutineComponent,
-    CheckdataRoutineComponent
-
+    CheckdataRoutineComponent,    
+    DetailMyRoutineChallengeComponent, 
+    DoneRoutineComponent
+    
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,143 @@
+.card{
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: solid 1px;
+    background-color: white;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+    border-radius: 1.285714rem;
+}
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.container{
+    padding-top: 80px;
+}
+thead{
+    background-color: #378d3b;
+}
+.close{
+    text-align: right;
+}
+.delete{
+    color: #FFFFFF;
+}
+.btn-success, .btn-primary, .btn-danger,  .btn-secondary{
+    border-radius: 5.2rem;
+    width: 100%;
+    margin-top: 10px;
+}
+#transactionBt{
+    color: white;
+}
+#btn-back{
+    width: auto;
+    margin-top: -10px;
+}
+#delete{
+    color: white;
+    width: 100%;
+}
+.detailcontent{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.chaName{
+    color: #14AE4E;
+}
+.badge{
+    border-radius: 5.2rem;
+}
+.progress {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    font-size: .75rem;
+    line-height: 1rem;
+    text-align: center;
+    background-color: #cacaca;
+    border-radius: 1.25rem;
+    height: 8px;
+}
+.bg-0010 {
+    height: 1rem;
+    color: #fff;
+    background-color: #9eada4;
+}
+.bg-1019 {
+    height: 1rem;
+    color: #fff;
+    background-color: #92ad9c;
+}
+.bg-2029 {
+    height: 1rem;
+    color: #fff;
+    background-color: #84ad94;
+}
+.bg-3039 {
+    height: 1rem;
+    color: #fff;
+    background-color: #7bad8e;
+}
+.bg-4049 {
+    height: 1rem;
+    color: #fff;
+    background-color: #6aad84;
+}
+.bg-5059 {
+    height: 1rem;
+    color: #fff;
+    background-color: #58ad79;
+}
+.bg-6069 {
+    height: 1rem;
+    color: #fff;
+    background-color: #47ad6e;
+}
+.bg-7079 {
+    height: 1rem;
+    color: #fff;
+    background-color: #36ad64;
+}
+.bg-8089 {
+    height: 1rem;
+    color: #fff;
+    background-color: #24ad59;
+}
+.bg-90100 {
+    height: 1rem;
+    color: #fff;
+    background-color: #14ae4e;
+}
+a:not([href]):not([tabindex]):hover {
+    color: white;
+    text-decoration: none;
+}
+a:not([href]):not([tabindex]) {
+    color:white;
+    text-decoration: none;
+}
+.doChecklist{
+    color: #14AE4E;
+    font-weight: bold;
+}
+.checkmark{
+    width: 50px;
+    height: auto;
+}
+@media screen and (min-width: 767px) {
+    .btn-success, .btn-primary, .btn-danger, .btn-secondary{
+        border-radius: 5.2rem;
+        width: auto;
+    }
+    #delete{
+        color: white;
+        width: 20%;
+    }
+}

@@ -38,6 +38,8 @@ import { CreateRoutineChallengeComponent } from "app/create-challenge/create-rou
 import { MyhomeComponent } from "app/myhome/myhome.component"
 import { DetailRoutineComponent } from "app/categoriesfeed/routine-challenge/detail-routine/detail-routine.component";
 import { CheckdataRoutineComponent } from "app/categoriesfeed/routine-challenge/checkdata-routine/checkdata-routine.component";
+import { DetailMyRoutineChallengeComponent } from "app/my-challenge/detail-my-routine-challenge/detail-my-routine-challenge.component";
+import { DoneRoutineComponent } from "app/my-challenge/detail-my-routine-challenge/done-routine/done-routine.component";
 
 const appRoutes: Routes = [
   { path: '', component: MyhomeComponent },
@@ -90,7 +92,11 @@ const appRoutes: Routes = [
   { path: 'detailRoutine', component: DetailRoutineComponent},
   { path: 'detailRoutine/:id', component: DetailRoutineComponent},
   { path: 'checkdataRoutine', component: CheckdataRoutineComponent},
-  { path: 'checkdataRoutine/:id', component: CheckdataRoutineComponent}
+  { path: 'checkdataRoutine/:id', component: CheckdataRoutineComponent},
+  { path: 'detailmyRoutinechallenge', component: DetailMyRoutineChallengeComponent},
+  { path: 'detailmyRoutinechallenge/:id', component: DetailMyRoutineChallengeComponent},
+  { path: 'checkRoutine', component: DoneRoutineComponent},
+  { path: 'checkRoutine/:id/:id', component: DoneRoutineComponent}
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
