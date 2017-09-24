@@ -13,39 +13,39 @@
             <div class="card-text">
               {{detailMyChallenge.challengeDescription}}
               <br>Start Date: {{startDate}}
-              <br>Time left : {{remaining}}  Days
+              <br>Time left : {{remaining}} Days
               <br>Status : {{detailMyChallenge.challengeStatus}}
               <br><br><b>{{percent | number:'1.0-0'}}%</b>
               <div class="progress">
-                  <div *ngIf="percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                <div *ngIf="percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100"
+                  [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="percent >= 10 && percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
                   aria-valuemax="100" [style.width]="percent + '%'">
                 </div>
-                <div *ngIf="percent >= 10 && percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="percent"
-                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                <div *ngIf="percent >= 20 && percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
                 </div>
-                <div *ngIf="percent >= 20 && percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="percent"
-                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                <div *ngIf="percent >= 30 && percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
                 </div>
-                <div *ngIf="percent >= 30 && percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="percent"
-                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                <div *ngIf="percent >= 40 && percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
                 </div>
-                <div *ngIf="percent >= 40 && percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="percent"
-                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                <div *ngIf="percent >= 50 && percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
                 </div>
-                <div *ngIf="percent >= 50 && percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="percent"
-                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                <div *ngIf="percent >= 60 && percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
                 </div>
-                <div *ngIf="percent >= 60 && percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="percent"
-                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                <div *ngIf="percent >= 70 && percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
                 </div>
-                <div *ngIf="percent >= 70 && percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="percent"
-                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                <div *ngIf="percent >= 80 && percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
                 </div>
-                <div *ngIf="percent >= 80 && percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="percent"
-                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
-                </div>
-                <div *ngIf="percent >= 90 && percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="percent"
-                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                <div *ngIf="percent >= 90 && percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
                 </div>
               </div>
 
@@ -56,72 +56,74 @@
                           <h4 class="modal-title">Cancel Challenge</h4>
                           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                             <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <p>Are you sure to cancel this {{detailMyChallenge.challengeName}} Challenge ?</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
-                          <button type="button" class="btn btn-danger" (click)="c(onCancelChallenge())">Yes</button>
-                        </div>
-                      </ng-template>
-                      <button class="btn btn-danger bth-delete" (click)="open(content)">Cancel Challenge</button>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Are you sure to cancel this {{detailMyChallenge.challengeName}} Challenge ?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                <button type="button" class="btn btn-danger" (click)="c(onCancelChallenge())">Yes</button>
+              </div>
+              </ng-template>
+              <button class="btn btn-danger bth-delete" (click)="open(content)">Cancel Challenge</button>
               </span>
-                <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
+              <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
                 <a class="btn btn-success btn-add disabled" aria-disabled="true">Achieved</a>
                 <ng-template #content let-c="close" let-d="dismiss">
                     <div class="modal-header">
                       <h4 class="modal-title">Delete Challenge</h4>
                       <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                         <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
-                      <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
-                    </div>
-                  </ng-template>
-                  <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
-              </span>
-                <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+              <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+            </div>
+            </ng-template>
+            <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
+            </span>
+            <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
                     <ng-template #content let-c="close" let-d="dismiss">
                         <div class="modal-header">
                           <h4 class="modal-title">Delete Challenge</h4>
                           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                             <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
-                          <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
-                        </div>
-                      </ng-template>
-                      <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
-              </span>
-              <span class="delete">
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+            <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+          </div>
+          </ng-template>
+          <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
+          </span>
+          <span class="delete">
                 <a  role="button" class="btn btn-primary bth-delete">View Task History</a> <!--[routerLink]="['/checkHistory/'+chaId]" -->
               </span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+</div>
 
-    <div class="taskchecklist">
+<div class="taskchecklist">
+  <div class="row">
+    <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+    <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+    <div class="col-sm-10 col-md-8 col-lg-6">
+      <h3 class="doChecklist">Check your routine</h3>
       <div class="row">
-        <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
-        <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
-        <div class="col-sm-10 col-md-8 col-lg-6">
-          <h3 class="doChecklist">Check your routine</h3>
-          <div class="card" *ngFor="let cha of scheduled;">
+        <div class="col-sm-12 col-md-6 col-lg-4 mt-4"  *ngFor="let cha of scheduled;">
+          <div class="card">
             <div class="card-block">
               <div>
                 <!-- cha.tStatus for checking if status is checked or unchecked -->
@@ -129,19 +131,20 @@
                   <div class="media-body">
                     <span *ngIf="cha.status == 'checked'"> <!-- using corrected icon -->
                       <h6>Day {{cha.dayNo}}</h6>
+                      <img width="30px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fsuccess.png?alt=media&token=bd2e4df3-bf09-4411-b800-2b65bc3b1f36">
                     </span>
                     <span *ngIf="cha.status == 'skipped'"> <!-- using gray color for disabled day -->
                       <h6>Day {{cha.dayNo}}</h6>
+                      <img width="30px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fcancel.png?alt=media&token=1a6c1657-9120-4d1d-82e6-4cd1a70e393d">
                     </span>
                     <span *ngIf="cha.status == 'unlocked'" [routerLink]="['/checkRoutine/'+chaId+'/'+cha.key]"> <!-- Using color for available and link to check page -->
                       <h6> Day {{cha.dayNo}}</h6> unlocked
+                      <img width="30px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fcheck-unmark.png?alt=media&token=6727f0dc-984c-4fa8-a6ca-5b301dbe3a13">
                     </span>
                     <span *ngIf="cha.status == 'locked'"> <!-- Using locked icon -->
                       <h6>Day {{cha.dayNo}}</h6> locked
+                      <img width="30px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Flocked.png?alt=media&token=0268a222-4a54-4643-b736-e3d1fdb902ac">
                     </span>
-                    
-                    
-                    
                   </div>
                 </div>
               </div>
@@ -151,15 +154,17 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
 
 
-    <div class="row">
-      <div class="col-lg-12" align="center">
-        <br>
-        <a (click)="onBack()" class="btn btn-danger" id="btn-back">
+<div class="row">
+  <div class="col-lg-12" align="center">
+    <br>
+    <a (click)="onBack()" class="btn btn-danger" id="btn-back">
             <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
         </a>
-        <br><br>
-      </div>
-    </div>
+    <br><br>
   </div>
+</div>
+</div>
