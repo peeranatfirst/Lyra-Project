@@ -40,7 +40,7 @@ import { DetailRoutineComponent } from "app/categoriesfeed/routine-challenge/det
 import { CheckdataRoutineComponent } from "app/categoriesfeed/routine-challenge/checkdata-routine/checkdata-routine.component";
 import { DetailMyRoutineChallengeComponent } from "app/my-challenge/detail-my-routine-challenge/detail-my-routine-challenge.component";
 import { DoneRoutineComponent } from "app/my-challenge/detail-my-routine-challenge/done-routine/done-routine.component";
-
+import { AchievementComponent } from 'app/achievement/achievement.component';
 const appRoutes: Routes = [
   { path: '', component: MyhomeComponent },
   { path: 'feeds', component: CategoriesfeedComponent },
@@ -96,7 +96,8 @@ const appRoutes: Routes = [
   { path: 'detailmyRoutinechallenge', component: DetailMyRoutineChallengeComponent},
   { path: 'detailmyRoutinechallenge/:id', component: DetailMyRoutineChallengeComponent},
   { path: 'checkRoutine', component: DoneRoutineComponent},
-  { path: 'checkRoutine/:id/:id', component: DoneRoutineComponent}
+  { path: 'checkRoutine/:id/:id', component: DoneRoutineComponent},
+  { path: 'achievement', component: AchievementComponent}
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

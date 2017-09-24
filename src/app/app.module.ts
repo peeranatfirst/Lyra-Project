@@ -64,6 +64,7 @@ import { MyhomeComponent } from './myhome/myhome.component';
 import { DetailRoutineComponent } from './categoriesfeed/routine-challenge/detail-routine/detail-routine.component';
 import { CheckdataRoutineComponent } from './categoriesfeed/routine-challenge/checkdata-routine/checkdata-routine.component';
 import { DoneRoutineComponent } from './my-challenge/detail-my-routine-challenge/done-routine/done-routine.component';
+import { AchievementComponent } from './achievement/achievement.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
@@ -117,8 +118,9 @@ export const firebaseConfig = {
     DetailRoutineComponent,
     CheckdataRoutineComponent,    
     DetailMyRoutineChallengeComponent, 
-    DoneRoutineComponent
-    
+    DoneRoutineComponent,
+    AchievementComponent
+
   ],
   imports: [
     BrowserModule,
