@@ -1,0 +1,246 @@
+.container{
+    margin-top: 10px;
+}
+h5 {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+    margin: 0;
+}
+
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: solid 1px;
+    background-color: white;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    box-shadow: 0 6px 15px rgba(36,37,38,0.08);
+    border-radius: 20px;
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: 250px;
+}
+
+.card-title {
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.2857em;
+    color: black;
+}
+
+.card-text {
+    clear: both;
+    margin-top: .5em;
+    color: rgba(0, 0, 0, .68);
+}
+
+.card-footer {
+    font-size: 1em;
+    position: static;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: .75em 1em;
+    color: rgba(0, 0, 0, .68);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.profile {
+    position: absolute;
+    top: -12px;
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+.profile-avatar {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.profile-inline {
+    position: relative;
+    top: 0;
+    display: inline-block;
+}
+
+.profile-inline ~ .card-title {
+    display: inline-block;
+    margin-left: 4px;
+    vertical-align: top;
+}
+.card-title > .time{
+    font-size: 10pt;
+    font-weight: 100;
+}
+.card-footer > a{
+    color: rgba(0, 0, 0, .68);
+}
+.card-footer > a:hover{
+    text-decoration: none;
+}
+.img-fluid{
+    margin-top: 18px;
+}
+.detailcard{
+    padding-top: 80px;
+}
+a{
+    text-decoration: none;
+}
+.chaName{
+    color: #13AE4D;
+}
+a:not([href]):not([tabindex]):hover {
+    color: white;
+    text-decoration: none;
+}
+a:not([href]):not([tabindex]) {
+    color:white;
+    text-decoration: none;
+}
+#comment{
+    padding-top: 14px;
+}
+.commentIp{
+    border-radius: 20px;
+}
+.btn-danger{
+    border-radius: 20px;
+    color: white;
+}
+#delete{
+    width: auto;
+}
+.getChallengeWeb{
+    border-radius: 20px;
+    color: white;
+    position: absolute;
+    right: 15px;
+    margin-top: -40px;
+}
+.getChallengeMobile{
+    border-radius: 20px;
+    color: white;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.reviews{
+    background-color: #cacaca;
+    border-radius: 20px;
+}
+.deleteCha{
+    position: absolute;
+    display: inherit;
+    right: 16px;
+    margin-top: 5px;
+}
+@media screen and (min-width: 766px) {
+    .getChallengeMobile{
+        border-radius: 20px;
+        color: white;
+        display: none;
+    }
+}
+@media screen and (max-width: 766px) {
+    
+    .getChallengeWeb{
+        border-radius: 20px;
+        color: white;
+        position: absolute;
+        right: 15px;
+        margin-top: -40px;
+        display: none;
+    }
+    .getChallengeMobile{
+        border-radius: 20px;
+        color: white;
+        width: 100%;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    #delete{
+        width: 100%;
+    }
+}
+.btn-danger, .btn-secondary{
+    border-radius: 20px;
+    width: auto;
+}
+@media screen and (min-width: 767px) {
+    .btn-danger,.btn-secondary{
+        border-radius: 20px;
+        width: auto;
+    }
+    #delete{
+        color: white;
+        width: 20%;
+    }
+}
+
+/* .rating {
+    float:left;
+}
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+}
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+.rating > input:checked ~ label {
+    color: gold;
+}
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+}
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+.rating[_ngcontent-c2]:not(:checked) > label[_ngcontent-c2] {
+    font-size: 25px;
+} */

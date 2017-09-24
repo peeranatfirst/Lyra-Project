@@ -85,4 +85,28 @@ export class CreateChallengesService {
   addTasksStepChallenge(obj, id){
     firebase.database().ref('/AllChallenge/'+id+'/steps').push(obj);
   }
+
+  // Fuction for create a routine challenge with Image Upload
+  addCreateRoutineChallenge(createRoutineChallenge){
+    const storageRef = firebase.storage().ref();
+    for (const selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]) {
+      const path = `/routinechallenges/${selectedFile.name}`;
+      const iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        createRoutineChallenge.image = selectedFile.name;
+        createRoutineChallenge.path = path;
+        const promise = new Promise((resolve, reject) => {
+          resolve(firebase.database().ref('/AllChallenge').push().key);
+        }).then((val) => {
+          firebase.database().ref('/AllChallenge/' + val).set(createRoutineChallenge);
+          return val;
+        }).then((key) => {
+          this.router.navigate(['detailRoutine/' + key]);
+        });
+      });
+    }
+    return "should be fix";
+  }
+
+
 }
