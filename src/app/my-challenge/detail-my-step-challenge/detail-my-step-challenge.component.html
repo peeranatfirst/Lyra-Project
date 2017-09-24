@@ -19,18 +19,44 @@
               <br>Status : {{detailMyChallenge.challengeStatus}}
               <br><br><b>{{percent | number:'1.0-0'}}%</b>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                <div *ngIf="percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100"
+                  [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="percent >= 10 && percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="percent >= 20 && percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="percent >= 30 && percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="percent >= 40 && percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="percent >= 50 && percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="percent >= 60 && percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="percent >= 70 && percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="percent >= 80 && percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="percent >= 90 && percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="percent + '%'">
                 </div>
               </div>
 
               <div align="center">
                 <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'processing'">
-                      <ng-template #content let-c="close" let-d="dismiss">
-                          <div class="modal-header">
-                            <h4 class="modal-title">Cancel Challenge</h4>
-                            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                              <span aria-hidden="true">&times;</span>
-                </button>
+                  <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Cancel Challenge</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
                 <p>Are you sure to cancel this {{detailMyChallenge.challengeName}} Challenge ?</p>
@@ -80,7 +106,7 @@
           <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
           </span>
           <span class="delete">
-            <a [routerLink]="['/checkStepTran/'+chaId]" role="button" class="btn btn-primary bth-delete">View Task History</a>
+            <a [routerLink]="['/checkStepTran/'+chaId]" role="button" class="btn btn-primary bth-delete">View Step History</a>
           </span>
         </div>
       </div>
@@ -98,20 +124,22 @@
       <ul class="cbp_tmtimeline list-group" *ngFor="let cha of mysteps; let last = last;">
         <li>
           <!-- <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time> -->
-          <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == false && cha.stepStatus =='checked'">C</div> <!-- put checked icon here -->
+          <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == false && cha.stepStatus =='checked'"><i class="fa fa-check" aria-hidden="true"></i></div>
+          <!-- put checked icon here -->
           <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == false && cha.stepStatus =='unlocked'">{{cha.stepNo}}</div>
-          <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == true">{{cha.stepNo}}</div> <!-- removed หางที่หัวข้อ  -->
+          <div class="cbp_tmicon cbp_tmicon-phone lastobject" *ngIf="last == true">{{cha.stepNo}}</div>
+          <!-- removed หางที่หัวข้อ  -->
 
           <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'checked'">
             <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
             <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
           </div>
-
-          <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'unlocked'" [routerLink]="['/checkStep/'+chaId+'/'+cha.stepKey]">
-            <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
-            <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
-          </div>
-
+          <a style="text-decoration: none; color: black;" *ngIf="cha.stepStatus == 'unlocked'" [routerLink]="['/checkStep/'+chaId+'/'+cha.stepKey]">
+            <div class="cbp_tmlabel">
+              <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
+              <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
+            </div>
+          </a>
           <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'locked'">
             <ng-template #content let-c="close" let-d="dismiss">
               <div class="modal-header">
@@ -124,12 +152,10 @@
                 <p>For unlock this step, please check the previous step.</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" (click)="c('Close click')">Close</button>
+                <button type="button" class="btn btn-danger Close" (click)="c('Close click')">Close</button>
               </div>
             </ng-template>
             <a (click)="open(content)"><img width="50px" class="img-fluid" alt="Responsive image" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Flocked.png?alt=media&token=0268a222-4a54-4643-b736-e3d1fdb902ac"></a>
-            <p></p>
-            <h4 class="chaName">This step is locked.</h4>
           </div>
         </li>
       </ul>

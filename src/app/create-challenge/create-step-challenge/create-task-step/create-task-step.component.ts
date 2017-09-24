@@ -36,12 +36,29 @@ export class CreateTaskStepComponent implements OnInit {
     private cc: CreateChallengesService) { }
 
   ngOnInit() {
+
+    $(document).ready(function () {
+      $("body").css('overflow', 'scroll');
+
+      $('.blockloadergrey').hide();
+      $('.blockloaderwhite').hide();
+      $('#create').click(function () {
+        $('.blockloadergrey').show();
+        $('.blockloaderwhite').show();
+        $('.blockloaderwhite').addClass('animated zoomIn');
+        setTimeout(disableScroll(), 5000);
+      });
+      function disableScroll() {
+        $("body").css('overflow', 'hidden');
+      }
+    });
+
     // Get id
     this.id = this.route.snapshot.params['id'];
 
-     this.firebaseService.getChecklistChallengeDetails(this.id).subscribe((checklistDetails) => {
-       this.checklistDetails = checklistDetails;
-     });
+    this.firebaseService.getChecklistChallengeDetails(this.id).subscribe((checklistDetails) => {
+      this.checklistDetails = checklistDetails;
+    });
 
     this.stepForAdd = new Array();
   }
@@ -57,7 +74,7 @@ export class CreateTaskStepComponent implements OnInit {
           stepName: stepName,
           stepDes: "undefined"
         });
-      }else{
+      } else {
         this.stepForAdd.push({
           stepNo: this.stepCounter,
           stepName: stepName,

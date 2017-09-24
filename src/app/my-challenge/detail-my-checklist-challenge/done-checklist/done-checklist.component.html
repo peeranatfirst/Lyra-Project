@@ -10,7 +10,7 @@
                     <form ngNativeValidate (submit)="onCheckSubmit()" #checklistForm="ngForm">
                         <div class="form-group" (submit)="onAddSubmit()">
                             <label>Review your task</label>
-                            <input type="text" class="form-control" [(ngModel)]="taskCaption" name="taskCaption">
+                            <textarea type="text" rows="5" class="form-control" [(ngModel)]="taskCaption" name="taskCaption"></textarea>
 
                             <div class="form-group no-border">
                                 <label>Upload image</label>

@@ -6,6 +6,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import * as firebase from 'firebase';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-create-step-challenge',
@@ -25,6 +26,19 @@ export class CreateStepChallengeComponent implements OnInit {
     private dt: DatetimestampService) { }
 
   ngOnInit() {
+    $(document).ready(function () {
+      $('.blockloadergrey').hide();
+      $('.blockloaderwhite').hide();
+      $('#create').click(function () {
+        $('.blockloadergrey').show();
+        $('.blockloaderwhite').show();
+        $('.blockloaderwhite').addClass('animated zoomIn');
+        setTimeout(disableScroll(), 5000);
+      })
+    });
+    function disableScroll() {
+      $("body").css('overflow', 'hidden');
+    }
   }
 
   onAddSubmit(){

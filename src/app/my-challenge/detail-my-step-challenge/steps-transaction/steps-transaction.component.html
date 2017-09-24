@@ -11,9 +11,9 @@
               <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fsuccess.png?alt=media&token=bd2e4df3-bf09-4411-b800-2b65bc3b1f36" class="profile-avatar" alt="">
             </figure>
             <div class="card-title">
-              <span >step no : {{step.stepNo}}</span>
+              <span >Step No : {{step.stepNo}}</span>
               <span >{{step.stepName}}</span>
-              <br><span class="time">Checked : {{step.date}} at {{step.time}}</span>
+              <br><span class="time">Checked on: {{step.date}} at {{step.time}}</span>
             </div>
             <div class="card-text">
               <span *ngIf="step.capt != 'undefined'">{{step.capt}}</span>

@@ -1,38 +1,45 @@
+<div class="blockloadergrey" align="center">
+    <div class="blockloaderwhite" align="center">
+        <div class="loader"></div>
+        Loading to Done This Step
+    </div>
+</div>
 <div class="container">
-  <div class="row detailcard">
-      <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
-      <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
-      <div class="col-sm-10 col-md-8 col-lg-6">
-          <div class="card">
-              <div class="card-block">
-                  <span class="chaName"><h3 class="card-title"><b>{{detailStep.stepName}}</b></h3></span>
-                  <p>No : {{detailStep.stepNo}}</p>
-                  <form ngNativeValidate (submit)="onCheckSubmit()" #stepForm="ngForm">
-                      <div class="form-group" (submit)="onAddSubmit()">
-                          <label>Review your step</label>
-                          <input type="text" class="form-control" [(ngModel)]="stepCaption" name="stepCaption">
+    <div class="row detailcard">
+        <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+        <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+        <div class="col-sm-10 col-md-8 col-lg-6">
+            <div class="card">
+                <div class="card-block">
+                    <span class="chaName"><h3 class="card-title"><b>{{detailStep.stepName}}</b></h3></span>
+                    <p>No : {{detailStep.stepNo}}</p>
+                    <form ngNativeValidate (submit)="onCheckSubmit()" #stepForm="ngForm">
+                        <div class="form-group" (submit)="onAddSubmit()">
+                            <label>Review your step</label>
+                            <input type="text" class="form-control" [(ngModel)]="stepCaption" name="stepCaption">
 
-                          <div class="form-group no-border">
-                              <label>Upload image</label>
-                              <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image">
-                          </div>
-                      </div>
-                      <div align="center">
-                          <button type="submit" class="btn btn-success btn-add">
+                            <div class="form-group no-border">
+                                <label>Upload image</label>
+                                <input id='image' type="file" class="form-control" [(ngModel)]="image" name="image">
+                            </div>
+                        </div>
+                        <div align="center">
+                            <button type="submit" class="btn btn-success btn-add" id="check">
                               Check This Step
                           </button>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="row">
-      <div class="col-lg-12" align="center">
-          <a (click)="onBack()" class="btn btn-danger">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12" align="center">
+            <a (click)="onBack()" class="btn btn-danger">
             <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
         </a>
-      </div>
-  </div>
+        </div>
+    </div>
 </div>
 <br>

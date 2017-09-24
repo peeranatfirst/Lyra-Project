@@ -4,7 +4,7 @@ import { routing } from '../../../app.routing';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FirebaseService } from 'app/services/firebase.service';
 import * as firebase from 'firebase';
-
+import $ from 'jquery';
 import { Location } from "@angular/common";
 import { TaskManageService } from "app/services/task-manage.service";
 import { CalculatePercentSuccessService } from "app/services/calculate-percent-success.service";
@@ -34,6 +34,17 @@ export class DoneStepComponent implements OnInit {
     private calPercent: CalculatePercentSuccessService) { }
 
   ngOnInit() {
+
+    $(document).ready(function () {
+      $('.blockloadergrey').hide();
+      $('.blockloaderwhite').hide();
+      $('#check').click(function(){
+        $('.blockloadergrey').show();
+        $('.blockloaderwhite').show();
+        $('.blockloaderwhite').addClass('animated zoomIn');
+      })
+    });
+
      // Get ID
      this.chaId = this.route.snapshot.params['id1'];
      this.stepId = this.route.snapshot.params['id2'];

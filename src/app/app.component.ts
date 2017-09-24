@@ -27,7 +27,7 @@ export class AppComponent {
           this.isLoggedIn = true;
           // UPDATE: I forgot this at first. Without it when a user is logged in and goes directly to /login
           // the user did not get redirected to the home page.
-          this.router.navigate(['']);
+          this.router.navigate(['/mychallenge']);
         }
       }
     );
