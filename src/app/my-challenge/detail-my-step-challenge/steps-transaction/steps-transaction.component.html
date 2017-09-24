@@ -1,3 +1,39 @@
-<p>
-  steps-transaction works!
-</p>
+<div *ngIf="stepHistory">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+      <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+      <div class="col-sm-10 col-md-8 col-lg-6">
+        <h3><b>Step History</b></h3><br>
+        <div class="card" *ngFor="let step of stepHistory">
+          <div class="card-block">
+            <figure class="profile profile-inline">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fsuccess.png?alt=media&token=bd2e4df3-bf09-4411-b800-2b65bc3b1f36" class="profile-avatar" alt="">
+            </figure>
+            <div class="card-title">
+              <span >step no : {{step.stepNo}}</span>
+              <span >{{step.stepName}}</span>
+              <br><span class="time">Checked : {{step.date}} at {{step.time}}</span>
+            </div>
+            <div class="card-text">
+              <span *ngIf="step.capt != 'undefined'">{{step.capt}}</span>
+              <span *ngIf="step.img != 'undefined'" >
+                <br><br><img src="{{step.img}}" class="img-fluid">
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+
+    <div class="row">
+      <div class="col-sm-1 flex-first"></div>
+      <div class="col-sm-1 flex-last"></div>
+      <div class="col-sm-10" align="center">
+        <a (click)="onBack()" class="btn btn-danger"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
+      </div>
+    </div>
+
+  </div>
+  <br>
+</div>
