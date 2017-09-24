@@ -36,7 +36,10 @@ import { StepsTransactionComponent } from "app/my-challenge/detail-my-step-chall
 import { CreateRoutineChallengeComponent } from "app/create-challenge/create-routine-challenge/create-routine-challenge.component";
 
 import { MyhomeComponent } from "app/myhome/myhome.component"
-;
+import { DetailRoutineComponent } from "app/categoriesfeed/routine-challenge/detail-routine/detail-routine.component";
+import { CheckdataRoutineComponent } from "app/categoriesfeed/routine-challenge/checkdata-routine/checkdata-routine.component";
+import { DetailMyRoutineChallengeComponent } from "app/my-challenge/detail-my-routine-challenge/detail-my-routine-challenge.component";
+import { DoneRoutineComponent } from "app/my-challenge/detail-my-routine-challenge/done-routine/done-routine.component";
 import { AchievementComponent } from 'app/achievement/achievement.component';
 const appRoutes: Routes = [
   { path: '', component: MyhomeComponent },
@@ -86,6 +89,14 @@ const appRoutes: Routes = [
   { path: 'checkStep/:id1/:id2', component: DoneStepComponent},
   { path: 'checkStepTran/:id', component: StepsTransactionComponent},
   { path: 'createRoutineChallenge', component: CreateRoutineChallengeComponent},
+  { path: 'detailRoutine', component: DetailRoutineComponent},
+  { path: 'detailRoutine/:id', component: DetailRoutineComponent},
+  { path: 'checkdataRoutine', component: CheckdataRoutineComponent},
+  { path: 'checkdataRoutine/:id', component: CheckdataRoutineComponent},
+  { path: 'detailmyRoutinechallenge', component: DetailMyRoutineChallengeComponent},
+  { path: 'detailmyRoutinechallenge/:id', component: DetailMyRoutineChallengeComponent},
+  { path: 'checkRoutine', component: DoneRoutineComponent},
+  { path: 'checkRoutine/:id/:id', component: DoneRoutineComponent},
   { path: 'achievement', component: AchievementComponent}
 ];
 

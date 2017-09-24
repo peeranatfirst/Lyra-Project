@@ -25,7 +25,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { EmailComponent } from './authentication/email/email.component';
 import { CreateStepChallengeComponent } from "app/create-challenge/create-step-challenge/create-step-challenge.component";
-
+import { DetailMyRoutineChallengeComponent } from "app/my-challenge/detail-my-routine-challenge/detail-my-routine-challenge.component";
 
 //Directives
 
@@ -61,6 +61,9 @@ import { DoneStepComponent } from './my-challenge/detail-my-step-challenge/done-
 import { StepsTransactionComponent } from './my-challenge/detail-my-step-challenge/steps-transaction/steps-transaction.component';
 import { CreateRoutineChallengeComponent } from 'app/create-challenge/create-routine-challenge/create-routine-challenge.component';
 import { MyhomeComponent } from './myhome/myhome.component';
+import { DetailRoutineComponent } from './categoriesfeed/routine-challenge/detail-routine/detail-routine.component';
+import { CheckdataRoutineComponent } from './categoriesfeed/routine-challenge/checkdata-routine/checkdata-routine.component';
+import { DoneRoutineComponent } from './my-challenge/detail-my-routine-challenge/done-routine/done-routine.component';
 import { AchievementComponent } from './achievement/achievement.component';
 
 export const firebaseConfig = {
@@ -112,6 +115,10 @@ export const firebaseConfig = {
     StepsTransactionComponent,
     CreateRoutineChallengeComponent,
     MyhomeComponent,
+    DetailRoutineComponent,
+    CheckdataRoutineComponent,    
+    DetailMyRoutineChallengeComponent, 
+    DoneRoutineComponent,
     AchievementComponent
 
   ],

@@ -1,12 +1,12 @@
 .container{
     margin-top: 10px;
 }
-/* h5 {
+h5 {
     font-size: 1.28571429em;
     font-weight: 700;
     line-height: 1.2857em;
     margin: 0;
-} */
+}
 
 .card {
     font-size: 1em;
@@ -18,7 +18,7 @@
     border-radius: .28571429rem;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
     box-shadow: 0 6px 15px rgba(36,37,38,0.08);
-    border-radius: 1.285714rem;
+    border-radius: 20px;
 }
 
 .card-block {
@@ -31,7 +31,7 @@
 .card-img-top {
     display: block;
     width: 100%;
-    height: auto;
+    height: 250px;
 }
 
 .card-title {
@@ -54,10 +54,10 @@
     left: 0;
     max-width: 100%;
     padding: .75em 1em;
+    color: rgba(0, 0, 0, .68);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: rgba(0, 0, 0, .68);
 }
 .profile {
     position: absolute;
@@ -100,18 +100,18 @@
 .card-footer > a:hover{
     text-decoration: none;
 }
-
+.img-fluid{
+    margin-top: 18px;
+}
 .detailcard{
-    padding-top: 70px;
+    padding-top: 80px;
+}
+a{
+    text-decoration: none;
 }
 .chaName{
-    color: #14AE4E;
+    color: #13AE4D;
 }
-.btn-danger{
-    border-radius: 5.2rem;
-    color: white;
-}
-
 a:not([href]):not([tabindex]):hover {
     color: white;
     text-decoration: none;
@@ -120,18 +120,18 @@ a:not([href]):not([tabindex]) {
     color:white;
     text-decoration: none;
 }
-.doChecklist{
-    color: #14AE4E;
-    font-weight: bold;
-}
-input{
-    border-radius: 20px;
-}
 #comment{
     padding-top: 14px;
 }
 .commentIp{
     border-radius: 20px;
+}
+.btn-danger{
+    border-radius: 20px;
+    color: white;
+}
+#delete{
+    width: auto;
 }
 .getChallengeWeb{
     border-radius: 20px;
@@ -146,6 +146,10 @@ input{
     width: 100%;
     margin-top: 25px;
     margin-bottom: 15px;
+}
+.reviews{
+    background-color: #cacaca;
+    border-radius: 20px;
 }
 .deleteCha{
     position: absolute;
@@ -177,13 +181,17 @@ input{
         margin-top: 25px;
         margin-bottom: 15px;
     }
+    #delete{
+        width: 100%;
+    }
 }
 .btn-danger, .btn-secondary{
     border-radius: 20px;
+    width: auto;
 }
 @media screen and (min-width: 767px) {
     .btn-danger,.btn-secondary{
-        border-radius: 5.2rem;
+        border-radius: 20px;
         width: auto;
     }
     #delete{
@@ -191,3 +199,48 @@ input{
         width: 20%;
     }
 }
+
+/* .rating {
+    float:left;
+}
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+}
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+.rating > input:checked ~ label {
+    color: gold;
+}
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+}
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+.rating[_ngcontent-c2]:not(:checked) > label[_ngcontent-c2] {
+    font-size: 25px;
+} */
