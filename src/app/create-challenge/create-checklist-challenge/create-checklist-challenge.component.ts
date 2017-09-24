@@ -6,6 +6,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 import * as firebase from 'firebase';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-create-checklist-challenge',
@@ -18,16 +19,29 @@ export class CreateChecklistChallengeComponent implements OnInit {
   challengeDescription: any;
   duration: any;
   image: any;
-  
+
   constructor(private createCha: CreateChallengesService,
     private router: Router,
     private route: ActivatedRoute,
     private dt: DatetimestampService) { }
 
   ngOnInit() {
+    $(document).ready(function () {
+      $('.blockloadergrey').hide();
+      $('.blockloaderwhite').hide();
+      $('#create').click(function () {
+        $('.blockloadergrey').show();
+        $('.blockloaderwhite').show();
+        $('.blockloaderwhite').addClass('animated zoomIn');
+        setTimeout(disableScroll(), 5000);
+      })
+    });
+    function disableScroll() {
+      $("body").css('overflow', 'hidden');
+    }
   }
 
-  onAddSubmit(){
+  onAddSubmit() {
     const timestamp = firebase.database.ServerValue.TIMESTAMP;
 
     const createChecklistChallenge = {
@@ -38,7 +52,7 @@ export class CreateChecklistChallengeComponent implements OnInit {
       category: "Checklist",
       owner: firebase.auth().currentUser.uid
     };
-    
+
     const createChecklistChallengeNoDescrip = {
       challengeName: this.challengeName,
       duration: this.duration,

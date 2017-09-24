@@ -245,7 +245,7 @@ a:not([href]):not([tabindex]) {
 
 /* The line */
 .cbp_tmtimeline:before {
-	content: '';
+	/* content: ''; */
     position: absolute;
     top: 0;
     bottom: 0;
@@ -362,7 +362,7 @@ a:not([href]):not([tabindex]) {
 
 @media screen and (max-width: 47.2em) {
 	.cbp_tmtimeline:before {
-        content: '';
+        /* content: ''; */
         position: absolute;
         top: 0;
         bottom: 0;

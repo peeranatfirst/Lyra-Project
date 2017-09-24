@@ -7,7 +7,7 @@ import { DatetimestampService } from 'app/services/datetimestamp.service';
 import { GetUserInfoService } from "app/services/get-user-info.service";
 import { Location } from "@angular/common";
 import $ from 'jquery';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-checklist',
@@ -46,9 +46,7 @@ export class DetailChecklistComponent implements OnInit {
         document.getElementById('card-comment').style.display = '';
       })
 
-      $("#closeBt").click(function () {
-        document.getElementById('transaction').style.display = 'none';
-      })
+      $("body").css('overflow', 'scroll');
     });
 
     // Get id
@@ -68,9 +66,9 @@ export class DetailChecklistComponent implements OnInit {
 
       this.uid = this.checklistChaDetail.owner;
       var currentUser = firebase.auth().currentUser.uid;
-      if(this.uid == currentUser){
+      if (this.uid == currentUser) {
         this.isOwner = true;
-      }else{
+      } else {
         this.isOwner = false;
       }
 
@@ -94,14 +92,14 @@ export class DetailChecklistComponent implements OnInit {
     this.location.back();
   }
 
-  onDeleteChallenge(){
-    firebase.database().ref('/AllChallenge/'+this.id).remove();
+  onDeleteChallenge() {
+    firebase.database().ref('/AllChallenge/' + this.id).remove();
     this.routing.navigate(['checklistChallenge/']);
-}
+  }
   open(content) {
     this.modalService.open(content);
   }
 
- 
+
 
 }
