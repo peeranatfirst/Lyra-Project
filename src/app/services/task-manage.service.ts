@@ -201,7 +201,7 @@ export class TaskManageService {
               }
               firebase.database().ref('/users/'+this.uid+'/Challenges/'+val).child('scheduled').push(obj); 
             } else {
-              start = start + 86400000;
+              start = start + 30000; // 86400000
               const obj = {
                 dayNo: i,
                 scheduleDate: start,
