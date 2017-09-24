@@ -37,6 +37,7 @@ import { CreateRoutineChallengeComponent } from "app/create-challenge/create-rou
 
 import { MyhomeComponent } from "app/myhome/myhome.component"
 ;
+import { AchievementComponent } from 'app/achievement/achievement.component';
 const appRoutes: Routes = [
   { path: '', component: MyhomeComponent },
   { path: 'feeds', component: CategoriesfeedComponent },
@@ -84,7 +85,8 @@ const appRoutes: Routes = [
   { path: 'checkStep', component: DoneStepComponent},
   { path: 'checkStep/:id1/:id2', component: DoneStepComponent},
   { path: 'checkStepTran/:id', component: StepsTransactionComponent},
-  { path: 'createRoutineChallenge', component: CreateRoutineChallengeComponent}
+  { path: 'createRoutineChallenge', component: CreateRoutineChallengeComponent},
+  { path: 'achievement', component: AchievementComponent}
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
