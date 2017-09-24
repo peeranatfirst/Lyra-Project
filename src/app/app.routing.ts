@@ -35,8 +35,11 @@ import { DoneStepComponent } from "app/my-challenge/detail-my-step-challenge/don
 import { StepsTransactionComponent } from "app/my-challenge/detail-my-step-challenge/steps-transaction/steps-transaction.component";
 import { CreateRoutineChallengeComponent } from "app/create-challenge/create-routine-challenge/create-routine-challenge.component";
 
+import { MyhomeComponent } from "app/myhome/myhome.component"
+;
 const appRoutes: Routes = [
-  { path: '', component: CategoriesfeedComponent },
+  { path: '', component: MyhomeComponent },
+  { path: 'feeds', component: CategoriesfeedComponent },
   { path: 'savingmoney', component: SavingmoneyComponent },
   { path: 'detailSavingMoney', component: DetailSavingMoneyComponent },
   { path: 'detailSavingMoney/:id', component: DetailSavingMoneyComponent },

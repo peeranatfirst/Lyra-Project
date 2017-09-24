@@ -19,7 +19,7 @@ export class AppComponent {
       (auth) => {
         if(auth == null) {
           console.log("Not Logged in.");
-          this.router.navigate(['']);
+          this.router.navigate(['/feeds']);
           this.isLoggedIn = false;
         }
         else {
@@ -34,5 +34,6 @@ export class AppComponent {
   }
   logout() {
     this.af.auth.logout();
+    this.router.navigate(['/feeds']);
   }
 }

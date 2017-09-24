@@ -21,7 +21,7 @@
               <i class="fa fa-sign-in fa-stack-1x fa-inverse"></i>
             </span>&nbsp; Login</a>
           </span>
-          <a class="list-group-item" href="">
+          <a class="list-group-item" [routerLink]="['/feeds']">
             <span class="fa-stack">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-home fa-stack-1x fa-inverse"></i>
@@ -63,7 +63,7 @@
       <div class="hiddenNav"></div>
       <div class="mainClose">
         <a><i class="fa fa-bars" aria-hidden="true"></i></a>
-        <a [routerLink]="['/']">
+        <a [routerLink]="['/feeds']">
           <h1 class="navbar-brand mb-0">LYRA</h1>
         </a>
         <a><i class="fa fa-search" aria-hidden="true"></i></a>

@@ -60,6 +60,7 @@ import { DetailMyStepChallengeComponent } from "app/my-challenge/detail-my-step-
 import { DoneStepComponent } from './my-challenge/detail-my-step-challenge/done-step/done-step.component';
 import { StepsTransactionComponent } from './my-challenge/detail-my-step-challenge/steps-transaction/steps-transaction.component';
 import { CreateRoutineChallengeComponent } from 'app/create-challenge/create-routine-challenge/create-routine-challenge.component';
+import { MyhomeComponent } from './myhome/myhome.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
@@ -108,7 +109,8 @@ export const firebaseConfig = {
     DetailMyStepChallengeComponent,
     DoneStepComponent,
     StepsTransactionComponent,
-    CreateRoutineChallengeComponent
+    CreateRoutineChallengeComponent,
+    MyhomeComponent
 
   ],
   imports: [
