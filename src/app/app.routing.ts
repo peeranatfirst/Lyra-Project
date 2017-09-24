@@ -33,11 +33,7 @@ import { CheckdataStepComponent } from "app/categoriesfeed/step-challenge/checkd
 import { DetailMyStepChallengeComponent } from "app/my-challenge/detail-my-step-challenge/detail-my-step-challenge.component";
 import { DoneStepComponent } from "app/my-challenge/detail-my-step-challenge/done-step/done-step.component";
 import { StepsTransactionComponent } from "app/my-challenge/detail-my-step-challenge/steps-transaction/steps-transaction.component";
-<<<<<<< HEAD
 import { CreateRoutineChallengeComponent } from "app/create-challenge/create-routine-challenge/create-routine-challenge.component";
-=======
-import { CreateRoutineChallengeComponent } from 'app/create-challenge/create-routine-challenge/create-routine-challenge.component';
->>>>>>> cb5c0a8e0542bff57d033371320055c647d95aa7
 
 const appRoutes: Routes = [
   { path: '', component: CategoriesfeedComponent },
