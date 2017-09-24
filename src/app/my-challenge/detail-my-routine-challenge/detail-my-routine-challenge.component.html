@@ -105,9 +105,6 @@
           </ng-template>
           <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
           </span>
-          <span class="delete">
-                <a  role="button" class="btn btn-primary bth-delete">View Task History</a> <!--[routerLink]="['/checkHistory/'+chaId]" -->
-              </span>
         </div>
       </div>
     </div>
@@ -136,8 +133,8 @@
                     <span *ngIf="cha.status == 'skipped'"> <!-- using gray color for disabled day -->
                       <h6>Day {{cha.dayNo}}</h6>
                       <img width="30px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fcancel.png?alt=media&token=1a6c1657-9120-4d1d-82e6-4cd1a70e393d">
-                    </span>
-                    <span *ngIf="cha.status == 'unlocked'" [routerLink]="['/checkRoutine/'+chaId+'/'+cha.key]"> <!-- Using color for available and link to check page -->
+                    </span> <!-- [routerLink]="['/checkRoutine/'+chaId+'/'+cha.key]" -->
+                    <span *ngIf="cha.status == 'unlocked'"> <!-- Using color for available and link to check page -->
                       <h6> Day {{cha.dayNo}}</h6> unlocked
                       <img width="30px" class="rounded-circle d-flex mr-3 checkmark" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fcheck-unmark.png?alt=media&token=6727f0dc-984c-4fa8-a6ca-5b301dbe3a13">
                     </span>

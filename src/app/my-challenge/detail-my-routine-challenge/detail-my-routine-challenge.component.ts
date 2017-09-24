@@ -70,7 +70,7 @@ export class DetailMyRoutineChallengeComponent implements OnInit {
           snapshot.forEach(element => {
             var data = element.val();
             const dailyEvent = {
-              key: element.$key,
+              key: element.key,
               dayNo: data.dayNo,
               scheduleDate: data.scheduleDate,
               status: data.status
@@ -83,37 +83,6 @@ export class DetailMyRoutineChallengeComponent implements OnInit {
           this.remaining = checked;
         })
     })
-
-
-
-    /*new Promise(function (resolve, reject) {
-      setTimeout(() => resolve(10), 1000);
-    })
-      .then((num) => {
-        const update = this.updateRoutineSchedule();
-        return update;
-      }).then((upd) => {
-        const query = firebase.database().ref("users/" + this.uid + "/Challenges/" + this.chaId + "/scheduled").orderByChild("dayNo");
-        query.once("value")
-          .then((snapshot) => {
-            let checked = 0;
-            snapshot.forEach(element => {
-              var data = element.val();
-              const dailyEvent = {
-                key: element.$key,
-                dayNo: data.dayNo,
-                scheduleDate: data.scheduleDate,
-                status: data.status
-              }
-              this.scheduled.push(dailyEvent);
-              if (data.status == 'locked') {
-                checked = checked + 1;
-              }
-            })
-            this.remaining = checked;
-          })
-      })*/
-
   }
 
   onBack() {

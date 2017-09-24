@@ -1,3 +1,33 @@
-<p>
-  done-routine works!
-</p>
+
+<div class="container">
+  <div class="row detailcard">
+      <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+      <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+      <div class="col-sm-10 col-md-8 col-lg-6">
+          <div class="card">
+              <div class="card-block">
+                  <!--<span class="chaName"><h3 class="card-title"><b>{{detailRoutine.stepName}}</b></h3></span>
+                  <p>No : {{detailStep.stepNo}}</p> -->
+                  <form ngNativeValidate (submit)="onCheckSubmit()" #routineForm="ngForm">
+                      <div class="form-group" (submit)="onAddSubmit()">
+                      </div>
+                      <div align="center">
+                          <button type="submit" class="btn btn-success btn-add" id="check">
+                            Check This Step
+                        </button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-12" align="center">
+          <a (click)="onBack()" class="btn btn-danger">
+          <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
+      </a>
+      </div>
+  </div>
+</div>
+<br>
