@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
       this.af.auth.subscribe(auth => { 
       if(auth) {
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/mychallenge');
       }
     });
 
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
               this.checkExistUser(uid);
             }
           });
-        this.router.navigate(['/']);
+        this.router.navigate(['/mychallenge']);
       }).catch(
         (err) => {
         this.error = err;
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
               this.checkExistUser(uid);
             }
           });
-        this.router.navigate(['/']);
+        this.router.navigate(['/mychallenge']);
       }).catch(
         (err) => {
         this.error = err;
