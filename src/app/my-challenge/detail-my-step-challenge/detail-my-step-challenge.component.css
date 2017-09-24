@@ -30,6 +30,7 @@ thead{
 .btn-success, .btn-primary, .btn-danger, .btn-secondary{
     border-radius: 5.2rem;
     width: 100%;
+    margin-top: 10px;
 }
 
 #btn-back{

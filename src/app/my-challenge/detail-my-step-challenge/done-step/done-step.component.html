@@ -7,10 +7,11 @@
               <div class="card-block">
                   <span class="chaName"><h3 class="card-title"><b>{{detailStep.stepName}}</b></h3></span>
                   <p>No : {{detailStep.stepNo}}</p>
+                  <p></p>
                   <form ngNativeValidate (submit)="onCheckSubmit()" #stepForm="ngForm">
                       <div class="form-group" (submit)="onAddSubmit()">
                           <label>Review your step</label>
-                          <input type="text" class="form-control" [(ngModel)]="stepCaption" name="stepCaption">
+                          <textarea type="text" rows="5" class="form-control" [(ngModel)]="stepCaption" name="stepCaption"></textarea>
 
                           <div class="form-group no-border">
                               <label>Upload image</label>
@@ -19,7 +20,7 @@
                       </div>
                       <div align="center">
                           <button type="submit" class="btn btn-success btn-add">
-                              Check This Step
+                              Check this step 
                           </button>
                       </div>
                   </form>
