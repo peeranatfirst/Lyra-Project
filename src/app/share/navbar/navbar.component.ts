@@ -80,9 +80,8 @@ export class NavbarComponent implements OnInit {
         $(".mainOpen").addClass('mainClose');
         $(".mainClose").removeClass('mainOpen');
 
-        $(".fa-times").hide(500);
+        $("#menuX").hide(500);
         $(".fa-bars").show(500);
-        $(".fa-bars2").hide(500);
         $(".navbar-brand").show(500);
       });
       //
@@ -94,7 +93,7 @@ export class NavbarComponent implements OnInit {
         $(".mainOpen").addClass('mainClose');
         $(".mainClose").removeClass('mainOpen');
 
-        $(".fa-times").hide(500);
+        $("#menuX").hide(500);
         $(".fa-bars").show(500);
         $(".navbar-brand").show(500);
       });
