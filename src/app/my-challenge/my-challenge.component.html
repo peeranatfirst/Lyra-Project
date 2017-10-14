@@ -6,336 +6,311 @@
     <div class="col-lg-12" id="tabStatus">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-          <a class="nav-link  active" data-toggle="tab" href="#InProgress" role="tab">Doing</a>
+          <a class="nav-link" id="Doing-tab">Doing</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#Achieved" role="tab">Achieved</a>
+          <a class="nav-link" id="Achieved-tab">Achieved</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#Cancelled" role="tab">Cancelled</a>
+          <a class="nav-link" id="Cancelled-tab">Cancelled</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#All" role="tab">All</a>
+          <a class="nav-link" id="All-tab">All</a>
         </li>
       </ul>
 
     </div>
   </div>
 
-  <!-- Tab panes-->
-  <div class="tab-content">
-    <div class="tab-pane show active" id="InProgress" role="tabpanel">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let cha of inProgressChallenges">
-          <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
-            <div class="card card-inverse card-info">
-              <div class="card-block">
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'SavingMoney'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fpiggy-bank.png?alt=media&token=a6939815-273d-4fdb-9603-72e4529c4643"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Checklist'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fclipboard.png?alt=media&token=cafc8620-f059-4e6f-853f-98e7d96cd02d"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Step'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fbar-chart.png?alt=media&token=5f8df8d8-a4e3-4138-af42-9a151b5f654f"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Routine'">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fopen-book.png?alt=media&token=154f19b5-a739-48d6-b844-ea1609cd7226"
-                      class="profile-avatar" alt="">
-                  </figure>
-                <div class="card-text">
-                  <span class="chaName">{{cha.name}}</span><br>
-                  <!--Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
-                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}} -->
-                  <div class="progress">
-                    <div *ngIf="cha.percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 10 && cha.percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 20 && cha.percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 30 && cha.percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 40 && cha.percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 50 && cha.percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 60 && cha.percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 70 && cha.percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 80 && cha.percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 90 && cha.percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                  </div>
-
+  <!-- Doning -->
+  <div class="row animated" id="Doing" style="display: flex">
+    <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let cha of inProgressChallenges">
+      <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
+        <div class="card card-inverse card-info">
+          <div class="card-block">
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'SavingMoney'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fpiggy-bank.png?alt=media&token=a6939815-273d-4fdb-9603-72e4529c4643"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Checklist'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fclipboard.png?alt=media&token=cafc8620-f059-4e6f-853f-98e7d96cd02d"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Step'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fbar-chart.png?alt=media&token=5f8df8d8-a4e3-4138-af42-9a151b5f654f"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Routine'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fopen-book.png?alt=media&token=154f19b5-a739-48d6-b844-ea1609cd7226"
+                class="profile-avatar" alt="">
+            </figure>
+            <div class="card-text">
+              <span class="chaName">{{cha.name}}</span><br>
+              <div class="progress">
+                <div *ngIf="cha.percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 10 && cha.percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 20 && cha.percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 30 && cha.percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 40 && cha.percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 50 && cha.percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 60 && cha.percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 70 && cha.percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 80 && cha.percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 90 && cha.percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
                 </div>
               </div>
-              <!-- <div class="card-footer">
-                <small>Last updated 3 mins ago</small>
-              </div> -->
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <div class="tab-pane fade" id="Achieved" role="tabpanel">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let cha of achievedChallenges">
-          <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
-            <div class="card card-inverse card-info">
-              <div class="card-block">
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'SavingMoney'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fpiggy-bank.png?alt=media&token=a6939815-273d-4fdb-9603-72e4529c4643"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Checklist'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fclipboard.png?alt=media&token=cafc8620-f059-4e6f-853f-98e7d96cd02d"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Step'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fbar-chart.png?alt=media&token=5f8df8d8-a4e3-4138-af42-9a151b5f654f"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Routine'">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fopen-book.png?alt=media&token=154f19b5-a739-48d6-b844-ea1609cd7226"
-                      class="profile-avatar" alt="">
-                  </figure>
-                <div class="card-text">
-                  <span class="chaName">{{cha.name}}</span><br>
-                  <!-- Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
-                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}} -->
-                  <div class="progress">
-                    <div *ngIf="cha.percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 10 && cha.percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 20 && cha.percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 30 && cha.percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 40 && cha.percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 50 && cha.percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 60 && cha.percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 70 && cha.percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 80 && cha.percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 90 && cha.percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="card-footer">
-                <small>Last updated 3 mins ago</small>
-              </div> -->
             </div>
-          </a>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
-
-    <div class="tab-pane fade" id="Cancelled" role="tabpanel">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let cha of cancelledChallenges">
-          <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
-            <div class="card card-inverse card-info">
-              <div class="card-block">
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'SavingMoney'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fpiggy-bank.png?alt=media&token=a6939815-273d-4fdb-9603-72e4529c4643"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Checklist'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fclipboard.png?alt=media&token=cafc8620-f059-4e6f-853f-98e7d96cd02d"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Step'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fbar-chart.png?alt=media&token=5f8df8d8-a4e3-4138-af42-9a151b5f654f"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Routine'">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fopen-book.png?alt=media&token=154f19b5-a739-48d6-b844-ea1609cd7226"
-                      class="profile-avatar" alt="">
-                  </figure>
-                <div class="card-text">
-                  <span class="chaName">{{cha.name}}</span><br>
-                  <!-- Goal : {{cha.total | currency:'THB':true:'1.2-2'}}
-                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}} -->
-                  <div class="progress">
-                    <div *ngIf="cha.percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 10 && cha.percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 20 && cha.percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 30 && cha.percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 40 && cha.percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 50 && cha.percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 60 && cha.percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 70 && cha.percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 80 && cha.percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 90 && cha.percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="cha.percent"
-                      aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="card-footer">
-                <small>Last updated 3 mins ago</small>
-              </div> -->
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-pane fade" id="All" role="tabpanel">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let cha of DetailOfChallenges">
-          <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
-            <div class="card card-inverse card-info">
-              <div class="card-block">
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'SavingMoney'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fpiggy-bank.png?alt=media&token=a6939815-273d-4fdb-9603-72e4529c4643"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Checklist'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fclipboard.png?alt=media&token=cafc8620-f059-4e6f-853f-98e7d96cd02d"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Step'">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fbar-chart.png?alt=media&token=5f8df8d8-a4e3-4138-af42-9a151b5f654f"
-                    class="profile-avatar" alt="">
-                </figure>
-                <figure class="profile profile-inline" *ngIf="cha.cate == 'Routine'">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fopen-book.png?alt=media&token=154f19b5-a739-48d6-b844-ea1609cd7226"
-                      class="profile-avatar" alt="">
-                  </figure>
-                <div class="card-text">
-                  <span class="chaName">{{cha.name}}</span><br>
-                  <!-- Goal : {{cha.total | currency:'THB':true:'1.2-2'}} 
-                  <br> Total Amount : {{cha.balance | currency:'THB':true:'1.2-2'}}-->
-                  <span *ngIf="cha.status != 'Achieved'">
-                  <div class="progress">
-                      <div *ngIf="cha.percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0" aria-valuemax="100"
-                      [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 10 && cha.percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 20 && cha.percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 30 && cha.percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 40 && cha.percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 50 && cha.percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 60 && cha.percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 70 &&cha. percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 80 && cha.percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 90 && cha.percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                  </div>
-                  </span>
-                  <span *ngIf="cha.status == 'Achieved'">
-                  <div class="progress">
-                      <div *ngIf="cha.percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0" aria-valuemax="100"
-                      [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 10 && cha.percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 20 && cha.percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 30 && cha.percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 40 && cha.percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 50 && cha.percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 60 && cha.percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 70 && cha.percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 80 && cha.percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                    <div *ngIf="cha.percent >= 90 && cha.percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
-                      aria-valuemax="100" [style.width]="cha.percent + '%'">
-                    </div>
-                  </div>
-                  </span>
-                </div>
-              </div>
-              <!-- <div class="card-footer">
-                <small>Last updated 3 mins ago</small>
-              </div> -->
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-
   </div>
-  <br>
+
+  <!-- Achieved -->
+  <div class="row animated" id="Achieved" style="display: none;">
+    <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let cha of achievedChallenges">
+      <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
+        <div class="card card-inverse card-info">
+          <div class="card-block">
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'SavingMoney'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fpiggy-bank.png?alt=media&token=a6939815-273d-4fdb-9603-72e4529c4643"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Checklist'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fclipboard.png?alt=media&token=cafc8620-f059-4e6f-853f-98e7d96cd02d"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Step'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fbar-chart.png?alt=media&token=5f8df8d8-a4e3-4138-af42-9a151b5f654f"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Routine'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fopen-book.png?alt=media&token=154f19b5-a739-48d6-b844-ea1609cd7226"
+                class="profile-avatar" alt="">
+            </figure>
+            <div class="card-text">
+              <span class="chaName">{{cha.name}}</span><br>
+              <div class="progress">
+                <div *ngIf="cha.percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 10 && cha.percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 20 && cha.percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 30 && cha.percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 40 && cha.percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 50 && cha.percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 60 && cha.percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 70 && cha.percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 80 && cha.percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 90 && cha.percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Cancelled -->
+  <div class="row animated" id="Cancelled" style="display: none;">
+    <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let cha of cancelledChallenges">
+      <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
+        <div class="card card-inverse card-info">
+          <div class="card-block">
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'SavingMoney'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fpiggy-bank.png?alt=media&token=a6939815-273d-4fdb-9603-72e4529c4643"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Checklist'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fclipboard.png?alt=media&token=cafc8620-f059-4e6f-853f-98e7d96cd02d"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Step'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fbar-chart.png?alt=media&token=5f8df8d8-a4e3-4138-af42-9a151b5f654f"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Routine'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fopen-book.png?alt=media&token=154f19b5-a739-48d6-b844-ea1609cd7226"
+                class="profile-avatar" alt="">
+            </figure>
+            <div class="card-text">
+              <span class="chaName">{{cha.name}}</span><br>
+              <div class="progress">
+                <div *ngIf="cha.percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                  aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 10 && cha.percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 20 && cha.percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 30 && cha.percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 40 && cha.percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 50 && cha.percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 60 && cha.percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 70 && cha.percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 80 && cha.percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+                <div *ngIf="cha.percent >= 90 && cha.percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="cha.percent"
+                  aria-valuemin="0" aria-valuemax="100" [style.width]="cha.percent + '%'">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- All -->
+  <div class="row animated" id="All" style="display: none;">
+    <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let cha of DetailOfChallenges">
+      <a [routerLink]="['/detailmy'+cha.cate+'challenge/'+cha.myk]" routerLinkActive='active' class="card-link">
+        <div class="card card-inverse card-info">
+          <div class="card-block">
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'SavingMoney'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fpiggy-bank.png?alt=media&token=a6939815-273d-4fdb-9603-72e4529c4643"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Checklist'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fclipboard.png?alt=media&token=cafc8620-f059-4e6f-853f-98e7d96cd02d"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Step'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fbar-chart.png?alt=media&token=5f8df8d8-a4e3-4138-af42-9a151b5f654f"
+                class="profile-avatar" alt="">
+            </figure>
+            <figure class="profile profile-inline" *ngIf="cha.cate == 'Routine'">
+              <img src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fopen-book.png?alt=media&token=154f19b5-a739-48d6-b844-ea1609cd7226"
+                class="profile-avatar" alt="">
+            </figure>
+            <div class="card-text">
+              <span class="chaName">{{cha.name}}</span><br>
+              <span *ngIf="cha.status != 'Achieved'">
+                <div class="progress">
+                    <div *ngIf="cha.percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0" aria-valuemax="100"
+                    [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 10 && cha.percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 20 && cha.percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 30 && cha.percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 40 && cha.percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 50 && cha.percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 60 && cha.percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 70 &&cha. percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 80 && cha.percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 90 && cha.percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                </div>
+                </span>
+              <span *ngIf="cha.status == 'Achieved'">
+                <div class="progress">
+                    <div *ngIf="cha.percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0" aria-valuemax="100"
+                    [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 10 && cha.percent < 20" class="progress-bar bg-1019" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 20 && cha.percent < 30" class="progress-bar bg-2029" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 30 && cha.percent < 40" class="progress-bar bg-3039" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 40 && cha.percent < 50" class="progress-bar bg-4049" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 50 && cha.percent < 60" class="progress-bar bg-5059" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 60 && cha.percent < 70" class="progress-bar bg-6069" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 70 && cha.percent < 80" class="progress-bar bg-7079" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 80 && cha.percent < 90" class="progress-bar bg-8089" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                  <div *ngIf="cha.percent >= 90 && cha.percent <= 100" class="progress-bar bg-90100" role="progressbar" aria-valuenow="cha.percent" aria-valuemin="0"
+                    aria-valuemax="100" [style.width]="cha.percent + '%'">
+                  </div>
+                </div>
+                </span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<br>
