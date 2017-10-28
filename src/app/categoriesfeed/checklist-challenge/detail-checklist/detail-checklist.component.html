@@ -15,7 +15,8 @@
             </div>
             <div class="card-text">
               <span class="chaName"><p><h3><b>{{checklistChaDetail.challengeName}}</b></h3></span> {{checklistChaDetail.challengeDescription}}
-              <br> Tasks : {{checklistChaDetail.taskAmount}} <br>
+              <br> Tasks : {{checklistChaDetail.taskAmount}}
+              <br> Remaining : {{checklistChaDetail.duration}} Days
               <br><img src="{{imageUrl}}" class="img-fluid">
               <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
             </div>
