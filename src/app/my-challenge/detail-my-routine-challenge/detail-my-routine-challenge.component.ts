@@ -111,7 +111,7 @@ export class DetailMyRoutineChallengeComponent implements OnInit {
   }
 
   updateRoutineSchedule() {
-    let currentUpdateTime = firebase.database.ServerValue.TIMESTAMP;
+   /* let currentUpdateTime = firebase.database.ServerValue.TIMESTAMP;
     let start = this.detailMyChallenge.startDate;
     let currentTime;
     const logUpdate = {
@@ -164,7 +164,7 @@ export class DetailMyRoutineChallengeComponent implements OnInit {
         })
     }
       )
-    return true;
+    return true;*/
   }
 
 }
