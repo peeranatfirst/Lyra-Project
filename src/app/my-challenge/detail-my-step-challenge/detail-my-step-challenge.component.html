@@ -14,10 +14,12 @@
 
               {{detailMyChallenge.challengeDescription}}
               <br>Start Date: {{startDate}}
-              <br>Duration(days) : {{detailMyChallenge.duration}} Days
+              <br>Remaining : {{detailMyChallenge.duration}} Days
               <br>Step : {{currentStep}} of {{detailMyChallenge.stepAmount}}
               <br>Status : {{detailMyChallenge.challengeStatus}}
-              <br><br><b>{{percent | number:'1.0-0'}}%</b>
+              <br>
+              <br>
+              <b>{{percent | number:'1.0-0'}}%</b>
               <div class="progress">
                 <div *ngIf="percent < 10" class="progress-bar bg-0010" role="progressbar" aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100"
                   [style.width]="percent + '%'">
@@ -56,116 +58,132 @@
                   <ng-template #content let-c="close" let-d="dismiss">
                     <div class="modal-header">
                       <h4 class="modal-title">Cancel Challenge</h4>
-                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')"><span aria-hidden="true">&times;</span></button>
+                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure to cancel this {{detailMyChallenge.challengeName}} Challenge ?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                      <button type="button" class="btn btn-danger" (click)="c(onCancelChallenge())">Yes</button>
+                    </div>
+                  </ng-template>
+                  <button class="btn btn-danger bth-delete" (click)="open(content)">Cancel Challenge</button>
+                </span>
+                <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
+                  <a class="btn btn-success btn-add disabled" aria-disabled="true">Achieved</a>
+                  <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Delete Challenge</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                      <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+                    </div>
+                  </ng-template>
+                  <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
+                </span>
+                <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
+                  <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Delete Challenge</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                      <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+                    </div>
+                  </ng-template>
+                  <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
+                </span>
+                <span class="delete">
+                  <a [routerLink]="['/checkStepTran/'+chaId]" role="button" class="btn btn-primary bth-delete">View Step History</a>
+                </span>
               </div>
-              <div class="modal-body">
-                <p>Are you sure to cancel this {{detailMyChallenge.challengeName}} Challenge ?</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
-                <button type="button" class="btn btn-danger" (click)="c(onCancelChallenge())">Yes</button>
-              </div>
-              </ng-template>
-              <button class="btn btn-danger bth-delete" (click)="open(content)">Cancel Challenge</button>
-              </span>
-              <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Achieved'">
-                    <a class="btn btn-success btn-add disabled" aria-disabled="true">Achieved</a>
-                    <ng-template #content let-c="close" let-d="dismiss">
-                        <div class="modal-header">
-                          <h4 class="modal-title">Delete Challenge</h4>
-                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                            <span aria-hidden="true">&times;</span>
-              </button>
             </div>
-            <div class="modal-body">
-              <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
-              <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
-            </div>
-            </ng-template>
-            <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
-            </span>
-            <span class="delete" *ngIf="detailMyChallenge.challengeStatus == 'Cancelled'">
-                      <ng-template #content let-c="close" let-d="dismiss">
-                          <div class="modal-header">
-                            <h4 class="modal-title">Delete Challenge</h4>
-                            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                              <span aria-hidden="true">&times;</span>
-            </button>
           </div>
-          <div class="modal-body">
-            <p>Are you sure to delete this {{detailMyChallenge.challengeName}} Challenge ?</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
-            <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
-          </div>
-          </ng-template>
-          <button class="btn btn-danger bth-delete" (click)="open(content)">Delete Challenge</button>
-          </span>
-          <span class="delete">
-            <a [routerLink]="['/checkStepTran/'+chaId]" role="button" class="btn btn-primary bth-delete">View Step History</a>
-          </span>
         </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
 
-<div class="stepList">
-  <div class="row">
-    <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
-    <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
-    <div class="col-sm-10 col-md-8 col-lg-6">
-      <h4 class="doStep">Please follow the steps listed below.</h4>
-      <ul class="cbp_tmtimeline list-group" *ngFor="let cha of mysteps; let last = last;">
-        <li>
-          <!-- <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time> -->
-          <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == false && cha.stepStatus =='checked'"><i class="fa fa-check" aria-hidden="true"></i></div>
-          <!-- put checked icon here -->
-          <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == false && cha.stepStatus =='unlocked'">{{cha.stepNo}}</div>
-          <!-- <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == true">{{cha.stepNo}}</div> -->
-          <!-- removed หางที่หัวข้อ  -->
+    <div class="stepList">
+      <div class="row">
+        <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+        <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+        <div class="col-sm-10 col-md-8 col-lg-6">
+          <h4 class="doStep">Please follow the steps listed below.</h4>
+          <ul class="cbp_tmtimeline list-group" *ngFor="let cha of mysteps; let last = last;">
+            <li>
+              <!-- <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time> -->
+              <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == false && cha.stepStatus =='checked'">
+                <i class="fa fa-check" aria-hidden="true"></i>
+              </div>
+              <!-- put checked icon here -->
+              <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == false && cha.stepStatus =='unlocked'">{{cha.stepNo}}</div>
+              <!-- <div class="cbp_tmicon cbp_tmicon-phone" *ngIf="last == true">{{cha.stepNo}}</div> -->
+              <!-- removed หางที่หัวข้อ  -->
 
-          <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'checked'">
-            <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
-            <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
-          </div>
-          <a style="text-decoration: none; color: black;" *ngIf="cha.stepStatus == 'unlocked'" [routerLink]="['/checkStep/'+chaId+'/'+cha.stepKey]">
-            <div class="cbp_tmlabel">
-              <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
-              <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
-            </div>
-          </a>
-          <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'locked'">
-            <ng-template #content let-c="close" let-d="dismiss">
-              <div class="modal-header">
-                <h4 class="modal-title">This step is locked.</h4>
-                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+              <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'checked'">
+                <h3 class="chaName" style="word-wrap:break-word;">
+                  <b>{{cha.stepName}}</b>
+                </h3>
+                <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
               </div>
-              <div class="modal-body">
-                <p>For unlock this step, please check the previous step.</p>
+              <a style="text-decoration: none; color: black;" *ngIf="cha.stepStatus == 'unlocked'" [routerLink]="['/checkStep/'+chaId+'/'+cha.stepKey]">
+                <div class="cbp_tmlabel">
+                  <h3 class="chaName" style="word-wrap:break-word;">
+                    <b>{{cha.stepName}}</b>
+                  </h3>
+                  <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
+                </div>
+              </a>
+              <div class="cbp_tmlabel" *ngIf="cha.stepStatus == 'locked'">
+                <ng-template #content let-c="close" let-d="dismiss">
+                  <div class="modal-header">
+                    <h4 class="modal-title">This step is locked.</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>For unlock this step, please check the previous step.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger Close" (click)="c('Close click')">Close</button>
+                  </div>
+                </ng-template>
+                <a (click)="open(content)">
+                  <img width="50px" class="img-fluid" alt="Responsive image" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Flocked.png?alt=media&token=0268a222-4a54-4643-b736-e3d1fdb902ac">
+                  <p style="word-wrap:break-word; color:black;">Desription : {{cha.stepDes}}</p>
+                </a>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger Close" (click)="c('Close click')">Close</button>
-              </div>
-            </ng-template>
-            <a (click)="open(content)"><img width="50px" class="img-fluid" alt="Responsive image" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Flocked.png?alt=media&token=0268a222-4a54-4643-b736-e3d1fdb902ac"></a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12" align="center">
-      <br><br>
-      <a (click)="onBack()" class="btn btn-danger" id="btn-back"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
-      <br><br>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12" align="center">
+          <br>
+          <br>
+          <a (click)="onBack()" class="btn btn-danger" id="btn-back">
+            <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
+          <br>
+          <br>
+        </div>
+      </div>
     </div>
   </div>
 </div>
