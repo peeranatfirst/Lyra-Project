@@ -15,7 +15,7 @@
             </div>
             <div class="card-text">
               <span class="chaName"><p><h3><b>{{challengeDetail.challengeName}}</b></h3></span> {{challengeDetail.challengeDescription}}
-              <br> Duration : {{challengeDetail.duration}} Days
+              <br> Remaining : {{challengeDetail.duration}} Days
               <img src="{{imageUrl}}" class="img-fluid">
               <br><a [routerLink]="['/checkdataRoutine/'+challengeDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
               <!-- <h5>Ratings & Reviews</h5> -->
@@ -39,7 +39,6 @@
           <div class="card-footer">
             <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;
             <a id="commentBt"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;</span></a>
-            <i class="fa fa-bookmark-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;
             <span *ngIf="this.isOwner == true">
                 <ng-template #content let-c="close" let-d="dismiss">
                     <div class="modal-header">

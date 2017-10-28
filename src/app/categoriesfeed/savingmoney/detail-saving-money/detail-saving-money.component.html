@@ -15,7 +15,7 @@
             </div>
             <div class="card-text">
               <span class="chaName"><p><h3><b>{{challengeDetail.challengeName}}</b></h3></span> {{challengeDetail.challengeDescription}}
-              <br> Duration : {{challengeDetail.duration}} Days
+              <br> Remaining : {{challengeDetail.duration}} Days
               <br> Total Amount : {{challengeDetail.totalAmount}} Baht
               <img src="{{imageUrl}}" class="img-fluid">
               <br><a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
