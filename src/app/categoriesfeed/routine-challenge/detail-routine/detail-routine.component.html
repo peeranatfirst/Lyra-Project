@@ -10,14 +10,22 @@
               <img src="{{ownerPhoto}}" class="profile-avatar" alt="">
             </figure>
             <div class="card-title">
-              {{displayName}}<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span>
-              <a [routerLink]="['/checkdataRoutine/'+challengeDetail.$key]" class="btn btn-success getChallengeWeb">Add to My Challenge</a> 
+              {{displayName}}
+              <br>
+              <span class="time">Created : {{datestamp}} at {{timestamp}}</span>
+              <a [routerLink]="['/checkdataRoutine/'+challengeDetail.$key]" class="btn btn-success getChallengeWeb">Add to My Challenge</a>
             </div>
             <div class="card-text">
-              <span class="chaName"><p><h3><b>{{challengeDetail.challengeName}}</b></h3></span> {{challengeDetail.challengeDescription}}
+              <span class="chaName">
+                <p>
+                  <h3>
+                    <b>{{challengeDetail.challengeName}}</b>
+                  </h3>
+              </span> {{challengeDetail.challengeDescription}}
               <br> Remaining : {{challengeDetail.duration}} Days
               <img src="{{imageUrl}}" class="img-fluid">
-              <br><a [routerLink]="['/checkdataRoutine/'+challengeDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
+              <br>
+              <a [routerLink]="['/checkdataRoutine/'+challengeDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
               <!-- <h5>Ratings & Reviews</h5> -->
               <!-- <fieldset class="rating">
                 <legend>Please rate:</legend>
@@ -38,24 +46,29 @@
           </div>
           <div class="card-footer">
             <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;
-            <a id="commentBt"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;</span></a>
+            <a id="commentBt">
+              <span style="color:rgba(0, 0, 0, .68)">
+                <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;</span>
+            </a>
             <span *ngIf="this.isOwner == true">
-                <ng-template #content let-c="close" let-d="dismiss">
-                    <div class="modal-header">
-                      <h4 class="modal-title">Delete Challenge</h4>
-                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <p>Are you sure to delete your {{challengeDetail.challengeName}}  ?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
-                      <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
-                    </div>
-                  </ng-template>
-              <a (click)="open(content)" style="color:rgba(0, 0, 0, .68)"><i class="fa fa-trash-o deleteCha" aria-hidden="true"></i></a>
+              <ng-template #content let-c="close" let-d="dismiss">
+                <div class="modal-header">
+                  <h4 class="modal-title">Delete Challenge</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure to delete your {{challengeDetail.challengeName}} ?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                  <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+                </div>
+              </ng-template>
+              <a (click)="open(content)" style="color:rgba(0, 0, 0, .68)">
+                <i class="fa fa-trash-o deleteCha" aria-hidden="true"></i>
+              </a>
             </span>
           </div>
         </div>
@@ -72,7 +85,11 @@
               <div class="media">
                 <img class="d-flex mr-3 profile-avatar" src="{{ownerPhoto}}" alt="Generic placeholder image">
                 <div class="media-body">
-                  <input type="text" class="commentIp" placeholder="write a comment..." autofocus>
+                  <input type="text" class="form-control" [(ngModel)]="comment" name="comment" class="commentIp" placeholder=" Write a comment..."
+                    autofocus>
+                  <button type="submit" value="Submit" class="btn btn-success" id="create">
+                    Comment
+                  </button>
                 </div>
               </div>
             </div>
@@ -85,7 +102,8 @@
       <div class="col-sm-1 flex-first"></div>
       <div class="col-sm-1 flex-last"></div>
       <div class="col-sm-10" align="center">
-        <a [routerLink]="['/routinechallenge']" class="btn btn-danger"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
+        <a [routerLink]="['/routinechallenge']" class="btn btn-danger">
+          <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
       </div>
     </div>
   </div>
