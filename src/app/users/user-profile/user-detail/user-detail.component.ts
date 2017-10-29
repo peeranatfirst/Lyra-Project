@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy  } from '@angular/core';
 import { AngularFire } from 'angularfire2';
 import { Router } from '@angular/router';
 import { GetUserInfoService } from "app/services/get-user-info.service";
 import { FirebaseService } from "app/services/firebase.service";
 import * as firebase from 'firebase';
 
+import { FollowService } from "app/services/follow.service";
+import { size } from "lodash";
+
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.css']
 })
-export class UserDetailComponent implements OnInit {
+export class UserDetailComponent implements OnInit, OnDestroy {
 
   uid: any;
   displayName: any;
@@ -19,19 +22,28 @@ export class UserDetailComponent implements OnInit {
   userInfo: any;
 
   challengeNum: any;
+
+  @Input() user;        // a user who can be followed
+  @Input() currentUser; // currently logged in user
+
+  followerCount: number;
+  isFollowing: boolean;
+  followers;
+  following;
   
-  constructor(private user: GetUserInfoService,
-    private af: AngularFire) { }
+  constructor(private users: GetUserInfoService,
+    private af: AngularFire,
+    private followSvc: FollowService) { }
 
   ngOnInit() {
     this.af.auth.subscribe(auth => {
       if (auth) {
         this.uid = auth.uid;
-        this.user.getUserInfo(this.uid).subscribe(info => {
+        this.users.getUserInfo(this.uid).subscribe(info => {
           this.userInfo = info;
-          this.displayName = this.user.getName(info);
-          this.displayPhoto = this.user.getDisplayPhoto(info);
-          this.description = this.user.getDescription(info);
+          this.displayName = this.users.getName(info);
+          this.displayPhoto = this.users.getDisplayPhoto(info);
+          this.description = this.users.getDescription(info);
         })
 
 
@@ -56,6 +68,37 @@ export class UserDetailComponent implements OnInit {
           })
       }
     });
+
+    /*const userId = this.user.$key
+    const currentUserId = this.currentUser.uid
+    // checks if the currently logged in user is following this.user
+    this.following = this.followSvc.getFollowing(currentUserId, userId)
+                                   .subscribe(following => {
+                                      this.isFollowing = following.$value
+                                    })
+    // retrieves the follower count for a user's profile
+    this.followers = this.followSvc.getFollowers(userId)
+                                   .subscribe(followers => {
+                                     this.followerCount = this.countFollowers(followers)
+                                    })*/
+
+  }
+
+  private countFollowers(followers) {
+    if (followers.$value===null) return 0
+    else return size(followers)
+  }
+
+  toggleFollow() {
+    const userId = this.user.$key
+    const currentUserId = this.currentUser.uid
+    if (this.isFollowing) this.followSvc.unfollow(currentUserId, userId)
+    else this.followSvc.follow(currentUserId, userId)
+  }
+
+  ngOnDestroy() {
+    this.followers.unsubscribe()
+    this.following.unsubscribe()
   }
 
 }
