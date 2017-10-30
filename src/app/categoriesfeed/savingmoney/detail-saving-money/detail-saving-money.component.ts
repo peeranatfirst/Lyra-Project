@@ -30,6 +30,7 @@ export class DetailSavingMoneyComponent implements OnInit {
   ownerPhoto: any;
   user: any;
   uid: any;
+  comment: any;
 
   isOwner: any;
 
@@ -107,5 +108,18 @@ export class DetailSavingMoneyComponent implements OnInit {
   open(content) {
     this.modalService.open(content);
   }
+
+  onAddSubmit() {
+    const timestamp = firebase.database.ServerValue.TIMESTAMP;
+    const createComment = {
+      comment: this.comment,
+      datetimestamp: timestamp,
+      category: "SavingMoney",
+      owner: firebase.auth().currentUser.uid
+    };
+
+  }
+
+  
 
 }

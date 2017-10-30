@@ -10,38 +10,51 @@
               <img src="{{ownerPhoto}}" class="profile-avatar" alt="">
             </figure>
             <div class="card-title">
-              {{displayName}}<br><span class="time">Created : {{datestamp}} at {{timestamp}}</span>
-              <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]"   class="btn btn-success getChallengeWeb">Add to my Challenge</a>
+              {{displayName}}
+              <br>
+              <span class="time">Created : {{datestamp}} at {{timestamp}}</span>
+              <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]" class="btn btn-success getChallengeWeb">Add to my Challenge</a>
             </div>
             <div class="card-text">
-              <span class="chaName"><p><h3><b>{{stepChaDetail.challengeName}}</b></h3></span> {{stepChaDetail.challengeDescription}}
+              <span class="chaName">
+                <p>
+                  <h3>
+                    <b>{{stepChaDetail.challengeName}}</b>
+                  </h3>
+              </span> {{stepChaDetail.challengeDescription}}
               <br> Steps : {{stepChaDetail.stepAmount}}
               <br> Remaining : {{stepChaDetail.duration}} Days
-              <br><img src="{{imageUrl}}" class="img-fluid">
+              <br>
+              <img src="{{imageUrl}}" class="img-fluid">
               <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
             </div>
           </div>
           <div class="card-footer">
             <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;
-            <a id="commentBt"><span style="color:rgba(0, 0, 0, .68)"><i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;</span></a>
+            <a id="commentBt">
+              <span style="color:rgba(0, 0, 0, .68)">
+                <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; 0 &nbsp;</span>
+            </a>
             <span *ngIf="this.isOwner == true">
-                <ng-template #content let-c="close" let-d="dismiss">
-                    <div class="modal-header">
-                      <h4 class="modal-title">Delete Challenge</h4>
-                      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <p>Are you sure to delete your {{stepChaDetail.challengeName}}  ?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
-                      <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
-                    </div>
-                  </ng-template>
-              <a (click)="open(content)" style="color:rgba(0, 0, 0, .68)"><i class="fa fa-trash-o deleteCha" aria-hidden="true"></i></a>
-      
+              <ng-template #content let-c="close" let-d="dismiss">
+                <div class="modal-header">
+                  <h4 class="modal-title">Delete Challenge</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure to delete your {{stepChaDetail.challengeName}} ?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="c('Close click')">No</button>
+                  <button type="button" class="btn btn-danger" (click)="c(onDeleteChallenge())">Yes</button>
+                </div>
+              </ng-template>
+              <a (click)="open(content)" style="color:rgba(0, 0, 0, .68)">
+                <i class="fa fa-trash-o deleteCha" aria-hidden="true"></i>
+              </a>
+
             </span>
           </div>
         </div>
@@ -58,7 +71,11 @@
               <div class="media">
                 <img class="d-flex mr-3 profile-avatar" src="{{ownerPhoto}}" alt="Generic placeholder image">
                 <div class="media-body">
-                  <input type="text" class="commentIp" placeholder="write a comment..." autofocus>
+                  <input type="text" class="form-control" [(ngModel)]="comment" name="comment" class="commentIp" placeholder=" Write a comment..."
+                    autofocus>
+                  <button type="submit" value="Submit" class="btn btn-success" id="create">
+                    Comment
+                  </button>
                 </div>
               </div>
             </div>
@@ -73,13 +90,15 @@
         <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
         <div class="col-sm-10 col-md-8 col-lg-6">
           <h3 class="doStep">Watch your step</h3>
-          
-          <ul class="cbp_tmtimeline list-group"  *ngFor="let cha of stepSort;">
+
+          <ul class="cbp_tmtimeline list-group" *ngFor="let cha of stepSort;">
             <li>
               <!-- <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time> -->
               <div class="cbp_tmicon cbp_tmicon-phone">{{cha.stepNo}}</div>
               <div class="cbp_tmlabel">
-                <h3 class="chaName" style="word-wrap:break-word;"><b>{{cha.stepName}}</b></h3>
+                <h3 class="chaName" style="word-wrap:break-word;">
+                  <b>{{cha.stepName}}</b>
+                </h3>
                 <p style="word-wrap:break-word;">Desription : {{cha.stepDes}}</p>
               </div>
             </li>
@@ -93,8 +112,11 @@
       <div class="col-sm-1 flex-first"></div>
       <div class="col-sm-1 flex-last"></div>
       <div class="col-sm-10" align="center">
-        <br><br><br>
-        <a (click)="onBack()" class="btn btn-danger"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
+        <br>
+        <br>
+        <br>
+        <a [routerLink]="['/stepchallenge']" class="btn btn-danger">
+          <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back</a>
       </div>
     </div>
   </div>
