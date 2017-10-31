@@ -1,3 +1,17 @@
+<!-- <ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">This step is locked.</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>For unlock this step, please check the previous step.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger Close" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template> -->
 <div class="blockloadergrey" align="center">
   <div class="blockloaderwhite" align="center">
     <div class="loader"></div>
@@ -9,10 +23,14 @@
     <div class="col-sm-2 flex-first"></div>
     <div class="col-sm-2 flex-last"></div>
     <div class="col-sm-8">
-      <h1><b>Create</b></h1>
-      <h4><b>Saving Money Challenge</b></h4>
+      <h1>
+        <b>Create</b>
+      </h1>
+      <h4>
+        <b>Saving Money Challenge</b>
+      </h4>
       <br>
-      <form ngNativeValidate (submit)="onAddSubmit()" #savingmoneyForm="ngForm">
+      <form ngNativeValidate (submit)="onAddSubmit()" #savingmoneyForm="ngForm" name="createSav">
         <div class="card">
           <div class="card-block">
             <div class="form-group no-border">
@@ -57,19 +75,19 @@
             </div>
             <div class="col-xs-6 .col-sm-4 btn-submit">
               <button type="submit" value="Submit" class="btn btn-success" id="create" [disabled]="!savingmoneyForm.form.valid">
-                  Create Challenge
-                </button>
+                Create Challenge
+              </button>
             </div>
           </div>
         </div>
       </form>
     </div>
-    
+
 
     <div class="col-sm-12" align="center">
       <a [routerLink]="['/selectCategory']" class="btn btn-danger">
-          <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
-        </a>
+        <i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i> Back
+      </a>
     </div>
   </div>
 </div>

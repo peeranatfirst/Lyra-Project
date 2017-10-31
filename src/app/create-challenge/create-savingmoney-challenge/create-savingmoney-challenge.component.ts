@@ -33,13 +33,16 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
       $('.blockloadergrey').hide();
       $('.blockloaderwhite').hide();
       $('#create').click(function () {
-        $('.blockloadergrey').show();
-        $('.blockloaderwhite').show();
-        $('.blockloaderwhite').addClass('animated zoomIn');
-        setTimeout(disableScroll(), 5000);
+        var x = document.forms["createSav"]["totalAmount"].value;
+        if (x.checkValidity() == true) {
+          $('.blockloadergrey').show();
+          $('.blockloaderwhite').show();
+          $('.blockloaderwhite').addClass('animated zoomIn');
+          setTimeout(disableScroll(), 5000);
+        }
       })
     });
-    function disableScroll(){
+    function disableScroll() {
       $("body").css('overflow', 'hidden');
     }
   }
