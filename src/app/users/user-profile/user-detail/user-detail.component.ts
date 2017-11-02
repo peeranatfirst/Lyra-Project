@@ -69,7 +69,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       }
     });
 
-    /*const userId = this.user.$key
+    const userId = this.user.$key
     const currentUserId = this.currentUser.uid
     // checks if the currently logged in user is following this.user
     this.following = this.followSvc.getFollowing(currentUserId, userId)
@@ -80,7 +80,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     this.followers = this.followSvc.getFollowers(userId)
                                    .subscribe(followers => {
                                      this.followerCount = this.countFollowers(followers)
-                                    })*/
+                                    })
 
   }
 
