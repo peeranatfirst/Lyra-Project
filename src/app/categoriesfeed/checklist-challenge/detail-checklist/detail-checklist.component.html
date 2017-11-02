@@ -22,9 +22,9 @@
                     <b>{{checklistChaDetail.challengeName}}</b>
                   </h3>
               </span> {{checklistChaDetail.challengeDescription}}
-              <br> Tasks : {{checklistChaDetail.taskAmount}}
-              <br> Remaining : {{checklistChaDetail.duration}} Days
-              <br>
+              <br><i class="fa fa-check" aria-hidden="true"></i> Tasks : {{checklistChaDetail.taskAmount}}
+              <br><i class="fa fa-clock-o" aria-hidden="true"></i> Remaining : {{checklistChaDetail.duration}} Days
+              <br><br>
               <img src="{{imageUrl}}" class="img-fluid">
               <a [routerLink]="['/checkdataChecklist/'+checklistChaDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
             </div>

@@ -22,8 +22,8 @@
                     <b>{{challengeDetail.challengeName}}</b>
                   </h3>
               </span> {{challengeDetail.challengeDescription}}
-              <br> Remaining : {{challengeDetail.duration}} Days
-              <br> Total Amount : {{challengeDetail.totalAmount}} Baht
+              <br><i class="fa fa-money" aria-hidden="true"></i> Total Amount : {{challengeDetail.totalAmount}} Baht
+              <br><i class="fa fa-clock-o" aria-hidden="true"></i> Remaining : {{challengeDetail.duration}} Days
               <img src="{{imageUrl}}" class="img-fluid">
               <br>
               <a [routerLink]="['/checkdatamoney/'+challengeDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>

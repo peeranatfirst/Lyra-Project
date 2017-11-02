@@ -22,8 +22,8 @@
                     <b>{{stepChaDetail.challengeName}}</b>
                   </h3>
               </span> {{stepChaDetail.challengeDescription}}
-              <br> Steps : {{stepChaDetail.stepAmount}}
-              <br> Remaining : {{stepChaDetail.duration}} Days
+              <br><i class="fa fa-list" aria-hidden="true"></i> Steps : {{stepChaDetail.stepAmount}}
+              <br><i class="fa fa-clock-o" aria-hidden="true"></i> Remaining : {{stepChaDetail.duration}} Days
               <br>
               <img src="{{imageUrl}}" class="img-fluid">
               <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
