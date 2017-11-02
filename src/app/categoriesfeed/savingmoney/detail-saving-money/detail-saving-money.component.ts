@@ -34,6 +34,8 @@ export class DetailSavingMoneyComponent implements OnInit {
 
   isOwner: any;
 
+  currentUserPhoto: any;
+
   constructor(
     public af: AngularFire,
     private firebaseService: FirebaseService,
@@ -90,7 +92,12 @@ export class DetailSavingMoneyComponent implements OnInit {
         this.displayName = this.info.name;
         this.ownerPhoto = this.info.pathPhoto;
       });
-
+      
+      this.af.auth.subscribe(auth =>{
+        if(auth){
+          this.currentUserPhoto = auth.auth.photoURL;
+        }
+      });
 
     });
 
@@ -109,7 +116,7 @@ export class DetailSavingMoneyComponent implements OnInit {
     this.modalService.open(content);
   }
 
-  onAddSubmit() {
+  onCommentSubmit() {
     const timestamp = firebase.database.ServerValue.TIMESTAMP;
     const createComment = {
       comment: this.comment,
