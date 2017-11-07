@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 import { DatetimestampService } from 'app/services/datetimestamp.service';
 
 import { GetUserInfoService } from "app/services/get-user-info.service";
+import { CommentService } from "app/services/comment.service";
 
 @Component({
   selector: 'app-savingmoney',
@@ -22,7 +23,8 @@ export class SavingmoneyComponent implements OnInit {
     private routing: Router,
     private route: ActivatedRoute,
     private dt : DatetimestampService,
-    private userInfo: GetUserInfoService
+    private userInfo: GetUserInfoService,
+    private cm: CommentService
   ) { }
 
 
@@ -32,7 +34,7 @@ export class SavingmoneyComponent implements OnInit {
     let imgPath;
     this.firebaseService.getChallengeList().subscribe(challengeList => {
       
-      let key,name,des,duration,goal ,path, datestamp,timestamp,category;
+      let key,name,des,duration,goal ,path, datestamp,timestamp,category, commentNum;
       
       for(const addObj of challengeList){
         path = this.firebaseService.getListOfChallengePath(addObj);   
@@ -61,7 +63,8 @@ export class SavingmoneyComponent implements OnInit {
               const datetimestamp = this.firebaseService.getListOfChallengeTimestamp(addObj);
               datestamp = this.dt.getDatestamp(datetimestamp);
               timestamp = this.dt.getTimestamp(datetimestamp);
-              this.listOfChallenge.push({chaId: key,chaName: name,chaGoal: goal,description:des,time:duration,imgSRC:imgPath , thisTime: timestamp, thisDay: datestamp });
+              // commentNum = this.cm.countComment(key);
+              this.listOfChallenge.push({chaId: key,chaName: name,chaGoal: goal,description:des,time:duration,imgSRC:imgPath , thisTime: timestamp, thisDay: datestamp});
             });
         }
       }

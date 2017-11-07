@@ -56,4 +56,20 @@ export class CommentService {
       return this.comments;
     }
 
+    countComment(challengeID){
+      var childrenCM;
+      const query = firebase.database().ref("AllChallenge/" + challengeID+"/comments");
+      query.once("value")
+      .then((snapshot) =>{
+        childrenCM = snapshot.child("comments").numChildren();
+        console.log(childrenCM);
+        if(childrenCM === undefined){
+          childrenCM = 0;
+        }
+      })
+
+      
+
+      return childrenCM;
+    }
 }
