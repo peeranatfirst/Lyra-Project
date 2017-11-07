@@ -13,7 +13,7 @@ import { size } from "lodash";
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.css']
 })
-export class UserDetailComponent implements OnInit, OnDestroy {
+export class UserDetailComponent implements OnInit {
 
   uid: any;
   displayName: any;
@@ -23,13 +23,13 @@ export class UserDetailComponent implements OnInit, OnDestroy {
 
   challengeNum: any;
 
-  @Input() user;        // a user who can be followed
+  /*@Input() user;        // a user who can be followed
   @Input() currentUser; // currently logged in user
 
   followerCount: number;
   isFollowing: boolean;
   followers;
-  following;
+  following;*/
   
   constructor(private users: GetUserInfoService,
     private af: AngularFire,
@@ -69,7 +69,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       }
     });
 
-    const userId = this.user.$key
+    /*const userId = this.user.$key
     const currentUserId = this.currentUser.uid
     // checks if the currently logged in user is following this.user
     this.following = this.followSvc.getFollowing(currentUserId, userId)
@@ -80,11 +80,11 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     this.followers = this.followSvc.getFollowers(userId)
                                    .subscribe(followers => {
                                      this.followerCount = this.countFollowers(followers)
-                                    })
+                                    })*/
 
   }
 
-  private countFollowers(followers) {
+  /*private countFollowers(followers) {
     if (followers.$value===null) return 0
     else return size(followers)
   }
@@ -99,6 +99,6 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.followers.unsubscribe()
     this.following.unsubscribe()
-  }
+  }*/
 
 }

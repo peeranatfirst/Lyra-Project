@@ -8,6 +8,8 @@ import { GetUserInfoService } from "app/services/get-user-info.service";
 import { Location } from "@angular/common";
 import $ from 'jquery';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { CommentService } from "app/services/comment.service";
+import { AngularFire } from 'angularfire2';
 
 @Component({
   selector: 'app-detail-checklist',
@@ -29,6 +31,11 @@ export class DetailChecklistComponent implements OnInit {
   uid: any;
   isOwner: any;
 
+  comment: any;
+  comments: any; // Array of all comment in this challenge
+  currentUserPhoto: any;
+  currentUserName: any;
+
   constructor(
     private firebaseService: FirebaseService,
     private routing: Router,
@@ -36,7 +43,9 @@ export class DetailChecklistComponent implements OnInit {
     private dt: DatetimestampService,
     private userinfo: GetUserInfoService,
     private location: Location,
-    private modalService: NgbModal) { }
+    private cm: CommentService,
+    private modalService: NgbModal,
+    public af: AngularFire,) { }
 
   ngOnInit() {
 
@@ -77,6 +86,14 @@ export class DetailChecklistComponent implements OnInit {
         this.displayName = this.info.name;
         this.ownerPhoto = this.info.pathPhoto;
       });
+
+      this.af.auth.subscribe(auth =>{
+        if(auth){
+          this.currentUserPhoto = auth.auth.photoURL;
+          this.currentUserName = auth.auth.displayName;
+        }
+      });
+
     });
 
     this.firebaseService.getTasksOfChecklistChallenge(this.id).subscribe(tasks => {
@@ -84,7 +101,7 @@ export class DetailChecklistComponent implements OnInit {
     });
 
 
-
+    this.comments = this.cm.getCommentofChallenge(this.id);
 
   }
 
@@ -100,6 +117,19 @@ export class DetailChecklistComponent implements OnInit {
     this.modalService.open(content);
   }
 
+  onCommentSubmit() {
+    const timestamp = firebase.database.ServerValue.TIMESTAMP;
+    const createComment = {
+      comment: this.comment,
+      datetimestamp: timestamp,
+      owner: firebase.auth().currentUser.uid,
+      pathPic: this.currentUserPhoto,
+      displayName: this.currentUserName
+    };
 
+    this.cm.AddComment(this.id, createComment);
+    this.comments = this.cm.getCommentofChallenge(this.id);
+
+  }
 
 }

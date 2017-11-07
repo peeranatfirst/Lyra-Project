@@ -9,6 +9,9 @@ import { AngularFire } from 'angularfire2';
 import { Location } from '@angular/common';
 import $ from 'jquery';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { CommentService } from "app/services/comment.service";
+
+
 
 @Component({
   selector: 'app-detail-routine',
@@ -34,6 +37,11 @@ export class DetailRoutineComponent implements OnInit {
 
   isOwner: any;
 
+  comment: any;
+  comments: any; // Array of all comment in this challenge
+  currentUserPhoto: any;
+  currentUserName: any;
+
   constructor(public af: AngularFire,
     private firebaseService: FirebaseService,
     private routing: Router,
@@ -41,6 +49,7 @@ export class DetailRoutineComponent implements OnInit {
     private dt: DatetimestampService,
     private location: Location,
     private userinfo: GetUserInfoService,
+    private cm: CommentService,
     private modalService: NgbModal) { 
       this.af.auth.subscribe(auth => {
         if (auth) {
@@ -89,8 +98,15 @@ export class DetailRoutineComponent implements OnInit {
         this.ownerPhoto = this.info.pathPhoto;
       });
 
-
+      this.af.auth.subscribe(auth =>{
+        if(auth){
+          this.currentUserPhoto = auth.auth.photoURL;
+          this.currentUserName = auth.auth.displayName;
+        }
+      });
     });
+
+    this.comments = this.cm.getCommentofChallenge(this.id);
   }
 
   onBack() {
@@ -106,4 +122,18 @@ export class DetailRoutineComponent implements OnInit {
     this.modalService.open(content);
   }
 
+  onCommentSubmit() {
+    const timestamp = firebase.database.ServerValue.TIMESTAMP;
+    const createComment = {
+      comment: this.comment,
+      datetimestamp: timestamp,
+      owner: firebase.auth().currentUser.uid,
+      pathPic: this.currentUserPhoto,
+      displayName: this.currentUserName
+    };
+
+    this.cm.AddComment(this.id, createComment);
+    this.comments = this.cm.getCommentofChallenge(this.id);
+
+  }
 }

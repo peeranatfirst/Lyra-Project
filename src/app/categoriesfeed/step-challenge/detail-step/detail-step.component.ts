@@ -8,6 +8,8 @@ import { GetUserInfoService } from "app/services/get-user-info.service";
 import { Location } from "@angular/common";
 import $ from 'jquery';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { CommentService } from "app/services/comment.service";
+import { AngularFire } from 'angularfire2';
 
 @Component({
   selector: 'app-detail-step',
@@ -29,13 +31,20 @@ export class DetailStepComponent implements OnInit {
   uid: any;
   isOwner: any;
 
+  comment: any;
+  comments: any; // Array of all comment in this challenge
+  currentUserPhoto: any;
+  currentUserName: any;
+
   constructor(private firebaseService: FirebaseService,
     private routing: Router,
     private route: ActivatedRoute,
     private dt: DatetimestampService,
     private userinfo: GetUserInfoService,
     private location: Location,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal,
+    public af: AngularFire,
+    private cm: CommentService) { }
 
   ngOnInit() {
     
@@ -78,8 +87,17 @@ export class DetailStepComponent implements OnInit {
         this.displayName = this.info.name;
         this.ownerPhoto = this.info.pathPhoto;
       });
+      
+      this.af.auth.subscribe(auth =>{
+        if(auth){
+          this.currentUserPhoto = auth.auth.photoURL;
+          this.currentUserName = auth.auth.displayName;
+        }
+      });
     });
 
+    this.comments = this.cm.getCommentofChallenge(this.id);
+    
     const query = firebase.database().ref("AllChallenge/" + this.id +"/steps" ).orderByChild("stepNo");
     query.once("value")
       .then((snapshot) =>{
@@ -108,4 +126,18 @@ export class DetailStepComponent implements OnInit {
     this.modalService.open(content);
   }
 
+  onCommentSubmit() {
+    const timestamp = firebase.database.ServerValue.TIMESTAMP;
+    const createComment = {
+      comment: this.comment,
+      datetimestamp: timestamp,
+      owner: firebase.auth().currentUser.uid,
+      pathPic: this.currentUserPhoto,
+      displayName: this.currentUserName
+    };
+
+    this.cm.AddComment(this.id, createComment);
+    this.comments = this.cm.getCommentofChallenge(this.id);
+
+  }
 }

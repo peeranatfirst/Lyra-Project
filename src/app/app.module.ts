@@ -66,6 +66,7 @@ import { CheckdataRoutineComponent } from './categoriesfeed/routine-challenge/ch
 import { DoneRoutineComponent } from './my-challenge/detail-my-routine-challenge/done-routine/done-routine.component';
 import { AchievementComponent } from './achievement/achievement.component';
 import { FollowService } from "app/services/follow.service";
+import { CommentService } from "app/services/comment.service";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
@@ -143,7 +144,8 @@ export const firebaseConfig = {
     AuthGuard,
     GetUserInfoService,
     TaskManageService,
-    FollowService
+    FollowService,
+    CommentService
     ],
   bootstrap: [AppComponent]
   
