@@ -41,6 +41,7 @@ export class DetailRoutineComponent implements OnInit {
   comments: any; // Array of all comment in this challenge
   currentUserPhoto: any;
   currentUserName: any;
+  commentsNum: any;
 
   constructor(public af: AngularFire,
     private firebaseService: FirebaseService,
@@ -72,6 +73,7 @@ export class DetailRoutineComponent implements OnInit {
 
     // Get id
     this.id = this.route.snapshot.params['id'];
+    this.countComment();
     this.firebaseService.getChallengeDetails(this.id).subscribe(challengeDetail => {
       // console.log(challengeDetail)
       this.challengeDetail = challengeDetail;
@@ -134,6 +136,21 @@ export class DetailRoutineComponent implements OnInit {
 
     this.cm.AddComment(this.id, createComment);
     this.comments = this.cm.getCommentofChallenge(this.id);
+    this.countComment();
+  }
 
+  countComment(){
+    const query = firebase.database().ref("AllChallenge/" + this.id);
+    query.once("value")
+    .then((snapshot) =>{
+      let childrenCM = snapshot.child("comments").numChildren();
+      if(childrenCM === undefined){
+        console.log(childrenCM);
+        this.commentsNum = 0;
+      } else{
+        console.log(childrenCM);
+        this.commentsNum = childrenCM;
+      }
+    })     
   }
 }

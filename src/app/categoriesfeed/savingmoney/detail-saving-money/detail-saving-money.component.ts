@@ -33,6 +33,7 @@ export class DetailSavingMoneyComponent implements OnInit {
   uid: any;
   comment: any;
   comments: any; // Array of all comment in this challenge
+  commentsNum: any;
 
   isOwner: any;
 
@@ -71,6 +72,7 @@ export class DetailSavingMoneyComponent implements OnInit {
 
     // Get id
     this.id = this.route.snapshot.params['id'];
+    this.countComment();
     this.firebaseService.getChallengeDetails(this.id).subscribe(challengeDetail => {
       // console.log(challengeDetail)
       this.challengeDetail = challengeDetail;
@@ -105,7 +107,9 @@ export class DetailSavingMoneyComponent implements OnInit {
       });
 
     });
-
+    
+     
+    
     this.comments = this.cm.getCommentofChallenge(this.id);
 
 
@@ -136,7 +140,23 @@ export class DetailSavingMoneyComponent implements OnInit {
 
     this.cm.AddComment(this.id, createComment);
     this.comments = this.cm.getCommentofChallenge(this.id);
+    this.countComment();
 
+  }
+
+  countComment(){
+    const query = firebase.database().ref("AllChallenge/" + this.id);
+    query.once("value")
+    .then((snapshot) =>{
+      let childrenCM = snapshot.child("comments").numChildren();
+      if(childrenCM === undefined){
+        console.log(childrenCM);
+        this.commentsNum = 0;
+      } else{
+        console.log(childrenCM);
+        this.commentsNum = childrenCM;
+      }
+    })     
   }
 
   

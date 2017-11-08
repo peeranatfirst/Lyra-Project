@@ -63,7 +63,7 @@ export class SavingmoneyComponent implements OnInit {
               const datetimestamp = this.firebaseService.getListOfChallengeTimestamp(addObj);
               datestamp = this.dt.getDatestamp(datetimestamp);
               timestamp = this.dt.getTimestamp(datetimestamp);
-              // commentNum = this.cm.countComment(key);
+              // commentNum = this.countComment(key); 
               this.listOfChallenge.push({chaId: key,chaName: name,chaGoal: goal,description:des,time:duration,imgSRC:imgPath , thisTime: timestamp, thisDay: datestamp});
             });
         }
@@ -72,6 +72,7 @@ export class SavingmoneyComponent implements OnInit {
     });
   }
 
+  
  
 
 }
