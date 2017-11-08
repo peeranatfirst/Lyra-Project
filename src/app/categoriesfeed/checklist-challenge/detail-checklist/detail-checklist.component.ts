@@ -140,10 +140,8 @@ export class DetailChecklistComponent implements OnInit {
     .then((snapshot) =>{
       let childrenCM = snapshot.child("comments").numChildren();
       if(childrenCM === undefined){
-        console.log(childrenCM);
         this.commentsNum = 0;
       } else{
-        console.log(childrenCM);
         this.commentsNum = childrenCM;
       }
     })     
