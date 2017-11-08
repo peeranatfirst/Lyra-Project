@@ -22,8 +22,10 @@
                     <b>{{stepChaDetail.challengeName}}</b>
                   </h3>
               </span> {{stepChaDetail.challengeDescription}}
-              <br><i class="fa fa-list" aria-hidden="true"></i> Steps : {{stepChaDetail.stepAmount}}
-              <br><i class="fa fa-clock-o" aria-hidden="true"></i> Remaining : {{stepChaDetail.duration}} Days
+              <br>
+              <i class="fa fa-list" aria-hidden="true"></i> Steps : {{stepChaDetail.stepAmount}}
+              <br>
+              <i class="fa fa-clock-o" aria-hidden="true"></i> Remaining : {{stepChaDetail.duration}} Days
               <br>
               <img src="{{imageUrl}}" class="img-fluid">
               <a [routerLink]="['/checkdataStep/'+stepChaDetail.$key]" class="btn btn-success getChallengeMobile">Add to My Challenge</a>
@@ -61,6 +63,23 @@
       </div>
     </div>
 
+    <div class="row" *ngFor="let comment of comments?.slice().reverse()">
+      <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
+      <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
+      <div class="col-sm-10 col-md-8 col-lg-6">
+        <div class="card">
+          <div class="card-block">
+            <div class="media">
+              <img class="d-flex mr-3 profile-avatar" src="{{comment.pathPic}}" alt="Generic placeholder image">
+              <div class="media-body">
+                {{comment.user}}, {{comment.dateStamp}}, {{comment.timeStamp}}, {{comment.text}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="card-comment" style="display: none;">
       <div class="row">
         <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
@@ -85,22 +104,7 @@
         </div>
       </div>
 
-      <div class="row" *ngFor="let comment of comments?.slice().reverse()">
-        <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
-        <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
-        <div class="col-sm-10 col-md-8 col-lg-6">
-            <div class="card">
-              <div class="card-block">
-                <div class="media">
-                  <img class="d-flex mr-3 profile-avatar" src="{{comment.pathPic}}" alt="Generic placeholder image">
-                  <div class="media-body">
-                    {{comment.user}}, {{comment.dateStamp}}, {{comment.timeStamp}}, {{comment.text}}
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
+
 
     </div>
 
