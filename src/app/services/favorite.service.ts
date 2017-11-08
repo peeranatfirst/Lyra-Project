@@ -22,7 +22,6 @@ export class FavoriteService {
   }
 
   unfavorite(challengeId, userId){
-    console.log("using unfavorite method");
     firebase.database().ref('/AllChallenge/'+challengeId+'/favorite/'+userId).remove();
     firebase.database().ref('/users/'+userId+'/favorite/'+challengeId).remove();
   }
