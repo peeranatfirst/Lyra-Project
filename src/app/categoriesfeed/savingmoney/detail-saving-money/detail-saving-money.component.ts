@@ -41,6 +41,9 @@ export class DetailSavingMoneyComponent implements OnInit {
   currentUserPhoto: any;
   currentUserName: any;
 
+  isFavorited: any;
+  favNum: any;
+
   constructor(
     public af: AngularFire,
     private firebaseService: FirebaseService,
@@ -75,6 +78,8 @@ export class DetailSavingMoneyComponent implements OnInit {
     // Get id
     this.id = this.route.snapshot.params['id'];
     this.countComment();
+    this.isFavorite();
+    this.countFavorited();
     this.firebaseService.getChallengeDetails(this.id).subscribe(challengeDetail => {
       // console.log(challengeDetail)
       this.challengeDetail = challengeDetail;
@@ -162,12 +167,38 @@ export class DetailSavingMoneyComponent implements OnInit {
   favorite(){
     var currentUser = firebase.auth().currentUser.uid;
     this.fav.favorite(this.id, currentUser);
+    this.isFavorite();
+    this.countFavorited();
   }
 
   unfavorite(){
     console.log("unfavorite");
     var currentUser = firebase.auth().currentUser.uid;
     this.fav.unfavorite(this.id, currentUser);
+    this.isFavorite();
+    this.countFavorited();
+  }
+
+  isFavorite(){
+    var currentUser = firebase.auth().currentUser.uid;
+    const query = firebase.database().ref("users/"+ currentUser+"/favorite");
+    query.once("value")
+    .then((snapshot) =>{
+      this.isFavorited = snapshot.hasChild(this.id); // true
+    })     
+  }
+
+  countFavorited(){
+    const query = firebase.database().ref("AllChallenge/" + this.id);
+    query.once("value")
+    .then((snapshot) =>{
+      let childrenFav = snapshot.child("favorite").numChildren();
+      if(childrenFav === undefined){
+        this.favNum = 0;
+      } else{
+        this.favNum = childrenFav;
+      }
+    })   
   }
 
 }

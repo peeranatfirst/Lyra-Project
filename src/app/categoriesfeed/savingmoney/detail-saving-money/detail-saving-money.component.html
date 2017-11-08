@@ -46,9 +46,9 @@
             </div>
           </div>
           <div class="card-footer">
-            <!-- <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; 0 &nbsp; -->
-            <button type="button" class="fa fa-heart-o" (click)="favorite()"></button>
-            <button type="button" class="fa fa-heart-o" (click)="unfavorite()"></button>
+            <!-- <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp; {{favNum}} &nbsp; -->
+            <button type="button" class="fa fa-heart-o" (click)="favorite()" *ngIf="this.isFavorited != true"></button>
+            <button type="button" class="fa fa-heart" (click)="unfavorite()" *ngIf="this.isFavorited == true"></button>&nbsp; {{favNum}} &nbsp;
             <a id="commentBt">
               <span style="color:rgba(0, 0, 0, .68)">
                 <i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp; {{commentsNum}} &nbsp;</span>
