@@ -126,6 +126,36 @@ a:not([href]):not([tabindex]) {
 .commentIp{
     border-radius: 20px;
 }
+#btn-comment, #closeBt{
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+#profile-comment{
+    width: 30px;
+    height: 30px;
+}
+.user-comment{
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.2857em;
+    color: black;
+}
+.time-comment{
+    font-size: 8pt;
+    font-weight: 100;
+    margin-top: -5px;
+    position: absolute;
+}
+.text-comment{
+    margin-top: 10px;
+    word-wrap:break-word;
+}
+.media-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    width: 20px;
+}
 .btn-danger{
     border-radius: 20px;
     color: white;

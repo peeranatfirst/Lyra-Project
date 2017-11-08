@@ -51,8 +51,23 @@ export class DetailStepComponent implements OnInit {
     
     //open comment
     $(document).ready(function () {
+      
+      var resizingTextareas = [].slice.call(document.querySelectorAll('textarea[autoresize]'));
+      
+      resizingTextareas.forEach(function(textarea) {
+        textarea.addEventListener('input', autoresize, false);
+      });
+      
+      function autoresize() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight+'px';
+        this.scrollTop = this.scrollHeight;
+      }
       $("#commentBt").click(function () {
         document.getElementById('card-comment').style.display = '';
+      })
+      $("#closeBt").click(function () {
+        document.getElementById('card-comment').style.display = 'none';
       })
 
       $("body").css('overflow', 'scroll');
