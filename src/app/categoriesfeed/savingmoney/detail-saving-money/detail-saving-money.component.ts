@@ -81,8 +81,6 @@ export class DetailSavingMoneyComponent implements OnInit {
       })
 
       $("body").css('overflow', 'scroll');
-
-
     });
 
 
@@ -153,7 +151,7 @@ export class DetailSavingMoneyComponent implements OnInit {
       pathPic: this.currentUserPhoto,
       displayName: this.currentUserName
     };
-
+    
     this.cm.AddComment(this.id, createComment);
     this.comments = this.cm.getCommentofChallenge(this.id);
     this.countComment();

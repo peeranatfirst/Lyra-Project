@@ -63,49 +63,49 @@
       </div>
     </div>
 
-    <div class="row" *ngFor="let comment of comments?.slice().reverse()">
-      <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
-      <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
-      <div class="col-sm-10 col-md-8 col-lg-6">
-        <div class="card">
-          <div class="card-block">
-            <div class="media">
-              <img class="d-flex mr-3 profile-avatar" src="{{comment.pathPic}}" alt="Generic placeholder image">
-              <div class="media-body">
-                {{comment.user}}, {{comment.dateStamp}}, {{comment.timeStamp}}, {{comment.text}}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div id="card-comment" style="display: none;">
       <div class="row">
         <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
         <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
         <div class="col-sm-10 col-md-8 col-lg-6">
-          <form ngNativeValidate (submit)="onCommentSubmit()" #commentForm="ngForm">
-            <div class="card" id="comment">
-              <div class="card-block">
-                <div class="media">
-                  <img class="d-flex mr-3 profile-avatar" src="{{currentUserPhoto}}" alt="Generic placeholder image">
-                  <div class="media-body">
-                    <input type="text" class="form-control" [(ngModel)]="comment" name="comment" class="commentIp" placeholder=" Write a comment..."
-                      autofocus>
-                    <button type="submit" value="Submit" class="btn btn-success" id="create">
-                      Comment
-                    </button>
-                  </div>
+
+          <div class="card" id="comment">
+            <div class="card-block">
+              <div class="media" *ngFor="let comment of comments?.slice().reverse()">
+                <br>
+                <img class="d-flex mr-3 profile-avatar" id="profile-comment" src="{{comment.pathPic}}" alt="Generic placeholder image">
+                <div class="media-body">
+                  <span class="user-comment">{{comment.user}}</span>
+                  <br>
+                  <span class="time-comment">{{comment.dateStamp}}, {{comment.timeStamp}}</span>
+                  <p class="text-comment">{{comment.text}}</p>
+                </div>
+                <br>
+                <br>
+                <br>
+              </div>
+              <hr>
+              <br>
+              <div class="media">
+                <img class="d-flex mr-3 profile-avatar" id="profile-comment" src="{{currentUserPhoto}}" alt="Generic placeholder image">
+                <div class="media-body">
+                  <form ngNativeValidate (submit)="onCommentSubmit()" #commentForm="ngForm">
+                    <textarea autoresize row="1" class="form-control" [(ngModel)]="comment" name="comment" class="commentIp" placeholder="Comment...">
+                      </textarea>
+                    <br>
+                    <div>
+                      <button type="submit" value="Submit" class="btn btn-success" id="btn-comment">
+                        Comment
+                      </button>
+                      <a class="btn btn-warning" id="closeBt">Close</a>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
-
-
-
     </div>
 
     <div class="stepList">

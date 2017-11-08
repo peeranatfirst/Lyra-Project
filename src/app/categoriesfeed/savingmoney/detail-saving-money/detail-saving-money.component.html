@@ -117,8 +117,8 @@
                 <img class="d-flex mr-3 profile-avatar" id="profile-comment" src="{{currentUserPhoto}}" alt="Generic placeholder image">
                 <div class="media-body">
                   <form ngNativeValidate (submit)="onCommentSubmit()" #commentForm="ngForm">
-                    <textarea autoresize row="1" class="form-control" [(ngModel)]="comment" name="comment" class="commentIp" placeholder=" Write a comment..."
-                      autofocus></textarea>
+                    <textarea autoresize row="1" class="form-control" [(ngModel)]="comment" name="comment" class="commentIp" placeholder="Comment...">
+                    </textarea>
                     <br>
                     <div>
                       <button type="submit" value="Submit" class="btn btn-success" id="btn-comment">
@@ -134,7 +134,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="row">
       <div class="col-sm-1 flex-first"></div>
