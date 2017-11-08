@@ -10,6 +10,7 @@ import { Location } from '@angular/common';
 import $ from 'jquery';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { CommentService } from "app/services/comment.service";
+import { FavoriteService } from "app/services/favorite.service";
 
 @Component({
   selector: 'app-detail-saving-money',
@@ -49,6 +50,7 @@ export class DetailSavingMoneyComponent implements OnInit {
     private location: Location,
     private userinfo: GetUserInfoService,
     private cm: CommentService,
+    private fav: FavoriteService,
     private modalService: NgbModal) {
     this.af.auth.subscribe(auth => {
       if (auth) {
@@ -157,6 +159,15 @@ export class DetailSavingMoneyComponent implements OnInit {
     })     
   }
 
-  
+  favorite(){
+    var currentUser = firebase.auth().currentUser.uid;
+    this.fav.favorite(this.id, currentUser);
+  }
+
+  unfavorite(){
+    console.log("unfavorite");
+    var currentUser = firebase.auth().currentUser.uid;
+    this.fav.unfavorite(this.id, currentUser);
+  }
 
 }

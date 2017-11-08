@@ -67,7 +67,8 @@ import { DoneRoutineComponent } from './my-challenge/detail-my-routine-challenge
 import { AchievementComponent } from './achievement/achievement.component';
 import { FollowService } from "app/services/follow.service";
 import { CommentService } from "app/services/comment.service";
-
+import { FavoriteService } from "app/services/favorite.service"
+;
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
   authDomain: "lyra-24b71.firebaseapp.com",
@@ -145,7 +146,8 @@ export const firebaseConfig = {
     GetUserInfoService,
     TaskManageService,
     FollowService,
-    CommentService
+    CommentService,
+    FavoriteService
     ],
   bootstrap: [AppComponent]
   
