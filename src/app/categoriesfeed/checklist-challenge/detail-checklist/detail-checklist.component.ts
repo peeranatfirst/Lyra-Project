@@ -35,6 +35,7 @@ export class DetailChecklistComponent implements OnInit {
   comments: any; // Array of all comment in this challenge
   currentUserPhoto: any;
   currentUserName: any;
+  commentsNum: any;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -60,6 +61,7 @@ export class DetailChecklistComponent implements OnInit {
 
     // Get id
     this.id = this.route.snapshot.params['id'];
+    this.countComment();
     this.firebaseService.getChecklistChallengeDetails(this.id).subscribe(checklist => {
       this.checklistChaDetail = checklist;
 
@@ -129,7 +131,20 @@ export class DetailChecklistComponent implements OnInit {
 
     this.cm.AddComment(this.id, createComment);
     this.comments = this.cm.getCommentofChallenge(this.id);
+    this.countComment();
+  }
 
+  countComment(){
+    const query = firebase.database().ref("AllChallenge/" + this.id);
+    query.once("value")
+    .then((snapshot) =>{
+      let childrenCM = snapshot.child("comments").numChildren();
+      if(childrenCM === undefined){
+        this.commentsNum = 0;
+      } else{
+        this.commentsNum = childrenCM;
+      }
+    })     
   }
 
 }
