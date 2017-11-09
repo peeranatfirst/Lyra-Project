@@ -68,39 +68,41 @@
         <div class="col-sm-1 col-md-2 col-lg-3 flex-first"></div>
         <div class="col-sm-1 col-md-2 col-lg-3 flex-last"></div>
         <div class="col-sm-10 col-md-8 col-lg-6">
-
           <div class="card" id="comment">
             <div class="card-block">
-              <div class="media" *ngFor="let comment of comments?.slice().reverse()">
-                <br>
-                <img class="d-flex mr-3 profile-avatar" id="profile-comment" src="{{comment.pathPic}}" alt="Generic placeholder image">
-                <div class="media-body">
-                  <span class="user-comment">{{comment.user}}</span>
-                  <br>
-                  <span class="time-comment">{{comment.dateStamp}}, {{comment.timeStamp}}</span>
-                  <p class="text-comment">{{comment.text}}</p>
-                </div>
-                <br>
-                <br>
-                <br>
-              </div>
-              <hr>
-              <br>
               <div class="media">
                 <img class="d-flex mr-3 profile-avatar" id="profile-comment" src="{{currentUserPhoto}}" alt="Generic placeholder image">
                 <div class="media-body">
                   <form ngNativeValidate (submit)="onCommentSubmit()" #commentForm="ngForm">
-                    <textarea autoresize row="1" class="form-control" [(ngModel)]="comment" name="comment" class="commentIp" placeholder="Comment...">
-                      </textarea>
+                    <textarea autofocus autoresize row="1" class="form-control" [(ngModel)]="comment" name="comment" class="commentIp" placeholder="Comment...">
+                          </textarea>
                     <br>
                     <div>
                       <button type="submit" value="Submit" class="btn btn-success" id="btn-comment">
                         Comment
                       </button>
-                      <a class="btn btn-warning" id="closeBt">Close</a>
                     </div>
                   </form>
                 </div>
+              </div>
+              <br>
+              <div class="comment-block" id="comment-scroll">
+                <div class="media" *ngFor="let comment of comments?.slice().reverse()">
+                  <br>
+                  <img class="d-flex mr-3 profile-avatar" id="profile-comment" src="{{comment.pathPic}}" alt="Generic placeholder image">
+                  <div class="media-body">
+                    <span class="user-comment">{{comment.user}}</span>
+                    <br>
+                    <span class="time-comment">{{comment.dateStamp}}, {{comment.timeStamp}}</span>
+                    <p class="text-comment">{{comment.text}}</p>
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                </div>
+              </div>
+              <div align="center">
+                <a class="btn btn-warning" id="closeBt">Close</a>
               </div>
             </div>
           </div>
