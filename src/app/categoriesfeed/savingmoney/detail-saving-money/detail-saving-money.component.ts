@@ -186,7 +186,6 @@ export class DetailSavingMoneyComponent implements OnInit {
   }
 
   unfavorite(){
-    console.log("unfavorite");
     var currentUser = firebase.auth().currentUser.uid;
     this.fav.unfavorite(this.id, currentUser);
     this.isFavorite();

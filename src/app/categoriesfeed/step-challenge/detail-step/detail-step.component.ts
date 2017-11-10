@@ -10,6 +10,7 @@ import $ from 'jquery';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { CommentService } from "app/services/comment.service";
 import { AngularFire } from 'angularfire2';
+import { FavoriteService } from "app/services/favorite.service";
 
 @Component({
   selector: 'app-detail-step',
@@ -37,6 +38,9 @@ export class DetailStepComponent implements OnInit {
   currentUserName: any;
   commentsNum: any;
 
+  isFavorited: any;
+  favNum: any;
+
   constructor(private firebaseService: FirebaseService,
     private routing: Router,
     private route: ActivatedRoute,
@@ -45,6 +49,7 @@ export class DetailStepComponent implements OnInit {
     private location: Location,
     private modalService: NgbModal,
     public af: AngularFire,
+    private fav: FavoriteService,
     private cm: CommentService) { }
 
   ngOnInit() {
@@ -76,6 +81,8 @@ export class DetailStepComponent implements OnInit {
     // Get id
     this.id = this.route.snapshot.params['id'];
     this.countComment();
+    this.isFavorite();
+    this.countFavorited();
     this.stepSort = new Array();
     
     this.firebaseService.getChecklistChallengeDetails(this.id).subscribe(step => {
@@ -171,4 +178,41 @@ export class DetailStepComponent implements OnInit {
       }
     })     
   }
+
+  favorite(){
+    var currentUser = firebase.auth().currentUser.uid;
+    this.fav.favorite(this.id, currentUser);
+    this.isFavorite();
+    this.countFavorited();
+  }
+
+  unfavorite(){
+    var currentUser = firebase.auth().currentUser.uid;
+    this.fav.unfavorite(this.id, currentUser);
+    this.isFavorite();
+    this.countFavorited();
+  }
+
+  isFavorite(){
+    var currentUser = firebase.auth().currentUser.uid;
+    const query = firebase.database().ref("users/"+ currentUser+"/favorite");
+    query.once("value")
+    .then((snapshot) =>{
+      this.isFavorited = snapshot.hasChild(this.id); // true
+    })     
+  }
+
+  countFavorited(){
+    const query = firebase.database().ref("AllChallenge/" + this.id);
+    query.once("value")
+    .then((snapshot) =>{
+      let childrenFav = snapshot.child("favorite").numChildren();
+      if(childrenFav === undefined){
+        this.favNum = 0;
+      } else{
+        this.favNum = childrenFav;
+      }
+    })   
+  }
+
 }

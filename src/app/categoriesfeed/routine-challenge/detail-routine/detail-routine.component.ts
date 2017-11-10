@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
 import $ from 'jquery';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { CommentService } from "app/services/comment.service";
-
+import { FavoriteService } from "app/services/favorite.service";
 
 
 @Component({
@@ -43,6 +43,9 @@ export class DetailRoutineComponent implements OnInit {
   currentUserName: any;
   commentsNum: any;
 
+  isFavorited: any;
+  favNum: any;
+
   constructor(public af: AngularFire,
     private firebaseService: FirebaseService,
     private routing: Router,
@@ -51,6 +54,7 @@ export class DetailRoutineComponent implements OnInit {
     private location: Location,
     private userinfo: GetUserInfoService,
     private cm: CommentService,
+    private fav: FavoriteService,
     private modalService: NgbModal) { 
       this.af.auth.subscribe(auth => {
         if (auth) {
@@ -89,6 +93,8 @@ export class DetailRoutineComponent implements OnInit {
     // Get id
     this.id = this.route.snapshot.params['id'];
     this.countComment();
+    this.isFavorite();
+    this.countFavorited();
     this.firebaseService.getChallengeDetails(this.id).subscribe(challengeDetail => {
       // console.log(challengeDetail)
       this.challengeDetail = challengeDetail;
@@ -165,5 +171,41 @@ export class DetailRoutineComponent implements OnInit {
         this.commentsNum = childrenCM;
       }
     })     
+  }
+
+  favorite(){
+    var currentUser = firebase.auth().currentUser.uid;
+    this.fav.favorite(this.id, currentUser);
+    this.isFavorite();
+    this.countFavorited();
+  }
+
+  unfavorite(){
+    var currentUser = firebase.auth().currentUser.uid;
+    this.fav.unfavorite(this.id, currentUser);
+    this.isFavorite();
+    this.countFavorited();
+  }
+
+  isFavorite(){
+    var currentUser = firebase.auth().currentUser.uid;
+    const query = firebase.database().ref("users/"+ currentUser+"/favorite");
+    query.once("value")
+    .then((snapshot) =>{
+      this.isFavorited = snapshot.hasChild(this.id); // true
+    })     
+  }
+
+  countFavorited(){
+    const query = firebase.database().ref("AllChallenge/" + this.id);
+    query.once("value")
+    .then((snapshot) =>{
+      let childrenFav = snapshot.child("favorite").numChildren();
+      if(childrenFav === undefined){
+        this.favNum = 0;
+      } else{
+        this.favNum = childrenFav;
+      }
+    })   
   }
 }
