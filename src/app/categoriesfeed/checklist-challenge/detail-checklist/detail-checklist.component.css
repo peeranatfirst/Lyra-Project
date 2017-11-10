@@ -133,6 +133,10 @@ input{
 .commentIp{
     border-radius: 20px;
 }
+.comment-block{
+    height: 200px;
+    overflow: auto;
+}
 #btn-comment, #closeBt{
     border-radius: 20px;
     margin-bottom: 12px;
@@ -162,6 +166,20 @@ input{
     -ms-flex: 1 1 0%;
     flex: 1 1 0%;
     width: 20px;
+}
+#comment-scroll::-webkit-scrollbar-track{
+	border-radius: 20px;
+	background-color: #F5F5F5;
+}
+
+#comment-scroll::-webkit-scrollbar{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+#comment-scroll::-webkit-scrollbar-thumb{
+	border-radius: 20px;
+	background-color: #14ae14;
 }
 .getChallengeWeb{
     border-radius: 20px;
