@@ -137,8 +137,18 @@ export class DetailRoutineComponent implements OnInit {
   }
 
   onDeleteChallenge(){
-      firebase.database().ref('/AllChallenge/'+this.id).remove();
-      this.routing.navigate(['routinechallenge/']);
+    const query = firebase.database().ref('/AllChallenge/' + this.id + '/favorite');
+    query.once("value")
+      .then((snapshot) => {
+        snapshot.forEach(element => {
+          var user = element.key;
+          firebase.database().ref('/users/' + user + '/favorite/' + this.id).remove();
+        });
+      }).then((res)=>{
+        firebase.database().ref('/AllChallenge/' + this.id).remove();
+        this.routing.navigate(['routinechallenge/']);
+      });
+     
   }
 
   open(content) {
