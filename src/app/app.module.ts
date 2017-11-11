@@ -8,6 +8,8 @@ import { routing } from './app.routing';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { enableProdMode } from '@angular/core';
+import { AnimationDriver } from "@angular/animations/browser";
+import { animate } from "@angular/animations";
 
 //Component
 import { AppComponent } from './app.component';
@@ -67,7 +69,8 @@ import { DoneRoutineComponent } from './my-challenge/detail-my-routine-challenge
 import { AchievementComponent } from './achievement/achievement.component';
 import { FollowService } from "app/services/follow.service";
 import { CommentService } from "app/services/comment.service";
-import { FavoriteService } from "app/services/favorite.service"
+import { FavoriteService } from "app/services/favorite.service";
+import { MyFavoriteComponent } from './users/my-favorite/my-favorite.component'
 ;
 export const firebaseConfig = {
   apiKey: "AIzaSyA1LmcZuSQjVmr8QlOBDrcdLkt75Ze0g0E",
@@ -122,7 +125,8 @@ export const firebaseConfig = {
     CheckdataRoutineComponent,    
     DetailMyRoutineChallengeComponent, 
     DoneRoutineComponent,
-    AchievementComponent
+    AchievementComponent,
+    MyFavoriteComponent
 
   ],
   imports: [

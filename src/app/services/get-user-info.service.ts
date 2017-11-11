@@ -34,6 +34,16 @@ export class GetUserInfoService {
       return date.joined;
     }
 
+    getUsername(userid){
+      var username;
+      const query = firebase.database().ref("users/" + userid);
+      query.once("value")
+        .then((snapshot) => {
+          username = snapshot.val().name;
+        })
+      return username;
+    }
+
 }
 
 interface usersInfo {
