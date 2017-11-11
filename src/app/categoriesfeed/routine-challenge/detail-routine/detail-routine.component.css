@@ -205,6 +205,12 @@ a:not([href]):not([tabindex]) {
     right: 16px;
     margin-top: 5px;
 }
+.fa{
+    font-size: 16pt;
+}
+.fa-heart{
+    color:#ed4956;
+}
 @media screen and (min-width: 766px) {
     .getChallengeMobile{
         border-radius: 20px;
