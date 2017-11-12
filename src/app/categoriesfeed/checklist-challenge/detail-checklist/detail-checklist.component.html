@@ -88,21 +88,57 @@
                 </div>
               </div>
               <br>
-              <div class="comment-block" id="comment-scroll">
-                <div class="media" *ngFor="let comment of comments?.slice().reverse()">
-                  <br>
-                  <img class="d-flex mr-3 profile-avatar" id="profile-comment" src="{{comment.pathPic}}" alt="Generic placeholder image">
-                  <div class="media-body">
-                    <span class="user-comment">{{comment.user}}</span>
+              <span *ngIf="commentsNum == 0">
+                <div class="comment-block" id="comment-scroll" style="height:0px;">
+                  <div class="media" *ngFor="let comment of comments?.slice().reverse()">
                     <br>
-                    <span class="time-comment">{{comment.dateStamp}}, {{comment.timeStamp}}</span>
-                    <p class="text-comment">{{comment.text}}</p>
+                    <img class="d-flex mr-3 profile-avatar" id="profile-comment" src="{{comment.pathPic}}" alt="Generic placeholder image">
+                    <div class="media-body">
+                      <span class="user-comment">{{comment.user}}</span>
+                      <br>
+                      <span class="time-comment">{{comment.dateStamp}}, {{comment.timeStamp}}</span>
+                      <p class="text-comment">{{comment.text}}</p>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
                   </div>
-                  <br>
-                  <br>
-                  <br>
                 </div>
-              </div>
+              </span>
+              <span *ngIf="commentsNum == 1">
+                <div class="comment-block" id="comment-scroll" style="height:100px;">
+                  <div class="media" *ngFor="let comment of comments?.slice().reverse()">
+                    <br>
+                    <img class="d-flex mr-3 profile-avatar" id="profile-comment" src="{{comment.pathPic}}" alt="Generic placeholder image">
+                    <div class="media-body">
+                      <span class="user-comment">{{comment.user}}</span>
+                      <br>
+                      <span class="time-comment">{{comment.dateStamp}}, {{comment.timeStamp}}</span>
+                      <p class="text-comment">{{comment.text}}</p>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                  </div>
+                </div>
+              </span>
+              <span *ngIf="commentsNum >=2">
+                <div class="comment-block" id="comment-scroll" style="height:200px;">
+                  <div class="media" *ngFor="let comment of comments?.slice().reverse()">
+                    <br>
+                    <img class="d-flex mr-3 profile-avatar" id="profile-comment" src="{{comment.pathPic}}" alt="Generic placeholder image">
+                    <div class="media-body">
+                      <span class="user-comment">{{comment.user}}</span>
+                      <br>
+                      <span class="time-comment">{{comment.dateStamp}}, {{comment.timeStamp}}</span>
+                      <p class="text-comment">{{comment.text}}</p>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                  </div>
+                </div>
+              </span>
               <div align="center">
                 <a class="btn btn-warning" id="closeBt">Close</a>
               </div>
