@@ -52,22 +52,22 @@ export class DetailChecklistComponent implements OnInit {
     private cm: CommentService,
     private fav: FavoriteService,
     private modalService: NgbModal,
-    public af: AngularFire,) { }
+    public af: AngularFire, ) { }
 
   ngOnInit() {
 
     //open comment
     $(document).ready(function () {
-      
+
       var resizingTextareas = [].slice.call(document.querySelectorAll('textarea[autoresize]'));
-      
-      resizingTextareas.forEach(function(textarea) {
+
+      resizingTextareas.forEach(function (textarea) {
         textarea.addEventListener('input', autoresize, false);
       });
-      
+
       function autoresize() {
         this.style.height = 'auto';
-        this.style.height = this.scrollHeight+'px';
+        this.style.height = this.scrollHeight + 'px';
         this.scrollTop = this.scrollHeight;
       }
       $("#commentBt").click(function () {
@@ -112,8 +112,8 @@ export class DetailChecklistComponent implements OnInit {
         this.ownerPhoto = this.info.pathPhoto;
       });
 
-      this.af.auth.subscribe(auth =>{
-        if(auth){
+      this.af.auth.subscribe(auth => {
+        if (auth) {
           this.currentUserPhoto = auth.auth.photoURL;
           this.currentUserName = auth.auth.displayName;
         }
@@ -135,9 +135,19 @@ export class DetailChecklistComponent implements OnInit {
   }
 
   onDeleteChallenge() {
-    firebase.database().ref('/AllChallenge/' + this.id).remove();
-    this.routing.navigate(['checklistChallenge/']);
+    const query = firebase.database().ref('/AllChallenge/' + this.id + '/favorite');
+    query.once("value")
+      .then((snapshot) => {
+        snapshot.forEach(element => {
+          var user = element.key;
+          firebase.database().ref('/users/' + user + '/favorite/' + this.id).remove();
+        });
+      }).then((res)=>{
+        firebase.database().ref('/AllChallenge/' + this.id).remove();
+        this.routing.navigate(['checklistChallenge/']);
+      });
   }
+  
   open(content) {
     this.modalService.open(content);
   }
@@ -157,53 +167,53 @@ export class DetailChecklistComponent implements OnInit {
     this.countComment();
   }
 
-  countComment(){
+  countComment() {
     const query = firebase.database().ref("AllChallenge/" + this.id);
     query.once("value")
-    .then((snapshot) =>{
-      let childrenCM = snapshot.child("comments").numChildren();
-      if(childrenCM === undefined){
-        this.commentsNum = 0;
-      } else{
-        this.commentsNum = childrenCM;
-      }
-    })     
+      .then((snapshot) => {
+        let childrenCM = snapshot.child("comments").numChildren();
+        if (childrenCM === undefined) {
+          this.commentsNum = 0;
+        } else {
+          this.commentsNum = childrenCM;
+        }
+      })
   }
 
-  favorite(){
+  favorite() {
     var currentUser = firebase.auth().currentUser.uid;
     this.fav.favorite(this.id, currentUser);
     this.isFavorite();
     this.countFavorited();
   }
 
-  unfavorite(){
+  unfavorite() {
     var currentUser = firebase.auth().currentUser.uid;
     this.fav.unfavorite(this.id, currentUser);
     this.isFavorite();
     this.countFavorited();
   }
 
-  isFavorite(){
+  isFavorite() {
     var currentUser = firebase.auth().currentUser.uid;
-    const query = firebase.database().ref("users/"+ currentUser+"/favorite");
+    const query = firebase.database().ref("users/" + currentUser + "/favorite");
     query.once("value")
-    .then((snapshot) =>{
-      this.isFavorited = snapshot.hasChild(this.id); // true
-    })     
+      .then((snapshot) => {
+        this.isFavorited = snapshot.hasChild(this.id); // true
+      })
   }
 
-  countFavorited(){
+  countFavorited() {
     const query = firebase.database().ref("AllChallenge/" + this.id);
     query.once("value")
-    .then((snapshot) =>{
-      let childrenFav = snapshot.child("favorite").numChildren();
-      if(childrenFav === undefined){
-        this.favNum = 0;
-      } else{
-        this.favNum = childrenFav;
-      }
-    })   
+      .then((snapshot) => {
+        let childrenFav = snapshot.child("favorite").numChildren();
+        if (childrenFav === undefined) {
+          this.favNum = 0;
+        } else {
+          this.favNum = childrenFav;
+        }
+      })
   }
 
 }

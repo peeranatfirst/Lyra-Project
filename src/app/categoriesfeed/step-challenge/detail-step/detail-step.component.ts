@@ -143,8 +143,18 @@ export class DetailStepComponent implements OnInit {
   }
 
   onDeleteChallenge(){
-      firebase.database().ref('/AllChallenge/'+this.id).remove();
-      this.routing.navigate(['stepchallenge/']);
+    const query = firebase.database().ref('/AllChallenge/' + this.id + '/favorite');
+    query.once("value")
+      .then((snapshot) => {
+        snapshot.forEach(element => {
+          var user = element.key;
+          firebase.database().ref('/users/' + user + '/favorite/' + this.id).remove();
+        });
+      }).then((res)=>{
+        firebase.database().ref('/AllChallenge/' + this.id).remove();
+        this.routing.navigate(['stepchallenge/']);
+      });
+      
   }
   open(content) {
     this.modalService.open(content);
