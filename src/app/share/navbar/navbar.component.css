@@ -277,6 +277,12 @@ a:hover{
     flex: 1 1 0%;
     padding-right: 20px;
 }
+.menuGrey{
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	margin-top: 500px;
+}
 @media screen and (min-width: 480px) {
 	.notification{
 		width: 0px;

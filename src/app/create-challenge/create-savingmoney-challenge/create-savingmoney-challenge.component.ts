@@ -45,6 +45,13 @@ export class CreateSavingmoneyChallengeComponent implements OnInit {
     function disableScroll() {
       $("body").css('overflow', 'hidden');
     }
+    $('#create').bind("click", function () {
+      var imgVal = $('#uploadfile').val();
+      if (imgVal == '') {
+        alert("Please, upload a photo!");
+        return false;
+      }
+    });
   }
 
   // Recieve an information from create challenge form when click submit. 

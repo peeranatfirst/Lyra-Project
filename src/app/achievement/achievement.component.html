@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12">
       <h3>Achievement</h3>
-      You got an Achievement when you success challenge with condition.
+        You can get the Achievement when you Achieved your Challenges with condition.
       <hr>
     </div>
   </div>
@@ -16,21 +16,42 @@
     <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
       <div class="card">
         <div class="card-block">
-          <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FSaveAch1BW.png?alt=media&token=d51e64a7-39b5-4b42-9265-ebe57abaf1eb">
+          <span *ngIf="SavingMoney == 0 && SavingMoney < 5">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FSaveAch1BW.png?alt=media&token=d51e64a7-39b5-4b42-9265-ebe57abaf1eb">
+          </span>
+          <span *ngIf="SavingMoney >= 5">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FSaveAch1.png?alt=media&token=4f539e78-e234-4dfe-a7dd-d909f4a7e921">
+          </span>
+          <br>
+          <br>5 Achieved
         </div>
       </div>
     </div>
     <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
       <div class="card">
         <div class="card-block">
-          <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FSaveAch2BW.png?alt=media&token=b98ae10b-5e83-44f1-b6f2-1a0d792c0de7">
+          <span *ngIf="SavingMoney < 10">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FSaveAch2BW.png?alt=media&token=b98ae10b-5e83-44f1-b6f2-1a0d792c0de7">
+          </span>
+          <span *ngIf="SavingMoney >= 10">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FSaveAch2.png?alt=media&token=39f13c9f-faca-4cef-a410-f27153e4f2bd">
+          </span>
+          <br>
+          <br>10 Achieved
         </div>
       </div>
     </div>
     <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
       <div class="card">
         <div class="card-block">
-          <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FSaveAch3BW.png?alt=media&token=529ef0f1-cfdd-4f83-a978-6398e5322b02">
+          <span *ngIf="SavingMoney < 15">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FSaveAch3BW.png?alt=media&token=529ef0f1-cfdd-4f83-a978-6398e5322b02">
+          </span>
+          <span *ngIf="SavingMoney >= 15">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FSaveAch3.png?alt=media&token=33d20f83-864d-4a02-b405-100630f6c548">
+          </span>
+          <br>
+          <br>15 Achieved
         </div>
       </div>
     </div>
@@ -46,21 +67,42 @@
     <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
       <div class="card">
         <div class="card-block">
-          <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FCheckAch1BW.png?alt=media&token=f87a435a-18d4-4a7e-b9a1-76a277799289">
+          <span *ngIf="Checklist == 0 && Checklist < 5">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FCheckAch1BW.png?alt=media&token=f87a435a-18d4-4a7e-b9a1-76a277799289">
+          </span>
+          <span *ngIf="Checklist >= 5">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FCheckAch1.png?alt=media&token=25d64380-ebe7-4a2f-a430-5f3584f70d32">
+          </span>
+          <br>
+          <br>5 Achieved
         </div>
       </div>
     </div>
     <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
       <div class="card">
         <div class="card-block">
-          <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FCheckAch2BW.png?alt=media&token=071b7f77-eacb-468d-b02e-4d9c855f3ec3">
+          <span *ngIf="Checklist < 10">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FCheckAch2BW.png?alt=media&token=071b7f77-eacb-468d-b02e-4d9c855f3ec3">
+          </span>
+          <span *ngIf="Checklist >= 10">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FCheckAch2.png?alt=media&token=70cee65f-a8d1-43f1-9a9a-70d92ecadfcd">
+          </span>
+          <br>
+          <br>10 Achieved
         </div>
       </div>
     </div>
     <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
       <div class="card">
         <div class="card-block">
-          <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FCheckAch3BW.png?alt=media&token=51b18db2-43d9-4fd5-b724-f36a85172147">
+          <span *ngIf="Checklist < 15">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FCheckAch3BW.png?alt=media&token=51b18db2-43d9-4fd5-b724-f36a85172147">
+          </span>
+          <span *ngIf="Checklist >= 15">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FCheckAch3.png?alt=media&token=276d4a8f-f77a-44f5-95b2-058cf6026261">
+          </span>
+          <br>
+          <br>15 Achieved
         </div>
       </div>
     </div>
@@ -76,55 +118,96 @@
     <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
       <div class="card">
         <div class="card-block">
-          <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FStepAch1BW.png?alt=media&token=67ca6156-00be-4681-8b0b-195810f4f322">
+          <span *ngIf="Step == 0 && Step < 5">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FStepAch1BW.png?alt=media&token=67ca6156-00be-4681-8b0b-195810f4f322">
+          </span>
+          <span *ngIf="Step >= 5">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FStepAch1.png?alt=media&token=e0dfb8e7-d1bc-4557-839b-ffefdaf48226">
+          </span>
+          <br>
+          <br>5 Achieved
         </div>
       </div>
     </div>
     <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
       <div class="card">
         <div class="card-block">
-          <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FStepAch2BW.png?alt=media&token=187060ef-151e-4d0e-b78b-cd195bf862a0">
+          <span *ngIf="Step < 10">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FStepAch2BW.png?alt=media&token=187060ef-151e-4d0e-b78b-cd195bf862a0">
+          </span>
+          <span *ngIf="Step >= 10">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FStepAch2.png?alt=media&token=a9255a77-9ac9-44ee-b835-96ef5a878c77">
+          </span>
+          <br>
+          <br>10 Achieved
         </div>
       </div>
     </div>
     <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
       <div class="card">
         <div class="card-block">
-          <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FStepAch3BW.png?alt=media&token=de7cc46d-40c9-40ed-9924-7e6bdd4ed78e">
+          <span *ngIf="Step < 15">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FStepAch3BW.png?alt=media&token=de7cc46d-40c9-40ed-9924-7e6bdd4ed78e">
+          </span>
+          <span *ngIf="Step >= 15">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FStepAch3.png?alt=media&token=ebff492e-2a26-4407-8b1f-db0c4ec752d1">
+          </span>
+          <br>
+          <br>15 Achieved
         </div>
       </div>
     </div>
   </div>
 
   <div class="row">
-            <div class="col-lg-12">
-              <br>
-              <h6>Routine Achievement</h6>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
-              <div class="card">
-                <div class="card-block">
-                  <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FRoutineAchBW1.png?alt=media&token=2b3fb9dc-8195-40aa-bfe0-eb6cab96ec70">
-                </div>
-              </div>
-            </div>
-            <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
-              <div class="card">
-                <div class="card-block">
-                  <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FRoutineAchBW2.png?alt=media&token=afd68d49-bd8a-451f-8f5d-d8776d317fed">
-                </div>
-              </div>
-            </div>
-            <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
-              <div class="card">
-                <div class="card-block">
-                  <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FRoutineAchBW3.png?alt=media&token=d23f7360-f894-4a11-9c14-a47fa89d6c39">
-                </div>
-              </div>
-            </div>
-          </div>
-
+    <div class="col-lg-12">
+      <br>
+      <h6>Routine Achievement</h6>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
+      <div class="card">
+        <div class="card-block">
+          <span *ngIf="Routine == 0 && Routine < 5">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FRoutineAchBW1.png?alt=media&token=2b3fb9dc-8195-40aa-bfe0-eb6cab96ec70">
+          </span>
+          <span *ngIf="Routine >= 5">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FRoutineAch1.png?alt=media&token=db15fe23-b6d5-4a65-b323-f868b5d014e5">
+          </span>
+          <br>
+          <br>5 Achieved
+        </div>
+      </div>
+    </div>
+    <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
+      <div class="card">
+        <div class="card-block">
+          <span *ngIf="Routine < 10">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FRoutineAchBW2.png?alt=media&token=afd68d49-bd8a-451f-8f5d-d8776d317fed">
+          </span>
+          <span *ngIf="Routine >= 10">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FRoutineAch2.png?alt=media&token=0a3a1969-b973-4e9e-b360-c491231d2a91">
+          </span>
+          <br>
+          <br>10 Achieved
+        </div>
+      </div>
+    </div>
+    <div class="col col-sm-6 col-md-3 col-lg-2 mt-3">
+      <div class="card">
+        <div class="card-block">
+          <span *ngIf="Routine < 15">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FRoutineAchBW3.png?alt=media&token=d23f7360-f894-4a11-9c14-a47fa89d6c39">
+          </span>
+          <span *ngIf="Routine >= 15">
+            <img class="icon-achievement" src="https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/Achievement%2FRoutineAch3.png?alt=media&token=4b494672-a84b-4485-8dca-ec8a102db077">
+          </span>
+          <br>
+          <br>15 Achieved
+        </div>
+      </div>
+    </div>
+  </div>
   <br>
 </div>
