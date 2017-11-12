@@ -55,11 +55,22 @@ export class CalculatePercentSuccessService {
       }
   }
 
+  // achieved checklist challenge
   achieveChallenge(uid, chaId){
     const status = {
       challengeStatus: "Achieved"
     }
     firebase.database().ref('/users/'+uid+'/Challenges/'+chaId).update(status);
+    const query = firebase.database().ref("users/" + uid + "/achievement");
+    query.once("value")
+      .then((snapshot) => {
+        var achievedNum = snapshot.val().Checklist;
+        var count = achievedNum + 1;
+        const updateAchievement = {
+          Checklist: count
+        }
+        firebase.database().ref('/users/'+uid+'/achievement').update(updateAchievement);
+      });
   }
 
   updateProgressPercent(uid, chaId, num){

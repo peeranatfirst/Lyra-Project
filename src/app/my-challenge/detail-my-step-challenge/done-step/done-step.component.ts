@@ -128,11 +128,23 @@ export class DoneStepComponent implements OnInit {
     }
   }
 
+  // achieved step challenge
   achieveChallenge(){
     const status = {
       challengeStatus: "Achieved"
     }
     firebase.database().ref('/users/'+this.uid+'/Challenges/'+this.chaId).update(status);
+
+    const query = firebase.database().ref("users/" +this.uid + "/achievement");
+    query.once("value")
+      .then((snapshot) => {
+        var achievedNum = snapshot.val().Step;
+        var count = achievedNum + 1;
+        const updateAchievement = {
+          Step: count
+        }
+        firebase.database().ref('/users/'+this.uid+'/achievement').update(updateAchievement);
+      });
   }
 
   updateProgressPercent(num){

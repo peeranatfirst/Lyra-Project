@@ -80,7 +80,8 @@ export class LoginComponent implements OnInit {
           joined: firebase.database.ServerValue.TIMESTAMP,
           description: "write something about you",
           name: firebase.auth().currentUser.displayName,
-          pathPhoto: firebase.auth().currentUser.photoURL
+          pathPhoto: firebase.auth().currentUser.photoURL,
+          achievement: {SavingMoney: 0, Checklist: 0, Step: 0, Routine: 0}
         });
       }
     });

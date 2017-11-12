@@ -40,11 +40,23 @@ export class AddMoneyService {
 
   }
 
+  // achieved saving money challenge
   achievedStatusUpdate(uid,id) {
     const status = {
       challengeStatus: "Achieved"
     };
     firebase.database().ref('/users/'+uid+'/Challenges/' + id).update(status);
+    const query = firebase.database().ref("users/" + uid + "/achievement");
+    query.once("value")
+      .then((snapshot) => {
+        var achievedNum = snapshot.val().SavingMoney;
+        var count = achievedNum + 1;
+        const updateAchievement = {
+          SavingMoney: count
+        }
+        firebase.database().ref('/users/'+uid+'/achievement').update(updateAchievement);
+      });
+    
   }
 
   cancelChallengeUpdate(uid,id){
