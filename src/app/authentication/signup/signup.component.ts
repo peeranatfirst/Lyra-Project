@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
       .then(()=>{
         firebase.auth().currentUser.updateProfile({
           displayName: this.displayname,
-          photoURL: "https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/user%20(1).png?alt=media&token=d6607806-e826-451a-a25f-471f4f01eebf"
+          photoURL: "https://firebasestorage.googleapis.com/v0/b/lyra-24b71.appspot.com/o/images%2Fuser.png?alt=media&token=31599b22-dbfe-40ac-8476-e54b838cb214"
         })
       }).then(()=>{
         firebase.auth().signOut()
