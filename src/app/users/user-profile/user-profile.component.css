@@ -1,3 +1,29 @@
 .test{
     padding-top: 80px;
 }
+.nav-tabs .nav-item {
+    margin-bottom: -1px;
+    margin-left: -13px;
+}
+#tabStatus{
+    margin-top: 15px;
+    margin-left: -21px;
+    font-weight: bold;
+    font-size: 17px;
+}
+.nav-tabs {
+    border-bottom: 0px solid #ddd;
+}
+.nav-link{
+    color: black;
+}
+.nav-tabs .nav-link {
+    border: none;
+    border-radius: 50px;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #14AE4E;
+    text-decoration: underline;
+    text-decoration-color: #14AE4E;
+    background: none;
+}

@@ -1,23 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <h3>My Favorite Challenge</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 mt-4" *ngFor="let cha of listOfFavChallenge">
+    <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let cha of listOfFavChallenge">
       <a [routerLink]="['/detail'+cha.categories+'/'+cha.chaId]" routerLinkActive='active' class="card-link">
         <div class="card card-inverse card-info">
           <img class="card-img-top img-fluid" src="{{cha.imgSRC}}">
           <div class="card-block">
-            <!-- <figure class="profile profile-inline">
-                <img src="{{cha.pic}}" class="profile-avatar" alt="">
-              </figure> -->
-            <!-- <h6 class="card-title">{{cha.username}}</h6> -->
             <div class="card-text">
               <span class="chaName">{{cha.chaName}}</span>
               <br>
-              <span><small>created on {{cha.date}} when {{cha.time}}</small></span>
+              <span>
+                <small>created on {{cha.date}} when {{cha.time}}</small>
+              </span>
             </div>
           </div>
         </div>
